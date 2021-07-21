@@ -8,18 +8,19 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: 'black',
         borderRadius: 6,
         fontFamily: 'Roboto',
         fontSize: 12,
         minHeight: 22,
-        maxWidth: 150,
+        maxWidth: 110,
+        marginBottom:3,
     },
     decrease: {
       width: '45%',
-      paddingBottom: 6,
-      paddingTop: 6,
-      paddingLeft: 15,
-      paddingRight: 15,
+      paddingVertical:2,
+      paddingHorizontal:10,
     },
     end: {
       textAlign: 'right',
@@ -55,13 +56,13 @@ class TangGiamSL extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableHighlight onPress={this.decrement} style={styles.decrease} disabled={this.state.disabled}>
+                <TouchableHighlight onPress={this.decrement} style={styles.decrease} disabled={this.state.disabled} underlayColor="#f62424" activeOpacity={0.6}>
                     <View>
                         <Text>-</Text>
                     </View>
                 </TouchableHighlight>
                 <View><Text>{this.state.number}</Text></View>
-                <TouchableHighlight onPress={this.increment} style={styles.decrease}>
+                <TouchableHighlight onPress={this.increment} style={styles.decrease} underlayColor="#f62424" activeOpacity={0.6}>
                     <View>
                         <Text style={styles.end}>+</Text>
                     </View>
