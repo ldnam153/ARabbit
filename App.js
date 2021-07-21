@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -28,6 +28,8 @@ import {
 import TangGiamSL from './src/components/TangGiamSL';
 import Sale_frame from './src/components/Sale_frame';
 import Rating_star from './src/components/Rating_star';
+import HeaderKeySearch from './src/components/HeaderKeySearch';
+import TabHistorySearch from './src/components/TabHistorySearch';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -115,14 +117,17 @@ const styles = StyleSheet.create({
 class App extends Component {
   render() {
     return (
-      <View>
+      <View style={{flexDirection: 'column'}}>
         {/* <Sale_frame value='50'/> */}
-        <Rating_star width='30' height='30' value='3'/>
+        {/* <Rating_star width="30" height="30" value="3" /> */}
+        <HeaderKeySearch placeholder="Tìm kiếm"/>
+        <HeaderKeySearch placeholder="Tìm kiếm"/>
+        {/* <TabHistorySearch/> */}
       </View>
     );
   }
 }
 
-export default App;
+export default TabHistorySearch;
 // export default TangGiamSL;
 // export default sale_frame;
