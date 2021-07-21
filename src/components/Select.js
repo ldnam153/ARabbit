@@ -56,17 +56,12 @@ class Select extends Component {
         super(props)
     
         this.state = {
-            productValue : props.value,
+            productValue : props.property,
         }
     }
     
     render() {
-        const placeholder = {
-            label: '...',
-            value: 'Standard',
-            color: 'black',
-        }
-        const data = ['Auth','Standard','Premium','Luxury'];
+        const data = this.props.data;
         return (
             // <RNPickerSelect 
             // onValueChange={value => {
@@ -90,7 +85,7 @@ class Select extends Component {
             onSelect={(selectedItem, index) => {
               console.log(selectedItem, index);
             }}
-            defaultButtonText={"Standard"}
+            defaultButtonText={this.props.property}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
             }}
