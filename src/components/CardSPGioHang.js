@@ -31,7 +31,7 @@ class CardSPGioHang extends Component {
         super(props)
     
         this.state = {
-            isSelected : props.isSelected || true,
+            isSelected: props.data.isSelected
         }
     }
     
@@ -52,23 +52,23 @@ class CardSPGioHang extends Component {
                     </CheckBox>
                 </View>
                 <View style={{flex:6,flexDirection:'column',alignItems:'center'}}>
-                    <Image source={require('./../resources/imgs/test.jpeg')} style={styles.productImg}></Image>
+                    <Image source={this.props.data.image} style={styles.productImg}></Image>
                     <TouchableOpacity>
                         <Text style={styles.xoa}>Xóa</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{flex:14,paddingLeft:12}}>
-                    <Text style={{fontSize:16,fontWeight:'bold'}} numberOfLines={2}>Máy chơi game PlayStation 5 hàng chính hãng</Text>
+                    <Text style={{fontSize:16,fontWeight:'bold'}} numberOfLines={2}>{this.props.data.name}</Text>
                     <View style={{flexDirection:'row',marginVertical:4}}>
                         <View style={{flex:1}}>
-                            <Select value="Standard" />
+                            <Select property={this.props.data.property} data={this.props.data.properties}/>
                         </View>
                         <View style={{flex:1}}></View>
                     </View>
-                    <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>7.000.000 VNĐ</Text>
+                    <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{this.props.data.price}</Text>
                     <View style={{flexDirection:'row'}}>
-                        <View style={{flex:1}}><TangGiamSL number={1}></TangGiamSL></View>
-                        <Text style={{flex:1,color:'#ff5c00'}}>Còn 4 sản phẩm</Text>
+                        <View style={{flex:1,flexShrink:3}}><TangGiamSL number={this.props.data.number}></TangGiamSL></View>
+                        <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.remain} sản phẩm</Text>
                     </View>
                 </View>
             </View>

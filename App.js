@@ -25,9 +25,11 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import TangGiamSL from './src/components/TangGiamSL';
 import Sale_frame from './src/components/Sale_frame';
 import Rating_star from './src/components/Rating_star';
+import CardSPGioHang from './src/components/CardSPGioHang';
+import CardCHGioHang from './src/components/CardCHGioHang';
+import ScrollViewGioHang from './src/components/ScrollViewGioHang';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -55,43 +57,44 @@ const Section = ({children, title}): Node => {
   );
 };
 
-// const App: () => Node = () => {
-//   const isDarkMode = useColorScheme() === 'dark';
+const App: () => Node = () => {
+  const isDarkMode = useColorScheme() === 'dark';
 
-//   const backgroundStyle = {
-//     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-//   };
-
-//   return (
-//     <SafeAreaView style={backgroundStyle}>
-//       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-//       <ScrollView
-//         contentInsetAdjustmentBehavior="automatic"
-//         style={backgroundStyle}>
-//         <Header />
-//         <View
-//           style={{
-//             backgroundColor: isDarkMode ? Colors.black : Colors.white,
-//           }}>
-//           <Section title="Step One">
-//             Edit <Text style={styles.highlight}>App.js</Text> to change this
-//             screen and then come back to see your edits.
-//           </Section>
-//           <Section title="See Your Changes">
-//             <ReloadInstructions />
-//           </Section>
-//           <Section title="Debug">
-//             <DebugInstructions />
-//           </Section>
-//           <Section title="Learn More">
-//             Read the docs to discover what to do next:
-//           </Section>
-//           <LearnMoreLinks />
-//         </View>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// };
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <Header />
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
+          <Section title="Step One">
+            Edit <Text style={styles.highlight}>App.js</Text> to change this
+            screen and then come back to see your edits.
+          </Section>
+          <Section title="See Your Changes">
+            <ReloadInstructions />
+          </Section>
+          <Section title="Debug">
+            <DebugInstructions />
+          </Section>
+          <Section title="Learn More">
+            Read the docs to discover what to do next:
+          </Section>
+          <LearnMoreLinks />
+        </View>
+      </ScrollView> */}
+      <ScrollViewGioHang isSelected={false}></ScrollViewGioHang>
+      
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   sectionContainer: {
@@ -112,16 +115,16 @@ const styles = StyleSheet.create({
   },
 });
 
-class App extends Component {
-  render() {
-    return (
-      <View>
-        {/* <Sale_frame value='50'/> */}
-        <Rating_star width='30' height='30' value='3'/>
-      </View>
-    );
-  }
-}
+// class App extends Component {
+//   render() {
+//     return (
+//       <View>
+//         {/* <Sale_frame value='50'/> */}
+//         <Rating_star width='30' height='30' value='3'/>
+//       </View>
+//     );
+//   }
+// }
 
 export default App;
 // export default TangGiamSL;
