@@ -23,6 +23,7 @@ class CardCHGioHang extends Component {
         super(props)
         this.state = {
             data : props.data,
+            isSelected : props.data.isSelected
         }
     }
 
@@ -35,7 +36,7 @@ class CardCHGioHang extends Component {
             <View style={{marginBottom:5}}>
                 <View style={styles.container}>
                     <CheckBox 
-                        value= {this.state.data.isSelected}
+                        value= {this.state.isSelected}
                         onValueChange= {newVal => this.setState({isSelected: newVal})}
                         tintColors= {checkbox}
                         onTintColor = '#F62424'

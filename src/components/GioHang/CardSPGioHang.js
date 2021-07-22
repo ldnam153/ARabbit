@@ -36,17 +36,16 @@ class CardSPGioHang extends Component {
     }
     
     render() {
-        const checkbox = {
-            true: '#F62424',
-            false: '#F62424'
-        }
         return (
             <View style={styles.container}>
                 <View style={{flex:2}}>
                     <CheckBox 
                     value= {this.state.isSelected}
                     onValueChange= {newVal => this.setState({isSelected: newVal})}
-                    tintColors= {checkbox}
+                    tintColors= {{
+                        true: '#F62424',
+                        false: '#F62424'
+                    }}
                     onTintColor = '#F62424'
                     onCheckColor = '#F62424'>
                     </CheckBox>

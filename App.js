@@ -29,36 +29,35 @@ import Sale_frame from './src/components/Sale_frame';
 import Rating_star from './src/components/Rating_star';
 import HeaderKeySearch from './src/components/HeaderKeySearch';
 import TabHistorySearch from './src/components/TabHistorySearch';
-import CardSPGioHang from './src/components/CardSPGioHang';
-import CardCHGioHang from './src/components/CardCHGioHang';
-import ScrollViewGioHang from './src/components/ScrollViewGioHang';
+import ScrollViewGioHang from './src/components/GioHang/ScrollViewGioHang';
+import CardSPXacNhanThanhToan from './src/components/XacNhanSanPham/CardSPXacNhanThanhToan';
 
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+// const Section = ({children, title}): Node => {
+//   const isDarkMode = useColorScheme() === 'dark';
+//   return (
+//     <View style={styles.sectionContainer}>
+//       <Text
+//         style={[
+//           styles.sectionTitle,
+//           {
+//             color: isDarkMode ? Colors.white : Colors.black,
+//           },
+//         ]}>
+//         {title}
+//       </Text>
+//       <Text
+//         style={[
+//           styles.sectionDescription,
+//           {
+//             color: isDarkMode ? Colors.light : Colors.dark,
+//           },
+//         ]}>
+//         {children}
+//       </Text>
+//     </View>
+//   );
+// };
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -93,30 +92,34 @@ const App: () => Node = () => {
           <LearnMoreLinks />
         </View>
       </ScrollView> */}
+
+      {/* gio hang , con thieu header voi footer*/}
       <ScrollViewGioHang isSelected={false}></ScrollViewGioHang>
-      
+      {/* xac nhan san pham */}
+      {/* <CardSPXacNhanThanhToan></CardSPXacNhanThanhToan> */}
+
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+// const styles = StyleSheet.create({
+//   sectionContainer: {
+//     marginTop: 32,
+//     paddingHorizontal: 24,
+//   },
+//   sectionTitle: {
+//     fontSize: 24,
+//     fontWeight: '600',
+//   },
+//   sectionDescription: {
+//     marginTop: 8,
+//     fontSize: 18,
+//     fontWeight: '400',
+//   },
+//   highlight: {
+//     fontWeight: '700',
+//   },
+// });
 
 
 class App1 extends Component {
@@ -145,6 +148,6 @@ class App1 extends Component {
 // }
 
 
-export default TabHistorySearch;
+export default App;
 // export default TangGiamSL;
 // export default sale_frame;

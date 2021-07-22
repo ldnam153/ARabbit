@@ -45,7 +45,7 @@ class ScrollViewGioHang extends Component {
                 products: [
                     {
                         isSelected : true,
-                        image: require('./../resources/imgs/ps5.jpg'),
+                        image: require('~/resources/imgs/ps5.jpg'),
                         name: 'Máy chơi game PlayStation 5 hàng chính hãng',
                         property: 'Standard',
                         properties: ['Normal','Standard','Premium'],
@@ -55,7 +55,7 @@ class ScrollViewGioHang extends Component {
                     },
                     {
                         isSelected : true,
-                        image: require('./../resources/imgs/ps4.jpg'),
+                        image: require('~/resources/imgs/ps4.jpg'),
                         name: 'Máy chơi game PlayStation 4 thế hệ mới',
                         property: 'Premium',
                         properties: ['Normal','Standard','Premium'],
@@ -71,7 +71,7 @@ class ScrollViewGioHang extends Component {
                 products: [
                     {
                         isSelected : true,
-                        image: require('./../resources/imgs/vaydo.jpg'),
+                        image: require('~/resources/imgs/vaydo.jpg'),
                         name: 'Váy đỏ tươi sành điệu cho các nàng',
                         property: 'XXL',
                         properties: ['M','L','XL','XXL'],
@@ -87,7 +87,7 @@ class ScrollViewGioHang extends Component {
                 products: [
                     {
                         isSelected : false,
-                        image: require('./../resources/imgs/tatay.jpg'),
+                        image: require('~/resources/imgs/tatay.jpg'),
                         name: 'Tạ tay bọc cao su Tuấn Vũ cao cấp bảo hành trọn đời',
                         property: '8kg',
                         properties: ['6kg','8kg','10kg'],
@@ -112,7 +112,7 @@ class ScrollViewGioHang extends Component {
                     <Text style={styles.header}>Tất cả</Text>
                     <View style={styles.xoa}>
                         <TouchableOpacity>
-                            <Image source={require('./../resources/icons/trash.png')}></Image>
+                            <Image source={require('~/resources/icons/trash.png')}></Image>
                         </TouchableOpacity>
                     </View>
                 </View>

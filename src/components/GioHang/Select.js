@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { StyleSheet } from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
 import SelectDropdown from "react-native-select-dropdown";
 
 const pickerSelectStyles = StyleSheet.create({
@@ -63,22 +62,6 @@ class Select extends Component {
     render() {
         const data = this.props.data;
         return (
-            // <RNPickerSelect 
-            // onValueChange={value => {
-            //     this.setState({
-            //       productValue: value,
-            //     });
-            //   }}
-            // items={ this.props.data || [
-            //     { label: 'Standard', value: 'Standard' },
-            //     { label: 'Premium', value: 'Premium' },
-            //     { label: 'Luxury', value: 'Luxury' },
-            // ]}
-            // value={this.state.productValue}
-            // useNativeAndroidPickerStyle={false}
-            // placeholder = {placeholder}
-            // style = {pickerSelectStyles}>
-            // </RNPickerSelect>
             <SelectDropdown
             data={data}
             // defaultValueByIndex={1}
