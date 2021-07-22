@@ -116,7 +116,7 @@ class ScrollViewGioHang extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                {/*      */}
+                {/*   data render   */}
                 {data.map((shop) => <CardCHGioHang data={shop} />)}
             </ScrollView>
         )
