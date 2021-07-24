@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Image, View, StyleSheet, Text, TextInput } from 'react-native'
-import CardSPXacNhanThanhToan from './CardSPXacNhanThanhToan';
-import LoiNhan from './LoiNhan';
-import TongTienShop from './TongTienShop';
+import { StyleSheet, View, Text, Image } from 'react-native'
+import CardSPXacNhanThanhToan from '../XacNhanSanPham/CardSPXacNhanThanhToan';
+import LoiNhan from '../XacNhanSanPham/LoiNhan';
+import TongTienShop from '../XacNhanSanPham/TongTienShop';
+import TongTienShopThanhToan from './TongTienShopThanhToan';
 
 const styles = StyleSheet.create({
     container: {
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     },
 });
 
-class CardCHXacNhanThanhToan extends Component {    
+class CardCHThanhToan extends Component {
     render() {
         return (
             <View style={{marginBottom:5,backgroundColor:'white'}}>
@@ -34,10 +35,13 @@ class CardCHXacNhanThanhToan extends Component {
                 {this.props.data.products.map((product) => <CardSPXacNhanThanhToan data={product} />)}
 
                 <LoiNhan/>
-                <TongTienShop amount={this.props.data.products.length} tongtienshop={this.props.data.tongtienshop}/>
+                <TongTienShopThanhToan 
+                  ship={this.props.data.phivanchuyen} 
+                  tongtienshop={this.props.data.tongtienshop}
+                  amount={this.props.data.products.length}/>
             </View>
         )
     }
 }
 
-export default CardCHXacNhanThanhToan
+export default CardCHThanhToan
