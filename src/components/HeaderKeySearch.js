@@ -31,16 +31,18 @@ class HeaderKeySearch extends Component{
     render() {
         return (
                 <View style={styles_ctn.container}>
-                    <View style={{flex:0.125,flexDirection: 'row',justifyContent: 'center'}}>
+                    <View style={{flex:0.1,flexDirection: 'row',justifyContent: 'center'}}>
                         <Image source={require('../resources/icons/back.png')}/>
                     </View>
                     <TextInput
-                        style={{height: 40,borderWidth: 1,flex:0.75}}
+                        style={{height: 40,borderWidth: 1,flex:0.8}}
                         placeholder={this.props.placeholder}
                         onChangeText={(text) => this.setState({text})}
                         value={this.state.text}
                     />
-                    <View style={{flex:0.125,flexDirection: 'row',justifyContent: 'center'}}><Image source={require('../resources/icons/home.png')}/></View>
+                    <View style={{flex:0.1,flexDirection: 'row',justifyContent: 'center'}}>
+                        <Image source={require('../resources/icons/Camera1.png')}/>
+                    </View>
                 </View>
         )
     }

@@ -55,9 +55,9 @@ class ProductBar extends Component {
                 </View>
                 <View style={{flexDirection:'row', justifyContent: 'space-between', paddingTop:3}}>
                     <Text style={{fontWeight:'100', color:'grey',fontStyle:'italic', fontSize:10, textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>{this.props.real_price}</Text>
-                    <View style={{flexDirection:'row'}}>
-                        <Image source={require('../resources/icons/add.png')}/>
-                        <Text style={{fontSize:10,color:'grey'}}>{this.props.location}</Text>
+                    <View style={{flexDirection:'row', alignItems:'center'}}>
+                        <Image source={require('../resources/icons/location.png')}/>
+                        <Text style={{fontSize:10,color:'grey', paddingLeft: 5}}>{this.props.location}</Text>
                     </View>
                 </View>
                 <View style={{flexDirection:'row', justifyContent: 'space-between', alignItems:'center', paddingTop:3}}>

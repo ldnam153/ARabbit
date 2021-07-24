@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { StyleSheet,Text, View, Image, ScrollView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import HeaderKeySearch from './HeaderKeySearch';
-import HistoryItem from './HistoryItem';
+import HeaderKeySearch from '../components/HeaderKeySearch';
+import HistoryItem from '../components/HistoryItem';
 
 const Tab = createMaterialTopTabNavigator();
   
