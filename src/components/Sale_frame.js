@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
     },
     sale_container: {
         color:'red',
-        fontSize: 30,
+        fontSize: 10,
         backgroundColor:'yellow',
-        padding: 10
+        padding: 1
     },
 });
 
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 class Sale_frame extends Component {
     render() {
         return (
-            <View>
+            <View style={this.props.styleSale}>
                 <View style={styles.container}>
                     <Text style={styles.sale_container}>-{this.props.value}%</Text>
                 </View>

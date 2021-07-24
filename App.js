@@ -31,6 +31,10 @@ import HeaderKeySearch from './src/components/HeaderKeySearch';
 import TabHistorySearch from './src/components/TabHistorySearch';
 import ScrollViewGioHang from './src/components/GioHang/ScrollViewGioHang';
 import CardSPXacNhanThanhToan from './src/components/XacNhanSanPham/CardSPXacNhanThanhToan';
+import HistoryItem from './src/components/HistoryItem';
+import ProductBar from './src/components/ProductBar';
+import SearchResultByCamScreen from './src/screens/SearchResultByCamScreen';
+import ResultCaptureHeader from './src/components/ResultCaptureHeader';
 
 
 // const Section = ({children, title}): Node => {
@@ -128,9 +132,11 @@ class App1 extends Component {
       <View style={{flexDirection: 'column'}}>
         {/* <Sale_frame value='50'/> */}
         {/* <Rating_star width="30" height="30" value="3" /> */}
-        <HeaderKeySearch placeholder="Tìm kiếm"/>
-        <HeaderKeySearch placeholder="Tìm kiếm"/>
+        {/* <HeaderKeySearch placeholder="Tìm kiếm"/>
+        <HeaderKeySearch placeholder="Tìm kiếm"/> */}
         {/* <TabHistorySearch/> */}
+        {/* <ProductBar/> */}
+        <ResultCaptureHeader/>
       </View>
     );
   }
@@ -148,6 +154,6 @@ class App1 extends Component {
 // }
 
 
-export default App;
+export default SearchResultByCamScreen;
 // export default TangGiamSL;
 // export default sale_frame;

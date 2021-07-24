@@ -24,13 +24,13 @@ class ProductDetails extends Component {
             <Image style={{marginLeft: 10}}  source={ require('../resources/icons/back.png')}/>
           </View>
           <View style={{flexDirection: 'row'}}>
-            <Image style={{marginRight: 10, marginTop: 4}} source={require('../resources/icons/search.png')} />
-            <Image style={{marginRight: 10, marginTop: 2}} source={require('../resources/icons/home.png')}/>
-            <Image style={{marginRight: 10, width: 32, height: 32}} source={require('../resources/icons/cart_click.png')}/>
+            <Image style={{marginRight: 20, marginTop: 4, width: 24, height: 24}} source={require('../resources/icons/search.png')} />
+            <Image style={{marginRight: 20, marginTop: 2, width: 24, height: 24}} source={require('../resources/icons/home.png')}/>
+            <Image style={{marginRight: 20, width: 28, height: 28}} source={require('../resources/icons/cart_click.png')}/>
           </View>
         </View>
 
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container}>     
           <ViewSlider
             renderSlides={
               <>
@@ -63,48 +63,25 @@ class ProductDetails extends Component {
             //autoSlide={true} //The views will slide automatically
             //slideInterval={1000} //In Miliseconds
           />
-          <View
-            style={
-              {
-                // Try setting `flexDirection` to `"row"`.
-                flexDirection: 'row',
-                
-              }
-            }>
-            <View style={[, {
-              flexDirection: 'row', 
-              alignSelf: 'center',
-              flexGrow: 1,
-              flexShrink: 1,
-              flexBasis: 1,
-            }]}>
-              <Text
-                style={
-                  ({textAlign: 'center'},
-                  {
-                    fontSize: 18,
-                    fontWeight: 'bold',
-                    
-                  })
-                }>
-                4.0
-              </Text>
-              <Rating_star width="15" height="15" value="3" />
+          <View style={{
+            flex: 1, 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            flexDirection: 'row',
+            marginTop: 7,
+            marginBottom: 7
+          }}>
+            <View style={{
+                justifyContent: 'center',
+                flexDirection: 'row', 
+                flex: 1,
+                alignItems: 'center'
+              }}>
+              <Text style={{fontSize: 16, marginTop: 3}}> 4.0 </Text>
+              <Rating_star width="15" height="15" value="4" />
             </View>
-            <View style={({  
-              flexGrow: 1,
-              flexShrink: 1,
-              flexBasis: 1,
-            })}>
-              <Text
-                style={
-                  (
-                  {
-                    fontSize: 18,
-                  })
-                }>
-                999 đã bán
-              </Text>
+            <View style={{flex: 1, alignItems: 'center'}}>
+              <Text style={{ fontSize: 16}}> 999 đã bán </Text>
             </View>
           </View>
 
@@ -115,10 +92,9 @@ class ProductDetails extends Component {
                 {
                   width: width - 20,
                   alignSelf: 'center',
-
                 }
             ]}>
-            <Text style={[styles.header_text, {marginTop: 10}]}>Váy trắng mùa hè năng động</Text>
+            <Text style={[styles.header_text, {marginTop: 10, marginBottom: 15}]}>Váy trắng mùa hè năng động </Text>
             <Text style={[styles.header_text, {color: '#FF5C00', marginBottom: 10}]}>270.000 VNĐ</Text>
           </View>
 
@@ -133,16 +109,17 @@ class ProductDetails extends Component {
               <Image source={{ uri:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAbFBMVEUAAAA2NjZsbGz///+np6d7e3vx8fGwsLD4+PjLy8uIiIj7+/vb29v19fXW1tazs7MnJydLS0u/v79AQECUlJQ6Ojrj4+NwcHDr6+vFxcV9fX0lJSUuLi4YGBiOjo6cnJxgYGAQEBAcHBxXV1fzn1iNAAADw0lEQVR4nO3dbXOaQBiFYfQBEUR8BUGJaPr//2N399mFqU1nwkzUOZ1zfwhBEfdCWciXNpr933Xn6H9v/u4BPD0K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/Ch+bXXTZdX+u210dz9vw+254+F59+B+u6tP+0LWP6u52YV+19f8Mvvn1s9JNL7Nh17vrdffXEL7ZVKFsdFnXfj31T2zEVviBnJrwgoPYf7pfMl3r5WA0ctKNxFlWpflRiGZ+vYoeqL34XeRr+8zyGoYQ3vJ7TRb63RelLpexW3RL6c2nkzSS6G7FHwEjtI+kfrSNfVkQzlW4sPqu2rarz8o+kHvhZq2vaaU1x23XhqMk8aQR/5CwWXRhODsdvPgNVLiTPHILu/KV0LRf6fJBGPuDFiWe9hZhL8M5syjcbuXsD7kKo9o9vHEf5SThbAT1uv1bhIt22OBszzQz+MNNiV6Yu2OwcmfxJGEczsYo2N4h3Mr4H4HMnGhuvqwn2UeD0I3rpF/hScKsHN+8yMKeJvQjwoMfsu3DnXFWaE6czShsF1FU6gw7SVhk45tn7qv+DuFdjsMGO7G7dEIz1nQQ3uT2ITrhTxK2w3XHzGcv/QwLXep5GK6OkZ0O7PhUGB2l34apcL3PRa/V4/XQzU//EqZOeB0nsUqP0IuEmR7ai75pMpyIF3fyBaEhpkHYS+Pno/CRH3USeRSe3FxlvtO1bjyciKW4e6AXCRMdeOpH0+r1Ltot124UQWhcAT8TuYWhLtxGa/0ePAr9DdAv6d3aSbK7fw/96J8tLOI4treVmbRJXvpR2NX6eMoz8Vf+QThesI0r7KSSZX/qV3oaRusgDNeFs9TXZDPcFZ1F0uScrsKherKwrpumsXfP0XEhUo9z6Lw09451mHFuzSE8sc/DSMf7ya41G7f+Pr30t7pxEZ6+mbvU1ejoNktzW7oP52M9Tmvf6QV/PY0zxfPf64v49yF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX7z3wnEI+FtvjWEAAAAAElFTkSuQmCC" }} style={styles.profileImg} />
             </View>
             <View style = {{
-              marginTop: 24
+              marginTop: 22
             }}>
               <Text style={{
                 fontWeight: 'bold',
-                fontSize: 16
+                fontSize: 18
               }}> 
                 luon_vui_tuoi_official
               </Text>
               <Text style={styles.seeAll}>Xem tất cả></Text>
             </View>
+            <Image style={{marginTop: 26, marginLeft:5}} source={require('../resources/icons/shop_checked.png')}/>
           </View>
 
           <View style={{height: 10, backgroundColor: "#CDD1D1", width: width }} />
@@ -155,14 +132,15 @@ class ProductDetails extends Component {
             }
           ]}>
             <Text style={[styles.hearder_text_2,{width: width - 20,justifyContent: 'space-between',
-              alignSelf: 'center', marginTop: 5, marginBottom: 5}]}>Mô tả chi tiết</Text>
+              alignSelf: 'center',}]}>Mô tả chi tiết</Text>
             <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
             <Text 
               style={[, 
               {
                 width: width - 50,
                 alignSelf: 'center',
-                lineHeight: 23
+                lineHeight: 23,
+                marginBottom: 20
               }
             ]}>
                           𝑪𝑪𝑯𝑨𝑻𝑪𝑳𝑶𝑻𝑯𝑬𝑺 {"\n"}
@@ -210,10 +188,12 @@ class ProductDetails extends Component {
               marginBottom: 5
             }]}>
             <View>
-              <Text style={[styles.hearder_text_2, {marginTop: 5, marginBottom: 5}]}>Đánh giá sản phẩm</Text>
+              <Text style={[styles.hearder_text_2, {}]}>Đánh giá sản phẩm</Text>
               <View style={[, 
                 {
                   flexDirection: 'row', 
+                  marginLeft: -5,
+                  marginBottom: 5
                 }]}>
                 <Rating_star width="15" height="15" value="4">
                   {' '}
@@ -223,7 +203,7 @@ class ProductDetails extends Component {
             </View>
             <Text
               style={[styles.seeAll, {
-                margin: 4,
+                marginTop: 13,
               }]}>
               Xem tất cả>
             </Text>
@@ -237,17 +217,19 @@ class ProductDetails extends Component {
                   width: width - 20,
                   justifyContent: 'space-between',
                   alignSelf: 'center',
-                  marginBottom: 5,
-                  marginTop: 5
+                  marginBottom: 10,
+                  marginTop: 10,
+                  marginLeft: 5
                 }]}>
             <View>
               <Text style={{
                 color: '#FF5C00',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                fontSize: 17
               }}>
                 ngochan113
               </Text>
-              <Rating_star width="10" height="10" value="4">
+              <Rating_star width="11" height="11" value="4" >
                 {' '}
               </Rating_star>
             </View>
@@ -259,7 +241,8 @@ class ProductDetails extends Component {
               {
                 width: width - 70,
                 alignSelf: 'center',
-                marginBottom: 5
+                marginBottom: 10,
+                lineHeight: 19
               }
             ]}>
               Váy xinh y như hình shop đăng nhé. Màu cũng rất đẹp. Tiếc là shop không đăng màu hình váy vàng lên để mọi người nhìn thấy và có thêm lựa chọn. Rất hài lòng.
@@ -301,7 +284,7 @@ class ProductDetails extends Component {
                   </View>
                 </>
               }
-              style={[styles.slider, {marginLeft: 70, marginBottom: 5}]} //Main slider container style
+              style={[styles.slider, {marginLeft: 70, marginBottom: 20}]} //Main slider container style
               height={250} //Height of your slider
               slideCount={4} //How many views you are adding to slide
               dots={false} // Pagination dots visibility true for visibile
@@ -324,10 +307,10 @@ class ProductDetails extends Component {
 
             }
           ]}>
-            <Text style={[styles.hearder_text_2, {marginTop: 5, marginBottom:5}]}>Các sản phẩm liên quan</Text>
+            <Text style={[styles.hearder_text_2, {}]}>Các sản phẩm liên quan</Text>
             <Text 
               style={[styles.seeAll, {
-                margin: 6,
+                marginTop: 13,
               }]}>Xem tất cả></Text>
           </View>
 
@@ -355,7 +338,7 @@ class ProductDetails extends Component {
                 </View>
               </>
             }
-            style={[styles.slider, {marginTop: 10, marginBottom: 10, marginLeft: 70}]} //Main slider container style
+            style={[styles.slider, {marginTop: 10, marginBottom: 20}]} //Main slider container style
             height={150} //Height of your slider
             slideCount={4} //How many views you are adding to slide
             dots={true} // Pagination dots visibility true for visibile
@@ -404,9 +387,11 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   hearder_text_2: {
-    fontSize: 20,
+    fontSize: 21,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 10
   },
   container: {
     backgroundColor: '#F7F7F7',
