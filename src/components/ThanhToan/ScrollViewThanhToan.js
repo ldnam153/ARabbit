@@ -1,34 +1,22 @@
 import React, { Component } from 'react'
-import { ScrollView, View, StyleSheet, Text } from 'react-native'
-import CardCHXacNhanThanhToan from './CardCHXacNhanThanhToan'
+import {ScrollView, View, Text, StyleSheet} from 'react-native'
+import CardCHXacNhanThanhToan from '../XacNhanSanPham/CardCHXacNhanThanhToan'
+import BaoGiaThanhToan from './BaoGiaThanhToan'
+import CardCHThanhToan from './CardCHThanhToan'
+import ChonVoucherThanhToan from './ChonVoucherThanhToan'
+import DiaChiNhanHangThanhToan from './DiaChiNhanHangThanhToan'
 
-const styles = StyleSheet.create({
-    tongtien: {
-        height:80,
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
-        backgroundColor:'white',
-        paddingRight: 5,
-        marginBottom: 5,
-    },
-    label: {
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    price: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: 'red'
-    }
-})
-
-class ScrollViewXacNhanThanhToan extends Component {
+class ScrollViewThanhToan extends Component {
     render() {
+        const bill = {
+            tongtienhang: "12.670.000 VNĐ",
+            tongtienship: "35.000 VNĐ",
+        }
         const data = [
             {
                 shop: 'GameStop',
-                tongtienshop: '12.550.000 VNĐ',
+                tongtienshop: '12.570.000 VNĐ',
+                phivanchuyen: '20.000 VNĐ',
                 products: [
                     {
                         image: require('~/resources/imgs/ps5.jpg'),
@@ -48,7 +36,8 @@ class ScrollViewXacNhanThanhToan extends Component {
             },
             {
                 shop: 'UwU Shop',
-                tongtienshop: '120.000 VNĐ',
+                tongtienshop: '135.000 VNĐ',
+                phivanchuyen: '15.000 VNĐ',
                 products: [
                     {
                         image: require('~/resources/imgs/vaydo.jpg'),
@@ -60,17 +49,19 @@ class ScrollViewXacNhanThanhToan extends Component {
                 ]
             },
         ]
+
         return (
             <ScrollView style={{backgroundColor:'#efefef'}}>
+                <DiaChiNhanHangThanhToan address="123, đường ABC, phường XY, quận Z, TP.HCM"/>
+
                 {/*   data render   */}
-                {data.map((shop) => <CardCHXacNhanThanhToan data={shop} />)}
-                <View style={styles.tongtien}>
-                    <Text style={styles.label}>Tổng tiền hàng</Text>
-                    <Text style={styles.price}>12.670.000 VNĐ</Text>
-                </View>
+                {data.map((shop) => <CardCHThanhToan data={shop} />)}
+
+                <ChonVoucherThanhToan/>
+                <BaoGiaThanhToan tongtienhang={bill.tongtienhang} tongtienship={bill.tongtienship}/>
             </ScrollView>
         )
     }
 }
 
-export default ScrollViewXacNhanThanhToan
+export default ScrollViewThanhToan
