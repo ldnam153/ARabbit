@@ -7,11 +7,16 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
-  TextInput
+  TextInput,
+  Button,
+  Alert,
+  TouchableOpacity
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import ViewSlider from 'react-native-view-slider';
 import Rating_star from '../components/Rating_star';
+import ProductDetailsBottomTab from '../screens/ProductDetailsBottomTab';
+import {NavigationContainer} from '@react-navigation/native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -68,8 +73,7 @@ class ProductDetails extends Component {
             justifyContent: 'center', 
             alignItems: 'center', 
             flexDirection: 'row',
-            marginTop: 7,
-            marginBottom: 7
+            marginTop: 13
           }}>
             <View style={{
                 justifyContent: 'center',
@@ -85,7 +89,7 @@ class ProductDetails extends Component {
             </View>
           </View>
 
-          <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
+
           
           <View
             style={[, 
@@ -225,7 +229,8 @@ class ProductDetails extends Component {
               <Text style={{
                 color: '#FF5C00',
                 fontWeight: 'bold',
-                fontSize: 17
+                fontSize: 17,
+                marginBottom:5
               }}>
                 ngochan113
               </Text>
@@ -352,6 +357,25 @@ class ProductDetails extends Component {
           <View style={{height: 80, backgroundColor: "#CDD1D1", width: width }} />
 
         </ScrollView>
+
+        <View style={{flexDirection: 'row', position: 'absolute', bottom: 48}}>
+          <View style={styles.chat_cart_bt}>
+            <TouchableOpacity style={styles.BottomButton}>
+              <Image style = {{width: 25, height: 25}}  source={require('../resources/icons/chat_red.png')} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.chat_cart_bt}>
+            <TouchableOpacity style={styles.BottomButton}>
+              <Image style = {{width: 25, height: 25}}  source={require('../resources/icons/cart_add.png')} />
+            </TouchableOpacity>
+          </View>
+          <View style={{flex: 4, alignItems: 'center', backgroundColor: '#FF0000'}}>
+            <TouchableOpacity style={styles.BottomButton}>
+              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Mua ngay</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        
       </View>
     );
   }
@@ -416,6 +440,16 @@ const styles = StyleSheet.create({
     paddingBottom:10,
     paddingTop:10,
     elevation:4
+  },
+  BottomButton: {
+    paddingVertical: 10
+  },
+  chat_cart_bt: {
+    flex: 2, 
+    alignItems: 'center', 
+    backgroundColor: 'white', 
+    borderWidth: 1, 
+    borderColor: '#FF0000',
   }
 });
 
