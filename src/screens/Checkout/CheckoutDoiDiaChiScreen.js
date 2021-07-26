@@ -8,9 +8,9 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import ConfirmButtonComponent from '../components/Checkout/ConfirmButtonComponent';
-import DiaChiNhanHangComponent from '../components/Checkout/DiaChiNhanHangComponent';
-import NavBarComponent from '../components/Checkout/NavBarComponent';
+import ConfirmButtonComponent from '../../components/Checkout/ConfirmButtonComponent';
+import DiaChiNhanHangComponent from '../../components/Checkout/DiaChiNhanHangComponent';
+import NavBarComponent from '../../components/Checkout/NavBarComponent';
 
 const arrayData = [
   {
@@ -37,12 +37,18 @@ class CheckoutDoiDiaChiScreen extends Component {
       picked_index: 1,
       navbar_title: 'Chọn địa chỉ nhận hàng',
       confirm_button_text: 'Tiến hành thanh toán',
+      right_button: {
+        display: true,
+        icon: false,
+        src: null,
+        text: 'SỬA',
+      },
     };
   }
   render() {
     return (
       <SafeAreaView style={styles.screen_container}>
-        <NavBarComponent title={this.state.navbar_title} />
+        <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} />
         <ScrollView>
           {arrayData.map((item, index) => {
             return (
@@ -69,7 +75,7 @@ class CheckoutDoiDiaChiScreen extends Component {
             <View style={styles.new_address}>
               <Text style={styles.new_address_text}>Thêm địa chỉ nhận hàng mới</Text>
               <View style={styles.picked_icon}>
-                <Image source={require('../resources/icons/add.png')} />
+                <Image source={require('../../resources/icons/add.png')} />
               </View>
             </View>
           </TouchableHighlight>
@@ -89,7 +95,6 @@ class CheckoutDoiDiaChiScreen extends Component {
 
 const styles = StyleSheet.create({
   screen_container: {
-    position: 'relative',
     width: '100%',
     height: '100%',
     display: 'flex',
@@ -109,7 +114,6 @@ const styles = StyleSheet.create({
   },
 
   new_address_text: {
-    flex: 7,
     fontSize: 20,
   },
 
@@ -140,7 +144,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 0,
     width: '100%',
   },
 });
