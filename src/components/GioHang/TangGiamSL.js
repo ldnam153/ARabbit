@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,Text, TouchableHighlight, View} from 'react-native';
+import { StyleSheet,Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -56,17 +56,17 @@ class TangGiamSL extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableHighlight onPress={this.decrement} style={styles.decrease} disabled={this.state.disabled} underlayColor="#f62424" activeOpacity={0.6}>
+                <TouchableOpacity onPress={this.decrement} style={styles.decrease} disabled={this.state.disabled} underlayColor="#ff5c00" activeOpacity={0.2}>
                     <View>
                         <Text>-</Text>
                     </View>
-                </TouchableHighlight>
+                </TouchableOpacity>
                 <View><Text>{this.state.number}</Text></View>
-                <TouchableHighlight onPress={this.increment} style={styles.decrease} underlayColor="#f62424" activeOpacity={0.6}>
+                <TouchableOpacity onPress={this.increment} style={styles.decrease} underlayColor="#ff5c00" activeOpacity={0.2}>
                     <View>
                         <Text style={styles.end}>+</Text>
                     </View>
-                </TouchableHighlight>
+                </TouchableOpacity>
             </View>
         )
     }
