@@ -35,6 +35,7 @@ import ProductBar from './src/components/ProductBar';
 import SearchResultByCamScreen from './src/screens/SearchResultByCamScreen';
 import ResultCaptureHeader from './src/components/ResultCaptureHeader';
 import TabHistorySearch from './src/screens/TabHistorySearch';
+import ResultKeywordScreen from './src/screens/ResultKeywordScreen';
 
 
 // const Section = ({children, title}): Node => {
@@ -155,6 +156,6 @@ class App1 extends Component {
 // }
 
 
-export default SearchResultByCamScreen;
+export default TabHistorySearch;
 // export default TangGiamSL;
 // export default sale_frame;
