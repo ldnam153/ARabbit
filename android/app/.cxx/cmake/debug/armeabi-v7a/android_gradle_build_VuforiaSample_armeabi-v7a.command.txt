@@ -1,0 +1,7 @@
+Executable : /home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a
+VuforiaSample
+jvmArgs : 
+

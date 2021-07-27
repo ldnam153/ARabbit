@@ -1,160 +1,99 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import * as React from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity , NativeModules} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import  HomeScreen from './src/screens/HomeScreen'
 
-import React, {Component} from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import Sale_frame from './src/components/Sale_frame';
-import Rating_star from './src/components/Rating_star';
-import HeaderKeySearch from './src/components/HeaderKeySearch';
-import ScrollViewGioHang from './src/components/GioHang/ScrollViewGioHang';
-import CardSPXacNhanThanhToan from './src/components/XacNhanSanPham/CardSPXacNhanThanhToan';
-import HistoryItem from './src/components/HistoryItem';
-import ProductBar from './src/components/ProductBar';
-import SearchResultByCamScreen from './src/screens/SearchResultByCamScreen';
-import ResultCaptureHeader from './src/components/ResultCaptureHeader';
-import TabHistorySearch from './src/screens/TabHistorySearch';
-
-
-// const Section = ({children, title}): Node => {
-//   const isDarkMode = useColorScheme() === 'dark';
-//   return (
-//     <View style={styles.sectionContainer}>
-//       <Text
-//         style={[
-//           styles.sectionTitle,
-//           {
-//             color: isDarkMode ? Colors.white : Colors.black,
-//           },
-//         ]}>
-//         {title}
-//       </Text>
-//       <Text
-//         style={[
-//           styles.sectionDescription,
-//           {
-//             color: isDarkMode ? Colors.light : Colors.dark,
-//           },
-//         ]}>
-//         {children}
-//       </Text>
-//     </View>
-//   );
-// };
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+const CameraModule = NativeModules.CameraModule;
+function CategoryTab() {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView> */}
-
-      {/* gio hang , con thieu header voi footer*/}
-      <ScrollViewGioHang isSelected={false}></ScrollViewGioHang>
-      {/* xac nhan san pham */}
-      {/* <CardSPXacNhanThanhToan></CardSPXacNhanThanhToan> */}
-
-    </SafeAreaView>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>CategoryTab!</Text>
+    </View>
   );
-};
-
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-// });
-
-
-class App1 extends Component {
-  render() {
-    return (
-      <View style={{flexDirection: 'column'}}>
-        {/* <Sale_frame value='50'/> */}
-        {/* <Rating_star width="30" height="30" value="3" /> */}
-        {/* <HeaderKeySearch placeholder="Tìm kiếm"/>
-        <HeaderKeySearch placeholder="Tìm kiếm"/> */}
-        {/* <TabHistorySearch/> */}
-        {/* <ProductBar/> */}
-        <ResultCaptureHeader/>
-        <TabHistorySearch/>
-      </View>
-    );
-  }
+}
+function NotificationTab() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>NotificationTab!</Text>
+    </View>
+  );
+}
+function UserTab() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>UserTab!</Text>
+    </View>
+  );
 }
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <View>
-//         {/* <Sale_frame value='50'/> */}
-//         <Rating_star width='30' height='30' value='3'/>
-//       </View>
-//     );
-//   }
-// }
+const Tab = createBottomTabNavigator();
 
 
-export default SearchResultByCamScreen;
-// export default TangGiamSL;
-// export default sale_frame;
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+       tabBarOptions = {{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+         showLabel:true,
+         style:{
+           position: 'absolute',
+           padding: 10,
+            height:55,
+         }
+       }}
+      >
+        <Tab.Screen 
+          name="Trang chủ"
+          component={HomeScreen} 
+          options = {{ 
+            tabBarLabel: 'Home',
+            tabBarIcon: ({focused}) => (
+              <Image source = { focused ? require( './src/resources/icons/home_click.png' ) : require( './src/resources/icons/home_non_click.png' )}/>
+            )
+          }}
+        />
+        <Tab.Screen name="Danh mục" component={CategoryTab} 
+          options = {{ 
+            tabBarLabel: 'Danh mục',
+            tabBarIcon: ({focused}) => (
+              <Image source = { focused ? require('./src/resources/icons/category_click.png') : require('./src/resources/icons/category.png')}/>
+            )
+          }}
+        />
+        <Tab.Screen name="camera" component={NotificationTab} 
+          options = {{ 
+            tabBarLabel: '',
+            tabBarButton: (props)=>(
+              <TouchableOpacity onPress={()=>CameraModule.openCamera()}>
+                <Image source = {require('./src/resources/icons/camera_navbar.png')}
+                  style ={{top:-30}}
+                />
+              </TouchableOpacity>
+            )
+          }}
+        />
+        <Tab.Screen name="Thông báo" component={NotificationTab} options={{ tabBarBadge: 3 }}  
+          options = {{ 
+            tabBarLabel: 'Thông báo',
+            tabBarIcon: ({focused}) => (
+              <Image source = {focused ? require('./src/resources/icons/notification_click.png' ):require('./src/resources/icons/notification.png' )} />
+            ),
+            tabBarBadge: 3
+          }}
+        />
+        <Tab.Screen name="Tôi" component={UserTab} 
+          options = {{ 
+            tabBarLabel: 'Tôi',
+            tabBarIcon: ({focused}) => (
+              <Image source = {focused ?  require('./src/resources/icons/user_click.png' ):require('./src/resources/icons/user.png' )} />
+            )
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
