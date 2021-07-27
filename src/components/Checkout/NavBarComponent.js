@@ -5,11 +5,18 @@ class NavBarComponent extends Component {
   render() {
     return (
       <View style={styles.navbar_container}>
-        <View>
+        <View style={styles.back_button}>
           <Image source={require('../../resources/icons/back.png')} />
         </View>
         <Text style={styles.navbar_title}>{this.props.title}</Text>
-        <Text style={styles.modify_text}>SỬA</Text>
+        <View style={styles.right_button}>
+          {this.props.right.display &&
+            (this.props.icon ? (
+              <Image source={require('../../resources/icons/home.png')} />
+            ) : (
+              <Text style={styles.modify_text}>{this.props.right.text}</Text>
+            ))}
+        </View>
       </View>
     );
   }
@@ -20,7 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     paddingLeft: 20,
     paddingRight: 20,
@@ -35,16 +42,27 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 
+  back_button: {
+    flex: 1,
+  },
+
   navbar_title: {
     fontSize: 20,
     fontWeight: 'bold',
     lineHeight: 40,
+    textAlign: 'center',
+    flex: 5,
+  },
+
+  right_button: {
+    flex: 1,
   },
 
   modify_text: {
     color: '#FF5C00',
     fontSize: 14,
     lineHeight: 40,
+    textAlign: 'right',
   },
 });
 
