@@ -1,8 +1,10 @@
-import * as React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity , NativeModules} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import  HomeScreen from './src/screens/HomeScreen'
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
 
 import React, {Component} from 'react';
 import type {Node} from 'react';
@@ -35,98 +37,111 @@ import ResultCaptureHeader from './src/components/ResultCaptureHeader';
 import TabHistorySearch from './src/screens/TabHistorySearch';
 import ResultKeywordScreen from './src/screens/ResultKeywordScreen';
 
-const CameraModule = NativeModules.CameraModule;
-function CategoryTab() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>CategoryTab!</Text>
-    </View>
-  );
-}
-function NotificationTab() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>NotificationTab!</Text>
-    </View>
-  );
-}
-function UserTab() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>UserTab!</Text>
-    </View>
-  );
-}
 
-const Tab = createBottomTabNavigator();
+// const Section = ({children, title}): Node => {
+//   const isDarkMode = useColorScheme() === 'dark';
+//   return (
+//     <View style={styles.sectionContainer}>
+//       <Text
+//         style={[
+//           styles.sectionTitle,
+//           {
+//             color: isDarkMode ? Colors.white : Colors.black,
+//           },
+//         ]}>
+//         {title}
+//       </Text>
+//       <Text
+//         style={[
+//           styles.sectionDescription,
+//           {
+//             color: isDarkMode ? Colors.light : Colors.dark,
+//           },
+//         ]}>
+//         {children}
+//       </Text>
+//     </View>
+//   );
+// };
 
+const App: () => Node = () => {
+  const isDarkMode = useColorScheme() === 'dark';
 
-
-export default function App() {
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-       tabBarOptions = {{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-         showLabel:true,
-         style:{
-           position: 'absolute',
-           padding: 10,
-            height:55,
-         }
-       }}
-      >
-        <Tab.Screen 
-          name="Trang chủ"
-          component={HomeScreen} 
-          options = {{ 
-            tabBarLabel: 'Home',
-            tabBarIcon: ({focused}) => (
-              <Image source = { focused ? require( './src/resources/icons/home_click.png' ) : require( './src/resources/icons/home_non_click.png' )}/>
-            )
-          }}
-        />
-        <Tab.Screen name="Danh mục" component={CategoryTab} 
-          options = {{ 
-            tabBarLabel: 'Danh mục',
-            tabBarIcon: ({focused}) => (
-              <Image source = { focused ? require('./src/resources/icons/category_click.png') : require('./src/resources/icons/category.png')}/>
-            )
-          }}
-        />
-        <Tab.Screen name="camera" component={NotificationTab} 
-          options = {{ 
-            tabBarLabel: '',
-            tabBarButton: (props)=>(
-              <TouchableOpacity onPress={()=>CameraModule.openCamera()}>
-                <Image source = {require('./src/resources/icons/camera_navbar.png')}
-                  style ={{top:-30}}
-                />
-              </TouchableOpacity>
-            )
-          }}
-        />
-        <Tab.Screen name="Thông báo" component={NotificationTab} options={{ tabBarBadge: 3 }}  
-          options = {{ 
-            tabBarLabel: 'Thông báo',
-            tabBarIcon: ({focused}) => (
-              <Image source = {focused ? require('./src/resources/icons/notification_click.png' ):require('./src/resources/icons/notification.png' )} />
-            ),
-            tabBarBadge: 3
-          }}
-        />
-        <Tab.Screen name="Tôi" component={UserTab} 
-          options = {{ 
-            tabBarLabel: 'Tôi',
-            tabBarIcon: ({focused}) => (
-              <Image source = {focused ?  require('./src/resources/icons/user_click.png' ):require('./src/resources/icons/user.png' )} />
-            )
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={backgroundStyle}>
+      {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <Header />
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
+          <Section title="Step One">
+            Edit <Text style={styles.highlight}>App.js</Text> to change this
+            screen and then come back to see your edits.
+          </Section>
+          <Section title="See Your Changes">
+            <ReloadInstructions />
+          </Section>
+          <Section title="Debug">
+            <DebugInstructions />
+          </Section>
+          <Section title="Learn More">
+            Read the docs to discover what to do next:
+          </Section>
+          <LearnMoreLinks />
+        </View>
+      </ScrollView> */}
+
+      {/* gio hang , con thieu header voi footer*/}
+      <ScrollViewGioHang isSelected={false}></ScrollViewGioHang>
+      {/* xac nhan san pham */}
+      {/* <CardSPXacNhanThanhToan></CardSPXacNhanThanhToan> */}
+
+    </SafeAreaView>
   );
+};
+
+// const styles = StyleSheet.create({
+//   sectionContainer: {
+//     marginTop: 32,
+//     paddingHorizontal: 24,
+//   },
+//   sectionTitle: {
+//     fontSize: 24,
+//     fontWeight: '600',
+//   },
+//   sectionDescription: {
+//     marginTop: 8,
+//     fontSize: 18,
+//     fontWeight: '400',
+//   },
+//   highlight: {
+//     fontWeight: '700',
+//   },
+// });
+
+
+class App1 extends Component {
+  render() {
+    return (
+      <View style={{flexDirection: 'column'}}>
+        {/* <Sale_frame value='50'/> */}
+        {/* <Rating_star width="30" height="30" value="3" /> */}
+        {/* <HeaderKeySearch placeholder="Tìm kiếm"/>
+        <HeaderKeySearch placeholder="Tìm kiếm"/> */}
+        {/* <TabHistorySearch/> */}
+        {/* <ProductBar/> */}
+        <ResultCaptureHeader/>
+        <TabHistorySearch/>
+      </View>
+    );
+  }
 }
 
 // class App extends Component {

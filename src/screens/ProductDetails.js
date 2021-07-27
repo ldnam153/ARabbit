@@ -15,8 +15,8 @@ import {
 import {Icon} from 'react-native-elements';
 import ViewSlider from 'react-native-view-slider';
 import Rating_star from '../components/Rating_star';
+import ProductDetailsBottomTab from '../screens/ProductDetailsBottomTab';
 import {NavigationContainer} from '@react-navigation/native';
-import ProductBar from '../components/ProductBar';
 
 const {width, height} = Dimensions.get('window');
 
@@ -321,27 +321,40 @@ class ProductDetails extends Component {
 
           <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
 
-          <ScrollView style={{backgroundColor: 'white', height: 430, width: width,}}  horizontal={true}>
-            <View style={styles.RelatedProduct} >
-              <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
-            </View>
-            
-            <View style={styles.RelatedProduct} >
-              <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
-            </View>
-            <View style={styles.RelatedProduct} >
-              <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
-            </View>
-            <View style={styles.RelatedProduct} >
-              <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
-            </View>
-            <View style={styles.RelatedProduct} >
-              <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
-            </View>
-            <View style={styles.RelatedProduct} >
-              <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
-            </View>
-          </ScrollView>
+          <ViewSlider
+            renderSlides={
+              <>
+                <View style={styles.viewBox}>
+                  <Image
+                    source={{
+                      uri: 'http://kata.vn/userfiles/product/3078.jpg',
+                    }}
+                    style={{height: 400, width}}
+                  />
+                </View>
+                <View style={styles.viewBox}>
+                  <Text>TWO</Text>
+                </View>
+                <View style={styles.viewBox}>
+                  <Text>THREE</Text>
+                </View>
+                <View style={styles.viewBox}>
+                  <Text>FOUR</Text>
+                </View>
+              </>
+            }
+            style={[styles.slider, {marginTop: 10, marginBottom: 20}]} //Main slider container style
+            height={150} //Height of your slider
+            slideCount={4} //How many views you are adding to slide
+            dots={true} // Pagination dots visibility true for visibile
+            dotActiveColor="red" //Pagination dot active color
+            dotInactiveColor="gray" // Pagination do inactive color
+            dotsContainerStyle={styles.dotContainer} // Container style of the pagination dots
+            //autoSlide={true} //The views will slide automatically
+            //slideInterval={1000} //In Miliseconds
+          />
+
+          <View style={{height: 80, backgroundColor: "#CDD1D1", width: width }} />
 
         </ScrollView>
 
@@ -381,7 +394,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   dotContainer: {
     backgroundColor: 'transparent',
@@ -437,9 +450,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white', 
     borderWidth: 1, 
     borderColor: '#FF0000',
-  },
-  RelatedProduct: {
-    marginLeft: 10, 
   }
 });
 

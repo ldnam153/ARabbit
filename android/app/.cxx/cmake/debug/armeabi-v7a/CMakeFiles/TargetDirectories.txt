@@ -1,3 +1,0 @@
-/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a/CMakeFiles/edit_cache.dir
-/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a/CMakeFiles/VuforiaSample.dir
