@@ -66,58 +66,27 @@ class ProductDetails extends Component {
                 ]}>
                 Váy xinh y như hình shop đăng nhé. Màu cũng rất đẹp. Tiếc là shop không đăng màu hình váy vàng lên để mọi người nhìn thấy và có thêm lựa chọn. Rất hài lòng.
                 </Text>
-                <ViewSlider 
-                renderSlides={
-                    <>
-                    <View style={styles.viewBox}>
-                        <Image
-                        source={{
-                            uri: 'https://kenh14cdn.com/2020/2/1/8426024230561750543928262347785860235132928n-1580573370491220255455.jpg',
-                        }}
-                        style={{height: 400, width}}
-                        />
+                
+                <ScrollView style={{backgroundColor: 'white', height: 330, width: width, marginLeft: 10}}  horizontal={true}>
+                    <View style={styles.RelatedProduct} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/c.jpg')} />
+                    </View>                      
+                    <View style={styles.RelatedProduct} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/e.webp')} />
                     </View>
-                    <View style={styles.viewBox}>
-                        <Image
-                        source={{
-                            uri: 'https://anhvienmimosa.com/wp-content/uploads/2020/10/vay-cuoi-1.jpg',
-                        }}
-                        style={{height: 400, width}}
-                        />
+                    <View style={styles.RelatedProduct} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/d.png')} />
                     </View>
-                    <View style={styles.viewBox}>
-                        <Image
-                        source={{
-                            uri: 'https://phuquocxanh.com/vi/wp-content/uploads/2018/08/vay-cuoi-anh-kim.jpg',
-                        }}
-                        style={{height: 400, width}}
-                        />
+                    <View style={styles.RelatedProduct} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/a.jpg')} />
                     </View>
-                    <View style={styles.viewBox}>
-                        <Image
-                        source={{
-                            uri: 'https://vietstylist.com/wp-content/uploads/2019/08/12-cung-hoang-dao-cung-kim-ng%C6%B0u5.jpg',
-                        }}
-                        style={{height: 400, width}}
-                        />
-                    </View>
-                    </>
-                }
-                style={[styles.slider, {marginLeft: 70, marginBottom: 20}]} //Main slider container style
-                height={250} //Height of your slider
-                slideCount={4} //How many views you are adding to slide
-                dots={false} // Pagination dots visibility true for visibile
-                dotActiveColor="red" //Pagination dot active color
-                dotInactiveColor="gray" // Pagination do inactive color
-                dotsContainerStyle={styles.dotContainer} // Container style of the pagination dots
-                //autoSlide={true} //The views will slide automatically
-                //slideInterval={1000} //In Miliseconds
-                />
+                </ScrollView>
+
             </View>
 
             <View style={{height: 10, backgroundColor: "#CDD1D1", width: width }} />
         
-             <View style={[, 
+            <View style={[, 
                     {
                     flexDirection: 'row', 
                     width: width - 20,
@@ -149,8 +118,7 @@ class ProductDetails extends Component {
                     alignSelf: 'center',
                     marginBottom: 10,
                     lineHeight: 19
-                }
-                ]}>
+                }]}>
                     Chất lượng sản phẩm tuyệt vời.
                     Đóng gói sản phẩm rất đẹp và chắc chắn.
                     Shop phục vụ rất tốt. Rất đáng tiền.
@@ -159,56 +127,25 @@ class ProductDetails extends Component {
                     Shop phục vụ rất tốt. Rất đáng tiền.
 
                 </Text>
-                <ViewSlider 
-                renderSlides={
-                    <>
-                    <View style={styles.viewBox}>
-                        <Image
-                        source={{
-                            uri: 'http://styleguru.vn/wp-content/uploads/2021/03/kieu-vay-dam-xoe-cong-chua-1.jpg',
-                        }}
-                        style={{height: 400, width}}
-                        />
+                
+                <ScrollView style={{backgroundColor: 'white', height: 380, width: width, marginLeft: 10}}  horizontal={true}>
+                    <View style={styles.RelatedProduct} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/6.webp')} />
+                    </View>                      
+                    <View style={styles.RelatedProduct} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/5.jpg')} />
                     </View>
-                    <View style={styles.viewBox}>
-                        <Image
-                        source={{
-                            uri: 'https://lamdepwiki.com/wp-content/uploads/2019/07/kieu-vay-dam-xoe-tre-vai.jpg',
-                        }}
-                        style={{height: 400, width}}
-                        />
+                    <View style={styles.RelatedProduct} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/f.jpg')} />
                     </View>
-                    <View style={styles.viewBox}>
-                        <Image
-                        source={{
-                            uri: 'https://cf.shopee.vn/file/7c6436c718748ca7194ad6136fe65410',
-                        }}
-                        style={{height: 400, width}}
-                        />
+                    <View style={styles.RelatedProduct} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/lanngoc.jpeg')} />
                     </View>
-                    <View style={styles.viewBox}>
-                        <Image
-                        source={{
-                            uri: 'https://vietstylist.com/wp-content/uploads/2019/08/12-cung-hoang-dao-cung-kim-ng%C6%B0u5.jpg',
-                        }}
-                        style={{height: 400, width}}
-                        />
-                    </View>
-                    </>
-                }
-                style={[styles.slider, {marginLeft: 70, marginBottom: 20}]} //Main slider container style
-                height={250} //Height of your slider
-                slideCount={4} //How many views you are adding to slide
-                dots={false} // Pagination dots visibility true for visibile
-                dotActiveColor="red" //Pagination dot active color
-                dotInactiveColor="gray" // Pagination do inactive color
-                dotsContainerStyle={styles.dotContainer} // Container style of the pagination dots
-                //autoSlide={true} //The views will slide automatically
-                //slideInterval={1000} //In Miliseconds
-                />
+                </ScrollView>
+            
             </View>
 
-            <View style={{height: 100, backgroundColor: "#CDD1D1", width: width }} />
+            <View style={{height: 10, backgroundColor: "#CDD1D1", width: width }} />
         
         </ScrollView>
       </View>
@@ -246,6 +183,13 @@ const styles = StyleSheet.create({
     paddingBottom:10,
     paddingTop:10,
     elevation:4
+  },
+  RelatedProduct: {
+    padding: 5
+  },
+  imgStyle: {
+    width: 200, 
+    height: 300 
   }
 });
 
