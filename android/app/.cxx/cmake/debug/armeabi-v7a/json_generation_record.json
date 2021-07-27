@@ -13,13 +13,319 @@
   },
   {
     "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/build-tools/27.0.3/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/build-tools/28.0.3/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/build-tools/29.0.2/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/build-tools/29.0.3/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/build-tools/30.0.2/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/build-tools/30.0.3/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/cmake/3.10.2.4988404/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/emulator/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/ndk-bundle/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/ndk/21.0.6113669/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/ndk/21.3.6528147/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/patcher/v4/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/platform-tools/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/platforms/android-26/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/platforms/android-27/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/platforms/android-28/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/platforms/android-29/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/platforms/android-30/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/sources/android-28/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/sources/android-29/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/sources/android-30/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/system-images/android-30/google_apis/x86/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Parsing /home/namly/Android/Sdk/tools/package.xml",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
     "message": "- CMake found in SDK at \u0027/home/namly/Android/Sdk/cmake/3.10.2.4988404\u0027 had version \u00273.10.2\u0027",
     "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
     "tag": "debug|armeabi-v7a"
   },
   {
     "level": "INFO",
-    "message": "JSON \u0027/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a/android_gradle_build.json\u0027 was up-to-date",
+    "message": "rebuilding JSON /home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a/android_gradle_build.json due to:",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "- a dependent build file changed",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "  - /home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "keeping json folder \u0027/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a\u0027 but regenerating project",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "executing cmake Executable : /home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/cmake\narguments : \n-H/home/namly/Desktop/ARabbit/android/app/src/main/cpp\n-DCMAKE_CXX_FLAGS\u003d-std\u003dc++17\n-DCMAKE_FIND_ROOT_PATH\u003d/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/prefab/armeabi-v7a/prefab\n-DCMAKE_BUILD_TYPE\u003dDebug\n-DCMAKE_TOOLCHAIN_FILE\u003d/home/namly/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake\n-DANDROID_ABI\u003darmeabi-v7a\n-DANDROID_NDK\u003d/home/namly/Android/Sdk/ndk/21.3.6528147\n-DANDROID_PLATFORM\u003dandroid-21\n-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a\n-DCMAKE_ANDROID_NDK\u003d/home/namly/Android/Sdk/ndk/21.3.6528147\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/debug/obj/armeabi-v7a\n-DCMAKE_MAKE_PROGRAM\u003d/home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/ninja\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_SYSTEM_VERSION\u003d21\n-B/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a\n-GNinja\njvmArgs : \n\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "[\u003d\u003d \"CMake Server\" \u003d\u003d[\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"supportedProtocolVersions\":[{\"isExperimental\":true,\"major\":1,\"minor\":1}],\"type\":\"hello\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "]\u003d\u003d \"CMake Server\" \u003d\u003d]\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\n  \"type\": \"handshake\",\n  \"cookie\": \"gradle-cmake-cookie\",\n  \"protocolVersion\": {\n    \"isExperimental\": true,\n    \"major\": 1,\n    \"minor\": 1\n  },\n  \"sourceDirectory\": \"/home/namly/Desktop/ARabbit/android/app/src/main/cpp\",\n  \"buildDirectory\": \"/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a\",\n  \"generator\": \"Ninja\"\n}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"gradle-cmake-cookie\",\"inReplyTo\":\"handshake\",\"type\":\"reply\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\n  \"type\": \"configure\",\n  \"cacheArguments\": [\n    \"\",\n    \"-DCMAKE_CXX_FLAGS\\u003d-std\\u003dc++17\",\n    \"-DCMAKE_FIND_ROOT_PATH\\u003d/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/prefab/armeabi-v7a/prefab\",\n    \"-DCMAKE_BUILD_TYPE\\u003dDebug\",\n    \"-DCMAKE_TOOLCHAIN_FILE\\u003d/home/namly/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake\",\n    \"-DANDROID_ABI\\u003darmeabi-v7a\",\n    \"-DANDROID_NDK\\u003d/home/namly/Android/Sdk/ndk/21.3.6528147\",\n    \"-DANDROID_PLATFORM\\u003dandroid-21\",\n    \"-DCMAKE_ANDROID_ARCH_ABI\\u003darmeabi-v7a\",\n    \"-DCMAKE_ANDROID_NDK\\u003d/home/namly/Android/Sdk/ndk/21.3.6528147\",\n    \"-DCMAKE_EXPORT_COMPILE_COMMANDS\\u003dON\",\n    \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\\u003d/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/debug/obj/armeabi-v7a\",\n    \"-DCMAKE_MAKE_PROGRAM\\u003d/home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/ninja\",\n    \"-DCMAKE_SYSTEM_NAME\\u003dAndroid\",\n    \"-DCMAKE_SYSTEM_VERSION\\u003d21\"\n  ]\n}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":1000,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Configuring done\",\"type\":\"message\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Configuring done",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"type\":\"reply\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"type\":\"compute\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"progressCurrent\":1000,\"progressMaximum\":1000,\"progressMessage\":\"Generating\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"message\":\"Generating done\",\"type\":\"message\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "Generating done",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"type\":\"reply\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"type\":\"cmakeInputs\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"buildFiles\":[{\"isCMake\":true,\"isTemporary\":false,\"sources\":[\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake\",\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake\"]},{\"isCMake\":false,\"isTemporary\":false,\"sources\":[\"CMakeLists.txt\",\"/home/namly/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake\",\"/home/namly/Android/Sdk/ndk/21.3.6528147/build/cmake/platforms.cmake\"]},{\"isCMake\":false,\"isTemporary\":true,\"sources\":[\"../../../.cxx/cmake/debug/armeabi-v7a/CMakeFiles/3.10.2/CMakeSystem.cmake\",\"../../../.cxx/cmake/debug/armeabi-v7a/CMakeFiles/3.10.2/CMakeCCompiler.cmake\",\"../../../.cxx/cmake/debug/armeabi-v7a/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake\"]}],\"cmakeRootDirectory\":\"/home/namly/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10\",\"cookie\":\"\",\"inReplyTo\":\"cmakeInputs\",\"sourceDirectory\":\"/home/namly/Desktop/ARabbit/android/app/src/main/cpp\",\"type\":\"reply\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"type\":\"codemodel\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "{\"configurations\":[{\"name\":\"Debug\",\"projects\":[{\"buildDirectory\":\"/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a\",\"name\":\"Arabbit\",\"sourceDirectory\":\"/home/namly/Desktop/ARabbit/android/app/src/main/cpp\",\"targets\":[{\"artifacts\":[\"/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libVuforiaSample.so\"],\"buildDirectory\":\"/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a\",\"fileGroups\":[{\"compileFlags\":\"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE\u003d2 -march\u003darmv7-a -mthumb -Wformat -Werror\u003dformat-security  -std\u003dc++17 -O0 -fno-limit-debug-info  -fPIC  \",\"defines\":[\"VuforiaSample_EXPORTS\"],\"includePath\":[{\"path\":\"/home/namly/Desktop/ARabbit/android/app/src/main/cpp/../../../../../CrossPlatform\"},{\"path\":\"/home/namly/Desktop/ARabbit/android/app/src/main/cpp/../../../../../../build/include\"}],\"isGenerated\":false,\"language\":\"CXX\",\"sources\":[\"../../../../../CrossPlatform/AppController.cpp\",\"../../../../../CrossPlatform/MathUtils.cpp\",\"../../../../../CrossPlatform/tiny_obj_loader.cpp\",\"GLESRenderer.cpp\",\"GLESUtils.cpp\",\"VuforiaWrapper.cpp\"]}],\"fullName\":\"libVuforiaSample.so\",\"linkFlags\":\"-Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments\",\"linkLibraries\":\"/home/namly/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/arm-linux-androideabi/21/libandroid.so /home/namly/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/arm-linux-androideabi/21/liblog.so /home/namly/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/arm-linux-androideabi/21/libGLESv3.so /home/namly/Desktop/ARabbit/android/app/src/main/cpp/../../../../../../build/lib/armeabi-v7a/libVuforia.so -latomic -lm\",\"linkerLanguage\":\"CXX\",\"name\":\"VuforiaSample\",\"sourceDirectory\":\"/home/namly/Desktop/ARabbit/android/app/src/main/cpp\",\"sysroot\":\"/home/namly/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/sysroot\",\"type\":\"SHARED_LIBRARY\"}]}]}],\"cookie\":\"\",\"inReplyTo\":\"codemodel\",\"type\":\"reply\"}\n",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "done executing cmake",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "write build output /home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a/build_output.txt",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "deleted unexpected build output /home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libVuforia.so in incremental regenerate",
+    "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
+    "tag": "debug|armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "write command file /home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/armeabi-v7a/build_command.txt",
     "file": "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
     "tag": "debug|armeabi-v7a"
   },

@@ -5,9 +5,9 @@
     "environmentVariables": []
   },
   "cmake": {
-    "cmakeArtifactsBaseFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a",
-    "cmakeServerLogFile": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a/cmake_server_log.txt",
-    "cmakeWrappingBaseFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cxx/debug/arm64-v8a",
+    "cmakeArtifactsBaseFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/arm64-v8a",
+    "cmakeServerLogFile": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/arm64-v8a/cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cxx/release/arm64-v8a",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -15,7 +15,7 @@
       "inheritEnvironments": [
         "ndk"
       ],
-      "buildRoot": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a",
+      "buildRoot": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/arm64-v8a",
       "cmakeToolchain": "/home/namly/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake",
       "cmakeExecutable": "/home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/cmake",
       "variables": [
@@ -25,11 +25,11 @@
         },
         {
           "name": "CMAKE_FIND_ROOT_PATH",
-          "value": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/prefab/arm64-v8a/prefab"
+          "value": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/prefab/arm64-v8a/prefab"
         },
         {
           "name": "CMAKE_BUILD_TYPE",
-          "value": "Debug"
+          "value": "Release"
         },
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
@@ -61,7 +61,7 @@
         },
         {
           "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
-          "value": "/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/debug/obj/arm64-v8a"
+          "value": "/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/release/obj/arm64-v8a"
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
@@ -78,14 +78,14 @@
       ]
     }
   },
-  "cxxBuildFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a",
+  "cxxBuildFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/arm64-v8a",
   "info": {
     "abi": "ARM64_V8A",
     "bitness": 64,
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a",
+  "originalCxxBuildFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/arm64-v8a",
   "variant": {
     "buildSystemArgumentList": [],
     "buildTargetSet": [],
@@ -95,7 +95,7 @@
     "cppFlagsList": [
       "-std\u003dc++17"
     ],
-    "isDebuggableEnabled": true,
+    "isDebuggableEnabled": false,
     "module": {
       "buildSystem": "CMAKE",
       "cmake": {
@@ -196,14 +196,14 @@
         "SYSTEM": {}
       }
     },
-    "objFolder": "/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/debug/obj",
-    "variantName": "debug",
+    "objFolder": "/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/release/obj",
+    "variantName": "release",
     "validAbiList": [
       "ARMEABI_V7A",
       "ARM64_V8A"
     ],
-    "prefabDirectory": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/prefab",
+    "prefabDirectory": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/prefab",
     "prefabPackageDirectoryList": []
   },
-  "prefabFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/prefab/arm64-v8a"
+  "prefabFolder": "/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/prefab/arm64-v8a"
 }
