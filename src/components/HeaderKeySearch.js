@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet,Text, View, Image,TextInput} from 'react-native';
+import { StyleSheet,Text, View, Image,TextInput, Touchable, TouchableOpacity} from 'react-native';
 
 const styles_ctn=StyleSheet.create({
     container: {
@@ -32,7 +32,9 @@ class HeaderKeySearch extends Component{
         return (
                 <View style={styles_ctn.container}>
                     <View style={{flex:0.1,flexDirection: 'row',justifyContent: 'center'}}>
-                        <Image source={require('../resources/icons/back.png')}/>
+                        <TouchableOpacity>
+                            <Image source={require('../resources/icons/back.png')}/>
+                        </TouchableOpacity>
                     </View>
                     <TextInput
                         style={{height: 40,borderWidth: 1,flex:0.8}}
@@ -41,7 +43,9 @@ class HeaderKeySearch extends Component{
                         value={this.state.text}
                     />
                     <View style={{flex:0.1,flexDirection: 'row',justifyContent: 'center'}}>
-                        <Image source={require('../resources/icons/Camera1.png')}/>
+                        <TouchableOpacity>
+                            <Image source={require('../resources/icons/Camera1.png')}/>
+                        </TouchableOpacity>
                     </View>
                 </View>
         )
