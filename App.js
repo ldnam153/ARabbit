@@ -4,8 +4,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import  HomeScreen from './src/screens/HomeScreen'
 import ResultKeywordScreen from './src/screens/ResultKeywordScreen';
-
-
+import { createStackNavigator,CardStyleInterpolators } from '@react-navigation/stack'
+import GioHang from '~/screens/GioHang'
+import XacNhanSanPham from '~/screens/XacNhanSanPham'
+import ThanhToan from '~/screens/ThanhToan'
+import CheckoutDoiDiaChiScreen from '~/screens/Checkout/CheckoutDoiDiaChiScreen'
+import CheckoutThemDiaChiScreen from '~/screens/Checkout/CheckoutThemDiaChiScreen'
+import CheckoutSuaDiaChiScreen from '~/screens/Checkout/CheckoutSuaDiaChiScreen'
 
 const CameraModule = NativeModules.CameraModule;
 function CategoryTab() {
@@ -101,18 +106,36 @@ const Tab = createBottomTabNavigator();
 //   );
 // }
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <View>
-//         {/* <Sale_frame value='50'/> */}
-//         <Rating_star width='30' height='30' value='3'/>
-//       </View>
-//     );
-//   }
-// }
+const Stack = createStackNavigator();
+function MyStack() {
+  return (
+    <Stack.Navigator screenOptions={{
+      headerShown: false,
+      gestureEnabled: true,
+      gestureDirection: 'horizontal',
+      cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+    }}>
+      <Stack.Screen name="GioHang" component={GioHang} />
+      <Stack.Screen name="XacNhanSanPham" component={XacNhanSanPham} />
+      <Stack.Screen name="CheckoutDoiDiaChiScreen" component={CheckoutDoiDiaChiScreen} />
+      <Stack.Screen name="CheckoutThemDiaChiScreen" component={CheckoutThemDiaChiScreen} />
+      <Stack.Screen name="CheckoutSuaDiaChiScreen" component={CheckoutSuaDiaChiScreen} />
+      <Stack.Screen name="ThanhToan" component={ThanhToan} />
+    </Stack.Navigator>
+  );
+}
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <NavigationContainer>
+        <MyStack />
+      </NavigationContainer>
+    );
+  }
+}
 
 
-export default ResultKeywordScreen;
+// export default ResultKeywordScreen;
 // export default TangGiamSL;
 // export default sale_frame;

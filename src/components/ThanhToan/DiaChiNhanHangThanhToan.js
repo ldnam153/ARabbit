@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, View, Text, StyleSheet } from 'react-native'
+import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 class DiaChiNhanHangThanhToan extends Component {
     render() {
@@ -9,9 +9,9 @@ class DiaChiNhanHangThanhToan extends Component {
                     <Text style={styles.label}>ĐỊA CHỈ NHẬN HÀNG</Text>
                     <Text style={styles.address}>{this.props.address}</Text>
                 </View>
-                <View style={styles.rightPanel}>
+                <TouchableOpacity style={styles.rightPanel} onPress={this.props.goDDC}>
                     <Image source={require('~/resources/icons/back.png')} style={styles.image}></Image>
-                </View>
+                </TouchableOpacity>
             </View>
         )
     }

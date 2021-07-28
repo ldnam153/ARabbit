@@ -29,9 +29,15 @@ class CheckoutSuaDiaChiScreen extends Component {
     };
   }
   render() {
+    const goBack = () =>{
+      this.props.navigation.goBack();
+    }
+    const goDDC = () =>{
+      this.props.navigation.pop();
+    }
     return (
       <SafeAreaView style={styles.screen_container}>
-        <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} />
+        <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} goBack={goBack}/>
         <FlatList
           data={this.state.user_data}
           renderItem={({ item, index }) => {
@@ -52,7 +58,7 @@ class CheckoutSuaDiaChiScreen extends Component {
           style={styles.delete_button}
           activeOpacity={0.6}
           underlayColor="#f0f0f0"
-          onPress={() => alert('Xoa dia chi')}
+          onPress={goDDC}
         >
           <Text style={styles.delete_button_text}>Xoá địa chỉ này</Text>
         </TouchableHighlight>
@@ -60,7 +66,7 @@ class CheckoutSuaDiaChiScreen extends Component {
           style={styles.confirm_button}
           activeOpacity={0.6}
           underlayColor="#f56e6e"
-          onPress={() => alert('Dong y')}
+          onPress={goDDC}
         >
           <ConfirmButtonComponent title={this.state.confirm_button_text} />
         </TouchableHighlight>
@@ -90,8 +96,7 @@ const styles = StyleSheet.create({
 
   confirm_button: {
     backgroundColor: '#F62424',
-    paddingTop: 20,
-    paddingBottom: 20,
+    height:56,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
