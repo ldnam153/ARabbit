@@ -29,9 +29,15 @@ class ProductDetails extends Component {
             <Image style={{marginLeft: 10}}  source={ require('../resources/icons/back.png')}/>
           </View>
           <View style={{flexDirection: 'row'}}>
-            <Image style={{marginRight: 20, marginTop: 4, width: 24, height: 24}} source={require('../resources/icons/search.png')} />
-            <Image style={{marginRight: 20, marginTop: 2, width: 24, height: 24}} source={require('../resources/icons/home.png')}/>
-            <Image style={{marginRight: 20, width: 28, height: 28}} source={require('../resources/icons/cart_click.png')}/>
+            <TouchableOpacity>
+              <Image style={{marginRight: 20, marginTop: 4, width: 24, height: 24}} source={require('../resources/icons/search.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image style={{marginRight: 20, marginTop: 2, width: 24, height: 24}} source={require('../resources/icons/home.png')}/>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image style={{marginRight: 20, width: 28, height: 28}} source={require('../resources/icons/cart_click.png')}/>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -41,10 +47,8 @@ class ProductDetails extends Component {
               <>
                 <View style={styles.viewBox}>
                   <Image
-                    source={{
-                      uri: 'http://kata.vn/userfiles/product/3078.jpg',
-                    }}
-                    style={{height: 400, width}}
+                    source={require('../resources/imgs/FeedBackProduct/main.jpg')}
+                    style={{height: 500, width: 300}}
                   />
                 </View>
                 <View style={styles.viewBox}>
@@ -110,7 +114,7 @@ class ProductDetails extends Component {
             <View style = {{
               margin: 15,
             }}>
-              <Image source={{ uri:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAbFBMVEUAAAA2NjZsbGz///+np6d7e3vx8fGwsLD4+PjLy8uIiIj7+/vb29v19fXW1tazs7MnJydLS0u/v79AQECUlJQ6Ojrj4+NwcHDr6+vFxcV9fX0lJSUuLi4YGBiOjo6cnJxgYGAQEBAcHBxXV1fzn1iNAAADw0lEQVR4nO3dbXOaQBiFYfQBEUR8BUGJaPr//2N399mFqU1nwkzUOZ1zfwhBEfdCWciXNpr933Xn6H9v/u4BPD0K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/CvGjED8K8aMQPwrxoxA/Ch+bXXTZdX+u210dz9vw+254+F59+B+u6tP+0LWP6u52YV+19f8Mvvn1s9JNL7Nh17vrdffXEL7ZVKFsdFnXfj31T2zEVviBnJrwgoPYf7pfMl3r5WA0ctKNxFlWpflRiGZ+vYoeqL34XeRr+8zyGoYQ3vJ7TRb63RelLpexW3RL6c2nkzSS6G7FHwEjtI+kfrSNfVkQzlW4sPqu2rarz8o+kHvhZq2vaaU1x23XhqMk8aQR/5CwWXRhODsdvPgNVLiTPHILu/KV0LRf6fJBGPuDFiWe9hZhL8M5syjcbuXsD7kKo9o9vHEf5SThbAT1uv1bhIt22OBszzQz+MNNiV6Yu2OwcmfxJGEczsYo2N4h3Mr4H4HMnGhuvqwn2UeD0I3rpF/hScKsHN+8yMKeJvQjwoMfsu3DnXFWaE6czShsF1FU6gw7SVhk45tn7qv+DuFdjsMGO7G7dEIz1nQQ3uT2ITrhTxK2w3XHzGcv/QwLXep5GK6OkZ0O7PhUGB2l34apcL3PRa/V4/XQzU//EqZOeB0nsUqP0IuEmR7ai75pMpyIF3fyBaEhpkHYS+Pno/CRH3USeRSe3FxlvtO1bjyciKW4e6AXCRMdeOpH0+r1Ltot124UQWhcAT8TuYWhLtxGa/0ePAr9DdAv6d3aSbK7fw/96J8tLOI4treVmbRJXvpR2NX6eMoz8Vf+QThesI0r7KSSZX/qV3oaRusgDNeFs9TXZDPcFZ1F0uScrsKherKwrpumsXfP0XEhUo9z6Lw09451mHFuzSE8sc/DSMf7ya41G7f+Pr30t7pxEZ6+mbvU1ejoNktzW7oP52M9Tmvf6QV/PY0zxfPf64v49yF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX7z3wnEI+FtvjWEAAAAAElFTkSuQmCC" }} style={styles.profileImg} />
+              <Image source={require('../resources/imgs/FeedBackProduct/images.png')} style={styles.profileImg} />
             </View>
             <View style = {{
               marginTop: 22
@@ -216,90 +220,58 @@ class ProductDetails extends Component {
           <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
 
           <View style={[, 
-                {
-                  flexDirection: 'row', 
-                  width: width - 20,
-                  justifyContent: 'space-between',
-                  alignSelf: 'center',
-                  marginBottom: 10,
-                  marginTop: 10,
-                  marginLeft: 5
-                }]}>
-            <View>
-              <Text style={{
-                color: '#FF5C00',
-                fontWeight: 'bold',
-                fontSize: 17,
-                marginBottom:5
-              }}>
-                ngochan113
-              </Text>
-              <Rating_star width="11" height="11" value="4" >
-                {' '}
-              </Rating_star>
+                    {
+                    flexDirection: 'row', 
+                    width: width - 20,
+                    justifyContent: 'space-between',
+                    alignSelf: 'center',
+                    marginBottom: 10,
+                    marginTop: 10,
+                    marginLeft: 5
+                    }]}>  
+                <View>
+                <Text style={{
+                    color: '#FF5C00',
+                    fontWeight: 'bold',
+                    fontSize: 17
+                }}>
+                    ngochan113
+                </Text>
+                <Rating_star width="11" height="11" value="4" >
+                    {' '}
+                </Rating_star>
+                </View>
+                <Text>12/07/2021</Text>
             </View>
-            <Text>12/07/2021</Text>
-          </View>
 
-          <View>
-            <Text style={[, 
-              {
-                width: width - 70,
-                alignSelf: 'center',
-                marginBottom: 10,
-                lineHeight: 19
-              }
-            ]}>
-              Váy xinh y như hình shop đăng nhé. Màu cũng rất đẹp. Tiếc là shop không đăng màu hình váy vàng lên để mọi người nhìn thấy và có thêm lựa chọn. Rất hài lòng.
-            </Text>
-            <ViewSlider 
-              renderSlides={
-                <>
-                  <View style={styles.viewBox}>
-                    <Image
-                      source={{
-                        uri: 'https://kenh14cdn.com/2020/2/1/8426024230561750543928262347785860235132928n-1580573370491220255455.jpg',
-                      }}
-                      style={{height: 400, width}}
-                    />
-                  </View>
-                  <View style={styles.viewBox}>
-                    <Image
-                      source={{
-                        uri: 'https://anhvienmimosa.com/wp-content/uploads/2020/10/vay-cuoi-1.jpg',
-                      }}
-                      style={{height: 400, width}}
-                    />
-                  </View>
-                  <View style={styles.viewBox}>
-                    <Image
-                      source={{
-                        uri: 'https://phuquocxanh.com/vi/wp-content/uploads/2018/08/vay-cuoi-anh-kim.jpg',
-                      }}
-                      style={{height: 400, width}}
-                    />
-                  </View>
-                  <View style={styles.viewBox}>
-                    <Image
-                      source={{
-                        uri: 'https://vietstylist.com/wp-content/uploads/2019/08/12-cung-hoang-dao-cung-kim-ng%C6%B0u5.jpg',
-                      }}
-                      style={{height: 400, width}}
-                    />
-                  </View>
-                </>
-              }
-              style={[styles.slider, {marginLeft: 70, marginBottom: 20}]} //Main slider container style
-              height={250} //Height of your slider
-              slideCount={4} //How many views you are adding to slide
-              dots={false} // Pagination dots visibility true for visibile
-              dotActiveColor="red" //Pagination dot active color
-              dotInactiveColor="gray" // Pagination do inactive color
-              dotsContainerStyle={styles.dotContainer} // Container style of the pagination dots
-              //autoSlide={true} //The views will slide automatically
-              //slideInterval={1000} //In Miliseconds
-            />
-          </View>
+            <View>
+                <Text style={[, 
+                {
+                    width: width - 70,
+                    alignSelf: 'center',
+                    marginBottom: 10,
+                    lineHeight: 19
+                }
+                ]}>
+                Váy xinh y như hình shop đăng nhé. Màu cũng rất đẹp. Tiếc là shop không đăng màu hình váy vàng lên để mọi người nhìn thấy và có thêm lựa chọn. Rất hài lòng.
+                </Text>
+                
+                <ScrollView style={{backgroundColor: 'white', height: 330, width: width, marginLeft: 10}}  horizontal={true}>
+                    <View style={styles.feedBackImg} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/c.jpg')} />
+                    </View>                      
+                    <View style={styles.feedBackImg} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/e.webp')} />
+                    </View>
+                    <View style={styles.feedBackImg} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/d.png')} />
+                    </View>
+                    <View style={styles.feedBackImg} >
+                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/a.jpg')} />
+                    </View>
+                </ScrollView>
+
+            </View>
 
           <View style={{height: 10, backgroundColor: "#CDD1D1", width: width }} />
 
@@ -323,7 +295,7 @@ class ProductDetails extends Component {
 
           <ScrollView style={{backgroundColor: 'white', height: 430, width: width,}}  horizontal={true}>
             <View style={styles.RelatedProduct} >
-              <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
+              <ProductBar link_img="../resources/imgs/FeedBackProduct/c.jpg" num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
             </View>
             
             <View style={styles.RelatedProduct} >
@@ -413,7 +385,7 @@ const styles = StyleSheet.create({
     height: 55,
     borderRadius: 150 / 2,
     overflow: "hidden",
-    borderWidth: 3,
+    borderWidth: 2,
     borderColor: "red"
   },
   seeAll: {
@@ -440,6 +412,15 @@ const styles = StyleSheet.create({
   },
   RelatedProduct: {
     marginLeft: 10, 
+    marginRight: 10,
+    padding: 10
+  },
+  feedBackImg: {
+    padding: 5
+  },
+    imgStyle: {
+    width: 200, 
+    height: 300 
   }
 });
 
