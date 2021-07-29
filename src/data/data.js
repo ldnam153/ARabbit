@@ -20,8 +20,8 @@ const product = [
         img: ["https://prices.vn/storage/photo/product/vay-hai-day-ngoc-5-tang-v1081-co-mut-nguc-1626267190582.png", "https://cf.shopee.vn/file/551a28277279e96d345b26f0b99725fb", "https://cf.shopee.vn/file/6b37fc6ceb80a4642a0a4499473ca9ee"]
       }
     ],
-    color: ["grey", "blue", "red", "orange"],
-    size: [""]
+    color: ["Yellow", "Blue", "Red", "Violet", "Green", "Pink"],
+    size: ["XS", 'S', 'L', 'XL']
   }
 ];
 

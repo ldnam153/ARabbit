@@ -11,6 +11,7 @@ import {
   Button,
   Alert,
   TouchableOpacity,
+  TouchableHighlight,
   Modal,
   Pressable
 } from 'react-native';
@@ -28,8 +29,42 @@ const {width, height} = Dimensions.get('window');
 
 class ProductDetails extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { 
+      selectedButton: null,
+      selectedSize:null
+      };
+    this.selectionOnPress = this.selectionOnPress.bind(this);
+    this.selectionSizeOnPress = this.selectionSizeOnPress.bind(this);
+  }
+
+  selectionOnPress(userType) {
+    this.setState({ selectedButton: userType });
+  }
+
+  selectionSizeOnPress(userType) {
+    this.setState({ selectedSize: userType });
+  }
+
+  // onHideUnderlay(){
+  //   this.setState({ this.state.isPress: !this.state.isPress });
+  // }
+
+    // var [ isPress, setIsPress ] = React.useState(false);
+
+    // var touchProps = {
+    //   activeOpacity: 1,
+    //   underlayColor: 'blue',                               // <-- "backgroundColor" will be always overwritten by "underlayColor"
+    //   style: isPress ? styles.btnPress : styles.btnNormal, // <-- but you can still apply other style changes
+    //   // onHideUnderlay: () => setIsPress(false),
+    //   // onShowUnderlay: () => setIsPress(true),
+    //   onPress: () => console.log('HELLO'),                 // <-- "onPress" is apparently required
+    // };
+
   render() {
     const data = this.props.data
+    const list_color=data.color;
 
     return (
       <View>
@@ -317,7 +352,7 @@ class ProductDetails extends Component {
           duration={250}
           >
 
-          <View style={{justifyContent: 'space-between', flexDirection: 'column'}}>
+          <View style={{justifyContent: 'space-between', flexDirection: 'column', height: 240}}>
             <View style={{marginLeft: 10, marginTop: 10, flexDirection: 'row',}}>
 
               <View style={{flex: 1}}>
@@ -336,7 +371,26 @@ class ProductDetails extends Component {
 
             <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
               <Text style={{fontSize: 18, fontWeight: 'bold'}}> Color: </Text>
-              <ScrollView horizontal={true}> 
+              <ScrollView horizontal={true}>
+                {data.color.map((item, index) => {
+                  return (
+                  <TouchableHighlight onPress={() => this.selectionOnPress(item)}>
+                    <Text style={[styles.TouchableHighlightCSS, { backgroundColor:this.state.selectedButton===item ? 'red':'gray'}]}>{item}</Text>
+                  </TouchableHighlight>)
+                })}
+                
+              </ScrollView>
+            </View>
+
+            <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
+              <Text style={{fontSize: 18, fontWeight: 'bold'}}> Size: </Text>
+              <ScrollView horizontal={true}>
+                {data.size.map((item, index) => {
+                  return (
+                  <TouchableHighlight onPress={() => this.selectionSizeOnPress(item)}>
+                    <Text style={[styles.TouchableHighlightCSS, { backgroundColor:this.state.selectedSize===item ? 'red':'gray'}]}>{item}</Text>
+                  </TouchableHighlight>)
+                })}
                 
               </ScrollView>
             </View>
@@ -345,15 +399,12 @@ class ProductDetails extends Component {
               <Text style={{fontSize: 18, fontWeight: 'bold'}}> Số lượng: </Text>
               <TangGiamSL number= "1"/>
             </View>
-
-            <TouchableOpacity style={{bottom: -98, alignItems: 'center', backgroundColor: '#FF0000'}} onPress={() => {this.RBSheet.close();}}>
+          </View>
+          <TouchableOpacity style={{ alignItems: 'center', backgroundColor: '#FF0000', position: 'absolute', bottom: 0,width:'100%'}} onPress={() => {this.RBSheet.close();}}>
               <View style={styles.BottomButton}>
                 <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Đồng ý</Text>
               </View>
-            </TouchableOpacity>
-
-          </View>
-          
+          </TouchableOpacity>
         </RBSheet>
       
       </View>
@@ -445,6 +496,28 @@ const styles = StyleSheet.create({
   },
   btnPopUp: {
     padding: 10
+  },
+  container123: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnNormal: {
+    borderColor: 'blue',
+    borderWidth: 1,
+    borderRadius: 10,
+    height: 30,
+    width: 100,
+  },
+  btnPress: {
+    borderColor: 'blue',
+    borderWidth: 1,
+    height: 30,
+    width: 100,
+  },
+  TouchableHighlightCSS: {
+    fontSize: 20, 
+    marginLeft: 20,
   }
 });
 
