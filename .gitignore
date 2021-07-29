@@ -4,7 +4,11 @@
 
 # Xcode
 #
+<<<<<<< HEAD
 build/
+=======
+b
+>>>>>>> ccf6d8d56742e43c69b4533b66178eb0eb949eb0
 *.pbxuser
 !default.pbxuser
 *.mode1v3
