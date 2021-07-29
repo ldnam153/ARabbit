@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet,Text, View, Image} from 'react-native';
+import { StyleSheet,Text, View, Image, TouchableOpacity} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -31,9 +31,9 @@ class HistoryItem extends Component {
         return (
             <View>
                 <View style={styles.container}>
-                    <View style={{marginLeft:10}}>
+                    <TouchableOpacity style={{marginLeft:10}} onPress={this.props.goRK}>
                         <Text style={{fontSize:15}}>{this.props.name_product}</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={styles.container_item}>
                         <Text style={{fontSize:15}}>{this.props.date}</Text>
                         <Image source={require('../resources/icons/close.png')}/>

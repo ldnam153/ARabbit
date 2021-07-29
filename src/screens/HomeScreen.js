@@ -5,6 +5,7 @@ import ScrollViewHome from '../components/Home/ScrollViewHome';
 import NavBarHome from '../components/Home/NavBarHome';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Button } from 'react-native-elements/dist/buttons/Button';
 const styles = StyleSheet.create({
     input: {
       height: 40,
@@ -24,8 +25,8 @@ class HomeScreen extends Component{
     render(){
         return (
         <SafeAreaView style={styles.screen_container}>
-            <HeaderHome/>
-            <ScrollViewHome/>
+            <HeaderHome goGH={this.props.goGH} goTH={this.props.goTH}/>
+            <ScrollViewHome goPD={this.props.goPD}/>
         </SafeAreaView>
         
         );

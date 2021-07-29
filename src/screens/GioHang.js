@@ -17,7 +17,7 @@ class GioHang extends Component {
         }
         return (
             <SafeAreaView style={styles.screen_container}>
-                <NavBarXacNhanSP title="Giỏ hàng"></NavBarXacNhanSP>
+                <NavBarXacNhanSP title="Giỏ hàng" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
                 <ScrollViewGioHang></ScrollViewGioHang>
                 <FooterThanhToan 
                     price="12.670.000 VNĐ" 

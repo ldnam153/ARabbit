@@ -122,7 +122,7 @@ const Drawer = createDrawerNavigator();
 class ResultKeywordScreen extends Component{
     render() {
         return (
-            <NavigationContainer>
+            <NavigationContainer independent={true}>
                 <Drawer.Navigator  drawerPosition="right" drawerContent={props => <DrawerContent {...props}/>}>
                     <Drawer.Screen name="Home123" component={HomeScreen} />
                 </Drawer.Navigator>

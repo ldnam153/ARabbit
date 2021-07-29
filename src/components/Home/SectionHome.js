@@ -43,13 +43,7 @@ const DATA = [
         title: "Third Item",
       },
   ];
-const Item = () => (
-    <View style={{padding: 5,
-        marginVertical: 8,
-        marginHorizontal: 10,}}>
-      <ProductBar/>
-    </View>
-  );
+
 class SectionHome extends Component {
     constructor(props) {
         super(props)
@@ -60,12 +54,6 @@ class SectionHome extends Component {
           }
           
     }
-    renderItem = ( {item} ) => {
-  
-      return (
-        <Item/>
-      );
-    };
     
     render() {
       return (
@@ -79,7 +67,12 @@ class SectionHome extends Component {
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {this.state.products.map((item, index) => {
                 return (
-                    <Item/>
+                  <View style={{
+                    padding: 5,
+                    marginVertical: 8,
+                    marginHorizontal: 10,}}>
+                  <ProductBar goPD={this.props.goPD}/>
+                </View>
                 )
             })}
             </ScrollView>

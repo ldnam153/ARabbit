@@ -46,10 +46,15 @@ class VouchersScreen extends Component {
         ? this.setState({ active_index: null })
         : this.setState({ active_index: index });
     };
-
+    const goBack = () =>{
+        this.props.navigation.goBack();
+    }
+    const goTT = () =>{
+        this.props.navigation.pop();
+    }
     return (
       <SafeAreaView style={styles.screen_container}>
-        <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} />
+        <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} goBack={goBack} />
         <VoucherSearchField />
         <ScrollView>
           {this.state.voucher_array.map((item, index) => {

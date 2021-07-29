@@ -32,7 +32,7 @@ class HeaderKeySearch extends Component{
         return (
                 <View style={styles_ctn.container}>
                     <View style={{flex:0.1,flexDirection: 'row',justifyContent: 'center'}}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={this.props.goBack}>
                             <Image source={require('../resources/icons/back.png')}/>
                         </TouchableOpacity>
                     </View>

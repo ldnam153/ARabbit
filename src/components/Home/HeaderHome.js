@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, TextInput, Image, SafeAreaView} from 'react-native';
+import {StyleSheet, View, TextInput, Image, SafeAreaView, TouchableOpacity} from 'react-native';
 const styles = StyleSheet.create({
   navbar_container: {
     position: 'absolute',
@@ -35,13 +35,14 @@ class HeaderHome extends Component {
     return (
       <SafeAreaView style={styles.navbar_container}>
         <SafeAreaView style={styles.group}>
-          <TextInput style={styles.input} placeholder="Tìm kiếm"/>
+          <TextInput style={styles.input} placeholder="Tìm kiếm" onFocus={this.props.goTH}/>
           <View style={{flex:1, display:'flex', flexDirection:'row', justifyContent: 'space-between'}}>
-              <Image source={require('../../resources/icons/cart_click.png')} style={styles.icon}/>
+              <TouchableOpacity onPress={this.props.goGH} >
+                <Image source={require('../../resources/icons/cart_click.png')} style={styles.icon}/>
+              </TouchableOpacity>
               <Image source={require('../../resources/icons/chat_click.png')} style={styles.icon, {marginTop:6}} />
           </View>
         </SafeAreaView>
-        
     </SafeAreaView>
     );
   }

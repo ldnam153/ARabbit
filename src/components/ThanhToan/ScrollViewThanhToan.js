@@ -57,7 +57,7 @@ class ScrollViewThanhToan extends Component {
                 {/*   data render   */}
                 {data.map((shop) => <CardCHThanhToan data={shop} />)}
 
-                <ChonVoucherThanhToan/>
+                <ChonVoucherThanhToan goVS={this.props.goVS}/>
                 <BaoGiaThanhToan tongtienhang={bill.tongtienhang} tongtienship={bill.tongtienship}/>
             </ScrollView>
         )

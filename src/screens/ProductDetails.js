@@ -128,7 +128,7 @@ class ProductDetails extends Component {
               }}> 
                 {data.shop}
               </Text>
-              <Text style={styles.seeAll}>Xem tất cả></Text>
+              <Text style={styles.seeAll}>Xem tất cả</Text>
             </View>
             <Image style={{marginTop: 26, marginLeft:5}} source={require('../resources/icons/shop_checked.png')}/>
           </View>
@@ -188,7 +188,7 @@ class ProductDetails extends Component {
                 style={[styles.seeAll, {
                   marginTop: 13,
                 }]}>
-                Xem tất cả>
+                Xem tất cả
               </Text>
             </TouchableOpacity>
           </View>
@@ -262,7 +262,7 @@ class ProductDetails extends Component {
             <Text 
               style={[styles.seeAll, {
                 marginTop: 13,
-              }]}>Xem tất cả></Text>
+              }]}>Xem tất cả</Text>
           </View>
 
           <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />

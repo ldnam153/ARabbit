@@ -1,66 +1,66 @@
 {
   "stringTable": {
-    "0": "D:/UI/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a",
-    "1": "--target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/LTS/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/LTS/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DVuforiaSample_EXPORTS -ID:/UI/ARabbit/android/app/src/main/cpp/../../../../../CrossPlatform -ID:/UI/ARabbit/android/app/src/main/cpp/../../../../../build/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++17 -O0 -fno-limit-debug-info -fPIC"
+    "0": "C:/Users/Admin/Documents/GitHub/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a",
+    "1": "--target=aarch64-none-linux-android21 --gcc-toolchain=C:/Users/Admin/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Admin/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DVuforiaSample_EXPORTS -IC:/Users/Admin/Documents/GitHub/ARabbit/android/app/src/main/cpp/../../../../../CrossPlatform -IC:/Users/Admin/Documents/GitHub/ARabbit/android/app/src/main/cpp/../../../../../build/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++17 -O0 -fno-limit-debug-info -fPIC"
   },
   "buildFiles": [
-    "D:\\UI\\ARabbit\\android\\app\\src\\main\\cpp\\CMakeLists.txt",
-    "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
-    "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake"
+    "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\android\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\UI\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
+    "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
   ],
-  "buildTargetsCommand": "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"D:\\UI\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "VuforiaSample-Debug-arm64-v8a": {
-      "buildCommand": "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\UI\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" VuforiaSample",
+      "buildCommand": "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" VuforiaSample",
       "buildType": "debug",
-      "toolchain": "4136289746",
+      "toolchain": "1062926710",
       "abi": "arm64-v8a",
       "artifactName": "VuforiaSample",
       "files": [
         {
-          "src": "D:\\UI\\ARabbit\\CrossPlatform\\AppController.cpp",
+          "src": "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\CrossPlatform\\AppController.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "D:\\UI\\ARabbit\\CrossPlatform\\MathUtils.cpp",
+          "src": "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\CrossPlatform\\MathUtils.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "D:\\UI\\ARabbit\\CrossPlatform\\tiny_obj_loader.cpp",
+          "src": "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\CrossPlatform\\tiny_obj_loader.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "D:\\UI\\ARabbit\\android\\app\\src\\main\\cpp\\GLESRenderer.cpp",
+          "src": "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\android\\app\\src\\main\\cpp\\GLESRenderer.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "D:\\UI\\ARabbit\\android\\app\\src\\main\\cpp\\GLESUtils.cpp",
+          "src": "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\android\\app\\src\\main\\cpp\\GLESUtils.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         },
         {
-          "src": "D:\\UI\\ARabbit\\android\\app\\src\\main\\cpp\\VuforiaWrapper.cpp",
+          "src": "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\android\\app\\src\\main\\cpp\\VuforiaWrapper.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }
       ],
       "headers": [],
-      "output": "D:\\UI\\ARabbit\\android\\app\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libVuforiaSample.so",
+      "output": "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\android\\app\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libVuforiaSample.so",
       "runtimeFiles": [
-        "D:\\UI\\ARabbit\\build\\lib\\arm64-v8a\\libVuforia.so"
+        "C:\\Users\\Admin\\Documents\\GitHub\\ARabbit\\build\\lib\\arm64-v8a\\libVuforia.so"
       ]
     }
   },
   "toolchains": {
-    "4136289746": {
-      "cppCompilerExecutable": "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    "1062926710": {
+      "cppCompilerExecutable": "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
     }
   },
   "cFileExtensions": [],

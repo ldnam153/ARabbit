@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 class ChonVoucherThanhToan extends Component {
     render() {
@@ -8,10 +8,10 @@ class ChonVoucherThanhToan extends Component {
                 <Text style={{fontSize: 16}}>
                     Chọn voucher
                 </Text>
-                <View style={styles.inner}>
+                <TouchableOpacity style={styles.inner} onPress={this.props.goVS}>
                     <Text style={styles.tag}>Miễn phí vận chuyển</Text>
                     <Text style={{fontSize: 20}}> &gt; </Text>
-                </View>
+                </TouchableOpacity>
             </View>
         )
     }

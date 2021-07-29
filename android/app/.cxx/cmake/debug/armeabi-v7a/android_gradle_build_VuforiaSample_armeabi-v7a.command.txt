@@ -1,7 +1,7 @@
-Executable : C:\Users\LTS\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
+Executable : C:\Users\Admin\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
 arguments : 
 -C
-D:\UI\ARabbit\android\app\.cxx\cmake\debug\armeabi-v7a
+C:\Users\Admin\Documents\GitHub\ARabbit\android\app\.cxx\cmake\debug\armeabi-v7a
 VuforiaSample
 jvmArgs : 
 

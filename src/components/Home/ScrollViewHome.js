@@ -19,9 +19,9 @@ class ScrollViewHome extends Component {
       <ScrollView style={styles.container} >
         <Banner/>
         <CategoryList title = {'Danh mục'}/>
-        <SectionHome title = {'Giảm giá'}/>
-        <SectionHome title = {'Bán chạy'}/>
-        <SectionHome title = {'Mới nhất'}/>
+        <SectionHome title = {'Giảm giá'} goPD={this.props.goPD}/>
+        <SectionHome title = {'Bán chạy'} goPD={this.props.goPD}/>
+        <SectionHome title = {'Mới nhất'} goPD={this.props.goPD}/>
         <Recommend title = {'Gợi ý cho bạn'}/>
       </ScrollView>
     );
