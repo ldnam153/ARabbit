@@ -1,21 +1,21 @@
-                Executable : /home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/cmake
+                Executable : C:\Users\phuck\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe
 arguments : 
--H/home/namly/Desktop/ARabbit/android/app/src/main/cpp
+-HC:\Users\phuck\OneDrive\Documents\GitHub\ARabbit\android\app\src\main\cpp
 -DCMAKE_CXX_FLAGS=-std=c++17
--DCMAKE_FIND_ROOT_PATH=/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/prefab/armeabi-v7a/prefab
+-DCMAKE_FIND_ROOT_PATH=C:\Users\phuck\OneDrive\Documents\GitHub\ARabbit\android\app\.cxx\cmake\release\prefab\armeabi-v7a\prefab
 -DCMAKE_BUILD_TYPE=Release
--DCMAKE_TOOLCHAIN_FILE=/home/namly/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
+-DCMAKE_TOOLCHAIN_FILE=C:\Users\phuck\AppData\Local\Android\Sdk\ndk\21.3.6528147\build\cmake\android.toolchain.cmake
 -DANDROID_ABI=armeabi-v7a
--DANDROID_NDK=/home/namly/Android/Sdk/ndk/21.3.6528147
+-DANDROID_NDK=C:\Users\phuck\AppData\Local\Android\Sdk\ndk\21.3.6528147
 -DANDROID_PLATFORM=android-21
 -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
--DCMAKE_ANDROID_NDK=/home/namly/Android/Sdk/ndk/21.3.6528147
+-DCMAKE_ANDROID_NDK=C:\Users\phuck\AppData\Local\Android\Sdk\ndk\21.3.6528147
 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/release/obj/armeabi-v7a
--DCMAKE_MAKE_PROGRAM=/home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\Users\phuck\OneDrive\Documents\GitHub\ARabbit\android\app\build\intermediates\cmake\release\obj\armeabi-v7a
+-DCMAKE_MAKE_PROGRAM=C:\Users\phuck\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
 -DCMAKE_SYSTEM_NAME=Android
 -DCMAKE_SYSTEM_VERSION=21
--B/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/release/armeabi-v7a
+-BC:\Users\phuck\OneDrive\Documents\GitHub\ARabbit\android\app\.cxx\cmake\release\armeabi-v7a
 -GNinja
 jvmArgs : 
 

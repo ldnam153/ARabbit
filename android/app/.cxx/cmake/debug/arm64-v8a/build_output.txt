@@ -1,11 +1,21 @@
+<<<<<<< HEAD
 Check for working C compiler: C:/Users/LTS/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
 Check for working C compiler: C:/Users/LTS/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works
+=======
+Check for working C compiler: /home/namly/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
+Check for working C compiler: /home/namly/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/bin/clang -- works
+>>>>>>> aef29945cefa76f2c1b7ab7ed04cbd45e67b0a90
 Detecting C compiler ABI info
 Detecting C compiler ABI info - done
 Detecting C compile features
 Detecting C compile features - done
+<<<<<<< HEAD
 Check for working CXX compiler: C:/Users/LTS/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe
 Check for working CXX compiler: C:/Users/LTS/AppData/Local/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works
+=======
+Check for working CXX compiler: /home/namly/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
+Check for working CXX compiler: /home/namly/Android/Sdk/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ -- works
+>>>>>>> aef29945cefa76f2c1b7ab7ed04cbd45e67b0a90
 Detecting CXX compiler ABI info
 Detecting CXX compiler ABI info - done
 Detecting CXX compile features

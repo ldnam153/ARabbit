@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 class NavBarComponent extends Component {
   render() {
     return (
       <View style={styles.navbar_container}>
-        <View style={styles.back_button}>
+        <TouchableOpacity style={styles.back_button} onPress={this.props.goBack}>
           <Image source={require('../../resources/icons/back.png')} />
-        </View>
+        </TouchableOpacity>
         <Text style={styles.navbar_title}>{this.props.title}</Text>
-        <View style={styles.right_button}>
-          {this.props.right.display &&
-            (this.props.icon ? (
+        {this.props.right.display &&
+          (this.props.icon ? (
+            <TouchableOpacity style={styles.right_button} onPress={this.props.goHome}>
               <Image source={require('../../resources/icons/home.png')} />
-            ) : (
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity style={styles.right_button} onPress={this.props.goSDC}>
               <Text style={styles.modify_text}>{this.props.right.text}</Text>
-            ))}
-        </View>
+              </TouchableOpacity>
+          ))}
       </View>
     );
   }

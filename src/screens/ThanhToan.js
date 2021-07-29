@@ -7,11 +7,20 @@ import ScrollViewXacNhanThanhToan from '../components/XacNhanSanPham/ScrollViewX
 
 class ThanhToan extends Component {
     render() {
+        const goBack = () =>{
+            this.props.navigation.goBack();
+        }
+        const goHome = () =>{
+            this.props.navigation.popToTop();
+        }
+        const goDDC = () =>{
+            this.props.navigation.navigate('CheckoutDoiDiaChiScreen')
+        }
         return (
             <SafeAreaView style={styles.screen_container}>
-                <NavBarXacNhanSP title="Thanh toán"></NavBarXacNhanSP>
-                <ScrollViewThanhToan/>
-                <FooterThanhToan price="12.705.000 VNĐ" btnText="ĐẶT HÀNG"/>
+                <NavBarXacNhanSP title="Thanh toán" back={goBack} home={goHome}></NavBarXacNhanSP>
+                <ScrollViewThanhToan goDDC={goDDC}/>
+                <FooterThanhToan price="12.705.000 VNĐ" btnText="ĐẶT HÀNG" press={goHome}/>
             </SafeAreaView>
         )
     }

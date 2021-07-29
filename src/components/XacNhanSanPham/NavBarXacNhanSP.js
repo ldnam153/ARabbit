@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 class NavBarXacNhanSP extends Component {
   render() {
     return (
       <View style={styles.navbar_container}>
-        <View>
+        <TouchableOpacity onPress={this.props.back}>
           <Image source={require('~/resources/icons/back.png')} />
-        </View>
+        </TouchableOpacity>
         <Text style={styles.navbar_title}>{this.props.title}</Text>
-        <View>
+        <TouchableOpacity onPress={this.props.home}>
           <Image source={require('~/resources/icons/home.png')} />
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }

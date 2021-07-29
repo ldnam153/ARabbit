@@ -46,9 +46,21 @@ class CheckoutDoiDiaChiScreen extends Component {
     };
   }
   render() {
+    const goBack = () =>{
+      this.props.navigation.goBack();
+    }
+    const goSDC = () =>{
+      this.props.navigation.navigate('CheckoutSuaDiaChiScreen');
+    }
+    const goTT = () =>{
+      this.props.navigation.navigate('ThanhToan');
+    }
+    const goTDC = () =>{
+      this.props.navigation.navigate('CheckoutThemDiaChiScreen');
+    }
     return (
       <SafeAreaView style={styles.screen_container}>
-        <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} />
+        <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} goBack={goBack} goSDC={goSDC}/>
         <ScrollView>
           {arrayData.map((item, index) => {
             return (
@@ -70,7 +82,7 @@ class CheckoutDoiDiaChiScreen extends Component {
             style={styles.touchable}
             activeOpacity={0.6}
             underlayColor="#DDDDDD"
-            onPress={() => alert('Them dia chi')}
+            onPress={goTDC}
           >
             <View style={styles.new_address}>
               <Text style={styles.new_address_text}>Thêm địa chỉ nhận hàng mới</Text>
@@ -84,7 +96,7 @@ class CheckoutDoiDiaChiScreen extends Component {
           style={styles.confirm_button}
           activeOpacity={0.6}
           underlayColor="#f56e6e"
-          onPress={() => alert('Tien hanh thanh toan')}
+          onPress={goTT}
         >
           <ConfirmButtonComponent title={this.state.confirm_button_text} />
         </TouchableHighlight>
@@ -139,8 +151,7 @@ const styles = StyleSheet.create({
 
   confirm_button: {
     backgroundColor: '#F62424',
-    paddingTop: 20,
-    paddingBottom: 20,
+    height: 56,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

@@ -5,11 +5,20 @@ import ScrollViewXacNhanThanhToan from '../components/XacNhanSanPham/ScrollViewX
 
 class XacNhanSanPham extends Component {
     render() {
+        const goBack = () =>{
+            this.props.navigation.goBack();
+        }
+        const goHome = () =>{
+            this.props.navigation.popToTop();
+        }
+        const goDDC = () =>{
+            this.props.navigation.navigate('CheckoutDoiDiaChiScreen');
+        }
         return (
             <SafeAreaView style={styles.screen_container}>
-                <NavBarXacNhanSP title="Xác nhận sản phẩm"></NavBarXacNhanSP>
+                <NavBarXacNhanSP title="Xác nhận sản phẩm" back={goBack} home={goHome}></NavBarXacNhanSP>
                 <ScrollViewXacNhanThanhToan></ScrollViewXacNhanThanhToan>
-                <TouchableOpacity style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={goDDC}>
                     <Text style={styles.buttonText}>Chọn địa chỉ nhận hàng</Text>
                 </TouchableOpacity>
             </SafeAreaView>

@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 function HomeScreen({ navigation }) {
     return (
       <View>
-        <HeaderKeySearch/>
+        <HeaderKeySearch placeholder="Tìm kiếm"/>
         <View>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                 <View style={{display: 'flex', flexDirection: 'row', padding:10}} >
@@ -75,13 +75,13 @@ function HomeScreen({ navigation }) {
             </ScrollView>
 
             <View style={{flexDirection:'row',justifyContent:'space-between', padding:10}}>
-                <TouchableOpacity style={{elevation: 1}} onPress={() => this.props.navigation.openDrawer()}>
+                <TouchableOpacity style={{elevation: 1}} onPress={() => navigation.openDrawer()}>
                     <View style={styles.buttonRelevant}>
                         <Text style={styles.buttonText}>Liên quan</Text>
                         <Image style={styles.image} source={require('../resources/icons/down.png')}/>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={{elevation: 1}}>
+                <TouchableOpacity style={{elevation: 1}} onPress={( ) => navigation.openDrawer()}>
                     <View style={styles.buttonFilter}>
                         <Image style={styles.image} source={require('../resources/icons/trash.png')}/>
                         <Text style={styles.buttonTextFilter}>Bộ lọc</Text>

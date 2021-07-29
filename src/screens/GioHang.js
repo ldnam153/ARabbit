@@ -6,11 +6,23 @@ import NavBarXacNhanSP from '../components/XacNhanSanPham/NavBarXacNhanSP'
 
 class GioHang extends Component {
     render() {
+        const goBack = () =>{
+            this.props.navigation.goBack();
+        }
+        const goHome = () =>{
+            this.props.navigation.popToTop();
+        }
+        const goXNSP = () =>{
+            this.props.navigation.navigate('XacNhanSanPham');
+        }
         return (
             <SafeAreaView style={styles.screen_container}>
                 <NavBarXacNhanSP title="Giỏ hàng"></NavBarXacNhanSP>
                 <ScrollViewGioHang></ScrollViewGioHang>
-                <FooterThanhToan price="12.670.000 VNĐ" btnText="Thanh toán(3)"/>
+                <FooterThanhToan 
+                    price="12.670.000 VNĐ" 
+                    btnText="Thanh toán(3)" 
+                    press={goXNSP}/>
             </SafeAreaView>
         )
     }

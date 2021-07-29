@@ -52,7 +52,7 @@ class ScrollViewThanhToan extends Component {
 
         return (
             <ScrollView style={{backgroundColor:'#efefef'}}>
-                <DiaChiNhanHangThanhToan address="123, đường ABC, phường XY, quận Z, TP.HCM"/>
+                <DiaChiNhanHangThanhToan address="123, đường ABC, phường XY, quận Z, TP.HCM" goDDC={this.props.goDDC}/>
 
                 {/*   data render   */}
                 {data.map((shop) => <CardCHThanhToan data={shop} />)}
