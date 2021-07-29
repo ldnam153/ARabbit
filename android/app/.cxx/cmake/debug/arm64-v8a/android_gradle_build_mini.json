@@ -1,21 +1,21 @@
 {
   "buildFiles": [
-    "/home/namly/Desktop/ARabbit/android/app/src/main/cpp/CMakeLists.txt",
-    "/home/namly/Android/Sdk/ndk/21.3.6528147/build/cmake/android.toolchain.cmake",
-    "/home/namly/Android/Sdk/ndk/21.3.6528147/build/cmake/platforms.cmake"
+    "D:\\UI\\ARabbit\\android\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "/home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a\" clean"
+    "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\UI\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
   ],
-  "buildTargetsCommand": "/home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"D:\\UI\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "VuforiaSample-Debug-arm64-v8a": {
       "artifactName": "VuforiaSample",
-      "buildCommand": "/home/namly/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/namly/Desktop/ARabbit/android/app/.cxx/cmake/debug/arm64-v8a\" VuforiaSample",
+      "buildCommand": "C:\\Users\\LTS\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\UI\\ARabbit\\android\\app\\.cxx\\cmake\\debug\\arm64-v8a\" VuforiaSample",
       "abi": "arm64-v8a",
-      "output": "/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/debug/obj/arm64-v8a/libVuforiaSample.so",
+      "output": "D:\\UI\\ARabbit\\android\\app\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libVuforiaSample.so",
       "runtimeFiles": [
-        "/home/namly/Desktop/ARabbit/build/lib/arm64-v8a/libVuforia.so"
+        "D:\\UI\\ARabbit\\build\\lib\\arm64-v8a\\libVuforia.so"
       ]
     }
   }

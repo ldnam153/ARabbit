@@ -10,24 +10,33 @@ import {
   TextInput,
   Button,
   Alert,
-  TouchableOpacity
+  TouchableOpacity,
+  Modal,
+  Pressable
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import ViewSlider from 'react-native-view-slider';
 import Rating_star from '../components/Rating_star';
 import {NavigationContainer} from '@react-navigation/native';
 import ProductBar from '../components/ProductBar';
+import RBSheet from "react-native-raw-bottom-sheet";
+import TangGiamSL from '../components/GioHang/TangGiamSL';
+import ButtonToggleGroup from 'react-native-button-toggle-group';
 
 const {width, height} = Dimensions.get('window');
 
+
 class ProductDetails extends Component {
+
   render() {
+    const data = this.props.data
+
     return (
       <View>
         <View style={styles.tab}>
-          <View>
-            <Image style={{marginLeft: 10}}  source={ require('../resources/icons/back.png')}/>
-          </View>
+          <TouchableOpacity>
+            <Image style={{marginLeft: 15}}  source={ require('../resources/icons/back.png')}/>
+          </TouchableOpacity>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity>
               <Image style={{marginRight: 20, marginTop: 4, width: 24, height: 24}} source={require('../resources/icons/search.png')} />
@@ -45,26 +54,20 @@ class ProductDetails extends Component {
           <ViewSlider
             renderSlides={
               <>
-                <View style={styles.viewBox}>
-                  <Image
-                    source={require('../resources/imgs/FeedBackProduct/main.jpg')}
-                    style={{height: 500, width: 300}}
-                  />
-                </View>
-                <View style={styles.viewBox}>
-                  <Text>TWO</Text>
-                </View>
-                <View style={styles.viewBox}>
-                  <Text>THREE</Text>
-                </View>
-                <View style={styles.viewBox}>
-                  <Text>FOUR</Text>
-                </View>
+                {data.main_img.map((item, index) => {
+                  return (<View style={styles.viewBox}>
+                    <Image
+                      source={{uri: item}}
+                      style={{height: 400, width: width}}
+                      />
+                  </View>)
+                })}
+                
               </>
             }
             style={styles.slider} //Main slider container style
             height={250} //Height of your slider
-            slideCount={4} //How many views you are adding to slide
+            slideCount={data.main_img.length} //How many views you are adding to slide
             dots={true} // Pagination dots visibility true for visibile
             dotActiveColor="red" //Pagination dot active color
             dotInactiveColor="gray" // Pagination do inactive color
@@ -85,11 +88,11 @@ class ProductDetails extends Component {
                 flex: 1,
                 alignItems: 'center'
               }}>
-              <Text style={{fontSize: 16, marginTop: 3}}> 4.0 </Text>
-              <Rating_star width="15" height="15" value="4" />
+              <Text style={{fontSize: 16, marginTop: 3}}> {data.star}.0 </Text>
+              <Rating_star width="15" height="15" value={data.star} />
             </View>
             <View style={{flex: 1, alignItems: 'center'}}>
-              <Text style={{ fontSize: 16}}> 999 đã bán </Text>
+              <Text style={{ fontSize: 16}}> {data.sold} đã bán </Text>
             </View>
           </View>
 
@@ -102,8 +105,8 @@ class ProductDetails extends Component {
                   alignSelf: 'center',
                 }
             ]}>
-            <Text style={[styles.header_text, {marginTop: 10, marginBottom: 15}]}>Váy trắng mùa hè năng động </Text>
-            <Text style={[styles.header_text, {color: '#FF5C00', marginBottom: 10}]}>270.000 VNĐ</Text>
+            <Text style={[styles.header_text, {marginTop: 10, marginBottom: 15}]}>{data.name} </Text>
+            <Text style={[styles.header_text, {color: '#FF5C00', marginBottom: 10}]}>{data.price} VNĐ</Text>
           </View>
 
           <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
@@ -114,7 +117,7 @@ class ProductDetails extends Component {
             <View style = {{
               margin: 15,
             }}>
-              <Image source={require('../resources/imgs/FeedBackProduct/images.png')} style={styles.profileImg} />
+              <Image source={{uri: data.shop_img}} style={styles.profileImg} />
             </View>
             <View style = {{
               marginTop: 22
@@ -123,7 +126,7 @@ class ProductDetails extends Component {
                 fontWeight: 'bold',
                 fontSize: 18
               }}> 
-                luon_vui_tuoi_official
+                {data.shop}
               </Text>
               <Text style={styles.seeAll}>Xem tất cả></Text>
             </View>
@@ -151,36 +154,7 @@ class ProductDetails extends Component {
                 marginBottom: 20
               }
             ]}>
-                          𝑪𝑪𝑯𝑨𝑻𝑪𝑳𝑶𝑻𝑯𝑬𝑺 {"\n"}
-              THƯƠNG HIỆU THỜI TRANG THIẾT KẾ CAO CẤP{"\n"}
-              THÔNG TIN SẢN PHẨM{"\n"}
-              - Sản phẩm: Váy cổ nơ khuy bèo TT{"\n"}
-              - Mã sản phẩm: 11VHV0034XT.{"\n"}
-              - Màu sắc : Xanh.{"\n"}
-              - Kiểu dáng: Xoè.{"\n"}
-              - Chất liệu: Voan..{"\n"}
-              Form chuẩn với vóc dáng phụ nữ Việt Nam{"\n"}
-              {"\n"}
-              ⭐Bảng kích thước/(CM){"\n"}
-              {"\n"}
-
-              S:   Chiều dài: 33.5                   Vòng eo: 62               Vòng hông: 88{"\n"}
-              
-              M:   Chiều dài: 34                      Vòng eo: 66                Vòng hông: 92{"\n"}
-
-              L:   Chiều dài: 34.5                   Vòng eo: 70               Vòng hông: 96{"\n"}
-
-              XL:   Chiều dài: 35                     Vòng eo: 74               Vòng hông: 100{"\n"}
-
-              2XL:   Chiều dài: 35.5                Vòng eo: 78               Vòng hông: 104{"\n"}
-
-              3XL:   Chiều dài: 36                   Vòng eo: 82               Vòng hông: 108{"\n"}
-
-              4XL:   Chiều dài: 36.5                Vòng eo: 86               Vòng hông: 112{"\n"}
-
-              5XL:   Chiều dài: 37                    Vòng eo: 90               Vòng hông: 116{"\n"}
-              ⭐ Vui lòng cho phép sai số 1-3cm về số đo do cách đo lường thủ công.{"\n"}
-              #women #Korean #fashion #Casual #HighWaist #Slim #Plain #trend #Culottes #Bandage #autumn #Oversize
+                {data.detail}
               
             </Text>
           </View>
@@ -203,18 +177,20 @@ class ProductDetails extends Component {
                   marginLeft: -5,
                   marginBottom: 5
                 }]}>
-                <Rating_star width="15" height="15" value="4">
+                <Rating_star width="15" height="15" value={data.star}>
                   {' '}
                 </Rating_star>
-                <Text>  4.0/5 (433 đánh giá)</Text>
+                <Text>  {data.star}/5 ({data.rating} đánh giá)</Text>
               </View>
             </View>
-            <Text
-              style={[styles.seeAll, {
-                marginTop: 13,
-              }]}>
-              Xem tất cả>
-            </Text>
+            <TouchableOpacity>
+              <Text
+                style={[styles.seeAll, {
+                  marginTop: 13,
+                }]}>
+                Xem tất cả>
+              </Text>
+            </TouchableOpacity>
           </View>
 
           <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
@@ -235,13 +211,13 @@ class ProductDetails extends Component {
                     fontWeight: 'bold',
                     fontSize: 17
                 }}>
-                    ngochan113
+                    {data.accessor[0].name}
                 </Text>
-                <Rating_star width="11" height="11" value="4" >
+                <Rating_star width="11" height="11" value={data.accessor[0].star} >
                     {' '}
                 </Rating_star>
                 </View>
-                <Text>12/07/2021</Text>
+                <Text>{data.accessor[0].date}</Text>
             </View>
 
             <View>
@@ -253,22 +229,20 @@ class ProductDetails extends Component {
                     lineHeight: 19
                 }
                 ]}>
-                Váy xinh y như hình shop đăng nhé. Màu cũng rất đẹp. Tiếc là shop không đăng màu hình váy vàng lên để mọi người nhìn thấy và có thêm lựa chọn. Rất hài lòng.
+                  {data.accessor[0].content}
                 </Text>
                 
                 <ScrollView style={{backgroundColor: 'white', height: 330, width: width, marginLeft: 10}}  horizontal={true}>
-                    <View style={styles.feedBackImg} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/c.jpg')} />
-                    </View>                      
-                    <View style={styles.feedBackImg} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/e.webp')} />
-                    </View>
-                    <View style={styles.feedBackImg} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/d.png')} />
-                    </View>
-                    <View style={styles.feedBackImg} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/a.jpg')} />
-                    </View>
+
+                    {data.accessor[0].img.map((item, index) => {
+                      return (
+                        <View style={styles.feedBackImg}>
+                          <Image
+                            source={{uri: item}}
+                            style={styles.imgStyle}
+                          />
+                        </View>)
+                    })}
                 </ScrollView>
 
             </View>
@@ -299,7 +273,7 @@ class ProductDetails extends Component {
             </View>
             
             <View style={styles.RelatedProduct} >
-              <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
+              <ProductBar num_star= "5"  name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
             </View>
             <View style={styles.RelatedProduct} >
               <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
@@ -317,24 +291,71 @@ class ProductDetails extends Component {
 
         </ScrollView>
 
-        <View style={{flexDirection: 'row', position: 'absolute', bottom: 48}}>
-          <View style={styles.chat_cart_bt}>
-            <TouchableOpacity style={styles.BottomButton}>
+        <View style={{flexDirection: 'row', position: 'absolute', bottom: 48, backgroundColor: 'white'}}>
+          <TouchableOpacity style={styles.chat_cart_bt}>
+            <View style={styles.BottomButton}>
               <Image style = {{width: 25, height: 25}}  source={require('../resources/icons/chat_red.png')} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.chat_cart_bt}>
-            <TouchableOpacity style={styles.BottomButton}>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.chat_cart_bt} onPress={() => {this.RBSheet.open();}}>
+            <View style={styles.BottomButton}>
               <Image style = {{width: 25, height: 25}}  source={require('../resources/icons/cart_add.png')} />
-            </TouchableOpacity>
-          </View>
-          <View style={{flex: 4, alignItems: 'center', backgroundColor: '#FF0000'}}>
-            <TouchableOpacity style={styles.BottomButton}>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex: 4, alignItems: 'center', backgroundColor: '#FF0000'}} onPress={() => {this.RBSheet.open();}}>
+            <View style={styles.BottomButton}>
               <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Mua ngay</Text>
-            </TouchableOpacity>
-          </View>
+            </View>
+          </TouchableOpacity>
         </View>
         
+        <RBSheet
+          ref={ref => {
+            this.RBSheet = ref;
+          }}
+          height={300}
+          duration={250}
+          >
+
+          <View style={{justifyContent: 'space-between', flexDirection: 'column'}}>
+            <View style={{marginLeft: 10, marginTop: 10, flexDirection: 'row',}}>
+
+              <View style={{flex: 1}}>
+                <Image
+                  source={{uri: data.main_img[0]}}
+                  style={{height: 100 , width: 100}}
+                />
+              </View>
+
+              <View style={{flex: 2, alignItems: 'center'}}>
+                <Text style={[styles.header_text, {color: '#FF5C00'}]}> {data.price} VNĐ </Text>
+                <Text style={{fontSize: 18, fontWeight: 'bold'}}> Kho: {data.stock} </Text>
+              </View>
+
+            </View>
+
+            <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
+              <Text style={{fontSize: 18, fontWeight: 'bold'}}> Color: </Text>
+              <ScrollView horizontal={true}> 
+                
+              </ScrollView>
+            </View>
+
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 10}}> 
+              <Text style={{fontSize: 18, fontWeight: 'bold'}}> Số lượng: </Text>
+              <TangGiamSL number= "1"/>
+            </View>
+
+            <TouchableOpacity style={{bottom: -98, alignItems: 'center', backgroundColor: '#FF0000'}} onPress={() => {this.RBSheet.close();}}>
+              <View style={styles.BottomButton}>
+                <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Đồng ý</Text>
+              </View>
+            </TouchableOpacity>
+
+          </View>
+          
+        </RBSheet>
+      
       </View>
     );
   }
@@ -353,7 +374,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'white'
   },
   dotContainer: {
     backgroundColor: 'transparent',
@@ -421,6 +442,9 @@ const styles = StyleSheet.create({
     imgStyle: {
     width: 200, 
     height: 300 
+  },
+  btnPopUp: {
+    padding: 10
   }
 });
 
