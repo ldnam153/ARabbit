@@ -308,11 +308,11 @@ const product = [
 
 const discount = ['3', '4', '5', '6', '7'];
 
-const best_saler = [];
+const best_saler = ['9', '10', '11', '12', '13'];
 
-const newest = [];
+const newest = ['14', '15', '16', '17', '18'];
 
-const sugggest = [];
+const sugggest = ['19', '20', '21', '22', '23', '24', '25', '26', '27', '28'];
 
 const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau củ quả","hàng đông lạnh","đồ hộp","hoa quả","ps4","nintendo","laptop","bếp điện từ"];
 
