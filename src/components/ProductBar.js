@@ -45,7 +45,7 @@ class ProductBar extends Component {
         return (
             <TouchableOpacity style={{marginTop:10, width:170}} onPress={this.props.goPD}>
                 <View style={styles.ctn_image}>
-                    <Image source={require('../resources/imgs/vaydo.jpg')} style={styles.image}/>
+                    <Image source={{uri: this.props.imgUrl}} style={styles.image}/>
                     <View style={{position:'absolute',width:'100%',alignItems:'flex-end'}}>
                         <Sale_frame value={this.props.percent_sale}/>
                     </View>

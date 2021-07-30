@@ -43,26 +43,26 @@ class PDBody extends Component {
                     marginBottom: 5
                     }]}>
                     <View>
-                    <Text style={[styles.hearder_text_2, {}]}>Đánh giá sản phẩm</Text>
-                    <View style={[, 
-                        {
-                        flexDirection: 'row', 
-                        marginLeft: -5,
-                        marginBottom: 5
-                        }]}>
-                        <Rating_star width="15" height="15" value={data.star}>
-                        {' '}
-                        </Rating_star>
-                        <Text>  {data.star}/5 ({data.rating} đánh giá)</Text>
-                    </View>
+                        <Text style={[styles.hearder_text_2, {}]}>Đánh giá sản phẩm</Text>
+                        <View style={[, 
+                            {
+                            flexDirection: 'row', 
+                            marginLeft: -5,
+                            marginBottom: 5
+                            }]}>
+                            <Rating_star width="15" height="15" value={data.star}>
+                            {' '}
+                            </Rating_star>
+                            <Text>  {data.star}/5 ({data.rating} đánh giá)</Text>
+                        </View>
                     </View>
                     <TouchableOpacity onPress={this.props.goFP}>
-                    <Text
-                        style={[styles.seeAll, {
-                        marginTop: 13,
-                        }]}>
-                        Xem tất cả
-                    </Text>
+                        <Text
+                            style={[styles.seeAll, {
+                            marginTop: 13,
+                            }]}>
+                            Xem tất cả
+                        </Text>
                     </TouchableOpacity>
                 </View>
 
@@ -141,7 +141,7 @@ class PDBody extends Component {
                     <ProductBar num_star= "5"  name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
                     </View>
                     <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
+                    <ProductBar imgUrl = "" num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
                     </View>
                     <View style={styles.RelatedProduct} >
                     <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
