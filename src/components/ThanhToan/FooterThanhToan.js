@@ -1,7 +1,22 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import SweetAlert from 'react-native-sweet-alert';
 
 class FooterThanhToan extends Component {
+
+    showAlertThanhToan = () => {
+        SweetAlert.showAlertWithOptions({
+            title: 'Hoàn tất',
+            subTitle: 'Đặt hàng thành công',
+            confirmButtonTitle: 'OK',
+            confirmButtonColor: '#f11',
+            otherButtonTitle: 'Cancel',
+            otherButtonColor: '#dedede',
+            style: 'success',
+            cancellable: true,
+          }, this.props.press);
+      };
+
     render() {
         return (
             <View style={styles.footer}>
@@ -13,7 +28,7 @@ class FooterThanhToan extends Component {
                 style={styles.rightFooter}
                 activeOpacity={0.7}
                 underlayColor="#f62424"
-                onPress={this.props.press}>
+                onPress={this.props.thanhtoan ? this.showAlertThanhToan : this.props.press}>
                 <Text style={styles.buttonText}>{this.props.btnText}</Text>
                 </TouchableOpacity>
             </View>

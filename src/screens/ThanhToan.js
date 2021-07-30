@@ -23,7 +23,7 @@ class ThanhToan extends Component {
             <SafeAreaView style={styles.screen_container}>
                 <NavBarXacNhanSP title="Thanh toán" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
                 <ScrollViewThanhToan goDDC={goDDC} goVS={goVS}/>
-                <FooterThanhToan price="12.705.000 VNĐ" btnText="ĐẶT HÀNG" press={goHome}/>
+                <FooterThanhToan price="12.705.000 VNĐ" btnText="ĐẶT HÀNG" press={goHome} thanhtoan={true}/>
             </SafeAreaView>
         )
     }
