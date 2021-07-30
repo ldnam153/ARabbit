@@ -43,14 +43,6 @@ const DATA = [
         title: "Third Item",
       },
   ];
-const Item = () => (
-    <View style={{padding: 5,
-        marginVertical: 8,
-        marginHorizontal: 10,
-        width: '50%'}}>
-      <ProductBar/>
-    </View>
-  );
 class Recommend extends Component {
     constructor(props) {
         super(props)
@@ -77,7 +69,12 @@ class Recommend extends Component {
             <View style={{ columns: 2,flex: 1, flexDirection: 'column',flexWrap: 'wrap'}}>
             {this.state.products.map((item, index) => {
                 return (
-                    <Item/>
+                  <View style={{padding: 5,
+                      marginVertical: 8,
+                      marginHorizontal: 10,
+                      width: '50%'}}>
+                    <ProductBar goPD={this.props.goPD}/>
+                  </View>
                 )
             })}
             </View>

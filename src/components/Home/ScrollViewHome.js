@@ -22,7 +22,7 @@ class ScrollViewHome extends Component {
         <SectionHome title = {'Giảm giá'} goPD={this.props.goPD}/>
         <SectionHome title = {'Bán chạy'} goPD={this.props.goPD}/>
         <SectionHome title = {'Mới nhất'} goPD={this.props.goPD}/>
-        <Recommend title = {'Gợi ý cho bạn'}/>
+        <Recommend title = {'Gợi ý cho bạn'} goPD={this.props.goPD}/>
       </ScrollView>
     );
   }

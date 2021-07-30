@@ -39,92 +39,102 @@ const styles = StyleSheet.create({
     }
   });
 
-function HomeScreen({ navigation }) {
-    return (
-      <View>
-        <HeaderKeySearch placeholder="Tìm kiếm"/>
-        <View>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                <View style={{display: 'flex', flexDirection: 'row', padding:10}} >
-                    <TouchableOpacity style={{elevation: 1}}>
-                        <View style={styles.button}>
-                            <Text style={styles.buttonText}>Váy</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{elevation: 1, marginLeft:10}}>
-                        <View style={styles.button}>
-                            <Text style={styles.buttonText}>Váy ngắn</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{elevation: 1, marginLeft:10}}>
-                        <View style={styles.button}>
-                            <Text style={styles.buttonText}>Váy dài</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{elevation: 1, marginLeft:10}}>
-                        <View style={styles.button}>
-                            <Text style={styles.buttonText}>Váy dại hội</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{elevation: 1, marginLeft:10}}>
-                        <View style={styles.button}>
-                            <Text style={styles.buttonText}>Váy dại hội 123</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>         
-            </ScrollView>
-
-            <View style={{flexDirection:'row',justifyContent:'space-between', padding:10}}>
-                <TouchableOpacity style={{elevation: 1}} onPress={() => navigation.openDrawer()}>
-                    <View style={styles.buttonRelevant}>
-                        <Text style={styles.buttonText}>Liên quan</Text>
-                        <Image style={styles.image} source={require('../resources/icons/down.png')}/>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={{elevation: 1}} onPress={( ) => navigation.openDrawer()}>
-                    <View style={styles.buttonFilter}>
-                        <Image style={styles.image} source={require('../resources/icons/trash.png')}/>
-                        <Text style={styles.buttonTextFilter}>Bộ lọc</Text>
-                    </View>
-                </TouchableOpacity>
+class HomeScreen extends Component {
+    render(){
+        return (
+            <View>
+              <HeaderKeySearch placeholder="Tìm kiếm" goBack={this.props.route.params.goBack}/>
+              <View>
+                  <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                      <View style={{display: 'flex', flexDirection: 'row', padding:10}} >
+                          <TouchableOpacity style={{elevation: 1}}>
+                              <View style={styles.button}>
+                                  <Text style={styles.buttonText}>Váy</Text>
+                              </View>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={{elevation: 1, marginLeft:10}}>
+                              <View style={styles.button}>
+                                  <Text style={styles.buttonText}>Váy ngắn</Text>
+                              </View>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={{elevation: 1, marginLeft:10}}>
+                              <View style={styles.button}>
+                                  <Text style={styles.buttonText}>Váy dài</Text>
+                              </View>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={{elevation: 1, marginLeft:10}}>
+                              <View style={styles.button}>
+                                  <Text style={styles.buttonText}>Váy dại hội</Text>
+                              </View>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={{elevation: 1, marginLeft:10}}>
+                              <View style={styles.button}>
+                                  <Text style={styles.buttonText}>Váy dại hội 123</Text>
+                              </View>
+                          </TouchableOpacity>
+                      </View>         
+                  </ScrollView>
+      
+                  <View style={{flexDirection:'row',justifyContent:'space-between', padding:10}}>
+                      <TouchableOpacity style={{elevation: 1}} onPress={() => this.props.navigation.openDrawer()}>
+                          <View style={styles.buttonRelevant}>
+                              <Text style={styles.buttonText}>Liên quan</Text>
+                              <Image style={styles.image} source={require('../resources/icons/down.png')}/>
+                          </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity style={{elevation: 1}} onPress={( ) => this.props.navigation.openDrawer()}>
+                          <View style={styles.buttonFilter}>
+                              <Image style={styles.image} source={require('../resources/icons/filter.png')}/>
+                              <Text style={styles.buttonTextFilter}>Bộ lọc</Text>
+                          </View>
+                      </TouchableOpacity>
+                  </View>
+                  
+                  <ScrollView style={{backgroundColor:'white'}} contentContainerStyle={{ paddingBottom: 350}}>
+                      <View style={{flexDirection:'row',justifyContent:'space-between', flexWrap:'wrap', paddingLeft:10, paddingRight:30}}>        
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                      </View>
+                  </ScrollView>
+      
+              </View>
+              {/* <Button
+                onPress={() => navigation.navigate('Notifications')}
+                title="Go to notifications"
+              /> */}
             </View>
-            
-            <ScrollView style={{backgroundColor:'white'}} contentContainerStyle={{ paddingBottom: 350}}>
-                <View style={{flexDirection:'row',justifyContent:'space-between', flexWrap:'wrap', paddingLeft:10, paddingRight:30}}>        
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                    <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100"/>
-                </View>
-            </ScrollView>
-
-        </View>
-        {/* <Button
-          onPress={() => navigation.navigate('Notifications')}
-          title="Go to notifications"
-        /> */}
-      </View>
-    );
+          );
+    }
   }
 
 const Drawer = createDrawerNavigator();
 
-
-
 class ResultKeywordScreen extends Component{
     render() {
+        const goPD = () =>{
+            this.props.navigation.navigate('ProductDetails');
+        }
+        const goBack = () =>{
+            this.props.navigation.goBack();
+        }
         return (
             <NavigationContainer independent={true}>
                 <Drawer.Navigator  drawerPosition="right" drawerContent={props => <DrawerContent {...props}/>}>
-                    <Drawer.Screen name="Home123" component={HomeScreen} />
+                    <Drawer.Screen name="Home123" component={HomeScreen} initialParams={
+                        {
+                            goPD: goPD,
+                            goBack: goBack,
+                        }}/>
                 </Drawer.Navigator>
             </NavigationContainer>
         )

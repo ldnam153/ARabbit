@@ -8,7 +8,7 @@ import HistoryItem from '../components/HistoryItem';
 
 const Tab = createMaterialTopTabNavigator();
   
-  function HotScreen() {
+  function HotScreen({goRK}) {
     return (
       <View>
         <HistoryItem name_product="Váy" date="Hôm nay" goRK={goRK}/>
@@ -46,7 +46,7 @@ class TabHistorySearch extends Component{
                     <HeaderKeySearch placeholder="Tìm kiếm" goBack={goBack}/>
                     <Tab.Navigator getLabelText={({ route }) => route.title} initialRouteName="Something" tabBarOptions={{labelStyle:{fontSize: 14, textTransform: 'none'},activeTintColor:'red', inactiveTintColor:'grey' ,style:{elevation: 0}, indicatorStyle:{backgroundColor:'red'}}}>
                         <Tab.Screen name="Gần đây" children={()=><NearScreen goRK={goRK}/>} />
-                        <Tab.Screen name="Nổi bật" component={HotScreen} />
+                        <Tab.Screen name="Nổi bật" children={() => <HotScreen goRK={goRK}/>} />
                         <Tab.Screen name="Tìm với camera" component={cameraScreen} />
                     </Tab.Navigator>
                 </NavigationContainer>

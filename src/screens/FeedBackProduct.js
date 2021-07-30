@@ -7,7 +7,8 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import ViewSlider from 'react-native-view-slider';
@@ -17,12 +18,15 @@ const {width, height} = Dimensions.get('window');
 
 class ProductDetails extends Component {
   render() {
+    const goBack = () => {
+      this.props.navigation.goBack()
+    }
     return (
       <View >
         <View style={styles.tab}>
-            <View style={{ flex: 2}}>
+            <TouchableOpacity style={{ flex: 2}} onPress={goBack}>
                 <Image style={{marginLeft: 10}}  source={ require('../resources/icons/back.png')}/>
-            </View>
+            </TouchableOpacity>
           <View style={{ flex: 6}}>
             <Text style={{ fontSize: 24, fontWeight: 'bold'}}>Đánh giá sản phẩm</Text> 
           </View>

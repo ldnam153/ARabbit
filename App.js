@@ -6,6 +6,7 @@ import GioHang from '~/screens/GioHang'
 import XacNhanSanPham from '~/screens/XacNhanSanPham'
 import ThanhToan from '~/screens/ThanhToan'
 import ProductDetails from '~/screens/ProductDetails'
+import FeedBackProduct from '~/screens/FeedBackProduct'
 import CheckoutDoiDiaChiScreen from '~/screens/Checkout/CheckoutDoiDiaChiScreen'
 import CheckoutThemDiaChiScreen from '~/screens/Checkout/CheckoutThemDiaChiScreen'
 import CheckoutSuaDiaChiScreen from '~/screens/Checkout/CheckoutSuaDiaChiScreen'
@@ -25,6 +26,7 @@ function MyStack() {
     }}>
       <Stack.Screen name="Home" component={TabScreen} />
       <Stack.Screen name="ProductDetails" component={ProductDetails}/>
+      <Stack.Screen name="FeedBackProduct" component={FeedBackProduct}/>
       <Stack.Screen name="TabHistorySearch" component={TabHistorySearch}/>
       <Stack.Screen name="ResultKeywordScreen" component={ResultKeywordScreen}/>
       <Stack.Screen name="GioHang" component={GioHang} />

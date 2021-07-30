@@ -56,7 +56,7 @@ class PDBody extends Component {
                         <Text>  {data.star}/5 ({data.rating} đánh giá)</Text>
                     </View>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.props.goFP}>
                     <Text
                         style={[styles.seeAll, {
                         marginTop: 13,
@@ -138,19 +138,19 @@ class PDBody extends Component {
                     </View>
                     
                     <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5"  name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
+                    <ProductBar num_star= "5"  name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
                     </View>
                     <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
+                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
                     </View>
                     <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
+                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
                     </View>
                     <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
+                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
                     </View>
                     <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
+                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
                     </View>
                 </ScrollView>
             </View>
