@@ -10,11 +10,17 @@ import {
 } from 'react-native';
 import Rating_star from '../../components/Rating_star';
 import ProductBar from '../../components/ProductBar';
+import dataRef from "../../data/data";
 
 const {width, height} = Dimensions.get('window');
 class PDBody extends Component {
+    
     render() {
         const data = this.props.data
+
+        const relatedProduct = [];
+        for(let i = 0; i < data.related.length; i++)
+            relatedProduct.push(dataRef.getProduct(data.related[i]))
         return(
             <View>
                 <View style={[, {justifyContent: 'space-between', alignSelf: 'center'}]}>
@@ -133,25 +139,24 @@ class PDBody extends Component {
                 <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
 
                 <ScrollView style={{backgroundColor: 'white', height: 430, width: width,}}  horizontal={true}>
-                    <View style={styles.RelatedProduct} >
-                    <ProductBar link_img="../resources/imgs/FeedBackProduct/c.jpg" num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100"/>
-                    </View>
-                    
-                    <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5"  name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
-                    </View>
-                    <View style={styles.RelatedProduct} >
-                    <ProductBar imgUrl = "" num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
-                    </View>
-                    <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
-                    </View>
-                    <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
-                    </View>
-                    <View style={styles.RelatedProduct} >
-                    <ProductBar num_star= "5" percent_sale="10" name_product="Váy đỏ siêu đẹp" sale_price = "199.000" location="TP.HCM" num_sales="100" goPD={this.props.goPD}/>
-                    </View>
+                    {
+                        
+                        relatedProduct.map((item, index) => {
+                        return (
+                            <View style={styles.RelatedProduct}>
+                                <ProductBar
+                                    imgUrl = {item.main_img[0]}
+                                    num_star= {item.star}
+                                    percent_sale = {item.sale_percent}
+                                    name_product = {item.name}
+                                    sale_price = {item.price}
+                                    location = {item.location}
+                                    num_sales = {item.sold}
+                                    real_price = {item.first_price}
+                                    goPD={this.props.goPD}
+                                />
+                            </View>)
+                        })}
                 </ScrollView>
             </View>
         );

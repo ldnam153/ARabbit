@@ -18,11 +18,18 @@ const product = [
         star: "4",
         date: "12/07/2021",
         img: ["https://prices.vn/storage/photo/product/vay-hai-day-ngoc-5-tang-v1081-co-mut-nguc-1626267190582.png", "https://cf.shopee.vn/file/551a28277279e96d345b26f0b99725fb", "https://cf.shopee.vn/file/6b37fc6ceb80a4642a0a4499473ca9ee"]
+      },
+      {
+        name: "nguyenhonghanh936",
+        content: "Chất lượng sản phẩm tuyệt vời. Đóng gói sản phẩm rất đẹp và chắc chắn. Shop phục vụ rất tốt. Rất đáng tiền. Chất lượng sản phẩm tuyệt vời. Đóng gói sản phẩm rất đẹp và chắc chắn. Shop phục vụ rất tốt. Rất đáng tiền.",
+        star: "4",
+        date: "21/07/2021",
+        img: ["https://cf.shopee.vn/file/8057705a10a5cba2a3e986e85304818e", "https://cf.shopee.vn/file/97834ffc39909d616d6f8cbfafdda2fb_tn", "https://ayleendress.com/img-20200729-215106.jpg"]
       }
     ],
     color: ["Yellow", "Blue", "Red", "Violet", "Green", "Pink"],
     size: ["XS", 'S', 'L', 'XL'],
-    related: ["1","2","3"]
+    related: ["14","15","16"]
   },
   {
     id: "2",
@@ -47,7 +54,7 @@ const product = [
     ],
     color: ["Yellow", "Blue", "Red", "Violet", "Green", "Pink"],
     size: ["XS", 'S', 'L', 'XL'],
-    related: ["1","2","3"]
+    related: ["17","18","19"]
   },
   {
       id: "3",
@@ -162,7 +169,8 @@ const product = [
       first_price: "260.000",
       price: '130.000',
       star: '4',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+      sold: '1k'
   },
   {
     id: '15',
@@ -172,7 +180,8 @@ const product = [
     first_price: "",
     price: "99.000",
     star: '3',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    sold: '991'
   },
   {
     id: '16',
@@ -182,17 +191,19 @@ const product = [
     first_price: "350.000",
     price: '210.000',
     star: '5',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    sold: '1,2k'
   },
   {
     id: '17',
     main_img: ["https://inbaongoc.com/wp-content/uploads/2017/03/in-hop-banh-quy-tra-xanh.jpg"],
     sale_percent: "50",
     name: "Hộp bánh quy trà xanh Cozy",
-    first_price: "100.000",
-    price: '200.000',
+    first_price: "200.000",
+    price: '100.000',
     star: '5',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    sold: '29'
   },
   {
     id: '18',
@@ -202,17 +213,19 @@ const product = [
     first_price: "",
     price: '399.000',
     star: '5',
-    location: 'Đồng Nai'
+    location: 'Đồng Nai',
+    sold: '762'
   },
   {
     id: '19',
-    main_img: ["https://lh3.googleusercontent.com/proxy/031bOuvsBsHtmC2SbbJ-v_IxsGx4Ha1n_nab3Fp14IIKSlzCh11uwJSoDSuPleHklLA8F_FhXFi8q7oHfF9LbUgrBvw3ucK4ROjQug94u9Vw4PvE3GaeSO_AYkdD3WEmVy6afm_DNg7iDKPkmaZT-BGNcsTR"],
+    main_img: ["https://lh3.googleusercontent.com/proxy/b2VpiW_0tpCJXaYmUimYRp4C-ZEJ8oRT7AVW3vclemNUnGqWyS3A87UV2Y8OQk8k-BSLXYLiW2a87UVYOw-cyub8Tb8MHIY6hmbBES7GoMwXvepwUhBKhxfH_nSasP4qsIbsXTYj4m1AYg16IVkJSHKBseJQvw"],
     sale_percent: "20",
     name: "Hộp bánh LottePie",
     first_price: "400.000",
     price: '320.000',
     star: '3',
-    location: 'Hà Nội'
+    location: 'Hà Nội',
+    sold: '47'
   },
   {
     id: '20',
@@ -318,4 +331,11 @@ const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau c�
 
 const gan_day=["chuột gaming","ghế mát xa","bao tay chơi game","mô hình robot","laptop dell","playstation","psp","chảo chống dính","nồi hấp","thảm yoga"];
 
-export default product;
+function getProduct(id) {
+  for (let i = 0; i < product.length; i++) {
+    if(product[i].id === id)
+      return product[i]
+  }
+}
+
+export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, getProduct };

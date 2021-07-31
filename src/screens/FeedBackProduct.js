@@ -11,13 +11,13 @@ import {
   TouchableOpacity
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import ViewSlider from 'react-native-view-slider';
 import Rating_star from '../components/Rating_star';
 
 const {width, height} = Dimensions.get('window');
 
-class ProductDetails extends Component {
+class FeedBackProduct extends Component {
   render() {
+    var data =  this.props.data
     const goBack = () => {
       this.props.navigation.goBack()
     }
@@ -33,124 +33,41 @@ class ProductDetails extends Component {
           <View style={{flex: 0.5}}></View>
         </View>
 
-        <ScrollView style={styles.container}>   
-            <View style={[, 
-                    {
-                    flexDirection: 'row', 
-                    width: width - 20,
-                    justifyContent: 'space-between',
-                    alignSelf: 'center',
-                    marginBottom: 10,
-                    marginTop: 10,
-                    marginLeft: 5
-                    }]}>  
-                <View>
-                <Text style={{
-                    color: '#FF5C00',
-                    fontWeight: 'bold',
-                    fontSize: 17
-                }}>
-                    ngochan113
-                </Text>
-                <Rating_star width="11" height="11" value="4" >
-                    {' '}
-                </Rating_star>
+        <ScrollView style={styles.container}>
+          {data.accessor.map((item, index) => {
+            return (
+              <View>
+                <View style={styles.main_view}>
+                  <View>
+                    <Text style={styles.nameStyle}>
+                      {item.name}
+                    </Text>                                
+                    <Rating_star width="11" height="11" value= {item.star}/>
+                  </View>
+                  <Text>{item.date}</Text>
                 </View>
-                <Text>12/07/2021</Text>
-            </View>
 
-            <View>
-                <Text style={[, 
-                {
-                    width: width - 70,
-                    alignSelf: 'center',
-                    marginBottom: 10,
-                    lineHeight: 19
-                }
-                ]}>
-                Váy xinh y như hình shop đăng nhé. Màu cũng rất đẹp. Tiếc là shop không đăng màu hình váy vàng lên để mọi người nhìn thấy và có thêm lựa chọn. Rất hài lòng.
-                </Text>
-                
-                <ScrollView style={{backgroundColor: 'white', height: 330, width: width, marginLeft: 10}}  horizontal={true}>
-                    <View style={styles.RelatedProduct} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/c.jpg')} />
-                    </View>                      
-                    <View style={styles.RelatedProduct} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/e.webp')} />
-                    </View>
-                    <View style={styles.RelatedProduct} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/d.png')} />
-                    </View>
-                    <View style={styles.RelatedProduct} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/a.jpg')} />
-                    </View>
-                </ScrollView>
-
-            </View>
-
-            <View style={{height: 10, backgroundColor: "#CDD1D1", width: width }} />
-        
-            <View style={[, 
-                    {
-                    flexDirection: 'row', 
-                    width: width - 20,
-                    justifyContent: 'space-between',
-                    alignSelf: 'center',
-                    marginBottom: 10,
-                    marginTop: 10,
-                    marginLeft: 5
-                    }]}>  
                 <View>
-                <Text style={{
-                    color: '#FF5C00',
-                    fontWeight: 'bold',
-                    fontSize: 17
-                }}>
-                    nguyenhonghanh936
-                </Text>
-                <Rating_star width="11" height="11" value="5" >
-                    {' '}
-                </Rating_star>
+                  <Text style={styles.textStyle}>
+                    {item.content}
+                  </Text>
+                  <ScrollView style={{backgroundColor: 'white', height: 370, width: width, marginLeft: 10}}  horizontal={true}>
+                    {item.img.map((it, ind) => {
+                      return (
+                          <View style={styles.feedBackImg}>
+                            <Image
+                                source={{uri: it}}
+                                style={styles.imgStyle}
+                            />
+                          </View>)
+                      })}
+                  </ScrollView>
                 </View>
-                <Text>12/07/2021</Text>
-            </View>
 
-            <View>
-                <Text style={[, 
-                {
-                    width: width - 70,
-                    alignSelf: 'center',
-                    marginBottom: 10,
-                    lineHeight: 19
-                }]}>
-                    Chất lượng sản phẩm tuyệt vời.
-                    Đóng gói sản phẩm rất đẹp và chắc chắn.
-                    Shop phục vụ rất tốt. Rất đáng tiền.
-                    Chất lượng sản phẩm tuyệt vời.
-                    Đóng gói sản phẩm rất đẹp và chắc chắn.
-                    Shop phục vụ rất tốt. Rất đáng tiền.
+                <View style={{height: 10, backgroundColor: "#CDD1D1", width: width }} />
+              </View>)
+            })}
 
-                </Text>
-                
-                <ScrollView style={{backgroundColor: 'white', height: 380, width: width, marginLeft: 10}}  horizontal={true}>
-                    <View style={styles.RelatedProduct} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/6.webp')} />
-                    </View>                      
-                    <View style={styles.RelatedProduct} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/5.jpg')} />
-                    </View>
-                    <View style={styles.RelatedProduct} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/f.jpg')} />
-                    </View>
-                    <View style={styles.RelatedProduct} >
-                         <Image style={styles.imgStyle} source={require('../resources/imgs/FeedBackProduct/lanngoc.jpeg')} />
-                    </View>
-                </ScrollView>
-            
-            </View>
-
-            <View style={{height: 10, backgroundColor: "#CDD1D1", width: width }} />
-        
         </ScrollView>
       </View>
     );
@@ -158,24 +75,14 @@ class ProductDetails extends Component {
 }
 
 const styles = StyleSheet.create({
-  viewBox: {
-    paddingHorizontal: 20,
-    justifyContent: 'center',
-    width: width,
-    padding: 10,
-    alignItems: 'center',
-    height: 150,
-  },
-  slider: {
+  main_view: {
+    flexDirection: 'row', 
+    width: width - 20,
+    justifyContent: 'space-between',
     alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
-  },
-  dotContainer: {
-    backgroundColor: 'transparent',
-    position: 'absolute',
-    bottom: -10,
+    marginBottom: 10,
+    marginTop: 10,
+    marginLeft: 5
   },
   container: {
     backgroundColor: '#F7F7F7',
@@ -188,13 +95,24 @@ const styles = StyleSheet.create({
     paddingTop:10,
     elevation:4
   },
-  RelatedProduct: {
-    padding: 5
-  },
   imgStyle: {
     width: 200, 
     height: 300 
-  }
+  },
+  nameStyle: {
+    color: '#FF5C00',
+    fontWeight: 'bold',
+    fontSize: 17
+  },
+  textStyle: { 
+    width: width - 70,
+    alignSelf: 'center',
+    marginBottom: 10,
+    lineHeight: 19
+  },
+  feedBackImg: {
+    padding: 5
+  },
 });
 
-export default ProductDetails;
+export default FeedBackProduct;
