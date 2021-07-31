@@ -52,8 +52,8 @@ const product = [
         img: ["https://cdn-images.kiotviet.vn/shoptanhung/c0c3425cd4f2462dbcebcd0be0260a1b.jpeg", "http://asha.com.vn/upload/product/kinhdo-10-4456.jpg", "https://media3.scdn.vn/img3/2019/1_30/rCD765.jpg"]
       }
     ],
-    color: ["Yellow", "Blue", "Red", "Violet", "Green", "Pink"],
-    size: ["XS", 'S', 'L', 'XL'],
+    color: [],
+    size: [],
     related: ["17","18","19"]
   },
   {

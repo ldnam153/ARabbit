@@ -33,7 +33,7 @@ class PDFooter extends Component {
     }
 
     render() {
-        const data = this.props.data
+        const data = this.props.data;
         return(
             <View>
                 <View style={{flexDirection: 'row', position: 'absolute', bottom: 48, backgroundColor: 'white'}}>
@@ -58,11 +58,11 @@ class PDFooter extends Component {
                     ref={ref => {
                         this.RBSheet = ref;
                     }}
-                    height={300}
+                    height={data.color.length !==0 ? 300 : 240}
                     duration={250}
                     >
 
-                    <View style={{justifyContent: 'space-between', flexDirection: 'column', height: 240}}>
+                    <View style={{justifyContent: 'space-between', flexDirection: 'column', height: data.color.length !==0 ? 240 : 170}}>
                         <View style={{marginLeft: 10, marginTop: 10, flexDirection: 'row',}}>
                             <View style={{flex: 1}}>
                                 <Image
@@ -76,30 +76,34 @@ class PDFooter extends Component {
                             </View>
                         </View>
 
-                        <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
-                            <Text style={{fontSize: 18, fontWeight: 'bold'}}> Color: </Text>
-                            <ScrollView horizontal={true}>
-                                {data.color.map((item, index) => {
-                                return (
-                                <TouchableHighlight onPress={() => this.selectionOnPress(item)}>
-                                    <Text style={[styles.TouchableHighlightCSS, { backgroundColor:this.state.selectedButton===item ? 'red':'gray'}]}>{item}</Text>
-                                </TouchableHighlight>)
-                                })}
-                                
-                            </ScrollView>
+                        <View>{data.color.length !== 0 ? 
+                            <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
+                                <Text style={{fontSize: 18, fontWeight: 'bold'}}> Màu sắc: </Text>
+                                <ScrollView horizontal={true}>
+                                    {data.color.map((item, index) => {
+                                    return (
+                                    <TouchableHighlight onPress={() => this.selectionOnPress(item)}>
+                                        <Text style={[styles.TouchableHighlightCSS, { backgroundColor:this.state.selectedButton===item ? 'red':'gray'}]}>{item}</Text>
+                                    </TouchableHighlight>)
+                                    })}
+                                </ScrollView>
+                            </View>
+                            : console.log("ahihi")}
                         </View>
 
-                        <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
-                            <Text style={{fontSize: 18, fontWeight: 'bold'}}> Size: </Text>
-                            <ScrollView horizontal={true}>
-                                {data.size.map((item, index) => {
-                                return (
-                                <TouchableHighlight onPress={() => this.selectionSizeOnPress(item)}>
-                                    <Text style={[styles.TouchableHighlightCSS, { backgroundColor:this.state.selectedSize===item ? 'red':'gray'}]}>{item}</Text>
-                                </TouchableHighlight>)
-                                })}
-                                
-                            </ScrollView>
+                        <View>{data.size.length !== 0 ? 
+                            <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
+                                <Text style={{fontSize: 18, fontWeight: 'bold'}}> Size: </Text>
+                                <ScrollView horizontal={true}>
+                                    {data.size.map((item, index) => {
+                                    return (
+                                    <TouchableHighlight onPress={() => this.selectionSizeOnPress(item)}>
+                                        <Text style={[styles.TouchableHighlightCSS, { backgroundColor:this.state.selectedSize===item ? 'red':'gray'}]}>{item}</Text>
+                                    </TouchableHighlight>)
+                                    })}
+                                </ScrollView>
+                            </View>
+                            : console.log("ahihi")}
                         </View>
 
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 10}}> 
