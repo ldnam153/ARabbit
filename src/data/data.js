@@ -37,7 +37,7 @@ const product = [
     name: "Bánh cracker vị rau AFC Dinh Dưỡng hộp 200g",
     price: "28.600",
     star: "5",
-    stock: "1k",
+    stock: "934",
     sold: "10",
     shop: "banh_keo_kinh_do",
     shop_img: "data:image/png;base64,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",
@@ -64,7 +64,8 @@ const product = [
       first_price: "450.000",
       price: '225.000',
       star: '5',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+      stock: "45"
   },
   {
       id: "4",
@@ -74,7 +75,8 @@ const product = [
       first_price: "1.450.000",
       price: '1.015.000',
       star: '4',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+      stock: "20"
   },
   {
       id: "5",
@@ -84,7 +86,8 @@ const product = [
       first_price: "13.000.000",
       price: '11.700.000',
       star: '4',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+      stock: "657"
   },
   {
       id: "6",
@@ -94,7 +97,8 @@ const product = [
       first_price: "360.000",
       price: '300.000',
       star: '5',
-      location: 'Tây Ninh'
+      location: 'Tây Ninh',
+      stock: "78"
   },
   {
       id: "7",
@@ -104,12 +108,14 @@ const product = [
       first_price: "18.000.000",
       price: '14.400.000',
       star: '4',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+      stock: "123"
   },
   {
       id: "8",
-      thumbnail: "https://product.hstatic.net/1000148058/product/upload_689d150f2233440a89723e93365bfbce_1024x1024.jpg",
-      name: "Mì 3 miền tôm chua cay"
+      main_img: ["https://product.hstatic.net/1000148058/product/upload_689d150f2233440a89723e93365bfbce_1024x1024.jpg"],
+      name: "Mì 3 miền tôm chua cay",
+      stock: "30"
   },
   {
     id: "9",
@@ -119,7 +125,8 @@ const product = [
     first_price: "10.000.000",
     price: '8.999.000',
     star: '4',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    stock: "875"
 },
   {
     id: '10',
@@ -129,7 +136,8 @@ const product = [
     first_price: "14.999.000",
     price: '12.750.000',
     star: '5',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    stock: "837"
 },
   {
     id: '11',
@@ -139,7 +147,8 @@ const product = [
     first_price: "6.989.999",
     price: '5.591.999',
     star: '4',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    stock: "48"
 },
   {
     id: '12',
@@ -149,7 +158,8 @@ const product = [
     first_price: "",
     price: '1.389.999',
     star: '4',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    stock: "653"
 },
   {
     id: '13',
@@ -159,7 +169,8 @@ const product = [
     first_price: "210.000",
     price: '99.000',
     star: '4',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    stock: "144"
 },
     {
       id: '14',
@@ -170,7 +181,8 @@ const product = [
       price: '130.000',
       star: '4',
       location: 'TP.Hồ Chí Minh',
-      sold: '1k'
+      sold: '1k',
+      stock: "3"
   },
   {
     id: '15',
@@ -181,7 +193,8 @@ const product = [
     price: "99.000",
     star: '3',
     location: 'TP.Hồ Chí Minh',
-    sold: '991'
+    sold: '991',
+    stock: "45"
   },
   {
     id: '16',
@@ -192,7 +205,8 @@ const product = [
     price: '210.000',
     star: '5',
     location: 'TP.Hồ Chí Minh',
-    sold: '1,2k'
+    sold: '1,2k',
+    stock: "67"
   },
   {
     id: '17',
@@ -203,7 +217,8 @@ const product = [
     price: '100.000',
     star: '5',
     location: 'TP.Hồ Chí Minh',
-    sold: '29'
+    sold: '29',
+    stock: "658"
   },
   {
     id: '18',
@@ -214,7 +229,8 @@ const product = [
     price: '399.000',
     star: '5',
     location: 'Đồng Nai',
-    sold: '762'
+    sold: '762',
+    stock: "235"
   },
   {
     id: '19',
@@ -225,7 +241,8 @@ const product = [
     price: '320.000',
     star: '3',
     location: 'Hà Nội',
-    sold: '47'
+    sold: '47',
+    stock: "13"
   },
   {
     id: '20',
@@ -235,7 +252,8 @@ const product = [
     first_price: "289.000",
     price: '199.000',
     star: '2',
-    location: 'Hải Phòng'
+    location: 'Hải Phòng',
+    stock: "123"
   },
   {
     id: '21',
@@ -245,7 +263,8 @@ const product = [
     first_price: "297.000",
     price: '155.555',
     star: '3',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    stock: "76"
   },
   {
     id: '22',
@@ -255,7 +274,8 @@ const product = [
     first_price: "2.890.000",
     price: '2.600.000',
     star: '4',
-    location: 'Đồng Nai'
+    location: 'Đồng Nai',
+    stock: "2"
   },
   {
     id: '23',
@@ -265,7 +285,8 @@ const product = [
     first_price: "",
     price: '1.287.000',
     star: '5',
-    location: 'TP.Hồ Chí Minh'
+    location: 'TP.Hồ Chí Minh',
+    stock: "7"
   },
   {
     id: '24',
@@ -275,7 +296,8 @@ const product = [
     first_price: "400.000",
     price: '590.000',
     star: '5',
-    location: 'Hà Nội'
+    location: 'Hà Nội',
+    stock: "78"
   },
   {
     id: '25',
@@ -285,7 +307,8 @@ const product = [
     first_price: "99.000",
     price: '670.000',
     star: '4',
-    location: 'Đồng Nai'
+    location: 'Đồng Nai',
+    stock: "65"
   },
   {
     id: '26',
@@ -295,7 +318,8 @@ const product = [
     first_price: "",
     price: '950.000',
     star: '3',
-    location: 'Đồng Nai'
+    location: 'Đồng Nai',
+    stock: "769"
   },
   {
     id: '27',
@@ -305,7 +329,8 @@ const product = [
     first_price: "4.000.000",
     price: '2.800.000',
     star: '3',
-    location: 'Hà Nội'
+    location: 'Hà Nội',
+    stock: "534"
   },
   {
     id: '28',
@@ -315,7 +340,8 @@ const product = [
     first_price: "400.000",
     price: '269.000',
     star: '4',
-    location: 'Thanh Hóa'
+    location: 'Thanh Hóa',
+    stock: "9"
   },
 ];
 
