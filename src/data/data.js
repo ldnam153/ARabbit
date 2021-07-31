@@ -323,9 +323,9 @@ const discount = ['3', '4', '5', '6', '7'];
 
 const best_saler = ['9', '10', '11', '12', '13'];
 
-const newest = ['14', '15', '16', '17', '18'];
+const newest = ['14', '26', '28', '17', '23'];
 
-const sugggest = ['19', '20', '21', '22', '23', '24', '25', '26', '27', '28'];
+const sugggest = ['19', '20', '21', '22', '18', '24', '25', '15', '27', '16'];
 
 const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau củ quả","hàng đông lạnh","đồ hộp","hoa quả","ps4","nintendo","laptop","bếp điện từ"];
 
