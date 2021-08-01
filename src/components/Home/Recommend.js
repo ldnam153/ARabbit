@@ -43,20 +43,12 @@ const DATA = [
         title: "Third Item",
       },
   ];
-const Item = () => (
-    <View style={{padding: 5,
-        marginVertical: 8,
-        marginHorizontal: 10,
-        width: '50%'}}>
-      <ProductBar/>
-    </View>
-  );
 class Recommend extends Component {
     constructor(props) {
         super(props)
         
         this.state = {
-            products: DATA,
+            products: this.props.data,
           }
           
     }
@@ -77,7 +69,21 @@ class Recommend extends Component {
             <View style={{ columns: 2,flex: 1, flexDirection: 'column',flexWrap: 'wrap'}}>
             {this.state.products.map((item, index) => {
                 return (
-                    <Item/>
+                  <View style={{padding: 5,
+                      marginVertical: 8,
+                      marginHorizontal: 10,
+                      width: '50%'}}>
+                    <ProductBar
+                    imgUrl = {item.main_img[0]}
+                    num_star= {item.star}
+                    percent_sale = {item.sale_percent}
+                    name_product = {item.name}
+                    sale_price = {item.price}
+                    location = {item.location}
+                    num_sales = {item.stock}
+                    real_price = {item.first_price} 
+                    goPD={this.props.goPD}/>
+                  </View>
                 )
             })}
             </View>

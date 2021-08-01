@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet,Text, View, Image} from 'react-native';
+import { StyleSheet,Text, View, Image, TouchableOpacity} from 'react-native';
 import Rating_star from './Rating_star';
 import Sale_frame from './Sale_frame';
 
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         height:220,
         position:'relative',
         display:'flex',
-        backgroundColor:'green'
+        backgroundColor:'white'
     }
 });
 
@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
 class ProductBar extends Component {
     render() {
         return (
-            <View style={{marginTop:10, width:170}}>
+            <TouchableOpacity style={{marginTop:10, width:170}} onPress={this.props.goPD}>
                 <View style={styles.ctn_image}>
-                    <Image source={require('../resources/imgs/vaydo.jpg')} style={styles.image}/>
+                    <Image source={{uri: this.props.imgUrl}} style={styles.image}/>
                     <View style={{position:'absolute',width:'100%',alignItems:'flex-end'}}>
                         <Sale_frame value={this.props.percent_sale}/>
                     </View>
@@ -67,7 +67,7 @@ class ProductBar extends Component {
                 <View style={{paddingTop: 3, alignItems:'flex-end'}}>
                     <Text style={{fontSize:11}}>Đã bán: {this.props.num_sales}</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }

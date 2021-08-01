@@ -3,6 +3,9 @@ import { View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native'
 import CheckBox from '@react-native-community/checkbox';
 import Select from './Select';
 import TangGiamSL from './TangGiamSL';
+import { bindActionCreators } from 'redux';
+import * as CartActions from "../../actions/cartAction"
+import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
     container: {
@@ -44,6 +47,7 @@ class CardSPGioHang extends Component {
     }
     
     render() {
+        const { actions } = this.props;
         return (
             <View style={styles.outer}>
                 <View style={styles.container}>
@@ -70,20 +74,22 @@ class CardSPGioHang extends Component {
                             </View>
                             <View style={{flex:1}}></View>
                         </View>
-                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{this.props.data.price}</Text>
+                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{Number((this.props.data.price).toFixed(1)).toLocaleString().replaceAll(",", ".")} VNĐ</Text>
                     </View>
                 </View>
                 <View style={[styles.container,{marginTop:2}]}>
                     <View style={{flex:2}}>
                     </View>
                     <View style={{flex:6,flexDirection:'column',alignItems:'center'}}>
-                        <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}}>
+                        <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={() => actions.removeProduct(this.props.data.id, +this.props.data.price * +this.props.data.number)}>
                             <Text style={styles.xoa}>Xóa</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{flex:14,paddingLeft:12}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
-                            <View style={{flex:1,flexShrink:3}}><TangGiamSL number={this.props.data.number}></TangGiamSL></View>
+                            <View style={{flex:1,flexShrink:3}}>
+                                <TangGiamSL number={this.props.data.number} max={this.props.data.remain} increase={() => actions.incrementAmount(this.props.data.price)} decrease={() => actions.decrementAmount(this.props.data.price)}></TangGiamSL>
+                            </View>
                             <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.remain} sản phẩm</Text>
                         </View>
                     </View>
@@ -93,4 +99,10 @@ class CardSPGioHang extends Component {
     }
 }
 
-export default CardSPGioHang
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(CartActions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CardSPGioHang)

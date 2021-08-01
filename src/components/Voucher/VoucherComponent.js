@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native';
 
 class VoucherComponent extends Component {
-
   render() {
     const image =
       this.props.item.image !== ''
@@ -14,7 +13,9 @@ class VoucherComponent extends Component {
           <Image source={image}></Image>
         </View>
         <View style={styles.voucher_content_container}>
-          <Text style={this.props.active ? styles.voucher_title_active : styles.voucher_title}>{this.props.item.title}</Text>
+          <Text style={this.props.active ? styles.voucher_title_active : styles.voucher_title}>
+            {this.props.item.title}
+          </Text>
           <Text style={styles.voucher_desc}>{this.props.item.desc}</Text>
           <View style={styles.voucher_apply_section}>
             <View style={styles.validation_container}>
@@ -26,8 +27,7 @@ class VoucherComponent extends Component {
               activeOpacity={0.6}
               underlayColor="#f56e6e"
               onPress={() => {
-                  this.props.onClick(this.props.index);
-                  this.setState({active: false})
+                this.props.onClick(this.props.index);
               }}
             >
               <Text style={styles.apply_button_text}>{this.props.active ? 'HUỶ' : 'ÁP DỤNG'}</Text>

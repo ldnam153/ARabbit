@@ -16,7 +16,7 @@ class XacNhanSanPham extends Component {
         }
         return (
             <SafeAreaView style={styles.screen_container}>
-                <NavBarXacNhanSP title="Xác nhận sản phẩm" back={goBack} home={goHome}></NavBarXacNhanSP>
+                <NavBarXacNhanSP title="Xác nhận sản phẩm" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
                 <ScrollViewXacNhanThanhToan></ScrollViewXacNhanThanhToan>
                 <TouchableOpacity style={styles.buttonContainer} onPress={goDDC}>
                     <Text style={styles.buttonText}>Chọn địa chỉ nhận hàng</Text>

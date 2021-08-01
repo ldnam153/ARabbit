@@ -45,7 +45,7 @@ class CardCHGioHang extends Component {
                     </CheckBox>
                     <Text style={styles.header}>{this.state.data.shop}</Text>
                 </View>
-                {this.state.data.products.map((product) => <CardSPGioHang data={product} />)}
+                {this.props.data.products.map((product) => <CardSPGioHang data={product} />)}
                 
             </View>
         )

@@ -34,22 +34,32 @@ class TangGiamSL extends Component {
     
         this.state = {
             number: Number(props.number),
-            disabled: false,
+            disabledLeft: Number(props.number)==1,
+            disabledRight: Number(props.number)==props.max,
         }
     }
 
     decrement = () => {
-        if(this.state.number > 0){
+        if(this.state.disabledRight == true){
+            this.setState({disabledRight: false})
+        }
+        if(this.state.number > 1){
+            this.props.decrease();
             this.setState( prevState =>({number: prevState.number-1}),()=> {
-                if(this.state.number == 0)  this.setState({disabled: true}) 
+                if(this.state.number == 1)  this.setState({disabledLeft: true})
             })
         }
     }
 
     increment = () => {
-        this.setState( prevState =>({number: prevState.number+1}))
-        if(this.state.disabled == true){
-            this.setState({disabled: false})
+        if(this.state.disabledLeft == true){
+            this.setState({disabledLeft: false})
+        }
+        if(this.state.number < this.props.max){
+            this.props.increase();
+            this.setState( prevState =>({number: prevState.number+1}),()=> {
+                if(this.state.number == this.props.max)  this.setState({disabledRight: true})
+            })
         }
     }
     

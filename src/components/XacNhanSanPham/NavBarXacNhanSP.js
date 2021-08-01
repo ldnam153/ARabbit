@@ -5,11 +5,11 @@ class NavBarXacNhanSP extends Component {
   render() {
     return (
       <View style={styles.navbar_container}>
-        <TouchableOpacity onPress={this.props.back}>
+        <TouchableOpacity onPress={this.props.goBack}>
           <Image source={require('~/resources/icons/back.png')} />
         </TouchableOpacity>
         <Text style={styles.navbar_title}>{this.props.title}</Text>
-        <TouchableOpacity onPress={this.props.home}>
+        <TouchableOpacity onPress={this.props.goHome}>
           <Image source={require('~/resources/icons/home.png')} />
         </TouchableOpacity>
       </View>

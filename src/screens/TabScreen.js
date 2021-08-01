@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity , NativeEventEmitter,NativeModules} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import  HomeScreen from './HomeScreen'
+
 const CameraModule = NativeModules.CameraModule;
 function CategoryTab() {
   return (
@@ -40,7 +41,16 @@ const unmount = () => {
   this.eventListener.remove(); //Removes the listener
 }
 
-export default function TabScreen() {
+export default function TabScreen({navigation}) {
+  const goGH = () => {
+      navigation.navigate('GioHang')
+  }
+  const goTH = () => {
+      navigation.navigate('TabHistorySearch')
+  }
+  const goPD = () => {
+      navigation.push('ProductDetails')
+  }
   React.useEffect(() => {
     mount()
     return () => {
@@ -63,7 +73,8 @@ export default function TabScreen() {
       >
         <Tab.Screen 
           name="Trang chủ"
-          component={HomeScreen} 
+          // component={HomeScreen} 
+          children={() => <HomeScreen goGH={goGH} goTH={goTH} goPD={goPD}/>}
           options = {{ 
             tabBarLabel: 'Home',
             tabBarIcon: ({focused}) => (

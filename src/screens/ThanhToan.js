@@ -14,13 +14,16 @@ class ThanhToan extends Component {
             this.props.navigation.popToTop();
         }
         const goDDC = () =>{
-            this.props.navigation.navigate('CheckoutDoiDiaChiScreen')
+            this.props.navigation.push('CheckoutDoiDiaChiScreen')
+        }
+        const goVS = () =>{
+            this.props.navigation.push('VouchersScreen')
         }
         return (
             <SafeAreaView style={styles.screen_container}>
-                <NavBarXacNhanSP title="Thanh toán" back={goBack} home={goHome}></NavBarXacNhanSP>
-                <ScrollViewThanhToan goDDC={goDDC}/>
-                <FooterThanhToan price="12.705.000 VNĐ" btnText="ĐẶT HÀNG" press={goHome}/>
+                <NavBarXacNhanSP title="Thanh toán" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
+                <ScrollViewThanhToan goDDC={goDDC} goVS={goVS}/>
+                <FooterThanhToan price="12.705.000 VNĐ" btnText="ĐẶT HÀNG" press={goHome} thanhtoan={true}/>
             </SafeAreaView>
         )
     }
