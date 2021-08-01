@@ -50,7 +50,6 @@ export default class App extends React.Component {
   }
 }
 
-
 // export default ResultKeywordScreen;
 // export default TangGiamSL;
 // export default sale_frame;

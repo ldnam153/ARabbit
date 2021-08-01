@@ -234,7 +234,7 @@ const product = [
   },
   {
     id: '19',
-    main_img: ["https://lh3.googleusercontent.com/proxy/b2VpiW_0tpCJXaYmUimYRp4C-ZEJ8oRT7AVW3vclemNUnGqWyS3A87UV2Y8OQk8k-BSLXYLiW2a87UVYOw-cyub8Tb8MHIY6hmbBES7GoMwXvepwUhBKhxfH_nSasP4qsIbsXTYj4m1AYg16IVkJSHKBseJQvw"],
+    main_img: ["https://cdn.tgdd.vn/Products/Images/7622/77027/bhx/banh-lotte-pie-180g-2-700x467.jpg"],
     sale_percent: "20",
     name: "Hộp bánh LottePie",
     first_price: "400.000",
@@ -270,7 +270,7 @@ const product = [
     id: '22',
     main_img: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCG4JYoSY3ekK0EGYlH6V34PMivCzh4EC6Cf90tQWQHuo39AjGOfbZ1EKd4ed8d1bsWMJ7HvM&usqp=CAc"],
     sale_percent: "20",
-    name: "16",
+    name: "Chuột logitech",
     first_price: "2.890.000",
     price: '2.600.000',
     star: '4',
@@ -279,7 +279,7 @@ const product = [
   },
   {
     id: '23',
-    main_img: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEgSBttcbHeLc-x-Jcn_VBhW5Ty_LqY1dd1nJTzUFWgXGTnYMXp988qQVs98VgD6xYeOOS48&usqp=CAc"],
+    main_img: ["https://lh3.googleusercontent.com/proxy/P3-kxdUozVMdTzthFdE6y652p0JaPbkRfeuzTrP95LKAZfMeOzcuXJoIiJaPlo7_a6dqPHQgxbnfVzAL5ls8duWQGI9B-Zf1pxXGMnc38j56Bki1TXXSE9bb98Xd_cziURfP06xV4fzB54kqTjvb5leZ1nV_gnGsZdwalXcB4mNoFdXsngKAa_B9hPhKOsQKaQ"],
     sale_percent: "",
     name: "Hộp bánh LottePie",
     first_price: "",
@@ -382,4 +382,4 @@ function getProduct(id) {
   }
 }
 
-export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, address, getProduct };
+export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, receiver, getProduct };
