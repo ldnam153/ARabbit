@@ -48,7 +48,7 @@ class Recommend extends Component {
         super(props)
         
         this.state = {
-            products: DATA,
+            products: this.props.data,
           }
           
     }
@@ -73,7 +73,16 @@ class Recommend extends Component {
                       marginVertical: 8,
                       marginHorizontal: 10,
                       width: '50%'}}>
-                    <ProductBar goPD={this.props.goPD}/>
+                    <ProductBar
+                    imgUrl = {item.main_img[0]}
+                    num_star= {item.star}
+                    percent_sale = {item.sale_percent}
+                    name_product = {item.name}
+                    sale_price = {item.price}
+                    location = {item.location}
+                    num_sales = {item.stock}
+                    real_price = {item.first_price} 
+                    goPD={this.props.goPD}/>
                   </View>
                 )
             })}

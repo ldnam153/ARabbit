@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
   })
+
 const DATA = [
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -48,16 +49,18 @@ class SectionHome extends Component {
     constructor(props) {
         super(props)
         
+        // console.log(this.props.data)
         this.state = {
-            products: DATA,
+            products: this.props.data,
             selectedId: null,
           }
-          
+        
     }
     
     render() {
       return (
         <SafeAreaView style={styles.container}>
+            {/* <View><Text>{this.props.data}</Text></View> */}
             <View style={styles.header}>
                 <Text style={{fontSize:25, fontWeight: 'bold', color:'#F62424'}}>{this.props.title}</Text>
                 <View style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -71,7 +74,16 @@ class SectionHome extends Component {
                     padding: 5,
                     marginVertical: 8,
                     marginHorizontal: 10,}}>
-                  <ProductBar goPD={this.props.goPD}/>
+                  <ProductBar
+                    imgUrl = {item.main_img[0]}
+                    num_star= {item.star}
+                    percent_sale = {item.sale_percent}
+                    name_product = {item.name}
+                    sale_price = {item.price}
+                    location = {item.location}
+                    num_sales = {item.stock}
+                    real_price = {item.first_price}
+                  goPD={this.props.goPD}/>
                 </View>
                 )
             })}
