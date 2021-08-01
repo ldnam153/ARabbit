@@ -1,35 +1,16 @@
 import React, { Component } from 'react';
-import { View, TouchableHighlight, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import NavBarComponent from '../../components/Checkout/NavBarComponent';
 import VoucherSearchField from '../../components/Voucher/VoucherInputComponent';
 import VoucherComponent from '../../components/Voucher/VoucherComponent';
-
-const arrayData = [
-  {
-    image: '../../resources/imgs/voucher/voucher-image.png',
-    title: 'Voucher miễn phí vận chuyển',
-    desc: 'Đơn tối thiểu 100k, giảm tối thiểu 15k',
-    expiration: '01/08/2021',
-  },
-  {
-    image: '../../resources/imgs/voucher/voucher-image.png',
-    title: 'Voucher giảm giá 10%',
-    desc: 'Đơn tối thiểu 100k, giảm tối thiểu 50k',
-    expiration: '01/08/2021',
-  },
-  {
-    image: '../../resources/imgs/voucher/voucher-image.png',
-    title: 'Voucher miễn phí vận chuyển',
-    desc: 'Đơn tối thiểu 100k, giảm tối thiểu 15k',
-    expiration: '01/08/2021',
-  },
-];
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as VoucherActions from '../../actions/voucherAction';
 
 class VouchersScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active_index: 1,
       navbar_title: 'Chọn voucher',
       right_button: {
         display: true,
@@ -37,34 +18,38 @@ class VouchersScreen extends Component {
         src: null,
         text: null,
       },
-      voucher_array: arrayData,
     };
   }
   render() {
+    const { activeVoucher, actions, listVoucher } = this.props;
     const onActiveHandle = (index) => {
-      index === this.state.active_index
-        ? this.setState({ active_index: null })
-        : this.setState({ active_index: index });
+      index === activeVoucher
+        ? actions.setActiveVoucher(null)
+        : actions.setActiveVoucher(index);
     };
-    const goBack = () =>{
-        this.props.navigation.goBack();
-    }
-    const goTT = () =>{
-        this.props.navigation.pop();
-    }
+    const goBack = () => {
+      this.props.navigation.goBack();
+    };
+    const goTT = () => {
+      this.props.navigation.pop();
+    };
     return (
       <SafeAreaView style={styles.screen_container}>
-        <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} goBack={goBack} />
+        <NavBarComponent
+          title={this.state.navbar_title}
+          right={this.state.right_button}
+          goBack={goBack}
+        />
         <VoucherSearchField />
         <ScrollView>
-          {this.state.voucher_array.map((item, index) => {
+          {listVoucher.map((item, index) => {
             return (
               <VoucherComponent
                 item={item}
                 key={index}
                 index={index}
                 onClick={onActiveHandle}
-                active={this.state.active_index === index ? true : false}
+                active={activeVoucher === index ? true : false}
               />
             );
           })}
@@ -84,4 +69,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default VouchersScreen;
+const mapStateToProps = (state) => {
+  return {
+    activeVoucher: state.voucherReducer.activeVoucher,
+    listVoucher: state.voucherReducer.listVoucher
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(VoucherActions, dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(VouchersScreen);

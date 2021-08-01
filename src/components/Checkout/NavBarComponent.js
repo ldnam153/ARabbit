@@ -9,16 +9,18 @@ class NavBarComponent extends Component {
           <Image source={require('../../resources/icons/back.png')} />
         </TouchableOpacity>
         <Text style={styles.navbar_title}>{this.props.title}</Text>
-        {this.props.right.display &&
-          (this.props.icon ? (
-            <TouchableOpacity style={styles.right_button} onPress={this.props.goHome}>
-              <Image source={require('../../resources/icons/home.png')} />
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity style={styles.right_button} onPress={this.props.goSDC}>
-              <Text style={styles.modify_text}>{this.props.right.text}</Text>
+        <View style={{flex: 1}}>
+          {this.props.right.display &&
+            (this.props.icon ? (
+              <TouchableOpacity style={styles.right_button} onPress={this.props.goHome}>
+                <Image source={require('../../resources/icons/home.png')} />
               </TouchableOpacity>
-          ))}
+            ) : (
+              <TouchableOpacity style={styles.right_button} onPress={this.props.goSDC}>
+                <Text style={styles.modify_text}>{this.props.right.text}</Text>
+              </TouchableOpacity>
+            ))}
+        </View>
       </View>
     );
   }
@@ -56,9 +58,9 @@ const styles = StyleSheet.create({
     flex: 5,
   },
 
-  right_button: {
-    flex: 1,
-  },
+  // right_button: {
+  //   flex: 1,
+  // },
 
   modify_text: {
     color: '#FF5C00',
