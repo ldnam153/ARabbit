@@ -83,7 +83,9 @@ class CardSPGioHang extends Component {
                     </View>
                     <View style={{flex:14,paddingLeft:12}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
-                            <View style={{flex:1,flexShrink:3}}><TangGiamSL number={this.props.data.number}></TangGiamSL></View>
+                            <View style={{flex:1,flexShrink:3}}>
+                                <TangGiamSL number={this.props.data.number} max={this.props.data.remain}></TangGiamSL>
+                            </View>
                             <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.remain} sản phẩm</Text>
                         </View>
                     </View>

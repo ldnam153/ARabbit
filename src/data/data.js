@@ -382,4 +382,6 @@ function getProduct(id) {
   }
 }
 
+
 export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, receiver, getProduct };
+
