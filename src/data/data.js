@@ -357,6 +357,24 @@ const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau c�
 
 const gan_day=["chuột gaming","ghế mát xa","bao tay chơi game","mô hình robot","laptop dell","playstation","psp","chảo chống dính","nồi hấp","thảm yoga"];
 
+const receiver = [
+  {
+    name: "Nguyễn Anh An",
+    phone: "0999999999",
+    address: "227 Nguyễn Văn Cừ, phường 4, quận 5, Thành phố Hồ Chí Minh"
+  },
+  {
+    name: "Nguyễn Anh An",
+    phone: "0999999999",
+    address: "280 An Dương Vương, phường 4, quận 5, Thành phố Hồ Chí Minh"
+  },
+  {
+    name: "Lê Hoàng Phái",
+    phone: "0988888888",
+    address: "542 Tây Lân, phường 12, quận Bình Tân, Thành phố Hồ Chí Minh"
+  },
+]
+
 function getProduct(id) {
   for (let i = 0; i < product.length; i++) {
     if(product[i].id === id)
