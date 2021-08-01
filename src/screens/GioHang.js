@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { SafeAreaView, StyleSheet, TouchableOpacity, Text, View } from 'react-native'
+import { connect } from 'react-redux'
 import ScrollViewGioHang from '../components/GioHang/ScrollViewGioHang'
 import FooterThanhToan from '../components/ThanhToan/FooterThanhToan'
 import NavBarXacNhanSP from '../components/XacNhanSanPham/NavBarXacNhanSP'
 
 class GioHang extends Component {
     render() {
+        const { totalPrice } = this.props;
         const goBack = () =>{
             this.props.navigation.goBack();
         }
@@ -20,7 +22,7 @@ class GioHang extends Component {
                 <NavBarXacNhanSP title="Giỏ hàng" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
                 <ScrollViewGioHang></ScrollViewGioHang>
                 <FooterThanhToan 
-                    price="12.670.000 VNĐ" 
+                    price={Number((totalPrice).toFixed(1)).toLocaleString().replaceAll(",", ".")+ " VNĐ"} 
                     btnText="Thanh toán(3)" 
                     press={goXNSP}/>
             </SafeAreaView>
@@ -39,4 +41,11 @@ const styles = StyleSheet.create({
     },
 })
 
-export default GioHang
+
+const mapStateToProps = (state) => {
+    return {
+        totalPrice: state.cartReducer.totalPrice,
+    }
+}
+
+export default connect(mapStateToProps)(GioHang)

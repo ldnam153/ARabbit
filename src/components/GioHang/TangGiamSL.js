@@ -44,6 +44,7 @@ class TangGiamSL extends Component {
             this.setState({disabledRight: false})
         }
         if(this.state.number > 1){
+            this.props.decrease();
             this.setState( prevState =>({number: prevState.number-1}),()=> {
                 if(this.state.number == 1)  this.setState({disabledLeft: true})
             })
@@ -55,6 +56,7 @@ class TangGiamSL extends Component {
             this.setState({disabledLeft: false})
         }
         if(this.state.number < this.props.max){
+            this.props.increase();
             this.setState( prevState =>({number: prevState.number+1}),()=> {
                 if(this.state.number == this.props.max)  this.setState({disabledRight: true})
             })

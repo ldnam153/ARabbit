@@ -3,6 +3,8 @@ import { Image, ScrollView, StyleSheet, TouchableOpacity, View, Text} from 'reac
 import CheckBox from '@react-native-community/checkbox';
 import CardCHGioHang from './CardCHGioHang';
 import data from '../../data/data';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
     container: {
@@ -88,7 +90,7 @@ class ScrollViewGioHang extends Component {
                         properties: ['6kg','8kg','10kg'],
                         price: '700.000 VNĐ',
                         number: 2,
-                        remain: 12,
+                        remain: 2,
                     }
                 ]
             }
@@ -96,7 +98,6 @@ class ScrollViewGioHang extends Component {
     
         this.state = {
             isSelected : props.isSelected,
-            data: data,
         }
     }
     
@@ -105,6 +106,7 @@ class ScrollViewGioHang extends Component {
             true: '#F62424',
             false: '#F62424'
         }
+        const { cartList } = this.props;
         
         return (
             <ScrollView style={{backgroundColor:'#b4b4b4'}}>
@@ -125,10 +127,16 @@ class ScrollViewGioHang extends Component {
                     </View>
                 </View>
                 {/*   data render   */}
-                {this.state.data.map((shop) => { if(shop.products.length>0) return (<CardCHGioHang data={shop} />)})}
+                {cartList.map((shop) => { if(shop.products.length>0) return (<CardCHGioHang data={shop} />)})}
             </ScrollView>
         )
     }
 }
 
-export default ScrollViewGioHang
+const mapStateToProps = (state) => {
+    return {
+        cartList: state.cartReducer.cartList,
+    }
+}
+
+export default connect(mapStateToProps)(ScrollViewGioHang)
