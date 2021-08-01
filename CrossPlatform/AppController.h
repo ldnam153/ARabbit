@@ -128,7 +128,7 @@ private: // methods
     
     /// Clean up Trackers created by initTrackers
     void deinitTrackers();
-    
+
     /// Load and activate the dataset for the currently selected target.
     bool loadTrackerData();
 
@@ -151,7 +151,7 @@ private: // methods
     /// Can be used before trackers are started.
     /// During an active Vuforia session dataset activation is only allowed in the Vuforia_onUpdate() callback.
     Vuforia::DataSet* loadAndActivateDataSet(std::string path);
-    
+
 private: // data members
 
     /// Callback to inform the user of an error

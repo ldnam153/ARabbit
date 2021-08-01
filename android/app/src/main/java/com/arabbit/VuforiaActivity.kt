@@ -8,24 +8,25 @@ countries.
 package com.arabbit
 
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.DialogInterface
 import android.content.res.AssetManager
 import android.opengl.GLSurfaceView
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.*
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
 import androidx.core.view.GestureDetectorCompat
+import com.facebook.react.bridge.Arguments
+import com.facebook.react.bridge.WritableMap
 import kotlinx.coroutines.*
 import java.nio.ByteBuffer
 import java.util.*
@@ -53,57 +54,116 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
 
     private var mGestureDetector : GestureDetectorCompat? = null
     private lateinit var mName: TextView
-    private lateinit var mDescription: TextView
     private lateinit var mPanel: LinearLayout
+    private lateinit var mBack: ImageButton
+    private lateinit var mCapture: ImageButton
+    private lateinit var mRotate: ImageButton
+    private lateinit var mPicture: ImageButton
+    private lateinit var mViewDetail: ImageButton
+    private lateinit var mAddToCart: ImageButton
+    private lateinit var mShop: TextView
+    private lateinit var mDescription: TextView
+    private lateinit var mIconShop: ImageView
+    private lateinit var mImage: ImageView
+    private lateinit var mSold : TextView
+    private lateinit var mPrice: TextView
+    private lateinit var mNumberStar: LinearLayout
+    private lateinit var mAlert: LinearLayout
     // Native methods
-    external fun initAR(activity : Activity, assetManager : AssetManager, target : Int)
-    external fun deinitAR()
+    private external  fun initAR(activity : Activity, assetManager : AssetManager, target : Int)
+    private external  fun deinitAR()
 
-    external fun startAR() : Boolean
-    external fun stopAR()
+    private external  fun startAR() : Boolean
+    private external fun stopAR()
 
-    external fun pauseAR()
-    external fun resumeAR()
+    private external  fun pauseAR()
+    private external  fun resumeAR()
 
-    external fun cameraPerformAutoFocus()
-    external fun cameraRestoreAutoFocus()
+    private external  fun cameraPerformAutoFocus()
+    private external  fun cameraRestoreAutoFocus()
 
-    external fun initRendering()
-    external fun setTextures(astronautWidth: Int, astronautHeight: Int, astronautBytes: ByteBuffer,
+    private external  fun initRendering()
+    private external fun setTextures(astronautWidth: Int, astronautHeight: Int, astronautBytes: ByteBuffer,
                              landerWidth: Int, landerHeight: Int, landerBytes: ByteBuffer)
-    external fun deinitRendering()
-    external fun configureRendering(width : Int, height : Int, orientation : Int) : Boolean
-    external fun renderFrame() : String
-    var timeBegin : Long = 0
-    var timeEnd : Long = 0
+    private external fun deinitRendering()
+    private external  fun configureRendering(width : Int, height : Int, orientation : Int) : Boolean
+    private external  fun renderFrame() : String
+    private  var productID: String = ""
+    val products: ArrayList<ProductModel> = MainActivity.products;
     // Activity methods
+    open fun setTimeoutSync(runnable: java.lang.Runnable, delay: Int) {
+        try {
+            Thread.sleep(delay.toLong())
+            runnable.run()
+        } catch (e: java.lang.Exception) {
+            System.err.println(e)
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        System.loadLibrary("VuforiaSample")
+
         setContentView(R.layout.activity_vuforia)
+        System.loadLibrary("VuforiaSample")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            var windowParams = window.getAttributes();
-            windowParams.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
-            getWindow().setAttributes(windowParams);
+            val windowParams = window.attributes
+            windowParams.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+            window.attributes = windowParams
         }
 
         mVuforiaStarted = false
         mSurfaceChanged = true
-
         // Create an OpenGL ES 3.0 context (also works for 3.1, 3.2)
         mGLView = findViewById(R.id.cameraview)
+        mBack = findViewById(R.id.back)
+        mCapture = findViewById(R.id.picture)
+        mRotate = findViewById(R.id.capture)
+        mPicture = findViewById(R.id.rotate)
+        mAlert = findViewById(R.id.alert)
+        mViewDetail = findViewById(R.id.view_detail)
+        mViewDetail.setOnClickListener {
+            var params: WritableMap = Arguments.createMap();
+            params.putString("event", EventNative.typeView);
+            params.putString("product", productID);
+            CameraModule.sendEvent("EventReminder", params);
+            finish();
+        }
+        mAddToCart = findViewById(R.id.add_to_cart)
+        mAddToCart.setOnClickListener {
+            mAlert.visibility = View.VISIBLE
+
+            val handler = Handler()
+            val runnable = java.lang.Runnable {
+                mAlert.visibility = View.INVISIBLE
+            }
+
+
+
+            handler.postDelayed(runnable, 1000)
+            var params: WritableMap = Arguments.createMap();
+            params.putString("event", EventNative.typeAddToCart);
+            params.putString("product", productID);
+            CameraModule.sendEvent("EventReminder", params);
+        }
         mGLView.holder.addCallback(this)
         mGLView.setEGLContextClientVersion(3)
         mGLView.setRenderer(this)
+        cameraPerformAutoFocus()
         // Hide the GLView until we are ready
-        mGLView.visibility = View.GONE
-
+        mBack.setOnClickListener {
+            onBackPressed()
+        }
         mName = findViewById(R.id.name)
         mDescription = findViewById(R.id.description)
+        mShop = findViewById(R.id.shop)
+        mIconShop = findViewById(R.id.iconShop)
+        mImage = findViewById(R.id.image)
+        mPrice = findViewById(R.id.price)
+        mNumberStar = findViewById(R.id.listStar)
+        mSold = findViewById(R.id.sold)
         mPanel = findViewById(R.id.panel)
-        mPanel.setOnClickListener(View.OnClickListener {
+        mPanel.setOnClickListener {
 
-        })
+        }
         // Prevent screen from dimming
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
@@ -158,7 +218,7 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
 
     override fun onBackPressed() {
         stopAR()
-        mVuforiaStarted = false;
+        mVuforiaStarted = false
         deinitAR()
         super.onBackPressed()
     }
@@ -189,6 +249,7 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
             cameraPerformAutoFocus()
             GlobalScope.launch(Dispatchers.Main) {
                 mPanel.visibility = View.INVISIBLE
+                productID = "";
             }
             // After triggering a focus event wait 2 seconds
             // before restoring continuous autofocus
@@ -206,14 +267,14 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
 
 
     private suspend fun initializeVuforia() {
-        return GlobalScope.async(Dispatchers.Default) {
+        return withContext(Dispatchers.Default) {
             initAR(this@VuforiaActivity, this@VuforiaActivity.assets, mTarget)
-        }.await()
+        }
     }
 
 
     private fun presentError(message : String) {
-        val builder: AlertDialog.Builder? = this.let {
+        val builder: AlertDialog.Builder = this.let {
             AlertDialog.Builder(it)
         }
 
@@ -271,22 +332,25 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
             var didRender = renderFrame()
             if (didRender.isNotEmpty() ) {
                 GlobalScope.launch(Dispatchers.Main) {
-                    mName.text = didRender
-                    mPanel.visibility = View.VISIBLE
+                    if (productID != didRender) {
+                        if(mPanel.visibility != View.VISIBLE)
+                            mPanel.visibility = View.VISIBLE
+
+                        // mName.text = didRender
+                        productID = didRender
+                        var p = getProductById(didRender)
+
+                        if (p != null){
+                            renderInformation(p)
+                            var params: WritableMap = Arguments.createMap();
+                            params.putString("event", EventNative.typeDetected);
+                            params.putString("product", productID);
+                            CameraModule.sendEvent("EventReminder", params);
+                        }
+                    }
                 }
             }
-            /*  else{
-                  val calendar = Calendar.getInstance()
-                  timeEnd = calendar.timeInMillis
-                  if (timeEnd - timeBegin >= 2000)
-                  {
-                      timeBegin = timeEnd
-                      GlobalScope.launch(Dispatchers.Main) {
-                          mView.text = didRender
-                          mButton.visibility = View.INVISIBLE
-                      }
-                  }
-              }*/
+
         }
     }
 
@@ -322,5 +386,39 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
     override fun surfaceDestroyed(var1: SurfaceHolder?) {
         deinitRendering()
     }
+    fun getProductById(id: String): ProductModel? {
+        for(product in products){
+            if (product.id == id)
+                return product
+        }
+        return null
+    }
+    private fun renderInformation(p :ProductModel?){
+        if (p==null)
+            return;
+
+        mName.text = p.name
+        mShop.text = p.shop
+        mSold.text = "Đã bán" + p.sold.toString()
+        mPrice.text = p.price.toString()
+        mDescription.text = p.description
+        mName.text = p.name
+        mIconShop.setImageDrawable(p.iconShop)
+        mImage.setImageDrawable(p.image)
+        renderStar(p.numberStar)
+    }
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun renderStar(number : Int){
+
+        for(i: Int in 0..4){
+            val star: ImageView = mNumberStar.getChildAt(i) as ImageView
+            if (i < number)
+                star.setImageDrawable(getDrawable(R.drawable.yellowstar))
+            else
+                star.setImageDrawable(getDrawable(R.drawable.graystar))
+        }
+    }
+
+
 
 }

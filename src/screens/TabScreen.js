@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity , NativeModules} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity , NativeEventEmitter,NativeModules} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import  HomeScreen from './HomeScreen'
 const CameraModule = NativeModules.CameraModule;
@@ -27,9 +27,26 @@ function UserTab() {
 
 const Tab = createBottomTabNavigator();
 
+const mount = () => {
+  const eventEmitter = new NativeEventEmitter(CameraModule);
+  this.eventListener = eventEmitter.addListener('EventReminder', (event) => {
+     console.log(event.event) 
+     console.log(event.product)// "someValue"
+  });
 
+}
+
+const unmount = () => {
+  this.eventListener.remove(); //Removes the listener
+}
 
 export default function TabScreen() {
+  React.useEffect(() => {
+    mount()
+    return () => {
+      unmount()
+    }
+  }, [])
   return (
    
       <Tab.Navigator
@@ -66,7 +83,11 @@ export default function TabScreen() {
           options = {{ 
             tabBarLabel: '',
             tabBarButton: (props)=>(
-              <TouchableOpacity onPress={()=>CameraModule.openCamera()}>
+              <TouchableOpacity onPress={()=>{
+                CameraModule.openCamera()
+              }
+                
+              }>
                 <Image source = {require('../resources/icons/camera_navbar.png')}
                   style ={{top:-30}}
                 />

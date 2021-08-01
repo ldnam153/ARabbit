@@ -82,7 +82,7 @@ void AppController::initAR(const InitConfig& initConfig, int target)
     mCameraIsStarted = false;
 
     mGuideViewModelTarget = nullptr;
-    
+
     if (!initVuforiaInternal(initConfig.appData))
     {
         return;
@@ -93,11 +93,8 @@ void AppController::initAR(const InitConfig& initConfig, int target)
         return;
     }
 
-    if (!loadTrackerData())
-    {
-        return;
-    }
-    
+
+
     mInitDoneCallback();
 }
 
@@ -253,7 +250,7 @@ void AppController::deinitAR()
     {
         LOG("Error unloading tracker data.");
     }
-    
+
     // ask the application to deinit the trackers
     deinitTrackers();
 
@@ -612,15 +609,6 @@ bool AppController::loadTrackerData()
             return false;
         }
     }
-    else
-    {
-        mCurrentDataSet = loadAndActivateDataSet("VuforiaMars_ModelTarget.xml");
-        if (mCurrentDataSet == nullptr)
-        {
-            mShowErrorCallback("Error loading dataset for Model Target");
-            return false;
-        }
-    }
 
     return true;
 }
@@ -635,17 +623,17 @@ bool AppController::unloadTrackerData()
     {
         return false;
     }
-    
+
     if (!objectTracker->deactivateDataSet(mCurrentDataSet))
     {
         LOG("Warning: Failed to deactivate the data set.");
     }
-    
+
     if (!objectTracker->destroyDataSet(mCurrentDataSet))
     {
         LOG("Warning: Failed to destory the data set.");
     }
-    
+
     mCurrentDataSet = nullptr;
 
     return true;
@@ -675,7 +663,7 @@ void AppController::stopTrackers()
 {
     // Stop the tracker
     Vuforia::TrackerManager& trackerManager = Vuforia::TrackerManager::getInstance();
-    
+
     // Stop the object tracker
     Vuforia::Tracker* objectTracker = trackerManager.getTracker(Vuforia::ObjectTracker::getClassType());
     finder->stop();
@@ -688,9 +676,9 @@ void AppController::stopTrackers()
     {
         LOG("Error: Failed to get the ObjectTracker from the tracker manager");
     }
-    
+
     Vuforia::Tracker* deviceTracker = trackerManager.getTracker(Vuforia::PositionalDeviceTracker::getClassType());
-    
+
     if (deviceTracker != nullptr)
     {
         deviceTracker->stop();
@@ -838,11 +826,11 @@ Vuforia::DataSet* AppController::loadAndActivateDataSet(std::string path)
 {
     LOG("Loading data set from %s", path.c_str());
     Vuforia::DataSet* dataSet = nullptr;
-    
+
     // Get the Vuforia tracker manager image tracker
     Vuforia::TrackerManager& trackerManager = Vuforia::TrackerManager::getInstance();
     Vuforia::ObjectTracker* objectTracker = static_cast<Vuforia::ObjectTracker*>(trackerManager.getTracker(Vuforia::ObjectTracker::getClassType()));
-    
+
     if (objectTracker == nullptr)
     {
         LOG("Error: Failed to get the ObjectTracker from the TrackerManager");
@@ -874,6 +862,6 @@ Vuforia::DataSet* AppController::loadAndActivateDataSet(std::string path)
             }
         }
     }
-    
+
     return dataSet;
 }

@@ -230,6 +230,7 @@ dependencies {
     implementation 'com.google.ar:core:1.19.0'
     implementation files("../../build/java/Vuforia/Vuforia.jar")
     implementation 'io.alterac.blurkit:blurkit:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'

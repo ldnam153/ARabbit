@@ -1,9 +1,0 @@
-# ninja log v5
-0	4	0	clean	3d69ccea4d4de9c
-4	1055	1627552223	CMakeFiles/VuforiaSample.dir/home/namly/Desktop/ARabbit/CrossPlatform/MathUtils.cpp.o	7421c61cd544ef05
-5	2823	1627552225	CMakeFiles/VuforiaSample.dir/GLESUtils.cpp.o	4547f00eb78c231b
-2	4013	1627552226	CMakeFiles/VuforiaSample.dir/home/namly/Desktop/ARabbit/CrossPlatform/AppController.cpp.o	6841f03a548be24e
-7	4820	1627552227	CMakeFiles/VuforiaSample.dir/VuforiaWrapper.cpp.o	65e331a236ca6bc5
-4	5062	1627552227	CMakeFiles/VuforiaSample.dir/GLESRenderer.cpp.o	b18f0dd4a19474e3
-4	6926	1627552229	CMakeFiles/VuforiaSample.dir/home/namly/Desktop/ARabbit/CrossPlatform/tiny_obj_loader.cpp.o	9eb7ca88bba12ed7
-6926	7177	1627552229	/home/namly/Desktop/ARabbit/android/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libVuforiaSample.so	34c57dd1953bd115
