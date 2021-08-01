@@ -22,7 +22,7 @@ class GioHang extends Component {
                 <NavBarXacNhanSP title="Giỏ hàng" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
                 <ScrollViewGioHang></ScrollViewGioHang>
                 <FooterThanhToan 
-                    price={Number((totalPrice).toFixed(1)).toLocaleString().replaceAll(",", ".")+ " VNĐ"} 
+                    price={Number((totalPrice).toFixed(1)).toLocaleString()+ " VNĐ"} 
                     btnText="Thanh toán(3)" 
                     press={goXNSP}/>
             </SafeAreaView>

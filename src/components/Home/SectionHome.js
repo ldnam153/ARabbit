@@ -70,7 +70,7 @@ class SectionHome extends Component {
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {this.state.products.map((item, index) => {
                 return (
-                  <View style={{
+                  <View key ={index} style={{
                     padding: 5,
                     marginVertical: 8,
                     marginHorizontal: 10,}}>
