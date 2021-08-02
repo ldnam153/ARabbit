@@ -473,9 +473,99 @@ const newest = ['14', '26', '28', '17', '23'];
 
 const sugggest = ['19', '20', '21', '22', '18', '24', '25', '15', '27', '16'];
 
-const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau củ quả","hàng đông lạnh","đồ hộp","hoa quả","ps4","nintendo","laptop","bếp điện từ"];
+const dress_products=['29','30','31','32','33','34','35','36','37','38','39','40'];
 
-const gan_day=["chuột gaming","ghế mát xa","bao tay chơi game","mô hình robot","laptop dell","playstation","psp","chảo chống dính","nồi hấp","thảm yoga"];
+// const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau củ quả","hàng đông lạnh","đồ hộp","hoa quả","ps4","nintendo","laptop","bếp điện từ"];
+
+const noi_bat=[
+  {
+    keyword:"bộ chảo chống dính",
+    date:"Hôm nay"
+  },
+  {
+    keyword:"tất cả thịt rau củ",
+    date:"Hôm nay"
+  },
+  {
+    keyword:"rau củ quả",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"hàng đông lạnh",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"đồ hộp",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"hoa quả",
+    date:"31/07"
+  },
+  {
+    keyword:"ps4",
+    date:"31/07"
+  },
+  {
+    keyword:"nintendo",
+    date:"31/07"
+  },
+  {
+    keyword:"laptop",
+    date:"30/07"
+  },
+  {
+    keyword:"bếp điện từ",
+    date:"30/07"
+  }
+];
+
+const gan_day=[
+  {
+    keyword:"Váy",
+    date:"Hôm nay"
+  },
+  {
+    keyword:"Váy ngắn",
+    date:"Hôm nay"
+  },
+  {
+    keyword:"chuột gaming",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"ghế mát xa",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"bao tay chơi game",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"mô hình robot",
+    date:"30/07"
+  },
+  {
+    keyword:"laptop dell",
+    date:"30/07"
+  },
+  {
+    keyword:"playstation",
+    date:"29/07"
+  },
+  {
+    keyword:"psp",
+    date:"28/07"
+  },
+  {
+    keyword:"chảo chống dính",
+    date:"28/07"
+  },
+  {
+    keyword:"nồi hấp",
+    date:"26/07"
+  }
+];
 
 const receiver = [
   {
@@ -503,5 +593,5 @@ function getProduct(id) {
 }
 
 
-export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, receiver, getProduct };
+export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, dress_products,receiver, getProduct };
 

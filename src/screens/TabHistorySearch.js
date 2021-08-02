@@ -5,23 +5,36 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import HeaderKeySearch from '../components/HeaderKeySearch';
 import HistoryItem from '../components/HistoryItem';
+import product_controller from '~/controller/product_controller'
 
 const Tab = createMaterialTopTabNavigator();
   
   function HotScreen({goRK}) {
+    var list_HotKeywords=product_controller.getHotKeywords();
     return (
-      <View>
-        <HistoryItem name_product="Váy" date="Hôm nay" goRK={goRK}/>
-      </View>
+      <ScrollView style={{backgroundColor:'white'}}>
+        {list_HotKeywords.map((item, index) => {
+          return (
+            <View key ={index}>
+              <HistoryItem name_product={item.keyword} date={item.date} goRK={goRK}/>
+            </View>
+          )
+        })}
+      </ScrollView>
     );
   }
 
   function NearScreen({goRK}) {
+    var list_NearKeywords=product_controller.getNearKeywords();
     return (
       <ScrollView style={{backgroundColor:'white'}}>
-        <HistoryItem name_product="Váy1" date="Hôm nay" goRK={goRK}/>
-        <HistoryItem name_product="Váy" date="Hôm nay" goRK={goRK}/>
-        <HistoryItem name_product="Váy123" date="Hôm nay" goRK={goRK}/>
+        {list_NearKeywords.map((item, index) => {
+          return (
+            <View key ={index}>
+              <HistoryItem name_product={item.keyword} date={item.date} goRK={goRK}/>
+            </View>
+          )
+        })}
       </ScrollView>
     );
   }

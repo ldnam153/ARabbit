@@ -35,5 +35,18 @@ module.exports={
             list_discount.push(this.getProduct(data.newest[i]));
         }
         return list_discount;
+    },
+    getDressProducts(){
+        var list_discount=[];
+        for (let i=0;i<data.dress_products.length;i++){
+            list_discount.push(this.getProduct(data.dress_products[i]));
+        }
+        return list_discount;
+    },
+    getNearKeywords(){
+        return data.gan_day;
+    },
+    getHotKeywords(){
+        return data.noi_bat;
     }
 }

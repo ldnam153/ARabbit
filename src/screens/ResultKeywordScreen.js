@@ -6,6 +6,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerContent } from '../components/FilterSideBar';
 import HeaderKeySearch from '../components/HeaderKeySearch';
 import ProductBar from '../components/ProductBar';
+import product_controller from '~/controller/product_controller'
 
 const styles = StyleSheet.create({
     container: {
@@ -15,7 +16,9 @@ const styles = StyleSheet.create({
     buttonFilter: {
       alignItems: 'center',
       backgroundColor: 'red',
-      flexDirection:'row'
+      flexDirection:'row',
+      paddingLeft:5,
+      paddingRight:5
     },
     button: {
       alignItems: 'center',
@@ -40,6 +43,13 @@ const styles = StyleSheet.create({
   });
 
 class HomeScreen extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            dress_products: product_controller.getDressProducts(),
+        }
+    }
+
     render(){
         return (
             <View>
@@ -91,19 +101,23 @@ class HomeScreen extends Component {
                   </View>
                   
                   <ScrollView style={{backgroundColor:'white'}} contentContainerStyle={{ paddingBottom: 350}}>
-                      <View style={{flexDirection:'row',justifyContent:'space-between', flexWrap:'wrap', paddingLeft:10, paddingRight:30}}>        
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
+                      <View style={{flexDirection:'row',justifyContent:'space-between', flexWrap:'wrap', paddingLeft:10, paddingRight:30}}>
+                            {this.state.dress_products.map((item, index) => {
+                            return (
+                                    <View key ={index}>
+                                        <ProductBar
+                                            imgUrl = {item.main_img[0]}
+                                            num_star= {item.star}
+                                            percent_sale = {item.sale_percent}
+                                            name_product = {item.name}
+                                            sale_price = {item.price}
+                                            location = {item.location}
+                                            num_sales = {item.stock}
+                                            real_price = {item.first_price}
+                                            goPD={this.props.route.params.goPD}/>
+                                    </View>
+                                    )
+                            })}
                       </View>
                   </ScrollView>
       
