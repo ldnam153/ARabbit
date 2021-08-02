@@ -118,7 +118,6 @@ class ScrollViewGioHang extends Component {
             false: '#F62424'
         }
         const { cartList, actions, isSelected } = this.props;
-        console.log('render',cartList)
         return (
             <ScrollView style={{backgroundColor:'#b4b4b4'}}>
                 <View style={styles.container}>
