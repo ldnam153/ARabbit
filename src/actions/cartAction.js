@@ -1,19 +1,21 @@
-import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL } from '../Constant';
+import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX } from '../Constant';
 
-export const incrementAmount = (amount, isSelected) => {
+export const incrementAmount = (id, amount, isSelected) => {
   return {
     type: INCREASE_AMOUNT,
     payload: {
+      id,
       amount: amount,
       isSelected: isSelected,
     }
   };
 };
 
-export const decrementAmount = (amount, isSelected) => {
+export const decrementAmount = (id, amount, isSelected) => {
   return {
     type: DECREASE_AMOUNT,
     payload: {
+      id,
       amount: amount,
       isSelected: isSelected,
     }
@@ -54,3 +56,23 @@ export const addMessageForShop = (message, shopId) => {
     }
   };
 };
+
+export const toggleProductCheckbox = (value, productID) => {
+  return {
+    type: TOGGLE_PRODUCT_CHECKBOX,
+    payload: {
+      value,
+      productID
+    }
+  }
+}
+
+export const toggleShopCheckbox = (value, shopID) => {
+  return {
+    type: TOGGLE_SHOP_CHECKBOX,
+    payload: {
+      value,
+      shopID
+    }
+  }
+}

@@ -466,7 +466,7 @@ const product = [
   },
   {
       id: "40",
-      main_img: ["https://lh3.googleusercontent.com/proxy/fhwSrY1mUd2Bj_3QnHB6lH0Ebc6jI9oIwdPvt_0p9yZllp6ml7--LKsYiQzy5enyM3eXw5VROn1N5dKxkgcnF2l1FjF9i62ugdzjwSCW_jBzQ824ZKX8Ymo"],
+      main_img: ["https://salt.tikicdn.com/cache/w444/ts/product/bb/9d/7d/a6ccf2cc7a80b9f4d35e72e5982b6588.jpg"],
       sale_percent: "74",
       name: "Chân váy xòe ngang gối màu đen",
       first_price: "160.000",
