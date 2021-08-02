@@ -487,6 +487,8 @@ const sugggest = ['19', '20', '21', '22', '18', '24', '25', '15', '27', '16'];
 
 const dress_products=['29','30','31','32','33','34','35','36','37','38','39','40'];
 
+const findWithCamera=['2','8','31','4','10','12'];
+
 // const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau củ quả","hàng đông lạnh","đồ hộp","hoa quả","ps4","nintendo","laptop","bếp điện từ"];
 
 const noi_bat=[
@@ -605,5 +607,5 @@ function getProduct(id) {
 }
 
 
-export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, dress_products,receiver, getProduct };
+export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, dress_products,receiver, findWithCamera,getProduct };
 

@@ -3,9 +3,12 @@ import { SafeAreaView, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import FooterThanhToan from '../components/ThanhToan/FooterThanhToan'
 import ScrollViewThanhToan from '../components/ThanhToan/ScrollViewThanhToan'
 import NavBarXacNhanSP from '../components/XacNhanSanPham/NavBarXacNhanSP'
-import ScrollViewXacNhanThanhToan from '../components/XacNhanSanPham/ScrollViewXacNhanThanhToan'
+import { connect } from 'react-redux'
 
 class ThanhToan extends Component {
+    currencyFormat(num) {
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
     render() {
         const goBack = () =>{
             this.props.navigation.goBack();
@@ -19,11 +22,13 @@ class ThanhToan extends Component {
         const goVS = () =>{
             this.props.navigation.push('VouchersScreen')
         }
+        const {totalPrice} = this.props
+        console.log('abc',totalPrice)
         return (
             <SafeAreaView style={styles.screen_container}>
                 <NavBarXacNhanSP title="Thanh toán" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
-                <ScrollViewThanhToan goDDC={goDDC} goVS={goVS}/>
-                <FooterThanhToan price="12.705.000 VNĐ" btnText="ĐẶT HÀNG" press={goHome} thanhtoan={true}/>
+                <ScrollViewThanhToan goDDC={goDDC} goVS={goVS} />
+                <FooterThanhToan price={this.currencyFormat(totalPrice)+' VNĐ'} btnText="ĐẶT HÀNG" press={goHome} thanhtoan={true}/>
             </SafeAreaView>
         )
     }
@@ -52,4 +57,10 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ThanhToan
+const mapStateToProps = (state) => {
+    return {
+        totalPrice: state.cartReducer.totalPrice,
+    }
+}
+
+export default connect(mapStateToProps)(ThanhToan)

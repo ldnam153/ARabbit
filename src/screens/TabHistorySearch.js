@@ -6,6 +6,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import HeaderKeySearch from '../components/HeaderKeySearch';
 import HistoryItem from '../components/HistoryItem';
 import product_controller from '~/controller/product_controller'
+import ImageItemSearch from '../components/ImageItemSearch';
 
 const Tab = createMaterialTopTabNavigator();
   
@@ -39,10 +40,25 @@ const Tab = createMaterialTopTabNavigator();
     );
   }
   function cameraScreen() {
+    var list_CameraItem=product_controller.getCameraItemFiding();
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Tìm với máy ảnh</Text>
-      </View>
+      <ScrollView style={{backgroundColor:'white'}}>
+        {list_CameraItem.map((item, index) => {
+          return (
+            <View key ={index}>
+              <ImageItemSearch 
+              imgUrl = {item.main_img[0]}
+              num_star= {item.star}
+              percent_sale = {item.sale_percent}
+              name_product = {item.name}
+              sale_price = {item.price}
+              location = {item.location}
+              num_sales = {item.stock}
+              real_price = {item.first_price}/>
+            </View>
+          )
+        })}
+      </ScrollView>
     );
   }
 

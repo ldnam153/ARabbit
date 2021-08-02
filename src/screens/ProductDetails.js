@@ -25,8 +25,8 @@ class ProductDetails extends Component {
     const goBack = () => {
       this.props.navigation.goBack();
     }
-    const goFP = () => {
-      this.props.navigation.navigate('FeedBackProduct')
+    const goFP = (danhgia={...data}) => {
+      this.props.navigation.navigate('FeedBackProduct',{data: danhgia})
     }
     const goPD = () => {
       this.props.navigation.push('ProductDetails')

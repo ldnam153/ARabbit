@@ -68,7 +68,7 @@ const initialState = {
       ],
     },
   ],
-  totalPrice: 14070000,
+  totalPrice: 12670000,
   isAllSelected: false,
   checkedProducts: 3, //cai nay nam ke nut thanh toan ne, hien thi co bao nhieu LOAI SAN PHAM dang duoc selected <3
 };
