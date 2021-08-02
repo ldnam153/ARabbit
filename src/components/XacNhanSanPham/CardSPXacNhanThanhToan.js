@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
 })
 
 class CardSPXacNhanThanhToan extends Component {
+    currencyFormat(num) {
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
     render() {
         return (
             <View>
@@ -37,7 +40,7 @@ class CardSPXacNhanThanhToan extends Component {
                         <Text style={styles.header} numberOfLines={1}>{this.props.data.name}</Text>
                         <Text style={styles.phanloai}>Phân loại: {this.props.data.property}</Text>
                         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                            <Text style={styles.phanloai}>{this.props.data.price}</Text>
+                            <Text style={styles.phanloai}>{this.currencyFormat(this.props.data.price)+' VNĐ'}</Text>
                             <Text style={styles.phanloai}>x{this.props.data.number}</Text>
                         </View>
                     </View>
