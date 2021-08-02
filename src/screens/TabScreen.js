@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity , NativeEventEmitter,NativeModules} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import  HomeScreen from './HomeScreen'
+import * as controller from '../controller/product_controller'
 
 const CameraModule = NativeModules.CameraModule;
 function CategoryTab() {
@@ -28,11 +29,14 @@ function UserTab() {
 
 const Tab = createBottomTabNavigator();
 
-const mount = () => {
+const mount = (goPD) => {
   const eventEmitter = new NativeEventEmitter(CameraModule);
   this.eventListener = eventEmitter.addListener('EventReminder', (event) => {
      console.log(event.event) 
      console.log(event.product)// "someValue"
+     if(event.event == 'view'){
+      goPD(event.product);
+     }
   });
 
 }
@@ -48,11 +52,11 @@ export default function TabScreen({navigation}) {
   const goTH = () => {
       navigation.navigate('TabHistorySearch')
   }
-  const goPD = () => {
-      navigation.push('ProductDetails')
+  const goPD = (productID='1') => {
+      navigation.push('ProductDetails',{data: controller.getProduct(productID)})
   }
   React.useEffect(() => {
-    mount()
+    mount(goPD)
     return () => {
       unmount()
     }
