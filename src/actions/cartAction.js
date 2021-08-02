@@ -14,12 +14,13 @@ export const decrementAmount = (amount) => {
   };
 };
 
-export const removeProduct = (id, price) => {
+export const removeProduct = (id, price, isSelected) => {
   return {
     type: REMOVE_PRODUCT,
     payload: {
       id,
-      price
+      price,
+      isSelected,
     }
   };
 };

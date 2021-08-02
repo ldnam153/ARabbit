@@ -127,7 +127,7 @@ class ScrollViewGioHang extends Component {
                     </View>
                 </View>
                 {/*   data render   */}
-                {cartList.map((shop) => { if(shop.products.length>0) return (<CardCHGioHang data={shop} />)})}
+                {cartList.map((shop) => { if(shop.products.length>0) return (<CardCHGioHang data={shop} key={shop.shopId}/>)})}
             </ScrollView>
         )
     }

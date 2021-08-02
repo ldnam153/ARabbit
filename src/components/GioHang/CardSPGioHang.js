@@ -85,7 +85,7 @@ class CardSPGioHang extends Component {
                     <View style={{flex:2}}>
                     </View>
                     <View style={{flex:6,flexDirection:'column',alignItems:'center'}}>
-                        <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={() => actions.removeProduct(this.props.data.id, +this.props.data.price * +this.props.data.number)}>
+                        <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={() => actions.removeProduct(this.props.data.id, +this.props.data.price * +this.props.data.number, this.props.data.isSelected)}>
                             <Text style={styles.xoa}>Xóa</Text>
                         </TouchableOpacity>
                     </View>

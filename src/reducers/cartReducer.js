@@ -69,7 +69,12 @@ const initialState = {
     },
   ],
   totalPrice: 14070000,
+  checkedProducts: 3, //cai nay nam ke nut thanh toan ne, hien thi co bao nhieu LOAI SAN PHAM dang duoc selected <3
 };
+
+checkIfChecked = (cartList, productId) => {
+  [cartList].map(shop => {return {...shop, products: shop.products.filter(p => p.id !== action.payload.id)}})
+} 
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -88,6 +93,7 @@ const cartReducer = (state = initialState, action) => {
     case REMOVE_PRODUCT: {
       return {
         ...state,
+        checkedProducts: action.payload.isSelected === true ? state.checkedProducts - 1 : state.checkedProducts,
         totalPrice: state.totalPrice - action.payload.price,
         cartList: [...state.cartList].map(shop => {return {...shop, products: shop.products.filter(p => p.id !== action.payload.id)}})
       };
