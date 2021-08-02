@@ -12,6 +12,9 @@ import {
 import RBSheet from "react-native-raw-bottom-sheet";
 import TangGiamSL from '../../components/GioHang/TangGiamSL';
 import SweetAlert from 'react-native-sweet-alert';
+import { bindActionCreators } from 'redux';
+import * as CartActions from "../../actions/cartAction"
+import { connect } from 'react-redux';
 
 const {width, height} = Dimensions.get('window');
 class PDFooter extends Component {
@@ -30,7 +33,7 @@ class PDFooter extends Component {
  
 
     render() {
-        const data = this.props.data;
+        const { data, actions } = this.props;
         
         return(
             <View>
@@ -106,7 +109,7 @@ class PDFooter extends Component {
                             style: 'success',
                             cancellable: true
                         },
-                        callback => console.log('callback'));}}>
+                        callback => actions.addToCart(data.shop, { name: data.name, price: data.price, number: 1, stock: data.stock }));}}>
                         <View style={styles.BottomButton}>
                             <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Đồng ý</Text>
                         </View>
@@ -140,4 +143,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PDFooter;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(CartActions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PDFooter);

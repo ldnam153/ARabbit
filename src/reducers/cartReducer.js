@@ -1,4 +1,4 @@
-import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX } from '../Constant';
+import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX, ADD_TO_CART } from '../Constant';
 
 const initialState = {
   cartList: [
@@ -89,6 +89,14 @@ const changeProductCheckbox = (list, shopID, value) => {
   return list.map(shop => {return {...shop, isSelected: shop.shopId === shopID ? value : shop.isSelected, products: shop.shopId === shopID ? shop.products.map(p => {return {...p, isSelected: value}}) : shop.products}})
 }
 
+const checkAllSelected = (list) => {
+  return list.every(shop => shop.products.every(p => p.isSelected))
+}
+
+const checkProductExisted = (list, productID) => {
+  return list.some(shop => shop.products.some(p => p.id === productID));
+}
+
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case INCREASE_AMOUNT: {
@@ -122,10 +130,12 @@ const cartReducer = (state = initialState, action) => {
       };
     }
     case TOGGLE_ALL: {  //data thay doi nhung UI chua re-render (check/uncheck) dua tren data
+      const newCartList = [...state.cartList].map(shop => {return {...shop,isSelected:action.payload,products: shop.products.map(p => {return{...p,isSelected:action.payload}})}})
       return {
         ...state,
         isAllSelected: action.payload,
-        cartList: [...state.cartList].map(shop => {return {...shop,isSelected:action.payload,products: shop.products.map(p => {return{...p,isSelected:action.payload}})}})
+        cartList: newCartList,
+        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0)
       };
     }
     case 'MESSAGE': {
@@ -139,7 +149,8 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartList: changeShopCheckbox(newCartList),
-        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0)
+        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0),
+        isAllSelected: checkAllSelected(newCartList)
       }
     }
     case TOGGLE_SHOP_CHECKBOX: {
@@ -147,7 +158,15 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartList: newCartList,
-        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0)
+        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0),
+        isAllSelected: checkAllSelected(newCartList)
+      }
+    }
+    case ADD_TO_CART: {
+      const newCartList = checkProductExisted(state.cartList, action.payload.products[0].id) ? [...state.cartList].map(shop => { return {...shop, products: shop.products.map(p => {return {...p, number: p.id === action.payload.products[0].id ? p.number + action.payload.products[0].number : p.number}})}}) : [...state.cartList, action.payload];
+      return {
+        ...state,
+        cartList: newCartList,
       }
     }
     default:

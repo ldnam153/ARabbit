@@ -1,4 +1,4 @@
-import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX } from '../Constant';
+import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX, ADD_TO_CART } from '../Constant';
 
 export const incrementAmount = (id, amount, isSelected) => {
   return {
@@ -73,6 +73,30 @@ export const toggleShopCheckbox = (value, shopID) => {
     payload: {
       value,
       shopID
+    }
+  }
+}
+
+export const addToCart = (shop, product) => {
+  return {
+    type: ADD_TO_CART,
+    payload: {
+      isSelected: true,
+      shop,
+      shopId: "S05",
+      products: [
+        {
+          isSelected: true,
+          image: require('~/resources/imgs/ps5.jpg'),
+          name: product.name,
+          property: 'Standard',
+          properties: ['Normal', 'Standard', 'Premium'],
+          price: +(product.price.replace(".", "")),
+          number: product.number,
+          remain: product.stock,
+          id: "P010"
+        },
+      ]
     }
   }
 }
