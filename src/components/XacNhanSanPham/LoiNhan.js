@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, TextInput } from 'react-native'
+import { bindActionCreators } from 'redux';
+import * as CartActions from "../../actions/cartAction"
+import { connect } from 'react-redux';
 
 class LoiNhan extends Component {
     constructor(props) {
@@ -11,6 +14,7 @@ class LoiNhan extends Component {
     }
     
     render() {
+        const { actions } = this.props;
         return (
             <View style={styles.message}>
                 <Text style={{fontSize:16}}>Lời nhắn</Text>
@@ -19,6 +23,7 @@ class LoiNhan extends Component {
                     placeholder= "Hãy để lại lời nhắn cho cửa hàng"
                     placeholderTextColor= "#a69797"
                     onChangeText={(text) => this.setState({message: text})}
+                    onSubmitEditing={(event)=>{actions.addMessageForShop(event.nativeEvent.text,this.props.shopId)}}
                     value={this.state.message}
                 />
             </View>
@@ -44,4 +49,10 @@ const styles = StyleSheet.create({
     },
 })
 
-export default LoiNhan
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(CartActions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(LoiNhan)
