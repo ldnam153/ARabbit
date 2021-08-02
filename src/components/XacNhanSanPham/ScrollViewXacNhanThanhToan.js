@@ -29,42 +29,6 @@ class ScrollViewXacNhanThanhToan extends Component {
         return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
     }
     render() {
-        // const data = [
-        //     {
-        //         shop: 'GameStop',
-        //         tongtienshop: '12.550.000 VNĐ',
-        //         products: [
-        //             {
-        //                 image: require('~/resources/imgs/ps5.jpg'),
-        //                 name: 'Máy chơi game PlayStation 5 hàng chính hãng',
-        //                 property: 'Standard',
-        //                 price: '7.000.000 VNĐ',
-        //                 number: 1,
-        //             },
-        //             {
-        //                 image: require('~/resources/imgs/ps4.jpg'),
-        //                 name: 'Máy chơi game PlayStation 4 thế hệ mới',
-        //                 property: 'Premium',
-        //                 price: '5.550.000 VNĐ',
-        //                 number: 1,
-        //             }
-        //         ]
-        //     },
-        //     {
-        //         shop: 'UwU Shop',
-        //         tongtienshop: '120.000 VNĐ',
-        //         products: [
-        //             {
-        //                 image: require('~/resources/imgs/vaydo.jpg'),
-        //                 name: 'Váy đỏ tươi sành điệu cho các nàng',
-        //                 property: 'XXL',
-        //                 price: '120.000 VNĐ',
-        //                 number: 1,
-        //             }
-        //         ]
-        //     },
-        // ]
-
         const {cartList} = this.props
         
         function tinhtongtien(cartList) {

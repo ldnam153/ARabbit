@@ -9,7 +9,7 @@ class LoiNhan extends Component {
         super(props)
     
         this.state = {
-            message: "",
+            message: this.props.value,
         }
     }
     
