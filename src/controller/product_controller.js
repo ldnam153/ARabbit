@@ -48,5 +48,12 @@ module.exports={
     },
     getHotKeywords(){
         return data.noi_bat;
+    },
+    getCameraItemFiding(){
+        var list_discount=[];
+        for (let i=0;i<data.findWithCamera.length;i++){
+            list_discount.push(this.getProduct(data.findWithCamera[i]));
+        }
+        return list_discount;
     }
 }
