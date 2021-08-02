@@ -1,4 +1,4 @@
-import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL_PRODUCT } from '../Constant';
+import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL } from '../Constant';
 
 export const incrementAmount = (amount, isSelected) => {
   return {
@@ -28,5 +28,19 @@ export const removeProduct = (id, price, isSelected) => {
       price,
       isSelected,
     }
+  };
+};
+
+export const removeAll = () => {
+  return {
+    type: REMOVE_ALL,
+    payload: null,
+  };
+};
+
+export const toggleAll = (value) => {
+  return {
+    type: TOGGLE_ALL,
+    payload: value,
   };
 };

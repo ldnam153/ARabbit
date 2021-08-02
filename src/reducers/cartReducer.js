@@ -1,4 +1,4 @@
-import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT } from '../Constant';
+import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL } from '../Constant';
 
 const initialState = {
   cartList: [
@@ -93,6 +93,21 @@ const cartReducer = (state = initialState, action) => {
         checkedProducts: action.payload.isSelected === true ? state.checkedProducts - 1 : state.checkedProducts,
         totalPrice: action.payload.isSelected === true ? state.totalPrice - action.payload.price : state.totalPrice,
         cartList: [...state.cartList].map(shop => {return {...shop, products: shop.products.filter(p => p.id !== action.payload.id)}})
+      };
+    }
+    case REMOVE_ALL: {
+      return {
+        ...state,
+        checkedProducts: 0,
+        totalPrice: 0,
+        cartList: [...state.cartList].map(shop => {return {...shop, products: []}})
+      };
+    }
+    case TOGGLE_ALL: {  //data thay doi nhung UI chua re-render (check/uncheck) dua tren data
+      return {
+        ...state,
+        isAllSelected: action.payload,
+        cartList: [...state.cartList].map(shop => {return {...shop,isSelected:action.payload,products: shop.products.map(p => {return{...p,isSelected:action.payload}})}})
       };
     }
     default:
