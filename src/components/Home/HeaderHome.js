@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
   }
   ,
   input:{ 
-    flex: 4,
+    flex: 3,
     height: 40,
     paddingLeft: 15,
     paddingRight: 10,
     backgroundColor: '#D9D9D9',
     borderRadius: 3,
     marginLeft: 5,
-    marginRight: 10,
+    marginRight: 10
   },
   number:{
     backgroundColor: "red", 
@@ -43,7 +43,7 @@ class HeaderHome extends Component {
     return (
       <SafeAreaView style={styles.navbar_container}>
         <SafeAreaView style={styles.group}>
-          <TextInput style={styles.input} placeholder="Tìm kiếm" onFocus={this.props.goTH}/>
+          <TextInput style={styles.input} placeholder="Bạn muốn tìm gì?" placeholderTextColor="#000" onFocus={this.props.goTH}/>
           <View style={{flex:1, display:'flex', flexDirection:'row', justifyContent: 'space-between'}}>
               <TouchableOpacity onPress={this.props.goGH} >
                 <Image source={require('../../resources/icons/cart_click.png')}/>

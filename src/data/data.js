@@ -351,7 +351,8 @@ const product = [
       first_price: "156.000",
       price: '75.000',
       star: '5',
-      location: 'Quảng Ninh'
+      location: 'Quảng Ninh',
+      stock: "274"
   },
   {
       id: "30",
@@ -361,7 +362,8 @@ const product = [
       first_price: "195.000",
       price: '119.000',
       star: '5',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+    stock: "356"
   },
   {
       id: "31",
@@ -371,7 +373,8 @@ const product = [
       first_price: "420.000",
       price: '269.000',
       star: '5',
-      location: 'Bắc Ninh'
+      location: 'Bắc Ninh',
+    stock: "785"
   },
   {
       id: "32",
@@ -381,7 +384,8 @@ const product = [
       first_price: "",
       price: '495.000',
       star: '',
-      location: 'Hòa Bình'
+      location: 'Hòa Bình',
+    stock: "674"
   },
   {
       id: "33",
@@ -391,7 +395,8 @@ const product = [
       first_price: "",
       price: '395.000',
       star: '5',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+    stock: "124"
   },
   {
       id: "34",
@@ -401,7 +406,8 @@ const product = [
       first_price: "240.000",
       price: '146.250',
       star: '5',
-      location: 'Hà Nội'
+      location: 'Hà Nội',
+    stock: "231"
   },
   {
       id: "35",
@@ -411,7 +417,8 @@ const product = [
       first_price: "189.000",
       price: '75.000',
       star: '4',
-      location: 'Quảng Ngãi'
+      location: 'Quảng Ngãi',
+    stock: "641"
   },
   {
       id: "36",
@@ -421,7 +428,8 @@ const product = [
       first_price: "350.000",
       price: '174.000',
       star: '4',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+    stock: "56"
   },
   {
       id: "37",
@@ -431,7 +439,8 @@ const product = [
       first_price: "250.000",
       price: '57.000',
       star: '4',
-      location: 'Đà Nẵng'
+      location: 'Đà Nẵng',
+    stock: "64"
   },
   {
       id: "38",
@@ -441,7 +450,8 @@ const product = [
       first_price: "120.000",
       price: '86.000',
       star: '5',
-      location: 'An Giang'
+      location: 'An Giang',
+    stock: "234"
   },
   {
       id: "39",
@@ -451,7 +461,8 @@ const product = [
       first_price: "249.000",
       price: '149.000',
       star: '5',
-      location: 'Cần Thơ'
+      location: 'Cần Thơ',
+    stock: "425"
   },
   {
       id: "40",
@@ -461,7 +472,8 @@ const product = [
       first_price: "160.000",
       price: '42.000',
       star: '4',
-      location: 'TP.Hồ Chí Minh'
+      location: 'TP.Hồ Chí Minh',
+    stock: "45"
   }
 ];
 

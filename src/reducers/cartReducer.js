@@ -110,6 +110,12 @@ const cartReducer = (state = initialState, action) => {
         cartList: [...state.cartList].map(shop => {return {...shop,isSelected:action.payload,products: shop.products.map(p => {return{...p,isSelected:action.payload}})}})
       };
     }
+    case 'MESSAGE': {
+      return {
+        ...state,
+        cartList: [...state.cartList].map(shop => {if(shop.shopId == action.payload.shopId) {return {...shop, message: action.payload.message}}else return {...shop}})
+      };
+    }
     default:
       return state;
   }

@@ -44,3 +44,13 @@ export const toggleAll = (value) => {
     payload: value,
   };
 };
+
+export const addMessageForShop = (message, shopId) => {
+  return {
+    type: 'MESSAGE',
+    payload: {
+      message: message,
+      shopId: shopId,
+    }
+  };
+};
