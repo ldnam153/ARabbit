@@ -31,11 +31,13 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     ctn_image:{
-        width:190,
-        height:220,
+        width: 165,
+        height: 220,
         position:'relative',
         display:'flex',
-        backgroundColor:'white'
+        backgroundColor:'white',
+        borderWidth: 1,
+        borderColor: '#FFE1E1'
     }
 });
 
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
 class ProductBar extends Component {
     render() {
         return (
-            <TouchableOpacity style={{marginTop:10, width:170}} onPress={this.props.goPD}>
+            <TouchableOpacity style={{marginTop:10, width:165}} onPress={this.props.goPD}>
                 <View style={styles.ctn_image}>
                     <Image source={{uri: this.props.imgUrl}} style={styles.image}/>
                     <View style={{position:'absolute',width:'100%',alignItems:'flex-end'}}>
