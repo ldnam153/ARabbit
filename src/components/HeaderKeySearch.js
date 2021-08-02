@@ -12,6 +12,7 @@ const styles_ctn=StyleSheet.create({
         borderRadius: 3,
         marginLeft: 5,
         marginRight: 10,
+        color: 'black',
       },
     container: {
         flexDirection: 'row',
@@ -36,8 +37,9 @@ const styles = StyleSheet.create({
 class HeaderKeySearch extends Component{
     constructor(props) {
         super(props);
-        this.state = {text: ''};
+        this.state = {text: this.props.value || ''};
       }
+
     render() {
         return (
                 <View style={styles_ctn.container}>
@@ -49,7 +51,9 @@ class HeaderKeySearch extends Component{
                     <TextInput
                         style={styles_ctn.input}
                         placeholder={this.props.placeholder}
-                        onChangeText={(text) => this.setState({text})}
+                        onChangeText={(text) => {this.setState({text})}}
+                        returnKeyType='search'
+                        onSubmitEditing={this.props.goRK}
                         value={this.state.text}
                     />
                     <View style={{flex:0.3,flexDirection: 'row',justifyContent: 'center'}}>

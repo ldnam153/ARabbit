@@ -43,7 +43,7 @@ class TabHistorySearch extends Component{
       }
         return (
                 <NavigationContainer independent={true}>
-                    <HeaderKeySearch placeholder="Tìm kiếm" goBack={goBack}/>
+                    <HeaderKeySearch placeholder="Tìm kiếm" goBack={goBack} goRK={goRK}/>
                     <Tab.Navigator getLabelText={({ route }) => route.title} initialRouteName="Something" tabBarOptions={{labelStyle:{fontSize: 14, textTransform: 'none'},activeTintColor:'red', inactiveTintColor:'grey' ,style:{elevation: 0}, indicatorStyle:{backgroundColor:'red'}}}>
                         <Tab.Screen name="Gần đây" children={()=><NearScreen goRK={goRK}/>} />
                         <Tab.Screen name="Nổi bật" children={() => <HotScreen goRK={goRK}/>} />

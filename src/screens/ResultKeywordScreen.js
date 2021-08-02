@@ -43,7 +43,7 @@ class HomeScreen extends Component {
     render(){
         return (
             <View>
-              <HeaderKeySearch placeholder="Tìm kiếm" goBack={this.props.route.params.goBack}/>
+              <HeaderKeySearch placeholder="Tìm kiếm" goBack={this.props.route.params.goBack} value='Váy'/>
               <View>
                   <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                       <View style={{display: 'flex', flexDirection: 'row', padding:10}} >
