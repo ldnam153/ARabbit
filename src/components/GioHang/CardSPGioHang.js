@@ -92,7 +92,7 @@ class CardSPGioHang extends Component {
                     <View style={{flex:14,paddingLeft:12}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
                             <View style={{flex:1,flexShrink:3}}>
-                                <TangGiamSL number={this.props.data.number} max={this.props.data.remain} increase={() => actions.incrementAmount(this.props.data.price)} decrease={() => actions.decrementAmount(this.props.data.price)}></TangGiamSL>
+                                <TangGiamSL number={this.props.data.number} max={this.props.data.remain} increase={() => actions.incrementAmount(this.props.data.price, this.props.data.isSelected)} decrease={() => actions.decrementAmount(this.props.data.price, this.props.data.isSelected)}></TangGiamSL>
                             </View>
                             <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.remain} sản phẩm</Text>
                         </View>
