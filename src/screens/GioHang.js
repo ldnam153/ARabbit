@@ -6,6 +6,9 @@ import FooterThanhToan from '../components/ThanhToan/FooterThanhToan'
 import NavBarXacNhanSP from '../components/XacNhanSanPham/NavBarXacNhanSP'
 
 class GioHang extends Component {
+    currencyFormat(num) {
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
     render() {
         const { totalPrice } = this.props;
         const goBack = () =>{
@@ -22,7 +25,7 @@ class GioHang extends Component {
                 <NavBarXacNhanSP title="Giỏ hàng" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
                 <ScrollViewGioHang></ScrollViewGioHang>
                 <FooterThanhToan 
-                    price={Number((totalPrice).toFixed(1)).toLocaleString()+ " VNĐ"} 
+                    price={this.currencyFormat(totalPrice)+ " VNĐ"} 
                     btnText="Thanh toán(3)" 
                     press={goXNSP}/>
             </SafeAreaView>

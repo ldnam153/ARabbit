@@ -45,6 +45,10 @@ class CardSPGioHang extends Component {
             isSelected: props.data.isSelected
         }
     }
+
+    currencyFormat(num) {
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
     
     render() {
         const { actions } = this.props;
@@ -74,7 +78,7 @@ class CardSPGioHang extends Component {
                             </View>
                             <View style={{flex:1}}></View>
                         </View>
-                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{Number((this.props.data.price).toFixed(1)).toLocaleString()} VNĐ</Text>
+                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{this.currencyFormat(this.props.data.price)} VNĐ</Text>
                     </View>
                 </View>
                 <View style={[styles.container,{marginTop:2}]}>
