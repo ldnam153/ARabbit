@@ -17,7 +17,7 @@ const {width, height} = Dimensions.get('window');
 
 class FeedBackProduct extends Component {
   render() {
-    var data =  this.props.data
+    var data =  this.props.route.params.data || this.props.data
     const goBack = () => {
       this.props.navigation.goBack()
     }
