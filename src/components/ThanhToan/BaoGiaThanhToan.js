@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-
+import {connect} from 'react-redux'
 class BaoGiaThanhToan extends Component {
     render() {
+        
         return (
             <View style={styles.container}>
                 <Text style={styles.header}>Tổng thanh toán</Text>
@@ -65,5 +66,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 })
-
-export default BaoGiaThanhToan
+const mapStateToProps = (state) => {
+    return{
+        voucher: state.voucherReducer.activeVoucher
+    }
+}
+export default connect(mapStateToProps) (BaoGiaThanhToan)

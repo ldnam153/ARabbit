@@ -1,15 +1,27 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-
+import {connect} from 'react-redux'
 class ChonVoucherThanhToan extends Component {
+    constructor(props) {
+        super(props)
+        console.log(this.props.voucher)
+        
+    }
+    
     render() {
+        var shortName = "Chọn voucher"
+        var style = styles.tag
+        if (this.props.voucher != null){
+            shortName = this.props.vouchers[this.props.voucher].shortName
+            style = styles.tagActive
+        }
         return (
             <View style={styles.container}>
                 <Text style={{fontSize: 16}}>
                     Chọn voucher
                 </Text>
                 <TouchableOpacity style={styles.inner} onPress={this.props.goVS}>
-                    <Text style={styles.tag}>Miễn phí vận chuyển</Text>
+                    <Text style={style}>{shortName}</Text>
                     <Text style={{fontSize: 20}}> &gt; </Text>
                 </TouchableOpacity>
             </View>
@@ -36,7 +48,19 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderRadius:3,
         padding:3
+    },
+    tagActive: {
+        borderWidth: 0.75,
+        fontSize: 15,
+        borderColor: 'red',
+        borderRadius:3,
+        padding:3
     }
 })
-
-export default ChonVoucherThanhToan
+const mapStateToProps = (state) => {
+    return{
+        voucher: state.voucherReducer.activeVoucher,
+        vouchers: state.voucherReducer.listVoucher
+    }
+}
+export default connect(mapStateToProps) (ChonVoucherThanhToan)

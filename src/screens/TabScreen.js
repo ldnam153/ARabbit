@@ -3,7 +3,9 @@ import { StyleSheet, Text, View, Image, TouchableOpacity , NativeEventEmitter,Na
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import  HomeScreen from './HomeScreen'
 import * as controller from '../controller/product_controller'
-
+import { connect } from 'react-redux';
+import * as CartActions from "../actions/cartAction"
+import { bindActionCreators } from 'redux';
 const CameraModule = NativeModules.CameraModule;
 function CategoryTab() {
   return (
@@ -37,15 +39,19 @@ const mount = (goPD) => {
      if(event.event == 'view'){
       goPD(event.product);
      }
+     else if (event.event == 'add'){
+        
+     }
   });
 
 }
 
 const unmount = () => {
   this.eventListener.remove(); //Removes the listener
-}
+};
 
-export default function TabScreen({navigation}) {
+function TabScreen({navigation}) {
+  console.log(controller.getCatList())
   const goGH = () => {
       navigation.navigate('GioHang')
   }
@@ -131,3 +137,10 @@ export default function TabScreen({navigation}) {
 
   );
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+      actions: bindActionCreators(CartActions, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(TabScreen);

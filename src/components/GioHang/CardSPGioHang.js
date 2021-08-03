@@ -40,13 +40,14 @@ const styles = StyleSheet.create({
 class CardSPGioHang extends Component {
     constructor(props) {
         super(props)
-    
+        
         this.state = {
             isSelected: props.data.isSelected
         }
     }
 
     currencyFormat(num) {
+        
         return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
     }
     
@@ -68,13 +69,14 @@ class CardSPGioHang extends Component {
                         </CheckBox>
                     </View>
                     <View style={{flex:6,flexDirection:'column',alignItems:'center'}}>
-                        <Image source={this.props.data.image} style={styles.productImg}></Image>
+                        <Image source={{uri: this.props.data.main_img[0]}} style={styles.productImg}></Image>
                     </View>
                     <View style={styles.info}>
                         <Text style={{fontSize:16,fontWeight:'bold'}} numberOfLines={2}>{this.props.data.name}</Text>
                         <View style={{flexDirection:'row',marginVertical:4}}>
                             <View style={{flex:1}}>
                                 <Select property={this.props.data.property} data={this.props.data.properties}/>
+                                
                             </View>
                             <View style={{flex:1}}></View>
                         </View>
@@ -92,9 +94,9 @@ class CardSPGioHang extends Component {
                     <View style={{flex:14,paddingLeft:12}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
                             <View style={{flex:1,flexShrink:3}}>
-                                <TangGiamSL number={this.props.data.number} max={this.props.data.remain} increase={() => actions.incrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)} decrease={() => actions.decrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)}></TangGiamSL>
+                                <TangGiamSL number={this.props.data.number} max={this.props.data.stock} increase={() => actions.incrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)} decrease={() => actions.decrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)}></TangGiamSL>
                             </View>
-                            <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.remain} sản phẩm</Text>
+                            <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.stock} sản phẩm</Text>
                         </View>
                     </View>
                 </View>

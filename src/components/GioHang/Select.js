@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import SelectDropdown from "react-native-select-dropdown";
 
 const pickerSelectStyles = StyleSheet.create({
@@ -30,9 +30,8 @@ const pickerSelectStyles = StyleSheet.create({
   const styles = StyleSheet.create({
     
     dropdown2BtnStyle: {
-      width: "80%",
+      width: "110%",
       height: 30,
-      width: 100,
       backgroundColor: "#e3dede",
       borderRadius: 8,
     },
@@ -62,31 +61,35 @@ class Select extends Component {
     render() {
         const data = this.props.data;
         return (
+            <View style={{}}>
             <SelectDropdown
-            data={data}
-            // defaultValueByIndex={1}
-            onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
-            }}
-            defaultButtonText={this.props.property}
-            buttonTextAfterSelection={(selectedItem, index) => {
-              return selectedItem;
-            }}
-            rowTextForSelection={(item, index) => {
-              return item;
-            }}
-            buttonStyle={styles.dropdown2BtnStyle}
-            buttonTextStyle={styles.dropdown2BtnTxtStyle}
-            // renderDropdownIcon={() => {
-            //   return (
-            //     <FontAwesome name="chevron-down" color={"#FFF"} size={18} />
-            //   );
-            // }}
-            // dropdownIconPosition={"right"}
-            // dropdownStyle={styles.dropdown2DropdownStyle}
-            // rowStyle={styles.dropdown2RowStyle}
-            // rowTextStyle={styles.dropdown2RowTxtStyle}
-          />
+              data={data}
+              // defaultValueByIndex={1}
+              onSelect={(selectedItem, index) => {
+                console.log(selectedItem, index);
+              }}
+              defaultButtonText={this.props.property}
+              buttonTextAfterSelection={(selectedItem, index) => {
+                return selectedItem;
+              }}
+              rowTextForSelection={(item, index) => {
+                return item;
+              }}
+              buttonStyle={styles.dropdown2BtnStyle}
+              buttonTextStyle={styles.dropdown2BtnTxtStyle}
+              // renderDropdownIcon={() => {
+              //   return (
+              //     <FontAwesome name="chevron-down" color={"#FFF"} size={18} />
+              //   );
+              // }}
+              // dropdownIconPosition={"right"}
+              // dropdownStyle={styles.dropdown2DropdownStyle}
+              // rowStyle={styles.dropdown2RowStyle}
+              // rowTextStyle={styles.dropdown2RowTxtStyle}
+            />
+              <Image source={require('../../resources/icons/down.png')} style={{position: 'absolute', margin: 10,alignSelf:'flex-end', }}/>
+            </View>
+              
         )
     }
 }

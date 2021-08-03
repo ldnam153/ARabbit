@@ -77,26 +77,20 @@ export const toggleShopCheckbox = (value, shopID) => {
   }
 }
 
-export const addToCart = (shop, product) => {
+export const addToCart = (shop, product, number, property) => {
+
+  product.isSelected = false
+  product.number = number
+  product.property = property
+  var products = []
+  products.push(product)
   return {
     type: ADD_TO_CART,
     payload: {
-      isSelected: true,
+      isSelected: false,
       shop,
-      shopId: "S05",
-      products: [
-        {
-          isSelected: true,
-          image: require('~/resources/imgs/ps5.jpg'),
-          name: product.name,
-          property: 'Standard',
-          properties: ['Normal', 'Standard', 'Premium'],
-          price: +(product.price.replace(".", "")),
-          number: product.number,
-          remain: product.stock,
-          id: "P010"
-        },
-      ]
+      shopId: shop,
+      products
     }
   }
 }

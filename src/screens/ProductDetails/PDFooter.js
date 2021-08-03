@@ -15,7 +15,7 @@ import SweetAlert from 'react-native-sweet-alert';
 import { bindActionCreators } from 'redux';
 import * as CartActions from "../../actions/cartAction"
 import { connect } from 'react-redux';
-
+import controller from '../../controller/product_controller'
 const {width, height} = Dimensions.get('window');
 class PDFooter extends Component {
     constructor(props) {
@@ -31,11 +31,15 @@ class PDFooter extends Component {
         this.setState({ selectedSize: userType });
     }
 
- 
+    currencyFormat(num) {
+        if (typeof(num) === 'string' || num === 0)
+            return ""
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
 
     render() {
         const { data, actions } = this.props;
-        
+        console.log(data)
         return(
             <View>
                 <View style={{flexDirection: 'row', position: 'absolute', bottom: 48, backgroundColor: 'white'}}>
@@ -73,7 +77,7 @@ class PDFooter extends Component {
                                 />
                             </View>
                             <View style={{flex: 2, alignItems: 'center'}}>
-                                <Text style={[styles.header_text, {color: '#FF5C00'}]}> {data.price} VNĐ </Text>
+                                <Text style={[styles.header_text, {color: '#FF5C00'}]}> {this.currencyFormat(data.price)} VNĐ </Text>
                                 <Text style={{fontSize: 18, fontWeight: 'bold'}}> Kho: {data.stock} </Text>
                             </View>
                         </View>
@@ -105,12 +109,9 @@ class PDFooter extends Component {
                         SweetAlert.showAlertWithOptions({
                             title: 'Cảm ơn bạn!',
                             subTitle: 'Đã thêm sản phẩm vào giỏ hàng',
-                            confirmButtonTitle: 'OK',
-                            otherButtonTitle: 'Cancel',
                             style: 'success',
-                            cancellable: true
                         },
-                        callback => actions.addToCart(data.shop, { name: data.name, price: data.price, number: this.state.number, stock: data.stock }));}}>
+                        callback => actions.addToCart(data.shop, data, this.state.number, this.state.selectedSize));}}>
                         <View style={styles.BottomButton}>
                             <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Đồng ý</Text>
                         </View>

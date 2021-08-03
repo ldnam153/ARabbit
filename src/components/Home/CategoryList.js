@@ -4,7 +4,8 @@ import ProductBar from '../ProductBar';
 const styles = StyleSheet.create({
     container: {
       backgroundColor: 'white',
-      height: 350
+      marginTop: 5,
+      height: 360
     },
     header:{
         display: 'flex',

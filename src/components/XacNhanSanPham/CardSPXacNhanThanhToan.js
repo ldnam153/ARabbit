@@ -35,7 +35,7 @@ class CardSPXacNhanThanhToan extends Component {
             <View>
                 <View style={styles.container}>
                     <View style={{flex:2}}>
-                        <Image source={this.props.data.image} style={styles.image}></Image>
+                        <Image source={{uri:this.props.data.main_img[0]}} style={styles.image}></Image>
                     </View>
                     <View style={{flex:7,marginLeft:5,flexDirection:'column',justifyContent:'space-between'}}>
                         <Text style={styles.header} numberOfLines={1}>{this.props.data.name}</Text>

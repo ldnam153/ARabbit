@@ -37,7 +37,7 @@ class GioHang extends Component {
         return (
             <SafeAreaView style={styles.screen_container}>
                 <NavBarXacNhanSP title="Giỏ hàng" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
-                <ScrollViewGioHang></ScrollViewGioHang>
+                <ScrollViewGioHang/>
                 <FooterThanhToan 
                     price={this.currencyFormat(totalPrice)+ " VNĐ"} 
                     btnText={"Thanh toán("+this.demsp(cartList)+")" }

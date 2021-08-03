@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 5,
   },
+  
 
   voucher_image_container: {
     flex: 0.4,
