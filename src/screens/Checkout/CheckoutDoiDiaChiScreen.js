@@ -14,19 +14,19 @@ import NavBarComponent from '../../components/Checkout/NavBarComponent';
 
 const arrayData = [
   {
-    name: 'Nguyễn Anh Duy',
-    phone: '0912345678',
-    address: '123 ABC, phường XY, Quận Z, thành phố Hồ Chí Minh',
+    name: 'Lưu Thiện Nhân',
+    phone: '0703002347',
+    address: '193E Trần Văn Đang, phường 10, Quận 3, TP.HCM',
   },
   {
     name: 'Nguyễn Anh Duy',
     phone: '0912345678',
-    address: '123 ABC, phường XY, Quận Z, thành phố Hồ Chí Minh',
+    address: '123 ABC, phường XY, Quận Z, TP.HCM',
   },
   {
-    name: 'Nguyễn Anh Duy',
-    phone: '0912345678',
-    address: '123 ABC, phường XY, Quận Z, thành phố Hồ Chí Minh',
+    name: 'Lý Duy Nam',
+    phone: '0762103550',
+    address: '686 Trần Hưng Đạo, Phường 2, Quận 5, TP.HCM',
   },
 ];
 

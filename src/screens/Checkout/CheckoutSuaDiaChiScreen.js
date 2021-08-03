@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   delete_button: {
     position: 'absolute',
     width: '100%',
-    bottom: '45%',
+    bottom: '35%',
   },
 
   delete_button_text: {
