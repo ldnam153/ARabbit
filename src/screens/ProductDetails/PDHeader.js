@@ -5,40 +5,82 @@ import {
   Text,
   Dimensions,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Modal,
+  Alert
 } from 'react-native';
 import ViewSlider from 'react-native-view-slider';
 import Rating_star from '../../components/Rating_star';
+import { SliderBox } from "react-native-image-slider-box";
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 const {width, height} = Dimensions.get('window');
+
 class PDHeader extends Component {
+    state = {
+      index: 0,
+      modalVisible: false
+    };
+    setModalVisible = (visible) => {
+      this.setState({ modalVisible: visible });
+    }
+
     render() {
         const data = this.props.data
+        const images = [];
+        for  (let i = 0; i < data.main_img.length; i++)  {
+          const item = {url: data.main_img[i]}
+          images.push(item)
+        }
         return(
             <View>
-                <ViewSlider
-                    renderSlides={
-                    <>
-                        {data.main_img.map((item, index) => {
-                        return (<View style={styles.viewBox}>
-                            <Image
-                            source={{uri: item}}
-                            style={{height: 400, width: width}}
-                            />
-                        </View>)
-                        })}
-                        
-                    </>
-                    }
-                    style={styles.slider} //Main slider container style
-                    height={250} //Height of your slider
-                    slideCount={data.main_img.length} //How many views you are adding to slide
-                    dots={true} // Pagination dots visibility true for visibile
-                    dotActiveColor="red" //Pagination dot active color
-                    dotInactiveColor="gray" // Pagination do inactive color
-                    dotsContainerStyle={styles.dotContainer} // Container style of the pagination dots
-                    //autoSlide={true} //The views will slide automatically
-                    //slideInterval={1000} //In Miliseconds
+                <Modal
+                  visible={this.state.modalVisible}
+                  transparent={true}
+                  onRequestClose={() => this.setState({ modalVisible: false })}
+                >
+                  <ImageViewer
+                    imageUrls={images}
+                    index={this.state.index}
+                    onSwipeDown={() => {
+                      console.log('onSwipeDown');
+                    }}
+                    onMove={data => console.log(data)}
+                    enableSwipeDown={true}
+                  />
+                </Modal>
+
+                <SliderBox
+                  images={data.main_img}
+                  sliderBoxHeight={200}
+                  onCurrentImagePressed={index => { this.setModalVisible(true);}}
+                  dotColor="#FFEE58"
+                  inactiveDotColor="#90A4AE"
+                  paginationBoxVerticalPadding={20}
+                  autoplay
+                  circleLoop
+                  resizeMethod={'resize'}
+                  resizeMode={'cover'}
+                  paginationBoxStyle={{
+                    position: "absolute",
+                    bottom: 0,
+                    padding: 0,
+                    alignItems: "center",
+                    alignSelf: "center",
+                    justifyContent: "center",
+                    paddingVertical: 10
+                  }}
+                  dotStyle={{
+                    width: 10,
+                    height: 10,
+                    borderRadius: 5,
+                    marginHorizontal: 0,
+                    padding: 0,
+                    margin: 0,
+                    backgroundColor: "rgba(128, 128, 128, 0.92)"
+                  }}
+                  ImageComponentStyle={{borderRadius: 15, width: '97%', marginTop: 5}}
+                  imageLoadingColor="#2196F3"
                 />
                 <View style={{
                     flex: 1, 
