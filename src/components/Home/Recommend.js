@@ -1,16 +1,25 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, SafeAreaView, View} from 'react-native';
+import {StyleSheet, Text, SafeAreaView, View, FlatList} from 'react-native';
 import ProductBar from '../ProductBar';
 const styles = StyleSheet.create({
     container: {
       backgroundColor: 'white',
-      height: 1200
+      height: 1750
     },
     header:{
         display: 'flex',
         flexDirection: 'row', 
         justifyContent: 'space-between',
-        padding: 20,
+        padding: 10,
+    },
+    flatlist: {
+      flex: 1,
+      paddingTop: 22
+  },
+    item: {
+      width: "50%",
+      marginTop: 10,
+      alignItems: 'center'
     },
   })
 const DATA = [
@@ -43,6 +52,9 @@ const DATA = [
         title: "Third Item",
       },
   ];
+
+
+
 class Recommend extends Component {
     constructor(props) {
         super(props)
@@ -60,32 +72,36 @@ class Recommend extends Component {
     };
     
     render() {
+      console.log(this.state.products)
+      console.log("ahihi")
+      const dataRef = this.state.products
       return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <Text style={{fontSize:25, fontWeight: 'bold', color:'#F62424'}}>{this.props.title}</Text>
               
             </View>
-            <View style={{ columns: 2,flex: 1, flexDirection: 'column',flexWrap: 'wrap'}}>
-            {this.state.products.map((item, index) => {
-                return (
-                  <View style={{padding: 5,
-                      marginVertical: 8,
-                      marginHorizontal: 10,
-                      width: '50%'}}>
-                    <ProductBar
-                    imgUrl = {item.main_img[0]}
-                    num_star= {item.star}
-                    percent_sale = {item.sale_percent}
-                    name_product = {item.name}
-                    sale_price = {item.price}
-                    location = {item.location}
-                    num_sales = {item.stock}
-                    real_price = {item.first_price} 
-                    goPD={this.props.goPD}/>
+            <View style = {styles.flatlist}>
+             
+              <FlatList
+                numColumns = {2}
+                data = {dataRef}
+        
+                renderItem = {({item}) => 
+                  <View style = {styles.item}>
+                    <ProductBar                
+                      imgUrl = {item.main_img[0]}
+                      num_star= {item.star}
+                      percent_sale = {item.sale_percent}
+                      name_product = {item.name}
+                      sale_price = {item.price}
+                      location = {item.location}
+                      num_sales = {item.stock}
+                      real_price = {item.first_price} 
+                      goPD={this.props.goPD}/>
                   </View>
-                )
-            })}
+                  }
+              />          
             </View>
             
         </SafeAreaView>

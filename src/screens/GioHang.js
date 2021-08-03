@@ -6,8 +6,25 @@ import FooterThanhToan from '../components/ThanhToan/FooterThanhToan'
 import NavBarXacNhanSP from '../components/XacNhanSanPham/NavBarXacNhanSP'
 
 class GioHang extends Component {
+    currencyFormat(num) {
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
+    
+    demsp = (cartList)=>{
+        var tongsp = 0;
+        cartList.forEach(shop => {
+            shop.products.forEach(product => {
+                if(product.isSelected==true){
+                    tongsp += +product.number
+                }
+            });
+        });
+        return tongsp;
+    }
+
     render() {
-        const { totalPrice } = this.props;
+        const { totalPrice, cartList } = this.props;
+
         const goBack = () =>{
             this.props.navigation.goBack();
         }
@@ -22,8 +39,8 @@ class GioHang extends Component {
                 <NavBarXacNhanSP title="Giỏ hàng" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
                 <ScrollViewGioHang></ScrollViewGioHang>
                 <FooterThanhToan 
-                    price={Number((totalPrice).toFixed(1)).toLocaleString()+ " VNĐ"} 
-                    btnText="Thanh toán(3)" 
+                    price={this.currencyFormat(totalPrice)+ " VNĐ"} 
+                    btnText={"Thanh toán("+this.demsp(cartList)+")" }
                     press={goXNSP}/>
             </SafeAreaView>
         )
@@ -45,6 +62,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
     return {
         totalPrice: state.cartReducer.totalPrice,
+        cartList: state.cartReducer.cartList,
     }
 }
 

@@ -45,6 +45,10 @@ class CardSPGioHang extends Component {
             isSelected: props.data.isSelected
         }
     }
+
+    currencyFormat(num) {
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
     
     render() {
         const { actions } = this.props;
@@ -53,8 +57,8 @@ class CardSPGioHang extends Component {
                 <View style={styles.container}>
                     <View style={{flex:2}}>
                         <CheckBox 
-                        value= {this.state.isSelected}
-                        onValueChange= {newVal => this.setState({isSelected: newVal})}
+                        value= {this.props.data.isSelected}
+                        onValueChange= {newVal => actions.toggleProductCheckbox(newVal, this.props.data.id)}
                         tintColors= {{
                             true: '#F62424',
                             false: '#F62424'
@@ -74,21 +78,21 @@ class CardSPGioHang extends Component {
                             </View>
                             <View style={{flex:1}}></View>
                         </View>
-                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{Number((this.props.data.price).toFixed(1)).toLocaleString()} VNĐ</Text>
+                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{this.currencyFormat(this.props.data.price)} VNĐ</Text>
                     </View>
                 </View>
                 <View style={[styles.container,{marginTop:2}]}>
                     <View style={{flex:2}}>
                     </View>
                     <View style={{flex:6,flexDirection:'column',alignItems:'center'}}>
-                        <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={() => actions.removeProduct(this.props.data.id, +this.props.data.price * +this.props.data.number)}>
+                        <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={() => actions.removeProduct(this.props.data.id, +this.props.data.price * +this.props.data.number, this.props.data.isSelected)}>
                             <Text style={styles.xoa}>Xóa</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{flex:14,paddingLeft:12}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
                             <View style={{flex:1,flexShrink:3}}>
-                                <TangGiamSL number={this.props.data.number} max={this.props.data.remain} increase={() => actions.incrementAmount(this.props.data.price)} decrease={() => actions.decrementAmount(this.props.data.price)}></TangGiamSL>
+                                <TangGiamSL number={this.props.data.number} max={this.props.data.remain} increase={() => actions.incrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)} decrease={() => actions.decrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)}></TangGiamSL>
                             </View>
                             <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.remain} sản phẩm</Text>
                         </View>

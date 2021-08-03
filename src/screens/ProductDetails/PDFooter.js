@@ -11,29 +11,31 @@ import {
 } from 'react-native';
 import RBSheet from "react-native-raw-bottom-sheet";
 import TangGiamSL from '../../components/GioHang/TangGiamSL';
+import SweetAlert from 'react-native-sweet-alert';
+import { bindActionCreators } from 'redux';
+import * as CartActions from "../../actions/cartAction"
+import { connect } from 'react-redux';
 
 const {width, height} = Dimensions.get('window');
 class PDFooter extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-        selectedButton: null,
-        selectedSize:null
+            selectedSize:null,
+            number: 1,
         };
-        this.selectionOnPress = this.selectionOnPress.bind(this);
         this.selectionSizeOnPress = this.selectionSizeOnPress.bind(this);
-    }
-
-    selectionOnPress(userType) {
-        this.setState({ selectedButton: userType });
     }
 
     selectionSizeOnPress(userType) {
         this.setState({ selectedSize: userType });
     }
 
+ 
+
     render() {
-        const data = this.props.data;
+        const { data, actions } = this.props;
+        
         return(
             <View>
                 <View style={{flexDirection: 'row', position: 'absolute', bottom: 48, backgroundColor: 'white'}}>
@@ -76,42 +78,39 @@ class PDFooter extends Component {
                             </View>
                         </View>
 
-                        <View>{data.color.length !== 0 ? 
-                            <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
-                                <Text style={{fontSize: 18, fontWeight: 'bold'}}> Màu sắc: </Text>
-                                <ScrollView horizontal={true}>
-                                    {data.color.map((item, index) => {
-                                    return (
-                                    <TouchableHighlight onPress={() => this.selectionOnPress(item)}>
-                                        <Text style={[styles.TouchableHighlightCSS, { backgroundColor:this.state.selectedButton===item ? 'red':'gray'}]}>{item}</Text>
-                                    </TouchableHighlight>)
-                                    })}
-                                </ScrollView>
-                            </View>
-                            : console.log("ahihi")}
-                        </View>
-
                         <View>{data.size.length !== 0 ? 
                             <View style={{flexDirection: 'row',  marginLeft: 10, marginRight: 10}}>
                                 <Text style={{fontSize: 18, fontWeight: 'bold'}}> Size: </Text>
                                 <ScrollView horizontal={true}>
                                     {data.size.map((item, index) => {
                                     return (
-                                    <TouchableHighlight onPress={() => this.selectionSizeOnPress(item)}>
-                                        <Text style={[styles.TouchableHighlightCSS, { backgroundColor:this.state.selectedSize===item ? 'red':'gray'}]}>{item}</Text>
-                                    </TouchableHighlight>)
+                                        <View style={{backgroundColor: '#BDBDBD', marginLeft: 20, alignItems: 'center',  width: 50, backgroundColor:this.state.selectedSize===item ? '#FF0000':'#BDBDBD'}}>
+                                            <TouchableHighlight  onPress={() => this.selectionSizeOnPress(item)}>                
+                                                <Text style={[styles.TouchableHighlightCSS, {fontWeight: 'bold', color: this.state.selectedSize===item ? '#ffff':'#000000'}]}>{item}</Text>      
+                                            </TouchableHighlight>
+                                        </View>)
                                     })}
                                 </ScrollView>
                             </View>
                             : console.log("ahihi")}
                         </View>
 
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 10}}> 
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 30}}> 
                             <Text style={{fontSize: 18, fontWeight: 'bold'}}> Số lượng: </Text>
-                            <TangGiamSL number= "1"/>
+                            <TangGiamSL number= {this.state.number} max={data.stock} increase={()=>{this.setState((prevState)=>({...prevState,number:prevState.number+1}))}} decrease={()=>{this.setState((prevState)=>({...prevState,number:prevState.number-1}))}}/>
                         </View>
                     </View>
-                    <TouchableOpacity style={{ alignItems: 'center', backgroundColor: '#FF0000', position: 'absolute', bottom: 0,width:'100%'}} onPress={() => {this.RBSheet.close();}}>
+                    <TouchableOpacity disabled={(this.state.selectedSize === null && data.size.length !== 0)} style={{ alignItems: 'center', backgroundColor: this.state.selectedSize === null && data.size.length !== 0 ? '#BDBDBD' : '#FF0000' , position: 'absolute', bottom: 0,width:'100%'}} onPress={() => {
+                        this.RBSheet.close();
+                        SweetAlert.showAlertWithOptions({
+                            title: 'Cảm ơn bạn!',
+                            subTitle: 'Đã thêm sản phẩm vào giỏ hàng',
+                            confirmButtonTitle: 'OK',
+                            otherButtonTitle: 'Cancel',
+                            style: 'success',
+                            cancellable: true
+                        },
+                        callback => actions.addToCart(data.shop, { name: data.name, price: data.price, number: this.state.number, stock: data.stock }));}}>
                         <View style={styles.BottomButton}>
                             <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Đồng ý</Text>
                         </View>
@@ -141,9 +140,14 @@ const styles = StyleSheet.create({
   },
 
   TouchableHighlightCSS: {
-    fontSize: 20, 
-    marginLeft: 20,
+    fontSize: 20
   }
 });
 
-export default PDFooter;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(CartActions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PDFooter);

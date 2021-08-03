@@ -4,6 +4,7 @@ import CheckBox from '@react-native-community/checkbox';
 import CardCHGioHang from './CardCHGioHang';
 import data from '../../data/data';
 import { bindActionCreators } from 'redux';
+import * as CartActions from "../../actions/cartAction"
 import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
@@ -100,20 +101,29 @@ class ScrollViewGioHang extends Component {
             isSelected : props.isSelected,
         }
     }
+
+    removeAll=()=>{
+        if(this.props.isSelected==true){
+            this.props.actions.removeAll()
+        }
+    }
+
+    toggleAll=(newVal)=>{
+        this.props.actions.toggleAll(newVal)
+    }
     
     render() {
         const checkbox = {
             true: '#F62424',
             false: '#F62424'
         }
-        const { cartList } = this.props;
-        
+        const { cartList, actions, isSelected } = this.props;
         return (
             <ScrollView style={{backgroundColor:'#b4b4b4'}}>
                 <View style={styles.container}>
                     <CheckBox 
-                        value= {this.state.isSelected}
-                        onValueChange= {newVal => this.setState({isSelected: newVal})}
+                        value= {isSelected}
+                        onValueChange= {this.toggleAll}
                         tintColors= {checkbox}
                         onTintColor = '#F62424'
                         onCheckColor = '#F62424'
@@ -121,13 +131,13 @@ class ScrollViewGioHang extends Component {
                     </CheckBox>
                     <Text style={styles.header}>Tất cả</Text>
                     <View style={styles.xoa}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={this.removeAll}>
                             <Image source={require('~/resources/icons/trash.png')}></Image>
                         </TouchableOpacity>
                     </View>
                 </View>
                 {/*   data render   */}
-                {cartList.map((shop) => { if(shop.products.length>0) return (<CardCHGioHang data={shop} />)})}
+                {cartList.map((shop) => { if(shop.products.length>0) return (<CardCHGioHang data={shop} key={shop.shopId}/>)})}
             </ScrollView>
         )
     }
@@ -136,7 +146,14 @@ class ScrollViewGioHang extends Component {
 const mapStateToProps = (state) => {
     return {
         cartList: state.cartReducer.cartList,
+        isSelected: state.cartReducer.isAllSelected,
     }
 }
 
-export default connect(mapStateToProps)(ScrollViewGioHang)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(CartActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScrollViewGioHang)

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-import { StyleSheet,Text, View, Image, ScrollView, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet,Text, View, Image, ScrollView, Button, TouchableOpacity, FlatList} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerContent } from '../components/FilterSideBar';
 import HeaderKeySearch from '../components/HeaderKeySearch';
 import ProductBar from '../components/ProductBar';
+import product_controller from '~/controller/product_controller'
 
 const styles = StyleSheet.create({
     container: {
@@ -15,7 +16,9 @@ const styles = StyleSheet.create({
     buttonFilter: {
       alignItems: 'center',
       backgroundColor: 'red',
-      flexDirection:'row'
+      flexDirection:'row',
+      paddingLeft:5,
+      paddingRight:5
     },
     button: {
       alignItems: 'center',
@@ -36,14 +39,30 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 10,
         color: 'white',
-    }
+    },
+    flatlist: {
+      flex: 1,
+      paddingTop: 22
+    },
+    item: {
+      width: "50%",
+      marginTop: 10,
+      alignItems: 'center'
+    },
   });
 
 class HomeScreen extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            dress_products: product_controller.getDressProducts(),
+        }
+    }
+
     render(){
         return (
             <View>
-              <HeaderKeySearch placeholder="Tìm kiếm" goBack={this.props.route.params.goBack}/>
+              <HeaderKeySearch placeholder="Tìm kiếm" goBack={this.props.route.params.goBack} value='Váy'/>
               <View>
                   <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                       <View style={{display: 'flex', flexDirection: 'row', padding:10}} >
@@ -91,20 +110,28 @@ class HomeScreen extends Component {
                   </View>
                   
                   <ScrollView style={{backgroundColor:'white'}} contentContainerStyle={{ paddingBottom: 350}}>
-                      <View style={{flexDirection:'row',justifyContent:'space-between', flexWrap:'wrap', paddingLeft:10, paddingRight:30}}>        
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                          <ProductBar percent_sale="50" name_product="Váy ngắn mùa hè năng động" real_price="450.000" sale_price="200.000" location="TP.Hồ Chí Minh" num_sales="100" goPD={this.props.route.params.goPD}/>
-                      </View>
+                      
+                        <View style = {styles.flatlist}>
+                            <FlatList
+                                numColumns = {2}
+                                data = {this.state.dress_products}
+                        
+                                renderItem = {({item}) => 
+                                <View style = {styles.item}>
+                                    <ProductBar                
+                                        imgUrl = {item.main_img[0]}
+                                        num_star= {item.star}
+                                        percent_sale = {item.sale_percent}
+                                        name_product = {item.name}
+                                        sale_price = {item.price}
+                                        location = {item.location}
+                                        num_sales = {item.stock}
+                                        real_price = {item.first_price} 
+                                        goPD={this.props.route.params.goPD}/>
+                                </View>
+                                }
+                                />          
+                        </View>
                   </ScrollView>
       
               </View>

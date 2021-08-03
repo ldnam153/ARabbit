@@ -62,7 +62,7 @@ class PDBody extends Component {
                             <Text>  {data.star}/5 ({data.rating} đánh giá)</Text>
                         </View>
                     </View>
-                    <TouchableOpacity onPress={this.props.goFP}>
+                    <TouchableOpacity onPress={()=>this.props.goFP(this.props.data)}>
                         <Text
                             style={[styles.seeAll, {
                             marginTop: 13,

@@ -23,7 +23,21 @@ const styles = StyleSheet.create({
 });
 
 class CardCHThanhToan extends Component {
+    currencyFormat(num) {
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
     render() {
+        var sosanpham = 0;
+        function tinhtongtien(products) {
+            var tong = 0;
+            sosanpham = 0;
+            products.forEach(product => {
+                tong+= +product.number * +product.price;
+                sosanpham+= +product.number;
+            });
+            return tong;
+        }
+
         return (
             <View style={{marginBottom:5,backgroundColor:'white'}}>
                 <View style={styles.container}>
@@ -34,11 +48,11 @@ class CardCHThanhToan extends Component {
                 {/* data render */}
                 {this.props.data.products.map((product) => <CardSPXacNhanThanhToan data={product} />)}
 
-                <LoiNhan/>
+                <LoiNhan value={this.props.data.message}/>
                 <TongTienShopThanhToan 
-                  ship={this.props.data.phivanchuyen} 
-                  tongtienshop={this.props.data.tongtienshop}
-                  amount={this.props.data.products.length}/>
+                  ship={this.currencyFormat(20000)+' VNĐ'} 
+                  tongtienshop={this.currencyFormat(tinhtongtien(this.props.data.products))+' VNĐ'}
+                  amount={sosanpham}/>
             </View>
         )
     }

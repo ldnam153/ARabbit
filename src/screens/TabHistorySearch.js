@@ -5,31 +5,60 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import HeaderKeySearch from '../components/HeaderKeySearch';
 import HistoryItem from '../components/HistoryItem';
+import product_controller from '~/controller/product_controller'
+import ImageItemSearch from '../components/ImageItemSearch';
 
 const Tab = createMaterialTopTabNavigator();
   
   function HotScreen({goRK}) {
+    var list_HotKeywords=product_controller.getHotKeywords();
     return (
-      <View>
-        <HistoryItem name_product="Váy" date="Hôm nay" goRK={goRK}/>
-      </View>
+      <ScrollView style={{backgroundColor:'white'}}>
+        {list_HotKeywords.map((item, index) => {
+          return (
+            <View key ={index}>
+              <HistoryItem name_product={item.keyword} date={item.date} goRK={goRK}/>
+            </View>
+          )
+        })}
+      </ScrollView>
     );
   }
 
   function NearScreen({goRK}) {
+    var list_NearKeywords=product_controller.getNearKeywords();
     return (
       <ScrollView style={{backgroundColor:'white'}}>
-        <HistoryItem name_product="Váy1" date="Hôm nay" goRK={goRK}/>
-        <HistoryItem name_product="Váy" date="Hôm nay" goRK={goRK}/>
-        <HistoryItem name_product="Váy123" date="Hôm nay" goRK={goRK}/>
+        {list_NearKeywords.map((item, index) => {
+          return (
+            <View key ={index}>
+              <HistoryItem name_product={item.keyword} date={item.date} goRK={goRK}/>
+            </View>
+          )
+        })}
       </ScrollView>
     );
   }
   function cameraScreen() {
+    var list_CameraItem=product_controller.getCameraItemFiding();
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Tìm với máy ảnh</Text>
-      </View>
+      <ScrollView style={{backgroundColor:'white'}}>
+        {list_CameraItem.map((item, index) => {
+          return (
+            <View key ={index}>
+              <ImageItemSearch 
+              imgUrl = {item.main_img[0]}
+              num_star= {item.star}
+              percent_sale = {item.sale_percent}
+              name_product = {item.name}
+              sale_price = {item.price}
+              location = {item.location}
+              num_sales = {item.stock}
+              real_price = {item.first_price}/>
+            </View>
+          )
+        })}
+      </ScrollView>
     );
   }
 
@@ -43,7 +72,7 @@ class TabHistorySearch extends Component{
       }
         return (
                 <NavigationContainer independent={true}>
-                    <HeaderKeySearch placeholder="Tìm kiếm" goBack={goBack}/>
+                    <HeaderKeySearch placeholder="Tìm kiếm" goBack={goBack} goRK={goRK}/>
                     <Tab.Navigator getLabelText={({ route }) => route.title} initialRouteName="Something" tabBarOptions={{labelStyle:{fontSize: 14, textTransform: 'none'},activeTintColor:'red', inactiveTintColor:'grey' ,style:{elevation: 0}, indicatorStyle:{backgroundColor:'red'}}}>
                         <Tab.Screen name="Gần đây" children={()=><NearScreen goRK={goRK}/>} />
                         <Tab.Screen name="Nổi bật" children={() => <HotScreen goRK={goRK}/>} />

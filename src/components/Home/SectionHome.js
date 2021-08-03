@@ -64,7 +64,7 @@ class SectionHome extends Component {
             <View style={styles.header}>
                 <Text style={{fontSize:25, fontWeight: 'bold', color:'#F62424'}}>{this.props.title}</Text>
                 <View style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-                    <Text>Xem thêm</Text>
+                    <Text>Xem thêm ></Text>
                 </View>
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -72,8 +72,8 @@ class SectionHome extends Component {
                 return (
                   <View key ={index} style={{
                     padding: 5,
-                    marginVertical: 8,
-                    marginHorizontal: 10,}}>
+                    marginVertical: 5,
+                    marginHorizontal: 5,}}>
                   <ProductBar
                     imgUrl = {item.main_img[0]}
                     num_star= {item.star}

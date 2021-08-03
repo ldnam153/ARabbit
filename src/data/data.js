@@ -343,6 +343,138 @@ const product = [
     location: 'Thanh Hóa',
     stock: "9"
   },
+  {//váy 
+      id: "29",
+      main_img: ["https://cf.shopee.vn/file/08920275f6d378e93ad71466866a8574"],
+      sale_percent: "52",
+      name: "chân váy công sở xếp ly đính khuy 3 màu xinh xắn",
+      first_price: "156.000",
+      price: '75.000',
+      star: '5',
+      location: 'Quảng Ninh',
+      stock: "274"
+  },
+  {
+      id: "30",
+      main_img: ["https://diuhien.vn/wp-content/uploads/2020/11/chan-vay-2.jpg"],
+      sale_percent: "39",
+      name: "Chân váy dài ulzzang xòe vạt lệch phối đen trắng - Chân váy nữ phối 2 màu cạp cao ulzzang Hàn Quốc",
+      first_price: "195.000",
+      price: '119.000',
+      star: '5',
+      location: 'TP.Hồ Chí Minh',
+    stock: "356"
+  },
+  {
+      id: "31",
+      main_img: ["https://file.hstatic.net/1000321355/file/mua-dam-vay-dep-3_1c62c63733fc4f8d942492b832ae6d2e_grande.jpg"],
+      sale_percent: "36",
+      name: "Váy công sở đẹp Louro L",
+      first_price: "420.000",
+      price: '269.000',
+      star: '5',
+      location: 'Bắc Ninh',
+    stock: "785"
+  },
+  {
+      id: "32",
+      main_img: ["https://thamdangstore.vn/Content/Images/FileUpload/userfiles/images/cach-ket-hop-ao-voi-chan-vay-xep-ly-dai.jpg"],
+      sale_percent: "",
+      name: "Váy nữ MARC FASHION midi xếp li hợp",
+      first_price: "",
+      price: '495.000',
+      star: '',
+      location: 'Hòa Bình',
+    stock: "674"
+  },
+  {
+      id: "33",
+      main_img: ["https://product.hstatic.net/1000197303/product/pro_nau_1_e0abb6ed6e77401b8c4e7692539f8076_large.jpg"],
+      sale_percent: "",
+      name: "Váy nữ MARC FASHION mini hạ eo bèo nhấn nắp túi",
+      first_price: "",
+      price: '395.000',
+      star: '5',
+      location: 'TP.Hồ Chí Minh',
+    stock: "124"
+  },
+  {
+      id: "34",
+      main_img: ["https://vn-test-11.slatic.net/p/24fdbea5380491cb150541c44dac72eb.png"],
+      sale_percent: "40",
+      name: "Chân váy Midi dài Ulzzang Quảng Châu VVD17",
+      first_price: "240.000",
+      price: '146.250',
+      star: '5',
+      location: 'Hà Nội',
+    stock: "231"
+  },
+  {
+      id: "35",
+      main_img: ["https://salt.tikicdn.com/cache/280x280/ts/product/e3/88/6a/69ea15814e2d40236670e0d8afeb64c0.jpg"],
+      sale_percent: "61",
+      name: "Chân váy dài XẺ 1 BÊN cá tính",
+      first_price: "189.000",
+      price: '75.000',
+      star: '4',
+      location: 'Quảng Ngãi',
+    stock: "641"
+  },
+  {
+      id: "36",
+      main_img: ["https://salt.tikicdn.com/ts/tmp/fd/9a/f5/717202865a684971d8c1999112992553.jpg"],
+      sale_percent: "51",
+      name: "Chân váy voan mềm tung bay",
+      first_price: "350.000",
+      price: '174.000',
+      star: '4',
+      location: 'TP.Hồ Chí Minh',
+    stock: "56"
+  },
+  {
+      id: "37",
+      main_img: ["https://adayne.vn/wp-content/uploads/2021/04/chan-vay-xoe-dai-dep-cho-nang-cong-so-he-2016-duyen-dang-1-19.jpg"],
+      sale_percent: "78",
+      name: "Váy, chân váy xòe dáng dài",
+      first_price: "250.000",
+      price: '57.000',
+      star: '4',
+      location: 'Đà Nẵng',
+    stock: "64"
+  },
+  {
+      id: "38",
+      main_img: ["https://cf.shopee.vn/file/0ebcca56fb3abba70b8c9ca66d6653b3"],
+      sale_percent: "29",
+      name: "Chân váy nữ đẹp 3 tầng dáng dài trẻ trung năng động",
+      first_price: "120.000",
+      price: '86.000',
+      star: '5',
+      location: 'An Giang',
+    stock: "234"
+  },
+  {
+      id: "39",
+      main_img: ["https://media.phunutoday.vn/files/mai.doan/2016/12/04/chan-vay-xoe-phunutodayvn-5-1237.jpg"],
+      sale_percent: "41",
+      name: "Chân váy xoè nữ ren phối hoa xinh xắn nhiều màu DV06",
+      first_price: "249.000",
+      price: '149.000',
+      star: '5',
+      location: 'Cần Thơ',
+    stock: "425"
+  },
+  {
+      id: "40",
+      main_img: ["https://salt.tikicdn.com/cache/w444/ts/product/bb/9d/7d/a6ccf2cc7a80b9f4d35e72e5982b6588.jpg"],
+      sale_percent: "74",
+      name: "Chân váy xòe ngang gối màu đen",
+      first_price: "160.000",
+      price: '42.000',
+      star: '4',
+      location: 'TP.Hồ Chí Minh',
+    stock: "45"
+  }
 ];
 
 const discount = ['3', '4', '5', '6', '7'];
@@ -353,9 +485,101 @@ const newest = ['14', '26', '28', '17', '23'];
 
 const sugggest = ['19', '20', '21', '22', '18', '24', '25', '15', '27', '16'];
 
-const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau củ quả","hàng đông lạnh","đồ hộp","hoa quả","ps4","nintendo","laptop","bếp điện từ"];
+const dress_products=['29','30','31','32','33','34','35','36','37','38','39','40'];
 
-const gan_day=["chuột gaming","ghế mát xa","bao tay chơi game","mô hình robot","laptop dell","playstation","psp","chảo chống dính","nồi hấp","thảm yoga"];
+const findWithCamera=['2','8','31','4','10','12'];
+
+// const noi_bat=["bộ chảo chống dính","tất cả thịt rau củ","rau củ quả","hàng đông lạnh","đồ hộp","hoa quả","ps4","nintendo","laptop","bếp điện từ"];
+
+const noi_bat=[
+  {
+    keyword:"bộ chảo chống dính",
+    date:"Hôm nay"
+  },
+  {
+    keyword:"tất cả thịt rau củ",
+    date:"Hôm nay"
+  },
+  {
+    keyword:"rau củ quả",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"hàng đông lạnh",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"đồ hộp",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"hoa quả",
+    date:"31/07"
+  },
+  {
+    keyword:"ps4",
+    date:"31/07"
+  },
+  {
+    keyword:"nintendo",
+    date:"31/07"
+  },
+  {
+    keyword:"laptop",
+    date:"30/07"
+  },
+  {
+    keyword:"bếp điện từ",
+    date:"30/07"
+  }
+];
+
+const gan_day=[
+  {
+    keyword:"Váy",
+    date:"Hôm nay"
+  },
+  {
+    keyword:"Váy ngắn",
+    date:"Hôm nay"
+  },
+  {
+    keyword:"chuột gaming",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"ghế mát xa",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"bao tay chơi game",
+    date:"Hôm qua"
+  },
+  {
+    keyword:"mô hình robot",
+    date:"30/07"
+  },
+  {
+    keyword:"laptop dell",
+    date:"30/07"
+  },
+  {
+    keyword:"playstation",
+    date:"29/07"
+  },
+  {
+    keyword:"psp",
+    date:"28/07"
+  },
+  {
+    keyword:"chảo chống dính",
+    date:"28/07"
+  },
+  {
+    keyword:"nồi hấp",
+    date:"26/07"
+  }
+];
 
 const receiver = [
   {
@@ -383,5 +607,5 @@ function getProduct(id) {
 }
 
 
-export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, receiver, getProduct };
+export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, dress_products,receiver, findWithCamera,getProduct };
 

@@ -14,18 +14,19 @@ import {
 import PDHeader from '../screens/ProductDetails/PDHeader';
 import PDBody from '../screens/ProductDetails/PDBody';
 import PDFooter from '../screens/ProductDetails/PDFooter';
+import * as controller from '../controller/product_controller';
 
 const {width, height} = Dimensions.get('window');
 
 class ProductDetails extends Component {
 
   render() {
-    var data =  this.props.data || require('../data/data.js').default[0];
+    var data = this.props.route.params.data || this.props.data || controller.getProduct('1')
     const goBack = () => {
       this.props.navigation.goBack();
     }
-    const goFP = () => {
-      this.props.navigation.navigate('FeedBackProduct')
+    const goFP = (danhgia={...data}) => {
+      this.props.navigation.navigate('FeedBackProduct',{data: danhgia})
     }
     const goPD = () => {
       this.props.navigation.push('ProductDetails')

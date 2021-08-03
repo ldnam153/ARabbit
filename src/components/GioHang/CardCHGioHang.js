@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import CardSPGioHang from './CardSPGioHang';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as CartActions from "../../actions/cartAction"
 
 const styles = StyleSheet.create({
     container: {
@@ -32,12 +35,13 @@ class CardCHGioHang extends Component {
             true: '#F62424',
             false: '#F62424'
         }
+        const { actions } = this.props;
         return (
             <View style={{marginBottom:5}}>
                 <View style={styles.container}>
                     <CheckBox 
-                        value= {this.state.isSelected}
-                        onValueChange= {newVal => this.setState({isSelected: newVal})}
+                        value= {this.props.data.isSelected}
+                        onValueChange= {newVal => actions.toggleShopCheckbox(newVal, this.props.data.shopId)}
                         tintColors= {checkbox}
                         onTintColor = '#F62424'
                         onCheckColor = '#F62424'
@@ -45,11 +49,17 @@ class CardCHGioHang extends Component {
                     </CheckBox>
                     <Text style={styles.header}>{this.state.data.shop}</Text>
                 </View>
-                {this.props.data.products.map((product) => <CardSPGioHang data={product} />)}
+                {this.props.data.products.map((product) => <CardSPGioHang data={product} key={product.id}/>)}
                 
             </View>
         )
     }
 }
 
-export default CardCHGioHang
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(CartActions, dispatch)
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CardCHGioHang)
