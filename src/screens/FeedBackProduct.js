@@ -8,21 +8,60 @@ import {
   SafeAreaView,
   ScrollView,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Modal
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import Rating_star from '../components/Rating_star';
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 const {width, height} = Dimensions.get('window');
 
 class FeedBackProduct extends Component {
+  state = {
+      index: 0,
+      modalVisible: false,
+      img: []
+    };
+
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
+  }
   render() {
     var data =  this.props.route.params.data || this.props.data
     const goBack = () => {
       this.props.navigation.goBack()
     }
+    
+    const images_arr = []
+    for  (let i = 0; i < data.accessor.length; i++)  {
+      const images = [];
+      for  (let j = 0; j < data.accessor[i].img.length; j++)  {
+        const item = {url: data.accessor[i].img[j]}
+        images.push(item)
+      }
+      images_arr.push(images)
+    }
+    var img = images_arr[1]
+
     return (
       <View >
+        <Modal
+            visible={this.state.modalVisible}
+            transparent={true}
+            onRequestClose={() => this.setState({ modalVisible: false })}
+        >
+            <ImageViewer
+            imageUrls={this.state.img}
+            index={this.state.index}
+            onSwipeDown={() => {
+                console.log('onSwipeDown');
+            }}
+            onMove={data => console.log(data)}
+            enableSwipeDown={true}
+            />
+        </Modal>
+
         <View style={styles.tab}>
             <TouchableOpacity style={{ flex: 2}} onPress={goBack}>
                 <Image style={{marginLeft: 10}}  source={ require('../resources/icons/back.png')}/>
@@ -54,12 +93,12 @@ class FeedBackProduct extends Component {
                   <ScrollView style={{backgroundColor: 'white', height: 370, width: width, marginLeft: 10}}  horizontal={true}>
                     {item.img.map((it, ind) => {
                       return (
-                          <View style={styles.feedBackImg}>
+                          <TouchableOpacity style={styles.feedBackImg} onPress={() => {this.state.img = images_arr[index]; this.setModalVisible(true)}}>
                             <Image
                                 source={{uri: it}}
                                 style={styles.imgStyle}
                             />
-                          </View>)
+                          </TouchableOpacity>)
                       })}
                   </ScrollView>
                 </View>

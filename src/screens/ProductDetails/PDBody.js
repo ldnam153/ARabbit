@@ -7,22 +7,54 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Modal
 } from 'react-native';
 import Rating_star from '../../components/Rating_star';
 import ProductBar from '../../components/ProductBar';
 import dataRef from "../../data/data";
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 const {width, height} = Dimensions.get('window');
 class PDBody extends Component {
-    
+    state = {
+      index: 0,
+      modalVisible: false
+    };
+
+    setModalVisible = (visible) => {
+      this.setState({ modalVisible: visible });
+    }
+
     render() {
         const data = this.props.data
-
+        
         const relatedProduct = [];
         for(let i = 0; i < data.related.length; i++)
             relatedProduct.push(dataRef.getProduct(data.related[i]))
+
+        const images = [];
+        for  (let i = 0; i < data.accessor[0].img.length; i++)  {
+          const item = {url: data.accessor[0].img[i]}
+          images.push(item)
+        }
         return(
             <View>
+                <Modal
+                    visible={this.state.modalVisible}
+                    transparent={true}
+                    onRequestClose={() => this.setState({ modalVisible: false })}
+                >
+                    <ImageViewer
+                    imageUrls={images}
+                    index={this.state.index}
+                    onSwipeDown={() => {
+                        console.log('onSwipeDown');
+                    }}
+                    onMove={data => console.log(data)}
+                    enableSwipeDown={true}
+                    />
+                </Modal>
+
                 <View style={[, {justifyContent: 'space-between', alignSelf: 'center'}]}>
                     <Text style={[styles.hearder_text_2,{width: width - 20,justifyContent: 'space-between', alignSelf: 'center',}]}>Mô tả chi tiết</Text>
                     <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
@@ -108,12 +140,12 @@ class PDBody extends Component {
 
                         {data.accessor[0].img.map((item, index) => {
                         return (
-                            <View style={styles.feedBackImg} key={index}>
+                            <TouchableOpacity style={styles.feedBackImg} key={index} onPress={() => this.setModalVisible(true)}>
                             <Image
                                 source={{uri: item}}
                                 style={styles.imgStyle}
                             />
-                            </View>)
+                            </TouchableOpacity>)
                         })}
                     </ScrollView>
                 </View>
