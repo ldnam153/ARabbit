@@ -43,6 +43,11 @@ const styles = StyleSheet.create({
 
 
 class ProductBar extends Component {
+    currencyFormat(num) {
+        if (typeof(num) === 'string' || num === 0)
+            return ""
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
     render() {
         return (
             <TouchableOpacity style={{marginTop:10, width:165}} onPress={this.props.goPD}>
@@ -56,14 +61,14 @@ class ProductBar extends Component {
                     <Text numberOfLines={2} ellipsizeMode='tail' style={{fontWeight:'bold'}}>{this.props.name_product}</Text>
                 </View>
                 <View style={{flexDirection:'row', justifyContent: 'space-between', paddingTop:3}}>
-                    <Text style={{fontWeight:'100', color:'grey',fontStyle:'italic', fontSize:10, textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>{this.props.real_price}</Text>
+                    <Text style={{fontWeight:'100', color:'grey',fontStyle:'italic', fontSize:10, textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>{this.currencyFormat(this.props.real_price)} VND</Text>
                     <View style={{flexDirection:'row', alignItems:'center'}}>
                         <Image source={require('../resources/icons/location.png')}/>
                         <Text style={{fontSize:10,color:'grey', paddingLeft: 5}}>{this.props.location}</Text>
                     </View>
                 </View>
                 <View style={{flexDirection:'row', justifyContent: 'space-between', alignItems:'center', paddingTop:3}}>
-                    <Text style={{fontWeight:'bold', color:'darkorange', fontSize:11}}>{this.props.sale_price} VNĐ</Text>
+                    <Text style={{fontWeight:'bold', color:'darkorange', fontSize:11}}>{this.currencyFormat(this.props.sale_price)} VNĐ</Text>
                     <Rating_star width='8' height='8' value={this.props.num_star}/>
                 </View>
                 <View style={{paddingTop: 3, alignItems:'flex-end'}}>

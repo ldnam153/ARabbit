@@ -39,6 +39,9 @@ const mount = (goPD) => {
      if(event.event == 'view'){
       goPD(event.product);
      }
+     else if (event.event == 'add'){
+        
+     }
   });
 
 }

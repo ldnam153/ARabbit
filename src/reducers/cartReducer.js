@@ -10,7 +10,7 @@ const initialState = {
 
 const sumReducer = (list) => {
   const array = [];
-  list.forEach(shop => shop.products.forEach(product => product.isSelected && array.push(Number(product.price.split('.').join("")) * product.number)))
+  list.forEach(shop => shop.products.forEach(product => product.isSelected && array.push(product.price * product.number)))
   return array;
 }
 

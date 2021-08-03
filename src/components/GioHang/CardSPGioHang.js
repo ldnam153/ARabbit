@@ -53,9 +53,6 @@ class CardSPGioHang extends Component {
     
     render() {
         const { actions } = this.props;
-        var num = this.props.data.price
-        if (typeof(num) === "string")
-            num= Number(num.split('.').join(""));
         return (
             <View style={styles.outer}>
                 <View style={styles.container}>
@@ -79,11 +76,11 @@ class CardSPGioHang extends Component {
                         <View style={{flexDirection:'row',marginVertical:4}}>
                             <View style={{flex:1}}>
                                 <Select property={this.props.data.property} data={this.props.data.properties}/>
-                                <Image source={require('../../resources/icons/down.png')} style={{position: 'absolute', alignItems:'flex-end'}}/>
+                                
                             </View>
                             <View style={{flex:1}}></View>
                         </View>
-                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{this.currencyFormat(num)} VNĐ</Text>
+                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{this.currencyFormat(this.props.data.price)} VNĐ</Text>
                     </View>
                 </View>
                 <View style={[styles.container,{marginTop:2}]}>
@@ -97,7 +94,7 @@ class CardSPGioHang extends Component {
                     <View style={{flex:14,paddingLeft:12}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
                             <View style={{flex:1,flexShrink:3}}>
-                                <TangGiamSL number={this.props.data.number} max={this.props.data.remain} increase={() => actions.incrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)} decrease={() => actions.decrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)}></TangGiamSL>
+                                <TangGiamSL number={this.props.data.number} max={this.props.data.stock} increase={() => actions.incrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)} decrease={() => actions.decrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)}></TangGiamSL>
                             </View>
                             <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.stock} sản phẩm</Text>
                         </View>

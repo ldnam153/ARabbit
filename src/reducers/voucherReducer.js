@@ -25,7 +25,7 @@ const initialState = {
     shortName: "Miễn phí vận chuyển",
     disable: true,
   },],
-  activeVoucher: 1,
+  activeVoucher: null,
 };
 
 const voucherReducer = (state = initialState, action) => {

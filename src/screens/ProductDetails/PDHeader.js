@@ -12,6 +12,11 @@ import Rating_star from '../../components/Rating_star';
 
 const {width, height} = Dimensions.get('window');
 class PDHeader extends Component {
+    currencyFormat(num) {
+      if (typeof(num) === 'string' || num === 0)
+          return ""
+      return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+  }
     render() {
         const data = this.props.data
         return(
@@ -69,7 +74,7 @@ class PDHeader extends Component {
                         }
                     ]}>
                     <Text style={[styles.header_text, {marginTop: 10, marginBottom: 15}]}>{data.name} </Text>
-                    <Text style={[styles.header_text, {color: '#FF5C00', marginBottom: 10}]}>{data.price} VNĐ</Text>
+                    <Text style={[styles.header_text, {color: '#FF5C00', marginBottom: 10}]}>{this.currencyFormat(data.price)} VNĐ</Text>
                 </View>
 
                 <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
