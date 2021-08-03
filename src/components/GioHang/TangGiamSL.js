@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     },
     end: {
       textAlign: 'right',
+      fontSize:16,
     },
 });
 
@@ -66,15 +67,15 @@ class TangGiamSL extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity onPress={this.decrement} style={styles.decrease} disabled={this.state.disabled} underlayColor="#ff5c00" activeOpacity={0.2}>
+                <TouchableOpacity onPress={this.decrement} style={styles.decrease} disabled={this.state.disabledLeft} underlayColor="#ff5c00" activeOpacity={0.2}>
                     <View>
-                        <Text>-</Text>
+                        <Text style={{opacity:this.state.disabledLeft?0.2:1,fontSize:16}}>-</Text>
                     </View>
                 </TouchableOpacity>
                 <View><Text>{this.state.number}</Text></View>
-                <TouchableOpacity onPress={this.increment} style={styles.decrease} underlayColor="#ff5c00" activeOpacity={0.2}>
+                <TouchableOpacity onPress={this.increment} style={styles.decrease} disabled={this.state.disabledRight} underlayColor="#ff5c00" activeOpacity={0.2}>
                     <View>
-                        <Text style={styles.end}>+</Text>
+                        <Text style={[styles.end,{opacity:this.state.disabledRight?0.2:1}]}>+</Text>
                     </View>
                 </TouchableOpacity>
             </View>
