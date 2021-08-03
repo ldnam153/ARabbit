@@ -9,8 +9,22 @@ class GioHang extends Component {
     currencyFormat(num) {
         return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
     }
+    
+    demsp = (cartList)=>{
+        var tongsp = 0;
+        cartList.forEach(shop => {
+            shop.products.forEach(product => {
+                if(product.isSelected==true){
+                    tongsp += +product.number
+                }
+            });
+        });
+        return tongsp;
+    }
+
     render() {
-        const { totalPrice,checkedProducts } = this.props;
+        const { totalPrice, cartList } = this.props;
+
         const goBack = () =>{
             this.props.navigation.goBack();
         }
@@ -26,7 +40,7 @@ class GioHang extends Component {
                 <ScrollViewGioHang></ScrollViewGioHang>
                 <FooterThanhToan 
                     price={this.currencyFormat(totalPrice)+ " VNĐ"} 
-                    btnText={"Thanh toán("+checkedProducts+")" }
+                    btnText={"Thanh toán("+this.demsp(cartList)+")" }
                     press={goXNSP}/>
             </SafeAreaView>
         )
@@ -48,7 +62,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
     return {
         totalPrice: state.cartReducer.totalPrice,
-        checkedProducts: state.cartReducer.checkedProducts,
+        cartList: state.cartReducer.cartList,
     }
 }
 
