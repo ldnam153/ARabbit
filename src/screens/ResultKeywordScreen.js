@@ -148,8 +148,8 @@ const Drawer = createDrawerNavigator();
 
 class ResultKeywordScreen extends Component{
     render() {
-        const goPD = () =>{
-            this.props.navigation.navigate('ProductDetails');
+        const goPD = (productID='1') =>{
+            this.props.navigation.navigate('ProductDetails',{data: product_controller.getProduct(productID)});
         }
         const goBack = () =>{
             this.props.navigation.goBack();

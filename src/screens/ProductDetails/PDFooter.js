@@ -21,7 +21,8 @@ class PDFooter extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-        selectedSize:null
+            selectedSize:null,
+            number: 1,
         };
         this.selectionSizeOnPress = this.selectionSizeOnPress.bind(this);
     }
@@ -96,7 +97,7 @@ class PDFooter extends Component {
 
                         <View style={{flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 30}}> 
                             <Text style={{fontSize: 18, fontWeight: 'bold'}}> Số lượng: </Text>
-                            <TangGiamSL number= "1"/>
+                            <TangGiamSL number= {this.state.number} max={data.stock} increase={()=>{this.setState((prevState)=>({...prevState,number:prevState.number+1}))}} decrease={()=>{this.setState((prevState)=>({...prevState,number:prevState.number-1}))}}/>
                         </View>
                     </View>
                     <TouchableOpacity disabled={(this.state.selectedSize === null && data.size.length !== 0)} style={{ alignItems: 'center', backgroundColor: this.state.selectedSize === null && data.size.length !== 0 ? '#BDBDBD' : '#FF0000' , position: 'absolute', bottom: 0,width:'100%'}} onPress={() => {
@@ -106,7 +107,7 @@ class PDFooter extends Component {
                             subTitle: 'Đã thêm sản phẩm vào giỏ hàng',
                             style: 'success',
                         },
-                        callback => actions.addToCart(data.shop, data, 1, "abc"));}}>
+                        callback => actions.addToCart(data.shop, data, this.state.number, "abc"));}}>
                         <View style={styles.BottomButton}>
                             <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Đồng ý</Text>
                         </View>
