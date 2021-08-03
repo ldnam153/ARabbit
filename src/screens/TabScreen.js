@@ -31,7 +31,7 @@ function UserTab() {
 
 const Tab = createBottomTabNavigator();
 
-const mount = (goPD) => {
+const mount = (goPD, actions) => {
   const eventEmitter = new NativeEventEmitter(CameraModule);
   this.eventListener = eventEmitter.addListener('EventReminder', (event) => {
      console.log(event.event) 
@@ -40,7 +40,8 @@ const mount = (goPD) => {
       goPD(event.product);
      }
      else if (event.event == 'add'){
-        
+        var data = controller.getProduct(event.product)
+        actions.addToCart(data.shop, data, 1, "null");
      }
   });
 
@@ -50,8 +51,7 @@ const unmount = () => {
   this.eventListener.remove(); //Removes the listener
 };
 
-function TabScreen({navigation}) {
-  console.log(controller.getCatList())
+function TabScreen({navigation, actions}) {
   const goGH = () => {
       navigation.navigate('GioHang')
   }
@@ -62,7 +62,7 @@ function TabScreen({navigation}) {
       navigation.push('ProductDetails',{data: controller.getProduct(productID)})
   }
   React.useEffect(() => {
-    mount(goPD)
+    mount(goPD, actions)
     return () => {
       unmount()
     }

@@ -44,8 +44,6 @@ class Recommend extends Component {
     };
     
     render() {
-      console.log(this.state.products)
-      console.log("ahihi")
       const dataRef = this.state.products
       return (
         <SafeAreaView style={styles.container}>
@@ -53,14 +51,11 @@ class Recommend extends Component {
                 <Text style={{fontSize:25, fontWeight: 'bold', color:'#F62424'}}>{this.props.title}</Text>
               
             </View>
-            <View style = {styles.flatlist}>
-             
-              <FlatList
-                numColumns = {2}
-                data = {dataRef}
-        
-                renderItem = {({item}) => 
-                  <View style = {styles.item}>
+            
+            <View style={{ columns: 2,flex: 1, flexDirection: 'column',flexWrap: 'wrap'}}>
+            {this.state.products.map((item, index) => {
+                return (
+                  <View key ={index} style = {styles.item}>
                     <ProductBar                
                       imgUrl = {item.main_img[0]}
                       num_star= {item.star}
@@ -72,8 +67,8 @@ class Recommend extends Component {
                       real_price = {item.first_price} 
                       goPD={this.props.goPD}/>
                   </View>
-                  }
-              />          
+                )
+            })}
             </View>
             
         </SafeAreaView>

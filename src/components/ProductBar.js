@@ -44,24 +44,24 @@ const styles = StyleSheet.create({
 
 class ProductBar extends Component {
     currencyFormat(num) {
-        if (typeof(num) === 'string' || num === 0)
+        if (typeof(num) !== 'number' || num === 0)
             return ""
-        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.') + "VND"
     }
     render() {
         return (
-            <TouchableOpacity style={{marginTop:10, width:165}} onPress={this.props.goPD}>
+            <TouchableOpacity style={{marginTop:10, width:165, height: 310}} onPress={this.props.goPD}>
                 <View style={styles.ctn_image}>
                     <Image source={{uri: this.props.imgUrl}} style={styles.image}/>
                     <View style={{position:'absolute',width:'100%',alignItems:'flex-end'}}>
                         <Sale_frame value={this.props.percent_sale}/>
                     </View>
                 </View>
-                <View>
+                <View style={{minHeight: 35}}>
                     <Text numberOfLines={2} ellipsizeMode='tail' style={{fontWeight:'bold'}}>{this.props.name_product}</Text>
                 </View>
                 <View style={{flexDirection:'row', justifyContent: 'space-between', paddingTop:3}}>
-                    <Text style={{fontWeight:'100', color:'grey',fontStyle:'italic', fontSize:10, textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>{this.currencyFormat(this.props.real_price)} VND</Text>
+                    <Text style={{fontWeight:'100', color:'grey',fontStyle:'italic', fontSize:10, textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>{this.currencyFormat(this.props.real_price)}</Text>
                     <View style={{flexDirection:'row', alignItems:'center'}}>
                         <Image source={require('../resources/icons/location.png')}/>
                         <Text style={{fontSize:10,color:'grey', paddingLeft: 5}}>{this.props.location}</Text>

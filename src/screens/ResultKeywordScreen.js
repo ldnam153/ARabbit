@@ -111,27 +111,24 @@ class HomeScreen extends Component {
                   
                   <ScrollView style={{backgroundColor:'white'}} contentContainerStyle={{ paddingBottom: 350}}>
                       
-                        <View style = {styles.flatlist}>
-                            <FlatList
-                                numColumns = {2}
-                                data = {this.state.dress_products}
-                        
-                                renderItem = {({item}) => 
-                                <View style = {styles.item}>
-                                    <ProductBar                
-                                        imgUrl = {item.main_img[0]}
-                                        num_star= {item.star}
-                                        percent_sale = {item.sale_percent}
-                                        name_product = {item.name}
-                                        sale_price = {item.price}
-                                        location = {item.location}
-                                        num_sales = {item.stock}
-                                        real_price = {item.first_price} 
-                                        goPD={this.props.route.params.goPD}/>
-                                </View>
-                                }
-                                />          
-                        </View>
+                  <View style={{ columns: 2,flex: 1, flexDirection: 'column',flexWrap: 'wrap', height: 2000}}>
+                    {this.state.dress_products.map((item, index) => {
+                        return (
+                            <View style = {styles.item}>
+                                            <ProductBar                
+                                                imgUrl = {item.main_img[0]}
+                                                num_star= {item.star}
+                                                percent_sale = {item.sale_percent}
+                                                name_product = {item.name}
+                                                sale_price = {item.price}
+                                                location = {item.location}
+                                                num_sales = {item.stock}
+                                                real_price = {item.first_price} 
+                                                goPD={this.props.route.params.goPD}/>
+                                        </View>
+                        )
+                    })}
+                    </View>
                   </ScrollView>
       
               </View>

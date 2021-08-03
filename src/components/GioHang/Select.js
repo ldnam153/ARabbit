@@ -60,6 +60,10 @@ class Select extends Component {
     
     render() {
         const data = this.props.data;
+        if (data === undefined) {
+          return ( <View/>)
+        }
+        else
         return (
             <View style={{}}>
             <SelectDropdown

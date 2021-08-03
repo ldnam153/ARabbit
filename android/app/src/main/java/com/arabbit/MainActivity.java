@@ -19,9 +19,9 @@ public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
-    products.add(new ProductModel("1", "Bánh AFC", "Kinh đô", "Đây là một loại bán ngon",
+    products.add(new ProductModel("2", "Bánh cracker vị r AFC", "Kinh đô", "Bánh có bổ sung khoai tây, cung cấp năng lượng, protein, chất xơ, đặc biệt là vitamin D và canxi giúp xương chắc khỏe.",
             getDrawable(R.drawable.kinhdo), getDrawable(R.drawable.afc), 367, 28000, 4));
-    products.add(new ProductModel("2", "Mì 3 miền", "UNIBEN", "Đây là một mỳ ăn liền",
+    products.add(new ProductModel("8", "Mì 3 miền tôm chua cay", "UNIBEN", "Đây là một mỳ ăn liền với hương vị tôm chua cay.",
             getDrawable(R.drawable.uniben), getDrawable(R.drawable.mi3mien), 2000, 4000, 5));
   }
   @Override
