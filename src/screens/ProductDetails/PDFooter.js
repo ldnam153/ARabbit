@@ -7,15 +7,16 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  TouchableHighlight
+  TouchableHighlight,
+  Modal
 } from 'react-native';
 import RBSheet from "react-native-raw-bottom-sheet";
 import TangGiamSL from '../../components/GioHang/TangGiamSL';
-import SweetAlert from 'react-native-sweet-alert';
 import { bindActionCreators } from 'redux';
 import * as CartActions from "../../actions/cartAction"
 import { connect } from 'react-redux';
 import controller from '../../controller/product_controller'
+
 const {width, height} = Dimensions.get('window');
 class PDFooter extends Component {
     constructor(props) {
@@ -23,6 +24,7 @@ class PDFooter extends Component {
         this.state = { 
             selectedSize:null,
             number: 1,
+            modalVisible: false
         };
         this.selectionSizeOnPress = this.selectionSizeOnPress.bind(this);
     }
@@ -37,11 +39,44 @@ class PDFooter extends Component {
         return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
     }
 
+    showModal = () => {
+        this.setState({
+        modalVisible: true,
+        });
+        setTimeout(() => {
+        this.setState({
+            modalVisible: false,
+        });
+        }, 1500);
+    };
+
     render() {
         const { data, actions } = this.props;
         console.log(data)
         return(
             <View>
+                <Modal
+                    animationType="fade"
+                    transparent
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {
+                        console.log('Modal has been closed.');
+                }}>
+                    <View
+                        style={{
+                            flex: 1,
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}>
+                        <View style = {{backgroundColor: 'rgba(52, 52, 52, 0.5)', 'borderRadius': 20, padding: 35, alignItems: 'center'}}>
+                            <Image style = {{width: 70, height: 70, marginBottom: 20}} source={ require('../../resources/icons/white_tick.png')}/>
+                            <Text style={{fontSize: 18, fontWeight: 'bold', color: 'white'}}>
+                                Đã thêm vào giỏ hàng
+                            </Text>
+                        </View>
+                    </View>
+                </Modal>
+
                 <View style={{flexDirection: 'row', position: 'absolute', bottom: 48, backgroundColor: 'white'}}>
                     <TouchableOpacity style={styles.chat_cart_bt}>
                         <View style={styles.BottomButton}>
@@ -106,13 +141,9 @@ class PDFooter extends Component {
                     </View>
                     <TouchableOpacity disabled={(this.state.selectedSize === null && data.size.length !== 0)} style={{ alignItems: 'center', backgroundColor: this.state.selectedSize === null && data.size.length !== 0 ? '#BDBDBD' : '#FF0000' , position: 'absolute', bottom: 0,width:'100%'}} onPress={() => {
                         this.RBSheet.close();
-                        SweetAlert.showAlertWithOptions({
-                            title: 'Cảm ơn bạn!',
-                            subTitle: 'Đã thêm sản phẩm vào giỏ hàng',
-                            style: 'success',
-                            cancellable: false,
-                        },
-                        callback => actions.addToCart(data.shop, data, this.state.number, this.state.selectedSize));}}>
+                        this.showModal();
+                        actions.addToCart(data.shop, data, this.state.number, this.state.selectedSize);
+                    }}>
                         <View style={styles.BottomButton}>
                             <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>Đồng ý</Text>
                         </View>
