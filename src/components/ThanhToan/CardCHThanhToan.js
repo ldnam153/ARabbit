@@ -33,7 +33,7 @@ class CardCHThanhToan extends Component {
             sosanpham = 0;
             products.forEach(product => {
                 tong+= +product.number * +product.price;
-                sosanpham+= +product.number;
+                sosanpham+= 1;
             });
             return tong;
         }

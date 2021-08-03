@@ -15,7 +15,7 @@ class GioHang extends Component {
         cartList.forEach(shop => {
             shop.products.forEach(product => {
                 if(product.isSelected==true){
-                    tongsp += +product.number
+                    tongsp += 1
                 }
             });
         });

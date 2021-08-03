@@ -11,7 +11,7 @@ class TongTienShopThanhToan extends Component {
                 </View>
                 <View style={styles.innerContainer}>
                     <Text style={styles.textSize}>Tổng số tiền ({this.props.amount} sản phẩm)</Text>
-                    <Text style={[styles.textSize,{color:'#f62424'}]}>{this.props.tongtienshop}</Text>
+                    <Text style={[styles.textSize,{color:'#ff5c00'}]}>{this.props.tongtienshop}</Text>
                 </View>
             </View>
         )

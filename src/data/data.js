@@ -133,7 +133,7 @@ const product = [
     price: 8999000,
     star: '4',
     location: 'TP.Hồ Chí Minh',
-    stock: "875"
+    stock: "5"
 },
   {
     id: '10',
@@ -147,7 +147,7 @@ const product = [
     price: 12750000,
     star: '5',
     location: 'TP.Hồ Chí Minh',
-    stock: "837"
+    stock: "9"
 },
   {
     id: '11',
@@ -161,7 +161,7 @@ const product = [
     price: 5591999,
     star: '4',
     location: 'TP.Hồ Chí Minh',
-    stock: "48"
+    stock: "8"
 },
   {
     id: '12',
