@@ -108,7 +108,7 @@ class PDBody extends Component {
 
                         {data.accessor[0].img.map((item, index) => {
                         return (
-                            <View style={styles.feedBackImg}>
+                            <View style={styles.feedBackImg} key={index}>
                             <Image
                                 source={{uri: item}}
                                 style={styles.imgStyle}
@@ -143,7 +143,7 @@ class PDBody extends Component {
                         
                         relatedProduct.map((item, index) => {
                         return (
-                            <View style={styles.RelatedProduct}>
+                            <View style={styles.RelatedProduct} key={index}>
                                 <ProductBar
                                     imgUrl = {item.main_img[0]}
                                     num_star= {item.star}

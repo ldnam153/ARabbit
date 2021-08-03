@@ -88,7 +88,7 @@ class PDFooter extends Component {
                                 <ScrollView horizontal={true}>
                                     {data.size.map((item, index) => {
                                     return (
-                                        <View style={{backgroundColor: '#BDBDBD', marginLeft: 20, alignItems: 'center',  width: 50, backgroundColor:this.state.selectedSize===item ? '#FF0000':'#BDBDBD'}}>
+                                        <View key={index} style={{backgroundColor: '#BDBDBD', marginLeft: 20, alignItems: 'center',  width: 50, backgroundColor:this.state.selectedSize===item ? '#FF0000':'#BDBDBD'}}>
                                             <TouchableHighlight  onPress={() => this.selectionSizeOnPress(item)}>                
                                                 <Text style={[styles.TouchableHighlightCSS, {fontWeight: 'bold', color: this.state.selectedSize===item ? '#ffff':'#000000'}]}>{item}</Text>      
                                             </TouchableHighlight>
@@ -110,6 +110,7 @@ class PDFooter extends Component {
                             title: 'Cảm ơn bạn!',
                             subTitle: 'Đã thêm sản phẩm vào giỏ hàng',
                             style: 'success',
+                            cancellable: false,
                         },
                         callback => actions.addToCart(data.shop, data, this.state.number, this.state.selectedSize));}}>
                         <View style={styles.BottomButton}>
