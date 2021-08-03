@@ -1,9 +1,3 @@
-/*===============================================================================
-Copyright (c) 2020 PTC Inc. All Rights Reserved.
-
-Vuforia is a trademark of PTC Inc., registered in the United States and other
-countries.
-===============================================================================*/
 
 package com.arabbit
 
@@ -67,6 +61,7 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
     private lateinit var mImage: ImageView
     private lateinit var mSold : TextView
     private lateinit var mPrice: TextView
+    private lateinit var mMsg: TextView
     private lateinit var mNumberStar: LinearLayout
     private lateinit var mAlert: LinearLayout
     // Native methods
@@ -160,6 +155,7 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
         mPrice = findViewById(R.id.price)
         mNumberStar = findViewById(R.id.listStar)
         mSold = findViewById(R.id.sold)
+        mMsg = findViewById(R.id.msg)
         mPanel = findViewById(R.id.panel)
         mPanel.setOnClickListener {
 
@@ -250,6 +246,7 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
             GlobalScope.launch(Dispatchers.Main) {
                 mPanel.visibility = View.INVISIBLE
                 productID = "";
+                mMsg.visibility = View.VISIBLE
             }
             // After triggering a focus event wait 2 seconds
             // before restoring continuous autofocus
@@ -333,6 +330,7 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
             if (didRender.isNotEmpty() ) {
                 GlobalScope.launch(Dispatchers.Main) {
                     if (productID != didRender) {
+                        mMsg.visibility = View.INVISIBLE
                         if(mPanel.visibility != View.VISIBLE)
                             mPanel.visibility = View.VISIBLE
 

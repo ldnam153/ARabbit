@@ -10,20 +10,29 @@ const styles = StyleSheet.create({
         color:'red',
         fontSize: 10,
         backgroundColor:'yellow',
-        padding: 1
+        padding: 1,
+        
     },
 });
 
 
 class Sale_frame extends Component {
     render() {
-        return (
-            <View style={this.props.styleSale}>
-                <View style={styles.container}>
-                    <Text style={styles.sale_container}>-{this.props.value}%</Text>
+        if (this.props.value != 0){
+            return (
+                <View style={this.props.styleSale}>
+                    <View style={styles.container} >
+                        <Text style={styles.sale_container}>-{this.props.value}%</Text>
+                    </View>
                 </View>
-            </View>
-        )
+            )
+        }
+        else {
+            return (
+                <View/>
+            )
+        }
+        
     }
 }
 

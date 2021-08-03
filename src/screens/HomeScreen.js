@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
       borderWidth: 1,
     },
     screen_container: {
+        backgroundColor: '#EFEFEF',
+        
         position: 'relative',
         width: '100%',
         height: '100%',
@@ -22,6 +24,7 @@ const styles = StyleSheet.create({
     },
   });
 class HomeScreen extends Component{
+  
     render(){
         return (
         <SafeAreaView style={styles.screen_container}>

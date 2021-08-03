@@ -29,6 +29,7 @@ const product = [
     ],
     color: ["Yellow", "Blue", "Red", "Violet", "Green", "Pink"],
     size: ["XS", 'S', 'L', 'XL'],
+    properties: ["XS", 'S', 'L', 'XL'],
     related: ["14","15","16"]
   },
   {
@@ -117,10 +118,14 @@ const product = [
       name: "Mì 3 miền tôm chua cay",
       stock: "30"
   },
+  
   {
     id: "9",
     main_img: ["https://cdn.nguyenkimmall.com/images/detailed/707/10047640-may-choi-game-sony-ps4-pro-1tb-om2-bundle-cuh-7218b-1.jpg"],
     sale_percent: "10",
+    properties: ['Normal', 'Standard', 'Premium'],
+    shop: 'GameStop',
+    shopID: "GameStop",
     name: "Máy chơi game Playstation 4",
     first_price: "10.000.000",
     price: '8.999.000',
@@ -132,6 +137,9 @@ const product = [
     id: '10',
     main_img: ["https://cdn.vjshop.vn/hightech/may-choi-game/ps5/sony-ps-5-1.jpg"],
     sale_percent: "15",
+    shop: 'GameStop',
+    shopID: "GameStop",
+    properties: ['Normal', 'Standard', 'Premium'],
     name: "Máy chơi game Playstation 5",
     first_price: "14.999.000",
     price: '12.750.000',
@@ -143,6 +151,9 @@ const product = [
     id: '11',
     main_img: ["https://www.electrolux.vn/globalassets/appliances/stovehob/egt7838ck_vn_700x700-cropped.png?preset=medium"],
     sale_percent: "20",
+    shop: "abc",
+    shopID: "abc",
+    properties: ['Normal', 'Standard', 'Premium'],
     name: "Bếp ga Potenza 78cm với 3 mâm chia lửa",
     first_price: "6.989.999",
     price: '5.591.999',
@@ -485,7 +496,7 @@ const newest = ['14', '26', '28', '17', '23'];
 
 const sugggest = ['19', '20', '21', '22', '18', '24', '25', '15', '27', '16'];
 
-const dress_products=['29','30','31','32','33','34','35','36','37','38','39','40'];
+const dress_products=['1','30','31','32','33','34','35','36','37','38','39','40'];
 
 const findWithCamera=['2','8','31','4','10','12'];
 
@@ -605,7 +616,7 @@ function getProduct(id) {
       return product[i]
   }
 }
+const cart = ['9', '10', '11']
 
-
-export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, dress_products,receiver, findWithCamera,getProduct };
+export default { product, discount, best_saler, newest, sugggest, noi_bat, gan_day, dress_products,receiver, findWithCamera,getProduct, cart};
 

@@ -9,7 +9,7 @@ import product_controller from '~/controller/product_controller'
 const styles = StyleSheet.create({
   container: {
     zIndex: 0,
-    backgroundColor: 'gray',
+    backgroundColor: '#EFEFEF',
     marginTop: 65,
   },
 })

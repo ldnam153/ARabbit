@@ -56,4 +56,41 @@ module.exports={
         }
         return list_discount;
     }
+    ,
+    getCatList(){
+        var productsID = data.cart;
+
+        
+        var products = [];
+        for(var i = 0; i < productsID.length; i++){
+            var p = this.getProduct(productsID[i])
+            p.isSelected = false,
+            p.property = p.properties[0]
+            p.number = 1
+            products.push(p);
+        }
+        var shops = []
+        var temp = ""
+        var shop = []
+        for(var i = 0; i < products.length; i++){
+            if (temp != products[i].shop){
+              shop = []
+            temp = products[i].shop
+              shop.push(products[i])
+            var s = {}
+            s.products = shop
+            shops.push(s)
+          }
+          else {
+              shop.push(products[i])
+          }
+        }
+        for (var i = 0; i < shops.length; i++){
+            shops[i].isSelected = false;
+            shops[i].shop = shops[i].products[0].shop
+            shops[i].shopId = shops[i].products[0].shopID
+        }
+
+        return shops;
+    }
 }

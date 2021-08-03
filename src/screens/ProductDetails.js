@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   TouchableHighlight
 } from 'react-native';
-
+import { connect } from 'react-redux'
 import PDHeader from '../screens/ProductDetails/PDHeader';
 import PDBody from '../screens/ProductDetails/PDBody';
 import PDFooter from '../screens/ProductDetails/PDFooter';
@@ -21,6 +21,11 @@ const {width, height} = Dimensions.get('window');
 class ProductDetails extends Component {
 
   render() {
+    var totalProduct = 0;
+    const { cartList } = this.props;
+    for(var i = 0; i < cartList.length; i++) {
+      totalProduct += cartList[i].products.length;
+    }
     var data = this.props.route.params.data || this.props.data || controller.getProduct('1')
     const goBack = () => {
       this.props.navigation.goBack();
@@ -53,8 +58,11 @@ class ProductDetails extends Component {
               <TouchableOpacity onPress={goHome}>
                 <Image style={{marginRight: 20, marginTop: 2, width: 24, height: 24}} source={require('../resources/icons/home.png')}/>
               </TouchableOpacity>
-              <TouchableOpacity onPress={goGH}>
+              <TouchableOpacity onPress={goGH} >
                 <Image style={{marginRight: 20, width: 28, height: 28}} source={require('../resources/icons/cart_click.png')}/>
+                <View style={styles.number}>
+                    <Text style={{color: "white", alignSelf: 'center',fontSize: 10, fontWeight: 'bold'}}>{totalProduct}</Text>
+                </View>
               </TouchableOpacity>
           </View>
         </View>
@@ -80,6 +88,17 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F7F7F7',
   },
+  number:{
+    backgroundColor: "red", 
+    borderRadius: 50, 
+    position: "absolute", 
+    alignSelf: 'center', 
+    marginBottom: 10, 
+    marginRight: 100,
+    padding: 2,
+    width: 15,
+    height: 15,
+  },
   tab: {
     flexDirection: 'row',
     justifyContent:'space-between',
@@ -90,5 +109,10 @@ const styles = StyleSheet.create({
     elevation:4
   }
 });
+const mapStateToProps = (state) => {
+  return {
+      cartList: state.cartReducer.cartList
+  }
+}
 
-export default ProductDetails;
+export default connect(mapStateToProps)(ProductDetails)

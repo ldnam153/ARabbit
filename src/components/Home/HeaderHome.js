@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux'
 import {StyleSheet, View, TextInput, Text,Image, SafeAreaView, TouchableOpacity} from 'react-native';
 const styles = StyleSheet.create({
   navbar_container: {
@@ -40,15 +41,20 @@ const styles = StyleSheet.create({
 
 class HeaderHome extends Component {
   render() {
+    var totalProduct = 0;
+    const { cartList } = this.props;
+    for(var i = 0; i < cartList.length; i++) {
+      totalProduct += cartList[i].products.length;
+    }
     return (
       <SafeAreaView style={styles.navbar_container}>
         <SafeAreaView style={styles.group}>
-          <TextInput style={styles.input} placeholder="Bạn muốn tìm gì?" placeholderTextColor="#000" onFocus={this.props.goTH}/>
+          <TextInput style={styles.input} placeholder="Tìm kiếm" placeholderTextColor="#000" onFocus={this.props.goTH}/>
           <View style={{flex:1, display:'flex', flexDirection:'row', justifyContent: 'space-between'}}>
               <TouchableOpacity onPress={this.props.goGH} >
                 <Image source={require('../../resources/icons/cart_click.png')}/>
                 <View style={styles.number}>
-                    <Text style={{color: "white", alignSelf: 'center',fontSize: 10, fontWeight: 'bold'}}>3</Text>
+                    <Text style={{color: "white", alignSelf: 'center',fontSize: 10, fontWeight: 'bold'}}>{totalProduct}</Text>
                 </View>
               </TouchableOpacity>
               <Image source={require('../../resources/icons/chat_click.png')} style={styles.iconMsg, {marginTop:6}} />
@@ -60,4 +66,10 @@ class HeaderHome extends Component {
 }
 
 
-export default HeaderHome;
+const mapStateToProps = (state) => {
+  return {
+      cartList: state.cartReducer.cartList
+  }
+}
+
+export default connect(mapStateToProps)(HeaderHome)
