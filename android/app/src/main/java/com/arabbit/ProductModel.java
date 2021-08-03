@@ -10,10 +10,10 @@ public class ProductModel {
     Drawable iconShop;
     Drawable image;
     int sold;
-    long price;
+    String price;
     int numberStar;
 
-    public ProductModel(String id, String name, String shop, String description, Drawable icon, Drawable image, int sold, long price, int numberStar) {
+    public ProductModel(String id, String name, String shop, String description, Drawable icon, Drawable image, int sold, String price, int numberStar) {
         this.id = id;
         this.name = name;
         this.shop = shop;

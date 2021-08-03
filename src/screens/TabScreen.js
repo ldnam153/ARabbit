@@ -41,7 +41,7 @@ const mount = (goPD, actions) => {
      }
      else if (event.event == 'add'){
         var data = controller.getProduct(event.product)
-        actions.addToCart(data.shop, data, 1, "null");
+        actions.addToCart(data.shop, data, 1, "Không");
      }
   });
 

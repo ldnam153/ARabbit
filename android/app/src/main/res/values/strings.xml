@@ -10,5 +10,5 @@
     <string name="ar_info_text">Vuforia Engine</string>
 
     <string name="ok">OK</string>
-    <string name="error_dialog_title">Vuforia error</string>
+    <string name="error_dialog_title">Lỗi</string>
 </resources>

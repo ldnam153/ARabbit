@@ -132,7 +132,7 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
 
 
 
-            handler.postDelayed(runnable, 1000)
+            handler.postDelayed(runnable, 1500)
             var params: WritableMap = Arguments.createMap();
             params.putString("event", EventNative.typeAddToCart);
             params.putString("product", productID);
@@ -396,8 +396,8 @@ class VuforiaActivity : AppCompatActivity(), GLSurfaceView.Renderer, SurfaceHold
 
         mName.text = p.name
         mShop.text = p.shop
-        mSold.text = "Đã bán" + p.sold.toString()
-        mPrice.text = p.price.toString()
+        mSold.text = "Đã bán " + p.sold.toString()
+        mPrice.text = p.price
         mDescription.text = p.description
         mName.text = p.name
         mIconShop.setImageDrawable(p.iconShop)

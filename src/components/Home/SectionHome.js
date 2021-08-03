@@ -34,7 +34,7 @@ class SectionHome extends Component {
             <View style={styles.header}>
                 <Text style={{fontSize:25, fontWeight: 'bold', color:'#F62424'}}>{this.props.title}</Text>
                 <View style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-                    <Text>Xem thêm &gt; </Text>
+                    <Text style={{color: "#F62424"}}>Xem thêm &gt; </Text>
                 </View>
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>

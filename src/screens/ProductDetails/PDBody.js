@@ -99,7 +99,7 @@ class PDBody extends Component {
                             style={[styles.seeAll, {
                             marginTop: 13,
                             }]}>
-                            Xem tất cả
+                            Xem tất cả &gt; 
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -162,10 +162,7 @@ class PDBody extends Component {
                     }
                 ]}>
                     <Text style={[styles.hearder_text_2, {}]}>Các sản phẩm liên quan</Text>
-                    <Text 
-                    style={[styles.seeAll, {
-                        marginTop: 13,
-                    }]}>Xem tất cả</Text>
+                    
                 </View>
 
                 <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />

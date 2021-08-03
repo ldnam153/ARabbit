@@ -110,7 +110,7 @@ bool AppController::startAR()
     // initialize the camera
     if (! Vuforia::CameraDevice::getInstance().init())
     {
-        mShowErrorCallback("Failed to initialize the camera");
+        mShowErrorCallback("Không thể khởi tạo camera. Vui lòng thử l");
         return false;
     }
 
@@ -507,7 +507,7 @@ bool AppController::initVuforiaInternal(void* appData)
             break;
                 
         default:
-            cameraAccessErrorMessage = "Vuforia initialization failed.";
+            cameraAccessErrorMessage = "Không thể khởi tạo camera. Hãy thử lại.";
             break;
     }
     // Vuforia Engine initialization error
