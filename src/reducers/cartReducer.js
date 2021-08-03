@@ -1,4 +1,4 @@
-import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX, ADD_TO_CART } from '../Constant';
+import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX, ADD_TO_CART, UPDATE_TOTAL_PAYMENT } from '../Constant';
 import controller from "../controller/product_controller"
 
 const initialState = {
@@ -6,6 +6,7 @@ const initialState = {
   totalPrice: 0,
   isAllSelected: false,
   checkedProducts: 0, //cai nay nam ke nut thanh toan ne, hien thi co bao nhieu LOAI SAN PHAM dang duoc selected <3
+  totalPayment: 0
 };
 
 const sumReducer = (list) => {
@@ -104,7 +105,14 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartList: newCartList,
+        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0),
       }
+    }
+    case UPDATE_TOTAL_PAYMENT: {
+      return {
+        ...state,
+        totalPayment: action.payload
+      };
     }
     default:
       return state;

@@ -9,6 +9,9 @@ class ThanhToan extends Component {
     currencyFormat(num) {
         return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
     }
+    componentDidMount() {
+        this.forceUpdate();
+    }
     render() {
         const goBack = () =>{
             this.props.navigation.goBack();
@@ -22,13 +25,12 @@ class ThanhToan extends Component {
         const goVS = () =>{
             this.props.navigation.push('VouchersScreen')
         }
-        const {totalPrice} = this.props
-        console.log('abc',totalPrice)
+        const {totalPayment} = this.props;
         return (
             <SafeAreaView style={styles.screen_container}>
                 <NavBarXacNhanSP title="Thanh toán" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
-                <ScrollViewThanhToan goDDC={goDDC} goVS={goVS} />
-                <FooterThanhToan price={this.currencyFormat(totalPrice)+' VNĐ'} btnText="ĐẶT HÀNG" press={goHome} thanhtoan={true}/>
+                <ScrollViewThanhToan goDDC={goDDC} goVS={goVS} key={"ScrollViewThanhToan"}/>
+                <FooterThanhToan price={this.currencyFormat(totalPayment)} btnText="ĐẶT HÀNG" press={goHome} thanhtoan={true} key={"FooterThanhToan"}/>
             </SafeAreaView>
         )
     }
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        totalPrice: state.cartReducer.totalPrice,
+        totalPayment: state.cartReducer.totalPayment
     }
 }
 

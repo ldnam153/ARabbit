@@ -1,29 +1,27 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import {connect} from 'react-redux'
 class BaoGiaThanhToan extends Component {
     render() {
-        
         return (
             <View style={styles.container}>
                 <Text style={styles.header}>Tổng thanh toán</Text>
                 <View style={styles.inner}>
                     <View style={styles.row}>
                         <Text style={styles.text}>Tổng tiền hàng</Text>
-                        <Text style={styles.text}>{this.props.tongtienhang}</Text>
+                        <Text style={styles.text}>{this.props.tongtienhang} VNĐ</Text>
                     </View>
                     <View style={styles.row}>
                         <Text style={styles.text}>Tổng phí vận chuyển</Text>
-                        <Text style={styles.text}>{this.props.tongtienship}</Text>
+                        <Text style={styles.text}>{this.props.tongtienship} VNĐ</Text>
                     </View>
                     <View style={styles.row}>
                         <Text style={styles.text}>Giảm giá</Text>
-                        <Text style={styles.text}>{this.props.tongtienship}</Text>
+                        <Text style={styles.text}>{this.props.totalDiscountValue} VNĐ</Text>
                     </View>
                 </View>
                 <View style={styles.footer}>
                     <Text style={styles.footerLabel}>Tổng giá tiền</Text>
-                    <Text style={styles.price}>{this.props.tongtienhang}</Text>
+                    <Text style={styles.price}>{this.props.totalValue} VNĐ</Text>
                 </View>
             </View>
         )
@@ -66,9 +64,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 })
-const mapStateToProps = (state) => {
-    return{
-        voucher: state.voucherReducer.activeVoucher
-    }
-}
-export default connect(mapStateToProps) (BaoGiaThanhToan)
+export default BaoGiaThanhToan

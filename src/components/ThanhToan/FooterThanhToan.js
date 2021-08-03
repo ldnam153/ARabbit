@@ -22,7 +22,7 @@ class FooterThanhToan extends Component {
             <View style={styles.footer}>
                 <View style={styles.leftFooter}>
                     <Text style={styles.tonggialabel}>Tổng giá tiền</Text>
-                    <Text style={styles.tonggia}>{this.props.price}</Text>
+                    <Text style={styles.tonggia}>{this.props.price} VNĐ</Text>
                 </View>
                 <TouchableOpacity 
                 style={styles.rightFooter}

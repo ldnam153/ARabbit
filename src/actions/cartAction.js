@@ -1,4 +1,4 @@
-import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX, ADD_TO_CART } from '../Constant';
+import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX, ADD_TO_CART, UPDATE_TOTAL_PAYMENT } from '../Constant';
 
 export const incrementAmount = (id, amount, isSelected) => {
   return {
@@ -94,3 +94,10 @@ export const addToCart = (shop, product, number, property) => {
     }
   }
 }
+
+export const updateTotalPayment = (value) => {
+  return {
+    type: UPDATE_TOTAL_PAYMENT,
+    payload: value,
+  };
+};
