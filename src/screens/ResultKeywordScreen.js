@@ -114,7 +114,7 @@ class HomeScreen extends Component {
                   <View style={{ columns: 2,flex: 1, flexDirection: 'column',flexWrap: 'wrap', height: 2000}}>
                     {this.state.dress_products.map((item, index) => {
                         return (
-                            <View style = {styles.item}>
+                            <View style = {styles.item} key={index}>
                                             <ProductBar                
                                                 imgUrl = {item.main_img[0]}
                                                 num_star= {item.star}
