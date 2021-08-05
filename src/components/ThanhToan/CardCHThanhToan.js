@@ -48,7 +48,7 @@ class CardCHThanhToan extends Component {
                 {/* data render */}
                 {this.props.data.products.map((product) => <CardSPXacNhanThanhToan data={product} />)}
 
-                <LoiNhan value={this.props.data.message}/>
+                <LoiNhan value={this.props.data.message || this.props.all} shopName={this.props.data.shop}/>
                 <TongTienShopThanhToan 
                   ship={this.currencyFormat(20000)+' VNĐ'} 
                   tongtienshop={this.currencyFormat(tinhtongtien(this.props.data.products))+' VNĐ'}

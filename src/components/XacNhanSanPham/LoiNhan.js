@@ -20,9 +20,9 @@ class LoiNhan extends Component {
                 <Text style={{fontSize:16}}>Lời nhắn</Text>
                 <TextInput
                     style={styles.inputText}
-                    placeholder= "Hãy để lại lời nhắn cho cửa hàng"
+                    placeholder= {this.props.shopName?"Hãy để lại lời nhắn cho " + this.props.shopName:"Hãy để lại lời nhắn cho cửa hàng"}
                     placeholderTextColor= "#a69797"
-                    onChangeText={(text) => this.setState({message: text})}
+                    onChangeText={(text) => this.setState({message: text.trim()==''?null:text})}
                     onSubmitEditing={(event)=>{actions.addMessageForShop(event.nativeEvent.text,this.props.shopId)}}
                     value={this.state.message}
                 />

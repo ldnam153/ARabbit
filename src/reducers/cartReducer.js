@@ -1,12 +1,21 @@
 import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_ALL, TOGGLE_PRODUCT_CHECKBOX, TOGGLE_SHOP_CHECKBOX, ADD_TO_CART, UPDATE_TOTAL_PAYMENT } from '../Constant';
 import controller from "../controller/product_controller"
 
+var cart = controller.getCatList();
+var total = 0;
+cart.forEach(shop => {
+  shop.products.forEach(product => {
+    total += +product.number * +product.price;
+  });
+});
+
 const initialState = {
-  cartList: controller.getCatList(),
-  totalPrice: 0,
-  isAllSelected: false,
-  checkedProducts: 0, //cai nay nam ke nut thanh toan ne, hien thi co bao nhieu LOAI SAN PHAM dang duoc selected <3
-  totalPayment: 0
+  cartList: cart,
+  totalPrice: total,
+  isAllSelected: true,
+  checkedProducts: 3, //cai nay nam ke nut thanh toan ne, hien thi co bao nhieu LOAI SAN PHAM dang duoc selected <3
+  totalPayment: 0,
+  message: null,
 };
 
 const sumReducer = (list) => {
@@ -78,6 +87,12 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartList: [...state.cartList].map(shop => {if(shop.shopId == action.payload.shopId) {return {...shop, message: action.payload.message}}else return {...shop}})
+      };
+    }
+    case 'MESSAGE ALL': {
+      return {
+        ...state,
+        message: action.payload.message,
       };
     }
     case TOGGLE_PRODUCT_CHECKBOX : {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { StyleSheet,Text, View, Image, TouchableOpacity} from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Rating_star from './Rating_star';
 import Sale_frame from './Sale_frame';
 
@@ -50,7 +51,7 @@ class ProductBar extends Component {
     }
     render() {
         return (
-            <TouchableOpacity style={{marginTop:10, width:165, height: 310}} onPress={this.props.goPD}>
+            <TouchableWithoutFeedback style={{marginTop:10, width:165, height: 310}} onPress={this.props.goPD}>
                 <View style={styles.ctn_image}>
                     <Image source={{uri: this.props.imgUrl}} style={styles.image}/>
                     <View style={{position:'absolute',width:'100%',alignItems:'flex-end'}}>
@@ -74,7 +75,7 @@ class ProductBar extends Component {
                 <View style={{paddingTop: 3, alignItems:'flex-end'}}>
                     <Text style={{fontSize:11}}>Đã bán: {this.props.num_sales}</Text>
                 </View>
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
         )
     }
 }

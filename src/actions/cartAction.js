@@ -57,6 +57,15 @@ export const addMessageForShop = (message, shopId) => {
   };
 };
 
+export const addMessageForAll = (message) => {
+  return {
+    type: 'MESSAGE ALL',
+    payload: {
+      message: message,
+    }
+  };
+};
+
 export const toggleProductCheckbox = (value, productID) => {
   return {
     type: TOGGLE_PRODUCT_CHECKBOX,

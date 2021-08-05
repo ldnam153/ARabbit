@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, View, StyleSheet, Text } from 'react-native'
 import CardCHXacNhanThanhToan from './CardCHXacNhanThanhToan'
 import { connect } from 'react-redux';
+import LoiNhanTong from './LoiNhanTong';
 
 const styles = StyleSheet.create({
     tongtien: {
@@ -44,6 +45,7 @@ class ScrollViewXacNhanThanhToan extends Component {
         }
         return (
             <ScrollView style={{backgroundColor:'#efefef'}}>
+                <LoiNhanTong/>
                 {/*   data render   */}
                 {cartList.map((shop) => {if(shop.products.length>0) return <CardCHXacNhanThanhToan data={shop} key={shop.shopId}/>})}
                 <View style={styles.tongtien}>

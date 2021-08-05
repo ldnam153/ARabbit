@@ -16,7 +16,7 @@ class BaoGiaThanhToan extends Component {
                     </View>
                     <View style={styles.row}>
                         <Text style={styles.text}>Giảm giá</Text>
-                        <Text style={styles.text}>{this.props.totalDiscountValue} VNĐ</Text>
+                        <Text style={styles.text}>- {this.props.totalDiscountValue} VNĐ</Text>
                     </View>
                 </View>
                 <View style={styles.footer}>

@@ -64,7 +64,7 @@ module.exports={
         var products = [];
         for(var i = 0; i < productsID.length; i++){
             var p = this.getProduct(productsID[i])
-            p.isSelected = false,
+            p.isSelected = true,
             p.property = p.properties[0]
             p.number = 1
             products.push(p);
@@ -86,7 +86,7 @@ module.exports={
           }
         }
         for (var i = 0; i < shops.length; i++){
-            shops[i].isSelected = false;
+            shops[i].isSelected = true;
             shops[i].shop = shops[i].products[0].shop
             shops[i].shopId = shops[i].products[0].shopID
         }
