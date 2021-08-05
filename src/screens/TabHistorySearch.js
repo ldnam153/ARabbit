@@ -13,7 +13,7 @@ const Tab = createMaterialTopTabNavigator();
   function HotScreen({goRK}) {
     var list_HotKeywords=product_controller.getHotKeywords();
     return (
-      <ScrollView style={{backgroundColor:'white'}}>
+      <ScrollView style={{backgroundColor:'white',paddingHorizontal:5}}>
         {list_HotKeywords.map((item, index) => {
           return (
             <View key ={index}>
@@ -28,7 +28,7 @@ const Tab = createMaterialTopTabNavigator();
   function NearScreen({goRK}) {
     var list_NearKeywords=product_controller.getNearKeywords();
     return (
-      <ScrollView style={{backgroundColor:'white'}}>
+      <ScrollView style={{backgroundColor:'white',paddingHorizontal:5}}>
         {list_NearKeywords.map((item, index) => {
           return (
             <View key ={index}>
@@ -42,7 +42,7 @@ const Tab = createMaterialTopTabNavigator();
   function cameraScreen() {
     var list_CameraItem=product_controller.getCameraItemFiding();
     return (
-      <ScrollView style={{backgroundColor:'white'}}>
+      <ScrollView style={{backgroundColor:'white',paddingHorizontal:5}}>
         {list_CameraItem.map((item, index) => {
           return (
             <View key ={index}>

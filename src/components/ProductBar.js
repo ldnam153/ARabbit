@@ -47,7 +47,7 @@ class ProductBar extends Component {
     currencyFormat(num) {
         if (typeof(num) !== 'number' || num === 0)
             return ""
-        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.') + "VND"
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.') + " VNĐ"
     }
     render() {
         return (
@@ -69,7 +69,7 @@ class ProductBar extends Component {
                     </View>
                 </View>
                 <View style={{flexDirection:'row', justifyContent: 'space-between', alignItems:'center', paddingTop:3}}>
-                    <Text style={{fontWeight:'bold', color:'darkorange', fontSize:11}}>{this.currencyFormat(this.props.sale_price)} VNĐ</Text>
+                    <Text style={{fontWeight:'bold', color:'darkorange', fontSize:11}}>{this.currencyFormat(this.props.sale_price)}</Text>
                     <Rating_star width='8' height='8' value={this.props.num_star}/>
                 </View>
                 <View style={{paddingTop: 3, alignItems:'flex-end'}}>
