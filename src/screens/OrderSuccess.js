@@ -12,6 +12,7 @@ import Order from './OrderSuccess/Order'
 import Recommend from '../../src/components/Home/Recommend'
 import product_controller from '../../src/controller/product_controller'
 
+
 const data = {
         customer_name: "Sơn",
         total_price: "12.120.000",
@@ -41,6 +42,8 @@ class OrderSuccess extends Component {
 
                     <Recommend title = {'Có thể bạn quan tâm'} data={this.state.recommend}/>
                 </ScrollView>
+
+                <Footer/>
             </View>
         );
     }

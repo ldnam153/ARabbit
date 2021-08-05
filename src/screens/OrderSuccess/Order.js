@@ -39,7 +39,7 @@ class Order extends Component {
 
             <Product/>
 
-            <View style={{height: 6, backgroundColor: "#CDD1D1", width: "100%" }} />
+            <View style={{backgroundColor: "#CDD1D1", width: "100%" }} />
 
         </View>
     );
@@ -49,7 +49,7 @@ class Order extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-        marginTop: 10
+        marginTop: 5
     },
     header: {
         flexDirection: 'row', 
