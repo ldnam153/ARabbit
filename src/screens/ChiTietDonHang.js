@@ -88,7 +88,7 @@ class ChiTietDonHang extends Component{
                             <View style={{flexDirection:'row',paddingLeft:10}}>
                                 <View style={{backgroundColor:'lightgrey',width:20,height:20,borderRadius:10}}></View>
                                 <View style={{marginLeft:20}}>
-                                    <Text style={{fontSize:13,color:'lightgrey'}}>Đã giao</Text>
+                                    <Text style={{fontSize:13,color:'grey'}}>Đã giao</Text>
                                 </View>
                             </View>
 
@@ -101,7 +101,7 @@ class ChiTietDonHang extends Component{
                             <View style={{flexDirection:'row',paddingLeft:10}}>
                                 <View style={{backgroundColor:'lightgrey',width:20,height:20,borderRadius:10}}></View>
                                 <View style={{marginLeft:20}}>
-                                    <Text style={{fontSize:13,color:'lightgrey'}}>Đang giao</Text>
+                                    <Text style={{fontSize:13,color:'grey'}}>Đang giao</Text>
                                 </View>
                             </View>
 
