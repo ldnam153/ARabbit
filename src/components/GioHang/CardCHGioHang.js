@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import CardSPGioHang from './CardSPGioHang';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as CartActions from "../../actions/cartAction"
 
 const styles = StyleSheet.create({
     container: {
@@ -14,10 +11,14 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderBottomWidth: 0.5,
         borderBottomColor: '#b4b4b4',
+        paddingHorizontal: 15
     },
     header:{
         fontSize:18,
         fontWeight: 'bold',
+    },
+    shop_icon: {
+        marginRight: 10
     }
 });
 
@@ -31,22 +32,23 @@ class CardCHGioHang extends Component {
     }
 
     render() {
-        const checkbox = {
-            true: '#F62424',
-            false: '#F62424'
-        }
+        // const checkbox = {
+        //     true: '#F62424',
+        //     false: '#F62424'
+        // }
         const { actions } = this.props;
         return (
             <View style={{marginBottom:5}}>
                 <View style={styles.container}>
-                    <CheckBox 
+                    {/* <CheckBox 
                         value= {this.props.data.isSelected}
                         onValueChange= {newVal => actions.toggleShopCheckbox(newVal, this.props.data.shopId)}
                         tintColors= {checkbox}
                         onTintColor = '#F62424'
                         onCheckColor = '#F62424'
                         style = {styles.checkbox}>
-                    </CheckBox>
+                    </CheckBox> */}
+                    <Image source={require("../../resources/icons/shop.png")} style={styles.shop_icon} />
                     <Text style={styles.header}>{this.state.data.shop}</Text>
                 </View>
                 {this.props.data.products.map((product) => <CardSPGioHang data={product} key={product.id}/>)}
@@ -56,10 +58,4 @@ class CardCHGioHang extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        actions: bindActionCreators(CartActions, dispatch)
-    }
-}
-
-export default connect(null, mapDispatchToProps)(CardCHGioHang)
+export default CardCHGioHang

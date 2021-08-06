@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
+        paddingHorizontal: 15,
+        paddingVertical: 10
     },
     productImg: {
         marginTop: 7,
@@ -35,6 +37,10 @@ const styles = StyleSheet.create({
         flexDirection:'column',
         justifyContent:'space-between'
     },
+    remove_icon: {
+        fontSize: 20,
+        fontWeight: "bold",
+    }
 });
 
 class CardSPGioHang extends Component {
@@ -55,8 +61,13 @@ class CardSPGioHang extends Component {
         const { actions } = this.props;
         return (
             <View style={styles.outer}>
+                <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: 15}}>
+                    <TouchableOpacity onPress={() => actions.removeProduct(this.props.data.id, +this.props.data.price * +this.props.data.number, this.props.data.isSelected)}>
+                        <Text style={styles.remove_icon}>X</Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.container}>
-                    <View style={{flex:2}}>
+                    {/* <View style={{flex:2}}>
                         <CheckBox 
                         value= {this.props.data.isSelected}
                         onValueChange= {newVal => actions.toggleProductCheckbox(newVal, this.props.data.id)}
@@ -67,7 +78,7 @@ class CardSPGioHang extends Component {
                         onTintColor = '#F62424'
                         onCheckColor = '#F62424'>
                         </CheckBox>
-                    </View>
+                    </View> */}
                     <View style={{flex:6,flexDirection:'column',alignItems:'center'}}>
                         <Image source={{uri: this.props.data.main_img[0]}} style={styles.productImg}></Image>
                     </View>
@@ -84,16 +95,16 @@ class CardSPGioHang extends Component {
                     </View>
                 </View>
                 <View style={[styles.container,{marginTop:2}]}>
-                    <View style={{flex:2}}>
-                    </View>
-                    <View style={{flex:6,flexDirection:'column',alignItems:'center'}}>
+                    {/* <View style={{flex:2}}>
+                    </View> */}
+                    {/* <View style={{flex:6,flexDirection:'column',alignItems:'center'}}>
                         <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={() => actions.removeProduct(this.props.data.id, +this.props.data.price * +this.props.data.number, this.props.data.isSelected)}>
                             <Text style={styles.xoa}>Xóa</Text>
                         </TouchableOpacity>
-                    </View>
-                    <View style={{flex:14,paddingLeft:12}}>
+                    </View> */}
+                    <View style={{flex:14}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
-                            <View style={{flex:1,flexShrink:3}}>
+                            <View style={{flex:1.5, flexShrink:3, paddingLeft: 120}}>
                                 <TangGiamSL number={this.props.data.number} max={this.props.data.stock} increase={() => actions.incrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)} decrease={() => actions.decrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)}></TangGiamSL>
                             </View>
                             {(this.props.data.stock < 10) && <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.stock} sản phẩm</Text>}

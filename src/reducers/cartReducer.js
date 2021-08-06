@@ -66,23 +66,23 @@ const cartReducer = (state = initialState, action) => {
         cartList: [...state.cartList].map(shop => {return {...shop, products: shop.products.filter(p => p.id !== action.payload.id)}})
       };
     }
-    case REMOVE_ALL: {
-      return {
-        ...state,
-        checkedProducts: 0,
-        totalPrice: 0,
-        cartList: [...state.cartList].map(shop => {return {...shop, products: []}})
-      };
-    }
-    case TOGGLE_ALL: {  //data thay doi nhung UI chua re-render (check/uncheck) dua tren data
-      const newCartList = [...state.cartList].map(shop => {return {...shop,isSelected:action.payload,products: shop.products.map(p => {return{...p,isSelected:action.payload}})}})
-      return {
-        ...state,
-        isAllSelected: action.payload,
-        cartList: newCartList,
-        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0)
-      };
-    }
+    // case REMOVE_ALL: {
+    //   return {
+    //     ...state,
+    //     checkedProducts: 0,
+    //     totalPrice: 0,
+    //     cartList: [...state.cartList].map(shop => {return {...shop, products: []}})
+    //   };
+    // }
+    // case TOGGLE_ALL: {  //data thay doi nhung UI chua re-render (check/uncheck) dua tren data
+    //   const newCartList = [...state.cartList].map(shop => {return {...shop,isSelected:action.payload,products: shop.products.map(p => {return{...p,isSelected:action.payload}})}})
+    //   return {
+    //     ...state,
+    //     isAllSelected: action.payload,
+    //     cartList: newCartList,
+    //     totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0)
+    //   };
+    // }
     case 'MESSAGE': {
       return {
         ...state,
@@ -95,24 +95,24 @@ const cartReducer = (state = initialState, action) => {
         message: action.payload.message,
       };
     }
-    case TOGGLE_PRODUCT_CHECKBOX : {
-      const newCartList = [...state.cartList].map(shop => {return {...shop, products: shop.products.map(p => {return {...p, isSelected: p.id === action.payload.productID ? action.payload.value : p.isSelected}})}});
-      return {
-        ...state,
-        cartList: changeShopCheckbox(newCartList),
-        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0),
-        isAllSelected: checkAllSelected(newCartList)
-      }
-    }
-    case TOGGLE_SHOP_CHECKBOX: {
-      const newCartList = changeProductCheckbox([...state.cartList], action.payload.shopID, action.payload.value);
-      return {
-        ...state,
-        cartList: newCartList,
-        totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0),
-        isAllSelected: checkAllSelected(newCartList)
-      }
-    }
+    // case TOGGLE_PRODUCT_CHECKBOX : {
+    //   const newCartList = [...state.cartList].map(shop => {return {...shop, products: shop.products.map(p => {return {...p, isSelected: p.id === action.payload.productID ? action.payload.value : p.isSelected}})}});
+    //   return {
+    //     ...state,
+    //     cartList: changeShopCheckbox(newCartList),
+    //     totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0),
+    //     isAllSelected: checkAllSelected(newCartList)
+    //   }
+    // }
+    // case TOGGLE_SHOP_CHECKBOX: {
+    //   const newCartList = changeProductCheckbox([...state.cartList], action.payload.shopID, action.payload.value);
+    //   return {
+    //     ...state,
+    //     cartList: newCartList,
+    //     totalPrice: sumReducer(newCartList).reduce(((accumulator, currentValue) => accumulator + currentValue), 0),
+    //     isAllSelected: checkAllSelected(newCartList)
+    //   }
+    // }
     case ADD_TO_CART: {
       const newCartList = checkProductExisted(state.cartList, action.payload.products[0].id) ? 
       [...state.cartList].map(shop => { return {...shop, products: shop.products.map(p => {return {...p, number: p.id === action.payload.products[0].id ? p.number + action.payload.products[0].number : p.number}})}}):

@@ -108,19 +108,19 @@ class ScrollViewGioHang extends Component {
         }
     }
 
-    toggleAll=(newVal)=>{
-        this.props.actions.toggleAll(newVal)
-    }
+    // toggleAll=(newVal)=>{
+    //     this.props.actions.toggleAll(newVal)
+    // }
     
     render() {
-        const checkbox = {
-            true: '#F62424',
-            false: '#F62424'
-        }
-        const { cartList, actions, isSelected } = this.props;
+        // const checkbox = {
+        //     true: '#F62424',
+        //     false: '#F62424'
+        // }
+        const { cartList } = this.props;
         return (
             <ScrollView style={{backgroundColor:'#b4b4b4'}}>
-                <View style={styles.container}>
+                {/* <View style={styles.container}>
                     <CheckBox 
                         value= {isSelected}
                         onValueChange= {this.toggleAll}
@@ -135,7 +135,7 @@ class ScrollViewGioHang extends Component {
                             <Image source={require('~/resources/icons/trash.png')}></Image>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </View> */}
                 {/*   data render   */}
                 {cartList.map((shop) => { if(shop.products.length>0) return (<CardCHGioHang data={shop} key={shop.shopId}/>)})}
             </ScrollView>
@@ -150,10 +150,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        actions: bindActionCreators(CartActions, dispatch)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ScrollViewGioHang)
+export default connect(mapStateToProps)(ScrollViewGioHang)

@@ -33,19 +33,19 @@ export const removeProduct = (id, price, isSelected) => {
   };
 };
 
-export const removeAll = () => {
-  return {
-    type: REMOVE_ALL,
-    payload: null,
-  };
-};
+// export const removeAll = () => {
+//   return {
+//     type: REMOVE_ALL,
+//     payload: null,
+//   };
+// };
 
-export const toggleAll = (value) => {
-  return {
-    type: TOGGLE_ALL,
-    payload: value,
-  };
-};
+// export const toggleAll = (value) => {
+//   return {
+//     type: TOGGLE_ALL,
+//     payload: value,
+//   };
+// };
 
 export const addMessageForShop = (message, shopId) => {
   return {
@@ -66,25 +66,25 @@ export const addMessageForAll = (message) => {
   };
 };
 
-export const toggleProductCheckbox = (value, productID) => {
-  return {
-    type: TOGGLE_PRODUCT_CHECKBOX,
-    payload: {
-      value,
-      productID
-    }
-  }
-}
+// export const toggleProductCheckbox = (value, productID) => {
+//   return {
+//     type: TOGGLE_PRODUCT_CHECKBOX,
+//     payload: {
+//       value,
+//       productID
+//     }
+//   }
+// }
 
-export const toggleShopCheckbox = (value, shopID) => {
-  return {
-    type: TOGGLE_SHOP_CHECKBOX,
-    payload: {
-      value,
-      shopID
-    }
-  }
-}
+// export const toggleShopCheckbox = (value, shopID) => {
+//   return {
+//     type: TOGGLE_SHOP_CHECKBOX,
+//     payload: {
+//       value,
+//       shopID
+//     }
+//   }
+// }
 
 export const addToCart = (shop, product, number, property) => {
 
