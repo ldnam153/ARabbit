@@ -6,15 +6,6 @@ import {
   Image
 } from 'react-native';
 
-const data = {
-        customer_name: "Sơn",
-        total_price: "12.120.000",
-        order_id: '1812719999',
-        date: 'Thứ tư, 15/08',
-        img: 'https://thoitrangtadi.com/wp-content/uploads/2020/10/dam-xoe-do-tay-lo-v1655.jpg',
-        product_name: 'Váy đỏ tươi sành điệu cho các cô nàng - XXL'
-    };
-    
 
 class Product extends Component {
     constructor(props) {
@@ -28,22 +19,30 @@ class Product extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <View style={styles.element}>
-                    <Text style={styles.date}>
-                        Giao vào {data.date}
-                    </Text>
+            <View>
 
-                    <View style={{flexDirection: 'row', marginRight: 75}}>
-                        <Image source={{uri: data.img}} style={styles.imgStyle}/>
-                        <Text style={{ marginLeft: 10, fontSize: 15}}>
-                            {data.product_name}
-                        </Text>
-                    </View>
+                {this.state.products.map((item, index) => {
+                return (
+                    <View style={styles.container}>
+                        <View style={styles.element}>
+                            <Text style={styles.date}>
+                                Giao vào {item.date}
+                            </Text>
 
-                   
-                </View>
+                            <View style={{flexDirection: 'row', marginRight: 75}}>
+                                <Image source={{uri: item.img}} style={styles.imgStyle}/>
+                                <Text style={{ marginLeft: 10, fontSize: 15}}>
+                                    {item.product_name}
+                                </Text>
+                            </View>
+
+                        
+                        </View>
+                    </View>)
+                })}
+
             </View>
+
         );
     }
 }

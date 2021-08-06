@@ -9,37 +9,42 @@ import {
 import Product from './Product';
 
 
-const data = {
-        customer_name: "Sơn",
-        total_price: "12.120.000",
-        order_id: '1812719999',
-};
-    
 
 class Order extends Component {
+    constructor(props) {
+        super(props)
+        
+        this.state = {
+            orders: this.props.data
+        }         
+    }
 
   render() {
     return (
-        <View style={styles.container}>
+        <View>
 
-            <View style={styles.header}>
+            {this.state.orders.map((item, index) => {
+                return (
+                    <View style={styles.container}>
+                        <View style={styles.header}>
 
-                <Text style={styles.order_id}>
-                    Mã đơn hàng: {data.order_id}
-                </Text>
+                            <Text style={styles.order_id}>
+                                Mã đơn hàng: {item.order_id}
+                            </Text>
 
-                <TouchableOpacity>
-                    <Text style={{fontWeight: 'bold', color: '#F62424'}}>
-                        Xem đơn hàng >
-                    </Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={{height: 1, backgroundColor: "#CDD1D1", width: "100%" }} />
-
-            <Product/>
-
-            <View style={{backgroundColor: "#CDD1D1", width: "100%" }} />
+                            <TouchableOpacity>
+                                <Text style={{fontWeight: 'bold', color: '#F62424'}}>
+                                    Xem đơn hàng >
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                        
+                        <View style={{height: 1, backgroundColor: "#CDD1D1", width: "100%" }} />
+                        
+                        <Product data = {item.products}/>
+                        
+                    </View>)
+            })}
 
         </View>
     );
