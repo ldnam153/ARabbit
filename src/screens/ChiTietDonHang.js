@@ -81,18 +81,18 @@ class ChiTietDonHang extends Component{
                                 </View>
                             </View>
 
-                            <View style={{paddingLeft:50}}>
+                            <View style={{paddingLeft:50,paddingBottom:10}}>
                                 <Text style={{color:'grey'}}>Được giao bởi ARabbit (từ Hồ Chí Minh)</Text>
                             </View>
 
                             <View style={{flexDirection:'row',paddingLeft:10}}>
                                 <View style={{backgroundColor:'lightgrey',width:20,height:20,borderRadius:10}}></View>
                                 <View style={{marginLeft:20}}>
-                                    <Text style={{fontSize:13}}>Đã giao</Text>
+                                    <Text style={{fontSize:13,color:'lightgrey'}}>Đã giao</Text>
                                 </View>
                             </View>
 
-                            <View style={{marginLeft:10,width:20,height:50}}>
+                            <View style={{marginLeft:10,width:20,height:30}}>
                                 <View style={{alignItems:'center'}}>
                                     <View style={{height:'100%',width:2,backgroundColor:'lightgrey'}}></View>
                                 </View>
@@ -101,17 +101,17 @@ class ChiTietDonHang extends Component{
                             <View style={{flexDirection:'row',paddingLeft:10}}>
                                 <View style={{backgroundColor:'lightgrey',width:20,height:20,borderRadius:10}}></View>
                                 <View style={{marginLeft:20}}>
-                                    <Text style={{fontSize:13}}>Đang giao</Text>
+                                    <Text style={{fontSize:13,color:'lightgrey'}}>Đang giao</Text>
                                 </View>
                             </View>
 
-                            <View style={{marginLeft:10,width:20,height:50}}>
+                            <View style={{marginLeft:10,width:20,height:30}}>
                                 <View style={{alignItems:'center'}}>
                                     <View style={{height:'100%',width:2,backgroundColor:'lightgrey'}}></View>
                                 </View>
                             </View>
 
-                            <View style={{flexDirection:'row',paddingLeft:10}}>
+                            <View style={{flexDirection:'row',paddingLeft:7}}>
                                 <View>
                                     <View style={{backgroundColor:'green',width:26,height:26,borderRadius:13,opacity:0.3}}>
                                     </View>
@@ -128,7 +128,7 @@ class ChiTietDonHang extends Component{
                             <View style={{marginLeft:10}}>
                                 <Image style={{alignSelf:'center'}} source={require('../resources/icons/red_location.png')}/>
                             </View>
-                            <View style={{paddingBottom:30,marginLeft:10,paddingRight:10}}>
+                            <View style={{paddingBottom:30,marginLeft:10, marginRight:50}}>
                                 <Text style={{fontSize:15, fontWeight:'bold'}}>Địa chỉ người nhận</Text>
                                 <Text>Nguyễn Anh B</Text>
                                 <Text style={{color:'gray'}}>099.9999998</Text>
