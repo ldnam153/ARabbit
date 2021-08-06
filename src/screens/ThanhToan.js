@@ -19,6 +19,10 @@ class ThanhToan extends Component {
         const goHome = () =>{
             this.props.navigation.popToTop();
         }
+        const goOS = () => {
+            this.props.navigation.popToTop();
+            this.props.navigation.navigate('OrderSuccess');
+        }
         const goDDC = () =>{
             this.props.navigation.push('CheckoutDoiDiaChiScreen')
         }
@@ -30,7 +34,7 @@ class ThanhToan extends Component {
             <SafeAreaView style={styles.screen_container}>
                 <NavBarXacNhanSP title="Thanh toán" goBack={goBack} goHome={goHome}></NavBarXacNhanSP>
                 <ScrollViewThanhToan goDDC={goDDC} goVS={goVS} key={"ScrollViewThanhToan"}/>
-                <FooterThanhToan price={this.currencyFormat(totalPayment)} btnText="ĐẶT HÀNG" press={goHome} thanhtoan={true} key={"FooterThanhToan"}/>
+                <FooterThanhToan price={this.currencyFormat(totalPayment)} btnText="ĐẶT HÀNG" press={goOS} thanhtoan={true} key={"FooterThanhToan"}/>
             </SafeAreaView>
         )
     }

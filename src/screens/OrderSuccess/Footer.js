@@ -12,7 +12,7 @@ class Footer extends Component {
         return(
 
             <View  style={styles.container}>              
-                <TouchableOpacity style={{flex: 4, alignItems: 'center', backgroundColor: 'white', borderColor: '#FF0000', borderWidth: 2}} >
+                <TouchableOpacity onPress={this.props.goHome} style={{flex: 4, alignItems: 'center', backgroundColor: 'white', borderColor: '#FF0000', borderWidth: 2}} >
                     <View style={styles.BottomButton}>
                         <Text style={{fontSize: 20, fontWeight: 'bold', color: '#FF0000' }}>Quay về trang chủ</Text>
                     </View>

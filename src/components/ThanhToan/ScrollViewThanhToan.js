@@ -78,7 +78,7 @@ class ScrollViewThanhToan extends Component {
                 <DiaChiNhanHangThanhToan address="123 ABC, phường XY, quận Z, TP.HCM" goDDC={this.props.goDDC}/>
 
                 {/*   data render   */}
-                {cartList.map((shop) => {if(shop.products.length>0){return <CardCHThanhToan data={shop} all={message}/>}})}
+                {cartList.map((shop,index) => {if(shop.products.length>0){return <CardCHThanhToan data={shop} all={message} key={index}/>}})}
 
                 <ChonVoucherThanhToan goVS={this.props.goVS}/>
                 <PhuongThucThanhToan/>

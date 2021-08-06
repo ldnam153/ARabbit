@@ -52,6 +52,12 @@ class OrderSuccess extends Component {
     }
 
     render() {
+        const goHome = () => {
+            this.props.navigation.popToTop();
+        }
+        const goPD = (productID='1') => {
+            this.props.navigation.push('ProductDetails',{data: product_controller.getProduct(productID)})
+        }
         return (
             <View style= {{backgroundColor: "#CDD1D1"}}>
                 <ScrollView>
@@ -59,10 +65,10 @@ class OrderSuccess extends Component {
                     
                     <Order data = {dataRef}/>
 
-                    <Recommend title = {'Có thể bạn quan tâm'} data={this.state.recommend}/>
+                    <Recommend title = {'Có thể bạn quan tâm'} data={this.state.recommend} goPD={goPD}/>
                 </ScrollView>
 
-                <Footer/>
+                <Footer goHome={goHome}/>
             </View>
         );
     }
