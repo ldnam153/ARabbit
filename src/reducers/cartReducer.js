@@ -24,19 +24,19 @@ const sumReducer = (list) => {
   return array;
 }
 
-const changeShopCheckbox = (list) => {
-  return [...list].map(shop => {
-    return {...shop, isSelected: shop.products.every(p => p.isSelected) ? true : shop.products.every(p => !p.isSelected) ? false : false}
-  })
-}
+// const changeShopCheckbox = (list) => {
+//   return [...list].map(shop => {
+//     return {...shop, isSelected: shop.products.every(p => p.isSelected) ? true : shop.products.every(p => !p.isSelected) ? false : false}
+//   })
+// }
 
-const changeProductCheckbox = (list, shopID, value) => {
-  return list.map(shop => {return {...shop, isSelected: shop.shopId === shopID ? value : shop.isSelected, products: shop.shopId === shopID ? shop.products.map(p => {return {...p, isSelected: value}}) : shop.products}})
-}
+// const changeProductCheckbox = (list, shopID, value) => {
+//   return list.map(shop => {return {...shop, isSelected: shop.shopId === shopID ? value : shop.isSelected, products: shop.shopId === shopID ? shop.products.map(p => {return {...p, isSelected: value}}) : shop.products}})
+// }
 
-const checkAllSelected = (list) => {
-  return list.every(shop => shop.products.every(p => p.isSelected))
-}
+// const checkAllSelected = (list) => {
+//   return list.every(shop => shop.products.every(p => p.isSelected))
+// }
 
 const checkProductExisted = (list, productID) => {
   return list.some(shop => shop.products.some(p => p.id === productID));

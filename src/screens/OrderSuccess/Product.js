@@ -6,6 +6,21 @@ import {
   Image
 } from 'react-native';
 
+export const addDays = (days) => {
+    let date = new Date();
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
+export const formatDate = (date) => {
+    const dateString = date.toLocaleString('vi-VI', {
+        weekday: 'short', // long, short, narrow
+        day: 'numeric', // numeric, 2-digit
+        year: 'numeric', // numeric, 2-digit
+        month: 'numeric', // numeric, 2-digit, long, short, narrow
+    })
+    return dateString;
+}
 
 class Product extends Component {
     constructor(props) {
@@ -14,7 +29,6 @@ class Product extends Component {
         this.state = {
             products: this.props.data,
           }
-          
     }
 
     render() {
@@ -23,16 +37,16 @@ class Product extends Component {
 
                 {this.state.products.map((item, index) => {
                 return (
-                    <View style={styles.container}>
+                    <View style={styles.container} key={index}>
                         <View style={styles.element}>
                             <Text style={styles.date}>
-                                Giao vào {item.date}
+                                Giao vào {formatDate(addDays(3))}
                             </Text>
 
                             <View style={{flexDirection: 'row', marginRight: 75}}>
-                                <Image source={{uri: item.img}} style={styles.imgStyle}/>
+                                <Image source={{uri: item.main_img[0]}} style={styles.imgStyle}/>
                                 <Text style={{ marginLeft: 10, fontSize: 15}}>
-                                    {item.product_name}
+                                    {item.name}
                                 </Text>
                             </View>
 

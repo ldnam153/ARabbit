@@ -29,6 +29,9 @@ const styles = StyleSheet.create({
     outer: {
         flexDirection: 'column',
         backgroundColor: 'white',
+        borderTopWidth: 2,
+        borderTopColor: '#E4E4E4',
+        paddingTop: 10
     },
     info: {
         marginTop:7,
@@ -53,7 +56,6 @@ class CardSPGioHang extends Component {
     }
 
     currencyFormat(num) {
-        
         return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
     }
     
@@ -63,7 +65,7 @@ class CardSPGioHang extends Component {
             <View style={styles.outer}>
                 <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: 15}}>
                     <TouchableOpacity onPress={() => actions.removeProduct(this.props.data.id, +this.props.data.price * +this.props.data.number, this.props.data.isSelected)}>
-                        <Text style={styles.remove_icon}>X</Text>
+                        <Image source={require("../../resources/icons/remove-icon@x1.png")}/>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.container}>
@@ -84,10 +86,10 @@ class CardSPGioHang extends Component {
                     </View>
                     <View style={styles.info}>
                         <Text style={{fontSize:16,fontWeight:'bold'}} numberOfLines={2}>{this.props.data.name}</Text>
-                        <View style={{flexDirection:'row',marginVertical:4}}>
+                        <View style={{flexDirection:'row',marginVertical:4, alignItems: 'center'}}>
+                            <Text style={{marginRight: 15}}>Phân loại</Text>
                             <View style={{flex:1}}>
                                 <Select property={this.props.data.property} data={this.props.data.properties}/>
-                                
                             </View>
                             <View style={{flex:1}}></View>
                         </View>

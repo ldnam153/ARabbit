@@ -5,6 +5,7 @@ import {
   Text,
   Image
 } from 'react-native';
+import { connect } from 'react-redux';
 
 const data = {
         customer_name: "Sơn",
@@ -15,6 +16,10 @@ const data = {
 class Banner extends Component {
 
   render() {
+    const { totalPayment } = this.props;
+    const currencyFormat = (num) => {
+        return num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,').split(',').join('.')
+    }
     return (
       <View style= {styles.container}>
         
@@ -41,7 +46,7 @@ class Banner extends Component {
             </Text>
 
             <Text style= {styles.total_price_text}>
-                {data.total_price} VNĐ
+                {currencyFormat(totalPayment)} VNĐ
             </Text>
         </View>
 
@@ -78,4 +83,10 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Banner;
+const mapStateToProps = (state) => {
+    return {
+        totalPayment: state.cartReducer.totalPayment
+    }
+}
+
+export default connect(mapStateToProps)(Banner);

@@ -20,16 +20,20 @@ class Order extends Component {
     }
 
   render() {
+      console.log(this.props.data)
+      const generateId = () => {
+        return Math.floor(10000000 + Math.random() * 90000000)
+    }
     return (
         <View>
 
             {this.state.orders.map((item, index) => {
                 return (
-                    <View style={styles.container}>
+                    <View style={styles.container} key={index}>
                         <View style={styles.header}>
 
                             <Text style={styles.order_id}>
-                                Mã đơn hàng: {item.order_id}
+                                Mã đơn hàng: {generateId()}
                             </Text>
 
                             <TouchableOpacity>

@@ -11,6 +11,7 @@ import Footer from './OrderSuccess/Footer'
 import Order from './OrderSuccess/Order'
 import Recommend from '../../src/components/Home/Recommend'
 import product_controller from '../../src/controller/product_controller'
+import { connect } from 'react-redux';
 
 
 const dataRef = [
@@ -58,12 +59,13 @@ class OrderSuccess extends Component {
         const goPD = (productID='1') => {
             this.props.navigation.push('ProductDetails',{data: product_controller.getProduct(productID)})
         }
+        const { products } = this.props;
         return (
             <View style= {{backgroundColor: "#CDD1D1"}}>
                 <ScrollView>
                     <Banner/>
                     
-                    <Order data = {dataRef}/>
+                    <Order data = {products}/>
 
                     <Recommend title = {'Có thể bạn quan tâm'} data={this.state.recommend} goPD={goPD}/>
                 </ScrollView>
@@ -74,5 +76,10 @@ class OrderSuccess extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        products: state.cartReducer.cartList
+    }
+}
 
-export default OrderSuccess;
+export default connect(mapStateToProps)(OrderSuccess);
