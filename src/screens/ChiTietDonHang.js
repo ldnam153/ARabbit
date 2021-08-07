@@ -43,11 +43,17 @@ class ChiTietDonHang extends Component{
     }
 
     render() {
+        const goBack=()=>{
+            this.props.navigation.goBack();
+        }
+        const goHome=()=>{
+            this.props.navigation.popToTop();
+        }
         return (
             <View style={{flex:1, position:'relative'}}>
                 <View style={{flexDirection:'row',paddingBottom:10,alignItems:'center',paddingTop:10,backgroundColor:'white',elevation:5}}>
                     <View style={{marginLeft:15,position:'absolute'}}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={goBack}>
                             <Image style={{alignSelf:'center'}} source={require('../resources/icons/back.png')}/>
                         </TouchableOpacity>
                     </View>
@@ -185,7 +191,7 @@ class ChiTietDonHang extends Component{
                         </TouchableOpacity>
                     </View>
                     <View style={{width:'49%'}}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={goHome}>
                             <Text style={{borderWidth:2,borderColor:'red',borderRadius:5,width:'100%',textAlign:'center',paddingTop:10,paddingBottom:10,fontSize:17,fontWeight:'bold',color:'red'}}>Mua Lại</Text>
                         </TouchableOpacity>
                     </View>

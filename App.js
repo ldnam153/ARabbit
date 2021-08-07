@@ -15,6 +15,7 @@ import TabScreen from '~/screens/TabScreen';
 import TabHistorySearch from '~/screens/TabHistorySearch';
 import ResultKeywordScreen from '~/screens/ResultKeywordScreen';
 import OrderSuccess from '~/screens/OrderSuccess';
+import ChiTietDonHang from './src/screens/ChiTietDonHang';
 
 const Stack = createStackNavigator();
 function MyStack() {
@@ -38,6 +39,7 @@ function MyStack() {
       <Stack.Screen name="VouchersScreen" component={VouchersScreen} />
       <Stack.Screen name="ThanhToan" component={ThanhToan} />
       <Stack.Screen name="OrderSuccess" component={OrderSuccess} />
+      <Stack.Screen name="ChiTietDonHang" component={ChiTietDonHang} />
     </Stack.Navigator>
   );
 }

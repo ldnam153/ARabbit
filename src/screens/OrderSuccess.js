@@ -59,13 +59,16 @@ class OrderSuccess extends Component {
         const goPD = (productID='1') => {
             this.props.navigation.push('ProductDetails',{data: product_controller.getProduct(productID)})
         }
+        const goCT = () => {
+            this.props.navigation.navigate('ChiTietDonHang')
+        }
         const { products } = this.props;
         return (
             <View style= {{backgroundColor: "#CDD1D1"}}>
                 <ScrollView>
                     <Banner/>
                     
-                    <Order data = {products}/>
+                    <Order data = {products} goCT={goCT}/>
 
                     <Recommend title = {'Có thể bạn quan tâm'} data={this.state.recommend} goPD={goPD}/>
                 </ScrollView>

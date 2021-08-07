@@ -36,7 +36,7 @@ class Order extends Component {
                                 Mã đơn hàng: {generateId()}
                             </Text>
 
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={this.props.goCT}>
                                 <Text style={{fontWeight: 'bold', color: '#F62424'}}>
                                     Xem đơn hàng >
                                 </Text>
