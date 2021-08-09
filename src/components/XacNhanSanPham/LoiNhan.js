@@ -14,7 +14,7 @@ class LoiNhan extends Component {
     }
     
     render() {
-        const { actions } = this.props;
+        const { actions, message} = this.props;
         return (
             <View style={styles.message}>
                 <Text style={{fontSize:16}}>Lời nhắn</Text>
@@ -24,7 +24,7 @@ class LoiNhan extends Component {
                     placeholderTextColor= "#a69797"
                     onChangeText={(text) => this.setState({message: text.trim()==''?null:text})}
                     onSubmitEditing={(event)=>{actions.addMessageForShop(event.nativeEvent.text,this.props.shopId)}}
-                    value={this.state.message}
+                    value={this.state.message || message}
                 />
             </View>
         )
@@ -55,4 +55,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(LoiNhan)
+const mapStateToProps = (state) => {
+    return {
+        message: state.cartReducer.message,
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoiNhan)
