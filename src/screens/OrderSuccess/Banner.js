@@ -8,7 +8,7 @@ import {
 import { connect } from 'react-redux';
 
 const data = {
-        customer_name: "Sơn",
+        customer_name: "Duy",
         total_price: "12.120.000"
     };
     

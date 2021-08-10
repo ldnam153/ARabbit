@@ -41,7 +41,7 @@ const dataRef = [
         ]
     }
 ];    
-
+new Date().toLocaleString();
 
 class OrderSuccess extends Component {
 
@@ -50,6 +50,10 @@ class OrderSuccess extends Component {
         this.state = {        
             recommend: product_controller.getRecommendProducts()
         }
+        this.props.products.forEach(element => {
+            var date = new Date()
+            element.time = date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
+        });
     }
 
     render() {
@@ -59,16 +63,13 @@ class OrderSuccess extends Component {
         const goPD = (productID='1') => {
             this.props.navigation.push('ProductDetails',{data: product_controller.getProduct(productID)})
         }
-        const goCT = () => {
-            this.props.navigation.navigate('ChiTietDonHang')
-        }
         const { products } = this.props;
         return (
             <View style= {{backgroundColor: "#CDD1D1"}}>
                 <ScrollView>
                     <Banner/>
                     
-                    <Order data = {products} goCT={goCT}/>
+                    <Order data = {products} navigation={this.props.navigation}/>
 
                     <Recommend title = {'Có thể bạn quan tâm'} data={this.state.recommend} goPD={goPD}/>
                 </ScrollView>

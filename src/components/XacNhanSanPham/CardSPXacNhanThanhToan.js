@@ -31,6 +31,7 @@ class CardSPXacNhanThanhToan extends Component {
         return num
     }
     render() {
+        console.log(this.props.data)
         return (
             <View>
                 <View style={styles.container}>

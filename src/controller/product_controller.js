@@ -86,6 +86,8 @@ module.exports={
           }
         }
         for (var i = 0; i < shops.length; i++){
+            shops[i].id = "6242" + i.toString()
+            shops[i].time = ""
             shops[i].isSelected = true;
             shops[i].shop = shops[i].products[0].shop
             shops[i].shopId = shops[i].products[0].shopID

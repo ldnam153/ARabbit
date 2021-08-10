@@ -21,9 +21,7 @@ class Order extends Component {
 
   render() {
       console.log(this.props.data)
-      const generateId = () => {
-        return Math.floor(10000000 + Math.random() * 90000000)
-    }
+      
     return (
         <View>
 
@@ -33,10 +31,12 @@ class Order extends Component {
                         <View style={styles.header}>
 
                             <Text style={styles.order_id}>
-                                Mã đơn hàng: {generateId()}
+                                Mã đơn hàng: {item.id}
                             </Text>
 
-                            <TouchableOpacity onPress={this.props.goCT}>
+                            <TouchableOpacity onPress={()=> {
+                                this.props.navigation.navigate('ChiTietDonHang', {idOrder: item.id})
+                            }}>
                                 <Text style={{fontWeight: 'bold', color: '#F62424'}}>
                                     Xem đơn hàng >
                                 </Text>

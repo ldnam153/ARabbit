@@ -7,20 +7,12 @@ import {
 } from 'react-native';
 
 export const addDays = (days) => {
-    let date = new Date();
+    var date = new Date();
     date.setDate(date.getDate() + days);
+    date = date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
     return date;
 }
 
-export const formatDate = (date) => {
-    const dateString = date.toLocaleString('vi-VI', {
-        weekday: 'short', // long, short, narrow
-        day: 'numeric', // numeric, 2-digit
-        year: 'numeric', // numeric, 2-digit
-        month: 'numeric', // numeric, 2-digit, long, short, narrow
-    })
-    return dateString;
-}
 
 class Product extends Component {
     constructor(props) {
@@ -40,7 +32,7 @@ class Product extends Component {
                     <View style={styles.container} key={index}>
                         <View style={styles.element}>
                             <Text style={styles.date}>
-                                Giao vào {formatDate(addDays(3))}
+                                Giao vào {addDays(3)}
                             </Text>
 
                             <View style={{flexDirection: 'row', marginRight: 75}}>
