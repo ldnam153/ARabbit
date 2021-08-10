@@ -88,7 +88,7 @@ export const addMessageForAll = (message) => {
 
 export const addToCart = (shop, product, number, property) => {
 
-  product.isSelected = false
+  product.isSelected = true
   product.number = number
   product.property = property
   var products = []
@@ -96,7 +96,7 @@ export const addToCart = (shop, product, number, property) => {
   return {
     type: ADD_TO_CART,
     payload: {
-      isSelected: false,
+      isSelected: true,
       shop,
       shopId: shop,
       products
