@@ -31,7 +31,7 @@ class VoucherComponent extends Component {
                 this.props.onClick(this.props.index);
               }}
             >
-              <Text style={styles.apply_button_text}>{this.props.active ? 'HUỶ' : 'ÁP DỤNG'}</Text>
+              <Text style={styles.apply_button_text}>{this.props.active ? '     HUỶ    ' : 'ÁP DỤNG'}</Text>
             </TouchableHighlight>
           </View>
         </View>

@@ -10,9 +10,13 @@ class DiaChiNhanHangComponent extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.information_container}>
-          <Text style={(styles.text, styles.text_bold)}>{this.props.information.name}</Text>
-          <Text style={styles.text}>{this.props.information.phone}</Text>
-          <Text style={styles.text}>{this.props.information.address}</Text>
+          <Image source={require('../../resources/icons/avatar_icon.png')} style={{marginRight: 10}}/>
+          <View>
+            <Text style={(styles.text, styles.text_bold)}>{this.props.information.name}</Text>
+            <Text style={styles.text}>{this.props.information.phone}</Text>
+            <Text style={styles.text}>{this.props.information.address}</Text>
+          </View>
+          
         </View>
         <View style={styles.picked_icon}>
           {this.props.picked && <Image source={require('../../resources/icons/done.png')} />}
@@ -24,7 +28,8 @@ class DiaChiNhanHangComponent extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 10,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -33,6 +38,8 @@ const styles = StyleSheet.create({
 
   information_container: {
     flex: 7,
+    display: 'flex',
+    flexDirection: 'row',
   },
 
   picked_icon: {
