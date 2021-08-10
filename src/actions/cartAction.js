@@ -96,6 +96,7 @@ export const addToCart = (shop, product, number, property) => {
   return {
     type: ADD_TO_CART,
     payload: {
+      id: "6242" + Math.floor(Math.random()* 100).toString(),
       isSelected: true,
       shop,
       shopId: shop,
