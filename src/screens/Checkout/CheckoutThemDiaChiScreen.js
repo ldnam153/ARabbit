@@ -5,12 +5,12 @@ import ConfirmButtonComponent from '../../components/Checkout/ConfirmButtonCompo
 import NavBarComponent from '../../components/Checkout/NavBarComponent';
 
 const userData = [
-  { title: 'Họ & tên', placeholder: 'Điền họ & tên', forward: false },
-  { title: 'Số điện thoại', placeholder: 'Điền số điện thoại', forward: false },
-  { title: 'Tỉnh/Thành phố', placeholder: 'Chọn', forward: true },
-  { title: 'Quận/Huyện', placeholder: 'Chọn', forward: true },
-  { title: 'Phường/Xã', placeholder: 'Chọn', forward: true },
-  { title: 'Địa chỉ cụ thể', placeholder: 'Số nhà, tên đường, tổ, khu phố', forward: false },
+  { title: 'Họ & tên', placeholder: 'Điền họ & tên'},
+  { title: 'Số điện thoại', placeholder: 'Điền số điện thoại'},
+  { title: 'Tỉnh/Thành phố', placeholder: 'Chọn'},
+  { title: 'Quận/Huyện', placeholder: 'Chọn'},
+  { title: 'Phường/Xã', placeholder: 'Chọn'},
+  { title: 'Địa chỉ cụ thể', placeholder: 'Số nhà, tên đường, tổ, khu phố'},
 ];
 
 class CheckoutThemDiaChiScreen extends Component {
@@ -26,14 +26,69 @@ class CheckoutThemDiaChiScreen extends Component {
         text: null,
       },
       user_data: userData,
+      new_user_data: {
+        user_name: '',
+        user_phone: '',
+        province: {},
+        district: {},
+        ward: {},
+        detail_address: ''
+      },
+      listDistricts: [],
+      listWards: []
     };
   }
+  componentDidUpdate(preProps, prevState) {
+    this.state.new_user_data.province !== prevState.new_user_data.province && fetch(`https://provinces.open-api.vn/api/d`).then((res) => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          new_user_data: {...this.state.new_user_data, district: result.filter(item => item.province_code === this.state.new_user_data.province.code)},
+          listDistricts: result.filter(item => item.province_code === this.state.new_user_data.province.code)
+        });
+      },
+      (error) => {
+        alert('Fetching error: ' + error);
+      }
+    );
+    this.state.new_user_data.district !== prevState.new_user_data.district && fetch(`https://provinces.open-api.vn/api/w`).then((res) => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          new_user_data: {...this.state.new_user_data, ward: result.filter(item => item.district_code === this.state.new_user_data.district.code)},
+          listWards: result.filter(item => item.district_code === this.state.new_user_data.district.code)
+        });
+      },
+      (error) => {
+        alert('Fetching error: ' + error);
+      }
+    );
+  }
+
   render() {
     const goBack = () =>{
       this.props.navigation.goBack();
     }
     const goDDC = () =>{
       this.props.navigation.pop();
+    }
+    const provinceSelectHandler = (province) => {
+      this.setState({new_user_data: {...this.state.new_user_data, province: province}});
+    }
+    const districtSelectHandler = (district) => {
+      this.setState({new_user_data: {...this.state.new_user_data, district: district}});
+    }
+    const wardSelectHandler = (ward) => {
+      this.setState({new_user_data: {...this.state.new_user_data, ward: ward}});
+    }
+    const nameChangeHandler = (name) => {
+      this.setState({new_user_data: {...this.state.new_user_data, user_name: name}});
+    }
+    const phoneChangeHandler = (phone) => {
+      this.setState({new_user_data: {...this.state.new_user_data, user_phone: phone}});
+    }
+    const addressChangeHandler = (address) => {
+      this.setState({new_user_data: {...this.state.new_user_data, detail_address: address}});
     }
     return (
       <SafeAreaView style={styles.screen_container}>
@@ -46,8 +101,17 @@ class CheckoutThemDiaChiScreen extends Component {
                 <CheckoutInfoFieldComponent
                   title={item.title}
                   value={item.placeholder}
-                  forward={item.forward}
+                  index={index}
+                  type={index === 0 || index === 1 || index === 5 ? 'input' : 'select'}
                   last={index === this.state.user_data.length - 1}
+                  changeProvince={provinceSelectHandler}
+                  districts={this.state.listDistricts}
+                  changeDistrict={districtSelectHandler}
+                  wards={this.state.listWards}
+                  changeWard={wardSelectHandler}
+                  changeName={nameChangeHandler}
+                  changePhone={phoneChangeHandler}
+                  changeAddress={addressChangeHandler}
                 />
               </TouchableHighlight>
             );
