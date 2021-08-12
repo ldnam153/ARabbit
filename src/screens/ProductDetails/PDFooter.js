@@ -52,7 +52,6 @@ class PDFooter extends Component {
 
     render() {
         const { data, actions } = this.props;
-        console.log(data)
         return(
             <View>
                 <Modal

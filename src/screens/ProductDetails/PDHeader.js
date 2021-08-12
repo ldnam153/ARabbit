@@ -37,6 +37,7 @@ class PDHeader extends Component {
           const item = {url: data.main_img[i]}
           images.push(item)
         }
+        console.log(data.authentic)
         return(
             <View>
                 <Modal
@@ -132,7 +133,14 @@ class PDHeader extends Component {
                         </Text>
                         <Text style={styles.seeAll}>Xem tất cả</Text>
                     </View>
-                    <Image style={{marginTop: 26, marginLeft:5}} source={require('../../resources/icons/shop_checked.png')}/>
+                    
+                    {
+                      
+                        data.authentic !== undefined ? 
+                        <Image style={{ marginTop: 26, marginLeft:5 }} source={require('../../resources/icons/shop_checked.png')}/> 
+                        : null
+                    }
+              
                 </View>
             </View>
         );
