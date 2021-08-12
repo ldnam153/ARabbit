@@ -11,6 +11,9 @@ import {
 import ConfirmButtonComponent from '../../components/Checkout/ConfirmButtonComponent';
 import DiaChiNhanHangComponent from '../../components/Checkout/DiaChiNhanHangComponent';
 import NavBarComponent from '../../components/Checkout/NavBarComponent';
+import { bindActionCreators } from 'redux';
+import * as AddressActions from "../../actions/addressAction"
+import { connect } from 'react-redux';
 
 const arrayData = [
   {
@@ -58,22 +61,23 @@ class CheckoutDoiDiaChiScreen extends Component {
     const goTDC = () =>{
       this.props.navigation.navigate('CheckoutThemDiaChiScreen');
     }
+    const {data, picked_index, actions} = this.props;
     return (
       <SafeAreaView style={styles.screen_container}>
         <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} goBack={goBack} goSDC={goSDC}/>
         <ScrollView>
-          {arrayData.map((item, index) => {
+          {data.map((item, index) => {
             return (
               <TouchableHighlight
                 activeOpacity={0.6}
                 underlayColor="#DDDDDD"
                 style={styles.touchable}
                 key={index}
-                onPress={() => this.setState({ picked_index: index })}
+                onPress={() => {actions.changeIndex(index)}}
               >
                 <DiaChiNhanHangComponent
                   information={item}
-                  picked={this.state.picked_index === index ? true : false}
+                  picked={picked_index === index ? true : false}
                 />
               </TouchableHighlight>
             );
@@ -159,4 +163,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CheckoutDoiDiaChiScreen;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(AddressActions, dispatch)
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+      data: state.addressReducer.receiver,
+      picked_index: state.addressReducer.picked_index,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutDoiDiaChiScreen)

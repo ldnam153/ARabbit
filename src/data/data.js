@@ -33,6 +33,7 @@ const product = [
     properties: ["XS", 'S', 'L', 'XL'],
     related: ["14","15","16"],
     location: 'TP.Hồ Chí Minh',
+    authentic: ""
   },
   {
     id: "2",
