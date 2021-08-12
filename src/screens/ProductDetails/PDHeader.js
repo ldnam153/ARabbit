@@ -116,7 +116,7 @@ class PDHeader extends Component {
                         }
                     ]}>
                     <Text style={[styles.header_text, {marginTop: 10, marginBottom: 15}]}>{data.name} </Text>
-                    <Text style={[styles.header_text, {color: '#FF5C00', marginBottom: 10}]}>{this.currencyFormat(data.price)} VNĐ</Text>
+                    <Text style={[styles.header_text, {color: '#f62424', marginBottom: 10}]}>{this.currencyFormat(data.price)} VNĐ</Text>
                 </View>
 
                 <View style={{height: 1, backgroundColor: "#CDD1D1", width: width }} />
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     borderColor: "red"
   },
   seeAll: {
-    color: '#FF5C00',
+    color: '#f62424',
   }
 });
 

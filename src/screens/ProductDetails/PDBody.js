@@ -118,7 +118,7 @@ class PDBody extends Component {
                             }]}>  
                     <View>
                         <Text style={{
-                            color: '#FF5C00',
+                            color: '#f62424',
                             fontWeight: 'bold',
                             fontSize: 17
                             }}>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   seeAll: {
-    color: '#FF5C00',
+    color: '#f62424',
   },
   RelatedProduct: {
     marginLeft: 10, 

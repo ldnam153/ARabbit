@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     price: {
-        color: '#ff5c00',
+        color: '#f62424',
         marginRight: 5
     }
 })

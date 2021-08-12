@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     tonggia: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: '#ff5c00'
+        color: '#f62424'
     },
     buttonText: {
         fontSize: 18,

@@ -93,7 +93,7 @@ class CardSPGioHang extends Component {
                             </View>
                             <View style={{flex:1}}></View>
                         </View>
-                        <Text style={{fontSize:22,color:'#ff5c00',fontWeight:'bold'}}>{this.currencyFormat(this.props.data.price)} VNĐ</Text>
+                        <Text style={{fontSize:22,color:'#f62424',fontWeight:'bold'}}>{this.currencyFormat(this.props.data.price)} VNĐ</Text>
                     </View>
                 </View>
                 <View style={[styles.container,{marginTop:2}]}>
@@ -105,11 +105,11 @@ class CardSPGioHang extends Component {
                         </TouchableOpacity>
                     </View> */}
                     <View style={{flex:14}}>
-                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                        <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                             <View style={{flex:1.5, flexShrink:3, paddingLeft: 120}}>
                                 <TangGiamSL number={this.props.data.number} max={this.props.data.stock} increase={() => actions.incrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)} decrease={() => actions.decrementAmount(this.props.data.id, this.props.data.price, this.props.data.isSelected)}></TangGiamSL>
                             </View>
-                            {(this.props.data.stock < 10) && <Text style={{flex:1,color:'#ff5c00'}}>Còn {this.props.data.stock} sản phẩm</Text>}
+                            {(this.props.data.stock < 10) && <Text numberOfLines={1} style={{flex:1,flexGrow:1.1,color:'#f62424'}}>Còn {this.props.data.stock} sản phẩm</Text>}
                         </View>
                     </View>
                 </View>

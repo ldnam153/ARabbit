@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     height: 300 
   },
   nameStyle: {
-    color: '#FF5C00',
+    color: '#f62424',
     fontWeight: 'bold',
     fontSize: 17
   },

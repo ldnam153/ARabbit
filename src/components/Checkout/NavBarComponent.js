@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   // },
 
   modify_text: {
-    color: '#FF5C00',
+    color: '#f62424',
     fontSize: 14,
     lineHeight: 40,
     textAlign: 'right',

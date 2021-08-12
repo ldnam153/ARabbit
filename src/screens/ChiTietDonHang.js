@@ -178,7 +178,7 @@ class ChiTietDonHang extends Component{
                             </View>
                             {this.state.data.products.map((item, index) => {
                                 return (
-                                    <CardSPXacNhanThanhToan data={item}/>
+                                    <CardSPXacNhanThanhToan data={item} key={index}/>
                                     )
                             })}
                         </View>

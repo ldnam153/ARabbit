@@ -46,7 +46,7 @@ class CardCHThanhToan extends Component {
                 </View>
 
                 {/* data render */}
-                {this.props.data.products.map((product) => <CardSPXacNhanThanhToan data={product} />)}
+                {this.props.data.products.map((product,index) => <CardSPXacNhanThanhToan data={product} key={index}/>)}
 
                 <LoiNhan value={this.props.data.message || this.props.all} shopName={this.props.data.shop}/>
                 <TongTienShopThanhToan 

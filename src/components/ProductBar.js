@@ -69,7 +69,7 @@ class ProductBar extends Component {
                     </View>
                 </View>
                 <View style={{flexDirection:'row', justifyContent: 'space-between', alignItems:'center', paddingTop:3}}>
-                    <Text style={{fontWeight:'bold', color:'darkorange', fontSize:11}}>{this.currencyFormat(this.props.sale_price)}</Text>
+                    <Text style={{fontWeight:'bold', color:'#f62424', fontSize:11}}>{this.currencyFormat(this.props.sale_price)}</Text>
                     <Rating_star width='8' height='8' value={this.props.num_star}/>
                 </View>
                 <View style={{paddingTop: 3, alignItems:'flex-end'}}>
