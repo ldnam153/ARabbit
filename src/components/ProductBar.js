@@ -4,6 +4,7 @@ import { StyleSheet,Text, View, Image, TouchableOpacity} from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Rating_star from './Rating_star';
 import Sale_frame from './Sale_frame';
+import AuthenticLine from './AuthenticLine';
 
 const styles = StyleSheet.create({
     container: {
@@ -56,6 +57,10 @@ class ProductBar extends Component {
                     <Image source={{uri: this.props.imgUrl}} style={styles.image}/>
                     <View style={{position:'absolute',width:'100%',alignItems:'flex-end'}}>
                         <Sale_frame value={this.props.percent_sale}/>
+                    </View>
+                    
+                    <View style={{position:'absolute', width:'100%',alignItems:'flex-start', marginTop: 3}}>
+                        <AuthenticLine value={this.props.authentic}/>
                     </View>
                 </View>
                 <View style={{minHeight: 35}}>

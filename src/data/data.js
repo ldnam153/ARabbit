@@ -196,7 +196,8 @@ const product = [
       star: '4',
       location: 'TP.Hồ Chí Minh',
       sold: '1k',
-      stock: "3"
+      stock: "3",
+      authentic: ""
   },
   {
     id: '15',
@@ -220,7 +221,8 @@ const product = [
     star: '5',
     location: 'TP.Hồ Chí Minh',
     sold: '1,2k',
-    stock: "67"
+    stock: "67",
+    authentic: ""
   },
   {
     id: '17',

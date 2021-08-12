@@ -182,6 +182,7 @@ class PDBody extends Component {
                                     location = {item.location}
                                     num_sales = {item.sold}
                                     real_price = {item.first_price}
+                                    authentic = {item.authentic}
                                     goPD={this.props.goPD}
                                 />
                             </View>)
