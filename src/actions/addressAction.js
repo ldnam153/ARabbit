@@ -6,3 +6,12 @@ export const changeIndex = (index) => {
     }
   };
 };
+
+export const addAddress = (data) => {
+  return {
+    type: 'ADD',
+    payload: {
+      address: data,
+    }
+  };
+};

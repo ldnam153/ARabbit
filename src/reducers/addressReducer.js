@@ -38,6 +38,12 @@ const addressReducer = (state = initialState, action) => {
         picked_index: action.payload.picked_index,
       };
     }
+    case 'ADD': {
+      return {
+        ...state,
+        receiver: [...state.receiver,action.payload.address]
+      };
+    }
     default:
       return state;
   }

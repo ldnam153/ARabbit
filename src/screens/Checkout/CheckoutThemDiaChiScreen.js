@@ -3,6 +3,9 @@ import { View, Text, TouchableHighlight, FlatList, StyleSheet, SafeAreaView } fr
 import CheckoutInfoFieldComponent from '../../components/Checkout/CheckoutInfoFieldComponent';
 import ConfirmButtonComponent from '../../components/Checkout/ConfirmButtonComponent';
 import NavBarComponent from '../../components/Checkout/NavBarComponent';
+import { bindActionCreators } from 'redux';
+import * as AddressActions from "../../actions/addressAction"
+import { connect } from 'react-redux';
 
 const userData = [
   { title: 'Họ & tên', placeholder: 'Điền họ & tên'},
@@ -66,6 +69,7 @@ class CheckoutThemDiaChiScreen extends Component {
   }
 
   render() {
+    const {actions} = this.props
     const goBack = () =>{
       this.props.navigation.goBack();
     }
@@ -89,6 +93,42 @@ class CheckoutThemDiaChiScreen extends Component {
     }
     const addressChangeHandler = (address) => {
       this.setState({new_user_data: {...this.state.new_user_data, detail_address: address}});
+    }
+    const submitHandler = () =>{
+      if(this.state.new_user_data.user_name===''){
+        alert('Chưa nhập tên')
+        return;
+      } 
+      if(this.state.new_user_data.user_phone==='') {
+        alert('Chưa nhập SĐT')
+        return;
+      }
+      if(Object.keys(this.state.new_user_data.province).length===0){
+        alert('Chưa chọn tỉnh thành')
+        return;
+      }
+      if(Object.keys(this.state.new_user_data.district).length===0){
+        alert('Chưa chọn quận/huyện')
+        return;
+      } 
+      if(Object.keys(this.state.new_user_data.ward).length===0){
+        alert('Chưa chọn phường/xã')
+        return;
+      } 
+      if(this.state.new_user_data.detail_address==='') {
+        alert('Chưa nhập địa chỉ')
+        return;
+      }
+        const new_data = {
+          name: this.state.new_user_data.user_name,
+          phone: this.state.new_user_data.user_phone,
+          city: this.state.new_user_data.province.name,
+          district: this.state.new_user_data.district.name,
+          ward: this.state.new_user_data.ward.name,
+          address: this.state.new_user_data.detail_address,
+        }
+        actions.addAddress(new_data)
+      this.props.navigation.pop()
     }
     return (
       <SafeAreaView style={styles.screen_container}>
@@ -122,7 +162,7 @@ class CheckoutThemDiaChiScreen extends Component {
           style={styles.confirm_button}
           activeOpacity={0.6}
           underlayColor="#f56e6e"
-          onPress={goDDC}
+          onPress={submitHandler}
         >
           <ConfirmButtonComponent title={this.state.confirm_button_text} />
         </TouchableHighlight>
@@ -161,4 +201,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CheckoutThemDiaChiScreen;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(AddressActions, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CheckoutThemDiaChiScreen)
