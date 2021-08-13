@@ -43,6 +43,13 @@ module.exports={
         }
         return list_discount;
     },
+    getAfc(){
+        var list_discount=[];
+        for (let i=0;i<data.afcList.length;i++){
+            list_discount.push(this.getProduct(data.afcList[i]));
+        }
+        return list_discount;
+    },
     getNearKeywords(){
         return data.gan_day;
     },
