@@ -75,7 +75,7 @@ class ScrollViewThanhToan extends Component {
         const curAdd = receiver[picked_index]
         return (
             <ScrollView style={{backgroundColor:'#efefef'}}>
-                <DiaChiNhanHangThanhToan address={curAdd.address+', '+curAdd.ward+', '+curAdd.district+', '+curAdd.city} goDDC={this.props.goDDC}/>
+                <DiaChiNhanHangThanhToan address={curAdd.address+', '+curAdd.ward.name+', '+curAdd.district.name+', '+curAdd.city.name} goDDC={this.props.goDDC}/>
 
                 {/*   data render   */}
                 {cartList.map((shop,index) => {if(shop.products.length>0){return <CardCHThanhToan data={shop} all={message} key={index}/>}})}

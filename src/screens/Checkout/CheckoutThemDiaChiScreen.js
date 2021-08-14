@@ -122,9 +122,9 @@ class CheckoutThemDiaChiScreen extends Component {
         const new_data = {
           name: this.state.new_user_data.user_name,
           phone: this.state.new_user_data.user_phone,
-          city: this.state.new_user_data.province.name,
-          district: this.state.new_user_data.district.name,
-          ward: this.state.new_user_data.ward.name,
+          city: this.state.new_user_data.province,
+          district: this.state.new_user_data.district,
+          ward: this.state.new_user_data.ward,
           address: this.state.new_user_data.detail_address,
         }
         actions.addAddress(new_data)

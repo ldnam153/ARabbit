@@ -16,9 +16,9 @@ class DiaChiNhanHangComponent extends Component {
             <Text style={styles.text}>{this.props.information.phone}</Text>
             <Text style={styles.text}>
               {this.props.information.address && this.props.information.address}
-              {this.props.information.ward && ', '+this.props.information.ward}
-              {this.props.information.district && ', '+this.props.information.district}
-              {this.props.information.city && ', '+this.props.information.city}
+              {this.props.information.ward && ', '+this.props.information.ward.name}
+              {this.props.information.district && ', '+this.props.information.district.name}
+              {this.props.information.city && ', '+this.props.information.city.name}
             </Text>
           </View>
           

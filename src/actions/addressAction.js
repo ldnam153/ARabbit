@@ -15,3 +15,20 @@ export const addAddress = (data) => {
     }
   };
 };
+
+export const changeAddress = (data) => {
+  return {
+    type: 'CHANGE',
+    payload: {
+      data
+    }
+  }
+}
+
+export const removeAddress = () => {
+  return {
+    type: 'REMOVE',
+    payload: {
+    }
+  }
+}

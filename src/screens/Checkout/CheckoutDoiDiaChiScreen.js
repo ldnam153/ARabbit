@@ -15,24 +15,6 @@ import { bindActionCreators } from 'redux';
 import * as AddressActions from "../../actions/addressAction"
 import { connect } from 'react-redux';
 
-const arrayData = [
-  {
-    name: 'Lưu Thiện Nhân',
-    phone: '0703002347',
-    address: '193E Trần Văn Đang, phường 10, Quận 3, TP.HCM',
-  },
-  {
-    name: 'Nguyễn Anh Duy',
-    phone: '0912345678',
-    address: '123 ABC, phường XY, Quận Z, TP.HCM',
-  },
-  {
-    name: 'Lý Duy Nam',
-    phone: '0762103550',
-    address: '686 Trần Hưng Đạo, Phường 2, Quận 5, TP.HCM',
-  },
-];
-
 class CheckoutDoiDiaChiScreen extends Component {
   constructor(props) {
     super(props);
@@ -60,6 +42,9 @@ class CheckoutDoiDiaChiScreen extends Component {
     }
     const goTDC = () =>{
       this.props.navigation.navigate('CheckoutThemDiaChiScreen');
+    }
+    const pay = () => {
+      data.length ? goTT() : alert('Vui lòng chọn địa chỉ thanh toán');
     }
     const {data, picked_index, actions} = this.props;
     return (
@@ -100,7 +85,7 @@ class CheckoutDoiDiaChiScreen extends Component {
           style={styles.confirm_button}
           activeOpacity={0.6}
           underlayColor="#f56e6e"
-          onPress={goTT}
+          onPress={pay}
         >
           <ConfirmButtonComponent title={this.state.confirm_button_text} />
         </TouchableHighlight>
