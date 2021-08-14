@@ -47,7 +47,7 @@ class CheckoutInfoFieldComponent extends Component {
             ]}
           >
             <Text style={styles.field_title}>{this.props.title}</Text>
-            <TextInput style={styles.input} placeholder={this.props.value} onChangeText={(text) => this.onChange(text)}/>
+            <TextInput keyboardType={this.props.index===1 ? 'phone-pad' : 'default'} style={styles.input} placeholder={this.props.value} onChangeText={(text) => this.onChange(text)}/>
           </View>
         ) : (
           <View style={{ display: 'flex', flexDirection: 'row' }}>
