@@ -73,10 +73,10 @@ class CheckoutSuaDiaChiScreen extends Component {
       { title: 'Địa chỉ cụ thể', value: this.state.new_user_data.detail_address},
     ];
     const provinceSelectHandler = (province) => {
-      this.setState({new_user_data: {...this.state.new_user_data, province: province, district: '', ward: ''}, listDistricts: [], listWards: []});
+      this.setState({new_user_data: {...this.state.new_user_data, province: province, district: {}, ward: {}}, listDistricts: [], listWards: []});
     }
     const districtSelectHandler = (district) => {
-      this.setState({new_user_data: {...this.state.new_user_data, district: district, ward: ''}, listWards: []});
+      this.setState({new_user_data: {...this.state.new_user_data, district: district, ward: {}}, listWards: []});
     }
     const wardSelectHandler = (ward) => {
       this.setState({new_user_data: {...this.state.new_user_data, ward: ward}});
@@ -99,15 +99,15 @@ class CheckoutSuaDiaChiScreen extends Component {
         alert('Chưa nhập SĐT')
         return;
       }
-      if(Object.keys(this.state.new_user_data.province).length===0 && this.state.new_user_data.province.constructor === Object){
+      if(Object.keys(this.state.new_user_data.province).length===0 && this.state.new_user_data.province.constructor === Object || Array.isArray(this.state.new_user_data.province)){
         alert('Chưa chọn tỉnh thành')
         return;
       }
-      if(Object.keys(this.state.new_user_data.district).length===0 && this.state.new_user_data.district.constructor === Object){
+      if(Object.keys(this.state.new_user_data.district).length===0 && this.state.new_user_data.district.constructor === Object || Array.isArray(this.state.new_user_data.district)){
         alert('Chưa chọn quận/huyện')
         return;
       } 
-      if(Object.keys(this.state.new_user_data.ward).length===0 && this.state.new_user_data.ward.constructor === Object){
+      if(Object.keys(this.state.new_user_data.ward).length===0 && this.state.new_user_data.ward.constructor === Object || Array.isArray(this.state.new_user_data.ward)){
         alert('Chưa chọn phường/xã')
         return;
       } 
