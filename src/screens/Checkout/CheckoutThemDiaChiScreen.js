@@ -103,15 +103,15 @@ class CheckoutThemDiaChiScreen extends Component {
         alert('Chưa nhập SĐT')
         return;
       }
-      if(Object.keys(this.state.new_user_data.province).length===0){
+      if(Object.keys(this.state.new_user_data.province).length===0 && this.state.new_user_data.province.constructor === Object){
         alert('Chưa chọn tỉnh thành')
         return;
       }
-      if(Object.keys(this.state.new_user_data.district).length===0){
+      if(Object.keys(this.state.new_user_data.district).length===0 && this.state.new_user_data.district.constructor === Object){
         alert('Chưa chọn quận/huyện')
         return;
       } 
-      if(Object.keys(this.state.new_user_data.ward).length===0){
+      if(Object.keys(this.state.new_user_data.ward).length===0 && this.state.new_user_data.ward.constructor === Object){
         alert('Chưa chọn phường/xã')
         return;
       } 

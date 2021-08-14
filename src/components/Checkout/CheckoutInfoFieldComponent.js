@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 
 class CheckoutInfoFieldComponent extends Component {
@@ -42,7 +42,7 @@ class CheckoutInfoFieldComponent extends Component {
         {this.props.type === 'input' ? (
           <View
             style={[
-              { width: '100%', display: 'flex', flexDirection: 'row' },
+              { width: '100%', display: 'flex', flexDirection: 'row', alignItems:'center' },
               this.props.last && { flexDirection: 'column', alignItems: 'flex-start' },
             ]}
           >
@@ -50,7 +50,7 @@ class CheckoutInfoFieldComponent extends Component {
             <TextInput keyboardType={this.props.index===1 ? 'phone-pad' : 'default'} style={styles.input} placeholder={this.props.value} onChangeText={(text) => this.onChange(text)}/>
           </View>
         ) : (
-          <View style={{ display: 'flex', flexDirection: 'row' }}>
+          <View style={{ display: 'flex', flexDirection: 'row', alignItems:'center',}}>
             <Text style={styles.field_title}>{this.props.title}</Text>
             <SelectDropdown
               data={this.props.index === 2 ? this.state.dataProvince.map(item => item.name) : this.props.index === 3 ? this.state.dataDistrict.map(item => item.name) : this.props.index === 4 && this.state.dataWard.map(item => item.name)}
@@ -59,7 +59,7 @@ class CheckoutInfoFieldComponent extends Component {
                 this.props.index === 3 && this.props.changeDistrict(this.state.dataDistrict[index]);
                 this.props.index === 4 && this.props.changeWard(this.state.dataWard[index]);
               }}
-              defaultButtonText={'Chọn'}
+              defaultButtonText={' '}
               buttonTextAfterSelection={(selectedItem, index) => {
                 return selectedItem;
               }}
@@ -69,6 +69,7 @@ class CheckoutInfoFieldComponent extends Component {
               buttonStyle={styles.dropdown2BtnStyle}
               buttonTextStyle={styles.dropdown2BtnTxtStyle}
             />
+            <Image source={require('../../resources/icons/down.png')} style={{position: 'absolute', top:10,right:-10,transform:[{rotate:'270deg'}],alignSelf:'flex-end', }}/>
           </View>
         )}
       </View>
@@ -121,8 +122,9 @@ const styles = StyleSheet.create({
 
   dropdown2BtnStyle: {
     width: '110%',
-    height: 30,
-    backgroundColor: '#e3dede',
+    height: 54,
+    marginVertical: -12,
+    backgroundColor: 'white',
     borderRadius: 8,
     flex: 1,
   },

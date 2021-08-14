@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 
 class CheckoutInfoFieldForModifyingComponent extends Component {
@@ -110,7 +110,7 @@ class CheckoutInfoFieldForModifyingComponent extends Component {
                 this.props.index === 3 && this.props.changeDistrict(this.state.dataDistrict[index]);
                 this.props.index === 4 && this.props.changeWard(this.state.dataWard[index]);
               }}
-              defaultButtonText={this.props.value.name || 'Chọn'}
+              defaultButtonText={this.props.value.name || ' '}
               buttonTextAfterSelection={(selectedItem, index) => {
                 return selectedItem;
               }}
@@ -120,6 +120,7 @@ class CheckoutInfoFieldForModifyingComponent extends Component {
               buttonStyle={styles.dropdown2BtnStyle}
               buttonTextStyle={styles.dropdown2BtnTxtStyle}
             />
+            <Image source={require('../../resources/icons/down.png')} style={{position: 'absolute', top:10,right:-10,transform:[{rotate:'270deg'}],alignSelf:'flex-end', }}/>
           </View>
         )}
       </View>
@@ -172,8 +173,9 @@ const styles = StyleSheet.create({
 
   dropdown2BtnStyle: {
     width: '110%',
-    height: 30,
-    backgroundColor: '#e3dede',
+    height: 54,
+    marginVertical: -12,
+    backgroundColor: 'white',
     borderRadius: 8,
     flex: 1,
   },

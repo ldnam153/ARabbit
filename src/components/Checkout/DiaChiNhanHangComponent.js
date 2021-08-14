@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
 
   information_container: {
-    flex: 7,
+    flex: 3.25,
     display: 'flex',
     flexDirection: 'row',
   },

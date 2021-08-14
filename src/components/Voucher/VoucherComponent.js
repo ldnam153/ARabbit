@@ -70,14 +70,14 @@ const styles = StyleSheet.create({
   },
 
   voucher_title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
     flex: 1,
   },
 
   voucher_title_active: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#F62424',
     flex: 1,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
 
   disableTitle: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#A3A3A3',
     flex: 1,
