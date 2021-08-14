@@ -58,7 +58,7 @@ class ScrollViewThanhToan extends Component {
         }
     }
     render() {
-        const {totalPrice,cartList,message} = this.props
+        const {totalPrice,cartList,message,receiver,picked_index} = this.props
         var tongtienship = 0
         cartList.forEach(element => {
             if(element.products.length>0)   tongtienship+=20000
@@ -72,10 +72,10 @@ class ScrollViewThanhToan extends Component {
         const voucher = listVoucher[voucherIndex];
         const totalDiscountValue = voucherIndex !== null ? discount(voucher.type === "V1" ? tongtienship : totalPrice, voucher.discountValue) : 0;
         const totalValue = +totalPrice + +tongtienship - totalDiscountValue;
-
+        const curAdd = receiver[picked_index]
         return (
             <ScrollView style={{backgroundColor:'#efefef'}}>
-                <DiaChiNhanHangThanhToan address="123 ABC, phường XY, quận Z, TP.HCM" goDDC={this.props.goDDC}/>
+                <DiaChiNhanHangThanhToan address={curAdd.address+', '+curAdd.ward+', '+curAdd.district+', '+curAdd.city} goDDC={this.props.goDDC}/>
 
                 {/*   data render   */}
                 {cartList.map((shop,index) => {if(shop.products.length>0){return <CardCHThanhToan data={shop} all={message} key={index}/>}})}
@@ -95,6 +95,8 @@ const mapStateToProps = (state) => {
         voucherIndex: state.voucherReducer.activeVoucher,
         listVoucher: state.voucherReducer.listVoucher,
         message: state.cartReducer.message,
+        receiver: state.addressReducer.receiver,
+        picked_index: state.addressReducer.picked_index,
     }
 }
 

@@ -68,6 +68,8 @@ class ChiTietDonHang extends Component{
     }
 
     render() {
+        const {receiver, picked_index} = this.props
+        const curAdd = receiver[picked_index]
         const goBack=()=>{
             this.props.navigation.goBack();
         }
@@ -161,9 +163,9 @@ class ChiTietDonHang extends Component{
                             </View>
                             <View style={{paddingBottom:30,marginLeft:10, marginRight:50}}>
                                 <Text style={{fontSize:15, fontWeight:'bold'}}>Địa chỉ người nhận</Text>
-                                <Text>Nguyễn Anh B</Text>
-                                <Text style={{color:'gray'}}>099.9999998</Text>
-                                <Text style={{color:'gray'}}>227 Nguyễn Văn Cừ, phường 4, Quận 5, thành phố Hồ Chí Minh</Text>
+                                <Text>{curAdd.name}</Text>
+                                <Text style={{color:'gray'}}>{curAdd.phone}</Text>
+                                <Text style={{color:'gray'}}>{curAdd.address+', '+curAdd.ward+', '+curAdd.district+', '+curAdd.city}</Text>
                             </View>
                         </View>
 
@@ -232,7 +234,9 @@ class ChiTietDonHang extends Component{
 }
 const mapStateToProps = (state) => {
     return {
-        cartList: state.cartReducer.cartList
+        cartList: state.cartReducer.cartList,
+        receiver: state.addressReducer.receiver,
+        picked_index: state.addressReducer.picked_index,
     }
 }
 
