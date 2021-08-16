@@ -165,7 +165,7 @@ class ChiTietDonHang extends Component{
                                 <Text style={{fontSize:15, fontWeight:'bold'}}>Địa chỉ người nhận</Text>
                                 <Text>{curAdd.name}</Text>
                                 <Text style={{color:'gray'}}>{curAdd.phone}</Text>
-                                <Text style={{color:'gray'}}>{curAdd.address+', '+curAdd.ward+', '+curAdd.district+', '+curAdd.city}</Text>
+                                <Text style={{color:'gray'}}>{curAdd.address+', '+curAdd.ward.name+', '+curAdd.district.name+', '+curAdd.city.name}</Text>
                             </View>
                         </View>
 
