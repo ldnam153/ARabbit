@@ -17,7 +17,7 @@ const Tab = createMaterialTopTabNavigator();
         {list_HotKeywords.map((item, index) => {
           return (
             <View key ={index}>
-              <HistoryItem name_product={item.keyword} date={item.date} goRK={goRK}/>
+              <HistoryItem name_product={item.keyword} goRK={goRK}/>
             </View>
           )
         })}
@@ -32,7 +32,7 @@ const Tab = createMaterialTopTabNavigator();
         {list_NearKeywords.map((item, index) => {
           return (
             <View key ={index}>
-              <HistoryItem name_product={item.keyword} date={item.date} goRK={goRK}/>
+              <HistoryItem name_product={item.keyword} goRK={goRK}/>
             </View>
           )
         })}
