@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         aspectRatio: 1,
     },
     header:{
-        fontSize:18,
+        fontSize:16,
         fontWeight: 'bold',
         color: 'black'
     },

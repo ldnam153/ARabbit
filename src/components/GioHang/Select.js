@@ -32,7 +32,7 @@ const pickerSelectStyles = StyleSheet.create({
     dropdown2BtnStyle: {
       width: "110%",
       height: 30,
-      backgroundColor: "#e3dede",
+      backgroundColor: "#f2f2f2",
       borderRadius: 8,
     },
     dropdown2BtnTxtStyle: {
