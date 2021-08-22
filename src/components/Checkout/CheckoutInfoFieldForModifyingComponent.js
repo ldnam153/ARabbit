@@ -120,7 +120,7 @@ class CheckoutInfoFieldForModifyingComponent extends Component {
               buttonStyle={styles.dropdown2BtnStyle}
               buttonTextStyle={styles.dropdown2BtnTxtStyle}
             />
-            <Image source={require('../../resources/icons/down.png')} style={{position: 'absolute', top:10,right:-10,transform:[{rotate:'270deg'}],alignSelf:'flex-end', }}/>
+            <Image source={require('../../resources/icons/down.png')} style={{position: 'absolute', top:10,right:-10,alignSelf:'flex-end', }}/>
           </View>
         )}
       </View>
