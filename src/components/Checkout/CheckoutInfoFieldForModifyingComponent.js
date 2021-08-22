@@ -89,7 +89,7 @@ class CheckoutInfoFieldForModifyingComponent extends Component {
             <Text style={styles.field_title}>{this.props.title}</Text>
             <TextInput
               keyboardType={this.props.index === 1 ? 'phone-pad' : 'default'}
-              style={styles.input}
+              style={this.props.last ? styles.last_input : styles.input}
               value={this.props.value}
               onChangeText={(text) => this.onChange(text)}
             />
@@ -97,30 +97,32 @@ class CheckoutInfoFieldForModifyingComponent extends Component {
         ) : (
           <View style={{ display: 'flex', flexDirection: 'row' }}>
             <Text style={styles.field_title}>{this.props.title}</Text>
-            <SelectDropdown
-              data={
-                this.props.index === 2
-                  ? this.state.dataProvince.map((item) => item.name)
-                  : this.props.index === 3
-                  ? this.state.dataDistrict.map((item) => item.name)
-                  : this.props.index === 4 && this.state.dataWard.map((item) => item.name)
-              }
-              onSelect={(selectedItem, index) => {
-                this.props.index === 2 && this.props.changeProvince(this.state.dataProvince[index]);
-                this.props.index === 3 && this.props.changeDistrict(this.state.dataDistrict[index]);
-                this.props.index === 4 && this.props.changeWard(this.state.dataWard[index]);
-              }}
-              defaultButtonText={this.props.value.name || ' '}
-              buttonTextAfterSelection={(selectedItem, index) => {
-                return selectedItem;
-              }}
-              rowTextForSelection={(item, index) => {
-                return item;
-              }}
-              buttonStyle={styles.dropdown2BtnStyle}
-              buttonTextStyle={styles.dropdown2BtnTxtStyle}
-            />
-            <Image source={require('../../resources/icons/down.png')} style={{position: 'absolute', top:10,right:-10,alignSelf:'flex-end', }}/>
+            <View style={{flex: 1}}>
+              <SelectDropdown
+                data={
+                  this.props.index === 2
+                    ? this.state.dataProvince.map((item) => item.name)
+                    : this.props.index === 3
+                    ? this.state.dataDistrict.map((item) => item.name)
+                    : this.props.index === 4 && this.state.dataWard.map((item) => item.name)
+                }
+                onSelect={(selectedItem, index) => {
+                  this.props.index === 2 && this.props.changeProvince(this.state.dataProvince[index]);
+                  this.props.index === 3 && this.props.changeDistrict(this.state.dataDistrict[index]);
+                  this.props.index === 4 && this.props.changeWard(this.state.dataWard[index]);
+                }}
+                defaultButtonText={this.props.value.name || ' '}
+                buttonTextAfterSelection={(selectedItem, index) => {
+                  return selectedItem;
+                }}
+                rowTextForSelection={(item, index) => {
+                  return item;
+                }}
+                buttonStyle={styles.dropdown2BtnStyle}
+                buttonTextStyle={styles.dropdown2BtnTxtStyle}
+              />
+              <Image source={require('../../resources/icons/down.png')} style={{position: 'absolute', top:10,right:-10,alignSelf:'flex-end', }}/>
+            </View>
           </View>
         )}
       </View>
@@ -134,8 +136,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderColor: '#F62424',
-    borderWidth: 1,
     borderBottomWidth: 0,
     paddingHorizontal: 20,
     paddingVertical: 15,
@@ -164,9 +164,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    borderColor: '#F62424',
-    borderWidth: 1,
-    borderBottomWidth: 1,
     paddingHorizontal: 20,
     paddingVertical: 15,
   },
@@ -193,13 +190,22 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'left',
     paddingVertical: 0,
+    paddingLeft: 38,
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    borderBottomWidth: 1,
-    borderBottomColor: '#d3d3d3',
     width: '100%',
   },
+
+  last_input: {
+    paddingLeft: 0,
+    fontSize: 14,
+    flex: 1,
+    color: 'black',
+    textAlign: 'left',
+    paddingVertical: 0,
+    width: '100%',
+  }
 });
 
 export default CheckoutInfoFieldForModifyingComponent;
