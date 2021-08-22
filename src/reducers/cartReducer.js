@@ -63,7 +63,9 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         checkedProducts: action.payload.isSelected === true ? state.checkedProducts - 1 : state.checkedProducts,
         totalPrice: action.payload.isSelected === true ? state.totalPrice - action.payload.price : state.totalPrice,
-        cartList: [...state.cartList].map(shop => {return {...shop, products: shop.products.filter(p => p.id !== action.payload.id)}})
+        cartList: [...state.cartList].map(shop => {
+          return {...shop, products: shop.products.filter(p => p.id !== action.payload.id)}
+        }).filter(shop => shop.products.length !== 0 ? shop : null)
       };
     }
     // case REMOVE_ALL: {
