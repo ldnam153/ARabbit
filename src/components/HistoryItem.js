@@ -36,7 +36,7 @@ class HistoryItem extends Component {
                     </TouchableOpacity>
                     <View style={styles.container_item}>
                         <Text style={{fontSize:15}}>{this.props.date}</Text>
-                        <Image source={require('../resources/icons/close.png')}/>
+                        <Image style={{opacity:0.5, height:20, width:20}} source={require('../resources/icons/close.png')}/>
                     </View>
                 </View>
             </View>
