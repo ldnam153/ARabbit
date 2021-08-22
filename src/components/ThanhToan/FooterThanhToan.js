@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import SweetAlert from 'react-native-sweet-alert';
+import { connect } from 'react-redux'
 
 class FooterThanhToan extends Component {
 
@@ -18,6 +19,11 @@ class FooterThanhToan extends Component {
       };
 
     render() {
+        const {data} = this.props
+        var disable = false
+        if(this.props.thanhtoan == true){
+            if(data.length==0)  disable=true
+        }
         return (
             <View style={styles.footer}>
                 <View style={styles.leftFooter}>
@@ -25,10 +31,11 @@ class FooterThanhToan extends Component {
                     <Text style={styles.tonggia}>{this.props.price} VNĐ</Text>
                 </View>
                 <TouchableOpacity 
-                style={styles.rightFooter}
+                style={[styles.rightFooter,{opacity: disable?0.3:1}]}
                 activeOpacity={0.7}
                 underlayColor="#f62424"
-                onPress={this.props.press}>
+                onPress={this.props.press}
+                disabled={disable}>
                 <Text style={styles.buttonText}>{this.props.btnText}</Text>
                 </TouchableOpacity>
             </View>
@@ -75,4 +82,10 @@ const styles = StyleSheet.create({
     }
 })
 
-export default FooterThanhToan
+const mapStateToProps = (state) => {
+    return {
+        data: state.addressReducer.receiver
+    }
+}
+
+export default connect(mapStateToProps)(FooterThanhToan)

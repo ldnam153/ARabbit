@@ -72,10 +72,15 @@ class ScrollViewThanhToan extends Component {
         const voucher = listVoucher[voucherIndex];
         const totalDiscountValue = voucherIndex !== null ? discount(voucher.type === "V1" ? tongtienship : totalPrice, voucher.discountValue) : 0;
         const totalValue = +totalPrice + +tongtienship - totalDiscountValue;
-        const curAdd = receiver[picked_index]
+        var curAdd= {}
+        if(receiver.length==0){
+            curAdd = {}
+        }else {
+            curAdd = receiver[picked_index]
+        }
         return (
             <ScrollView style={{backgroundColor:'#efefef'}}>
-                <DiaChiNhanHangThanhToan address={curAdd.address+', '+curAdd.ward.name+', '+curAdd.district.name+', '+curAdd.city.name} goDDC={this.props.goDDC}/>
+                <DiaChiNhanHangThanhToan address={(Object.keys(curAdd).length===0 && curAdd.constructor === Object || Array.isArray(curAdd)) ? '' : curAdd.address+', '+curAdd.ward.name+', '+curAdd.district.name+', '+curAdd.city.name} goDDC={this.props.goDDC}/>
 
                 {/*   data render   */}
                 {cartList.map((shop,index) => {if(shop.products.length>0){return <CardCHThanhToan data={shop} all={message} key={index}/>}})}
