@@ -2,32 +2,21 @@ import { INCREASE_AMOUNT, DECREASE_AMOUNT, REMOVE_PRODUCT, REMOVE_ALL, TOGGLE_AL
 
 const initialState = {
   receiver: [
-    // {
-    //   name: 'Lưu Thiện Nhân',
-    //   phone: '0703002347',
-    //   ward: 'phường 10',
-    //   district: 'quận 3',
-    //   city: 'TP.HCM',
-    //   address: '193E Trần Văn Đang',
-    // },
-    // {
-    //   name: 'Nguyễn Anh Duy',
-    //   phone: '0912345678',
-    //   ward: 'phường XY',
-    //   district: 'Quận Z',
-    //   city: 'TP.HCM',
-    //   address: '123 ABC',
-    // },
-    // {
-    //   name: 'Lý Duy Nam',
-    //   phone: '0762103550',
-    //   ward: 'Phường 2',
-    //   district: 'Quận 5',
-    //   city: 'TP.HCM',
-    //   address: '686 Trần Hưng Đạo',
-    // },
+    {"address": "268 Hòn Khóm",
+     "city": {"code": 2, "codename": "tinh_ha_giang", "districts": [Array], "division_type": "tỉnh", "name": "Tỉnh Hà Giang", "phone_code": 219},
+     "district": {"code": 26, "codename": "huyen_dong_van", "division_type": "huyện", "name": "Huyện Đồng Văn", "province_code": 2, "wards": [Array]},
+     "name": "Nguyễn Anh Duy",
+     "phone": "07034022177",
+     "ward": {"code": 712, "codename": "thi_tran_pho_bang", "district_code": 26, "division_type": "thị trấn", "name": "Thị trấn Phó Bảng"}
+    },
+    {"address": "686 Trần Hưng Đạo",
+     "city": {"code": 79, "codename": "thanh_pho_ho_chi_minh", "districts": [Array], "division_type": "thành phố trung ương", "name": "Thành phố Hồ Chí Minh", "phone_code": 28},
+     "district": {"code": 760, "codename": "quan_1", "division_type": "quận", "name": "Quận 1", "province_code": 79, "wards": [Array]},
+     "name": "Lý Duy Nam", 
+     "phone": "0903457869",
+     "ward": {"code": 26749, "codename": "phuong_pham_ngu_lao", "district_code": 760, "division_type": "phường", "name": "Phường Phạm Ngũ Lão"}}
   ],
-  picked_index: 0
+  picked_index: 0,
 };
 
 const addressReducer = (state = initialState, action) => {

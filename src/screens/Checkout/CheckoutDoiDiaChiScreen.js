@@ -47,6 +47,7 @@ class CheckoutDoiDiaChiScreen extends Component {
       data.length ? goTT() : alert('Vui lòng chọn địa chỉ thanh toán');
     }
     const {data, picked_index, actions} = this.props;
+    console.log(data)
     return (
       <SafeAreaView style={styles.screen_container}>
         <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} goBack={goBack} goSDC={goSDC}/>
@@ -82,10 +83,12 @@ class CheckoutDoiDiaChiScreen extends Component {
           </TouchableHighlight>
         </ScrollView>
         <TouchableHighlight
-          style={styles.confirm_button}
+          style={[styles.confirm_button,{opacity: data.length==0?0.3:1}]}
           activeOpacity={0.6}
           underlayColor="#f56e6e"
           onPress={pay}
+          disabled={data.length==0?true:false}
+          dis
         >
           <ConfirmButtonComponent title={this.state.confirm_button_text} />
         </TouchableHighlight>
