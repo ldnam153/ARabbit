@@ -130,6 +130,15 @@ class CheckoutSuaDiaChiScreen extends Component {
       actions.removeAddress();
       this.props.navigation.pop()
     }
+    var display = true
+    if(this.state.new_user_data.user_name == '' 
+    || this.state.new_user_data.user_phone == '' 
+    || this.state.new_user_data.detail_address == '' 
+    || (Object.keys(this.state.new_user_data.province).length===0 && this.state.new_user_data.province.constructor === Object)
+    || (Object.keys(this.state.new_user_data.district).length===0 && this.state.new_user_data.district.constructor === Object)
+    || (Object.keys(this.state.new_user_data.ward).length===0 && this.state.new_user_data.ward.constructor === Object)){
+      display = false
+    }
     return (
       <SafeAreaView style={styles.screen_container}>
         <NavBarComponent title={this.state.navbar_title} right={this.state.right_button} goBack={goBack}/>
@@ -169,10 +178,11 @@ class CheckoutSuaDiaChiScreen extends Component {
           <Text style={styles.delete_button_text}>Xoá địa chỉ này</Text>
         </TouchableHighlight>
         <TouchableHighlight
-          style={styles.confirm_button}
+          style={[styles.confirm_button,{opacity: display ? 1 : 0.3}]}
           activeOpacity={0.6}
           underlayColor="#f56e6e"
           onPress={submitHandler}
+          disabled={display?false:true}
         >
           <ConfirmButtonComponent title={this.state.confirm_button_text} />
         </TouchableHighlight>
